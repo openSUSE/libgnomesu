@@ -1,6 +1,6 @@
 # Dutch translation of libgnomesu
 # Copyright (C) 2003 Free Software Foundation, Inc.
-# Hongli Lai <h.lai@chello.nl>, 2003.
+# Hongli Lai <h.lai@chello.nl>, 2003, 2004.
 # Elros Cyriatan <cyriatan@fastmail.fm>, 2003.
 #
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:1
 msgid "GNOME SuperUser integration"
-msgstr "GNOME SuperGebruiker integratie"
+msgstr "GNOME SuperUser integratie"
 
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
@@ -83,40 +83,23 @@ msgstr ""
 #. * Add this file to your project's POTFILES.in.
 #. * DO NOT compile it as part of your application.
 #.
-#: src/ui/su-strings.h:7 src/ui/su.glade.h:6
-msgid "Password needed"
-msgstr "Wachtwoord vereist"
 
-#: src/ui/su-strings.h:8 src/ui/su.glade.h:8 src/ui/sudo-strings.h:8
+#: src/ui/sudo-strings.h:8
 #: src/ui/sudo.glade.h:8
 msgid "_Run"
 msgstr "_Uitvoeren"
 
-#: src/ui/su-strings.h:9 src/ui/su.glade.h:3
-msgid ""
-"<span weight=\"bold\">The requested action needs superuser (root) privileges."
-"</span>\n"
-"Please enter the superuser password and click Run to continue."
-msgstr ""
-"<span weight=\"bold\">De gevraagde actie vereist supergebruiker (root)-"
-"rechten.</span>\n"
-"Voer uw supergebruiker-wachtwoord in en klik op Uitvoeren om door te gaan."
-
-#: src/ui/su-strings.h:11 src/ui/su.glade.h:7
-msgid "Superuser _password:"
-msgstr "_Wachtwoord:"
-
-#: src/ui/su-strings.h:12 src/ui/su.glade.h:1 src/ui/sudo-strings.h:12
+#: src/ui/sudo-strings.h:12
 #: src/ui/sudo.glade.h:1
 msgid "*"
 msgstr "*"
 
-#: src/ui/su-strings.h:13 src/ui/su.glade.h:5 src/ui/sudo-strings.h:13
+#: src/ui/sudo-strings.h:13
 #: src/ui/sudo.glade.h:5
 msgid "Command to run:"
 msgstr "Commando:"
 
-#: src/ui/su-strings.h:14 src/ui/su.glade.h:2 src/ui/sudo-strings.h:14
+#: src/ui/sudo-strings.h:14
 #: src/ui/sudo.glade.h:2
 msgid ""
 "<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
@@ -186,4 +169,4 @@ msgstr "GEBRUIKERSNAAM"
 
 #: tools/gnomesu.c:64
 msgid "GNOME SuperUser"
-msgstr "GNOME SuperGebruiker"
+msgstr "GNOME SuperUser"
