@@ -114,8 +114,7 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 }
 
 
-static const struct pam_conv conv =
-{
+static const struct pam_conv conv = {
 	su_conv,
 	NULL
 };
@@ -130,8 +129,7 @@ extern void modify_environment (const struct passwd *pw);
 static void
 close_pam (pam_handle_t *pamh, int retval)
 {
-	if (pam_end (pamh, retval) != PAM_SUCCESS)
-	{
+	if (pam_end (pamh, retval) != PAM_SUCCESS) {
 		/* Closing PAM failed?! */
 		fprintf (stderr, "Failed to close PAM\n");
 		if (outf)
@@ -263,15 +261,13 @@ main (int argc, char *argv[])
 		fprintf (outf, PROTOCOL_PASSWORD_FAIL);
 
 
-	if (Abort)
-	{
+	if (Abort) {
 		close_pam (pamh, retval);
 		fprintf (outf, PROTOCOL_ERROR);
 		return 1;
 	}
 
-	if (authenticated)
-	{
+	if (authenticated) {
 		char **command = argv + 4;
 		pid_t pid;
 		int exitCode = 1, status;
@@ -281,9 +277,6 @@ main (int argc, char *argv[])
 		setfsuid (pw->pw_uid);
 		#endif /* HAVE_SETFSUID */
 		change_identity (pw);
-		initgroups (pw->pw_name, pw->pw_gid);
-		setgid (pw->pw_gid);
-		setuid (pw->pw_uid);
 
 		retval = pam_setcred (pamh, PAM_ESTABLISH_CRED);
 		if (retval != PAM_SUCCESS)
@@ -300,7 +293,6 @@ main (int argc, char *argv[])
 			outf = NULL;
 			break;
 		case 0:
-			change_identity (pw);
 			execvp (command[0], command);
 			_exit (1);
 			break;

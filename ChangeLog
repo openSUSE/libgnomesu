@@ -2,6 +2,9 @@
 
 	* configure.in, pam-backend/pam.c:
 	  FreeBSD has pam_mod_misc.h instead of pam_misc.h. Check for it.
+	  Fix double free() caused by calling change_identity() twice.
+	  Remove initgroups(), setgid() and setuid() since they're already
+	  called by change_identity().
 	* configure.in: Bump version to 0.9.7.
 
 2005-01-12  Hongli Lai  <h.lai@chello.nl>
