@@ -181,9 +181,11 @@ __libgnomesu_load_glade (gchar *basename)
 	gchar *filename;
 	GladeXML *xml;
 
+	#ifdef SELFPATH
 	filename = g_strdup_printf ("./src/ui/%s", SELFPATH, basename);
 	if (g_file_test (filename, G_FILE_TEST_EXISTS))
 		goto load;
+	#endif
 
 	g_free (filename);
 	filename = g_strdup_printf ("%s/%s", GLADEDIR, basename);

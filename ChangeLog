@@ -3,6 +3,7 @@
 	* {su,pam}-backend/Makefile.am:
 	  Apply Sebastien Bacher's DESTDIR patch.
 	  http://bugzilla.gnome.org/show_bug.cgi?id=156516
+	* src/utils.c: fix compilation when BinReloc is disabled.
 
 2004-10-21  Hongli Lai  <h.lai@chello.nl>
 
