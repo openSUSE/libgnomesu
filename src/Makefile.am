@@ -35,4 +35,4 @@ install-data-local:
 endif
 
  
-EXTRA_DIST=$(libgnomesu_la_SOURCES) $(schema_DATA)
+EXTRA_DIST=$(libgnomesu_la_SOURCES) $(schema_DATA) auth-icon.csource
