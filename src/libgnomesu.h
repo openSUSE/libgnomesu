@@ -26,14 +26,14 @@ G_BEGIN_DECLS
 
 
 /* One simple, easy-to-use function */
-gboolean gnome_su_exec (gchar *commandline);
+gboolean gnomesu_exec (gchar *commandline);
 
 
 /* More complex functions */
-gboolean gnome_su_spawn_command_sync (gchar *user, gchar *commandline);
-gboolean gnome_su_spawn_command_async (gchar *user, gchar *commandline, int *pid);
-gboolean gnome_su_spawn_sync (gchar *user, gchar **argv);
-gboolean gnome_su_spawn_async (gchar *user, gchar **argv, int *pid);
+gboolean gnomesu_spawn_command_sync (gchar *user, gchar *commandline);
+gboolean gnomesu_spawn_command_async (gchar *user, gchar *commandline, int *pid);
+gboolean gnomesu_spawn_sync (gchar *user, gchar **argv);
+gboolean gnomesu_spawn_async (gchar *user, gchar **argv, int *pid);
 
 
 G_END_DECLS

@@ -1,3 +1,9 @@
+2004-07-16  Hongli Lai  <h.lai@chello.nl>
+
+	* configure.in: Fix typo: apm -> pam
+	* src/libgnomesu.[ch], tools/gnomesu.c: Rename gnome_su_*() to
+	  gnomesu_*()
+
 2004-07-14  Hongli Lai  <h.lai@chello.nl>
 
 	* doc: Folder added. Contains API documentation.

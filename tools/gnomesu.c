@@ -88,7 +88,7 @@ main (int argc, char *argv[])
 				terminal = "gnome-terminal";
 
 			/* Default action: launch a terminal */
-			if (!gnome_su_spawn_command_async (user, terminal, &pid))
+			if (!gnomesu_spawn_command_async (user, terminal, &pid))
 				return 255;
 
 			waitpid (pid, &status, 0);
@@ -102,7 +102,7 @@ main (int argc, char *argv[])
 			i++;
 		}
 
-		if (!gnome_su_spawn_async (user, args, &pid))
+		if (!gnomesu_spawn_async (user, args, &pid))
 			return 255;
 		waitpid (pid, &status, 0);
 
@@ -113,7 +113,7 @@ main (int argc, char *argv[])
 	{
 		int status, pid;
 
-		if (!gnome_su_spawn_command_async (user, command, &pid))
+		if (!gnomesu_spawn_command_async (user, command, &pid))
 			return 255;
 
 		waitpid (pid, &status, 0);

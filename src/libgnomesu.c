@@ -70,7 +70,7 @@ find_best_service (gchar *exe, const gchar *user)
 
 
 /**
- * gnome_su_exec:
+ * gnomesu_exec:
  * @commandline: The command to execute.
  *
  * Execute @command as root and wait until the subprocess has exited.
@@ -79,14 +79,14 @@ find_best_service (gchar *exe, const gchar *user)
  * nothing to do with the exit status of the subprocess.
  */
 gboolean
-gnome_su_exec (gchar *commandline)
+gnomesu_exec (gchar *commandline)
 {
-	return gnome_su_spawn_command_sync (NULL, commandline);
+	return gnomesu_spawn_command_sync (NULL, commandline);
 }
 
 
 /**
- * gnome_su_spawn_command_sync:
+ * gnomesu_spawn_command_sync:
  * @user: Execute the command with this username. If this is %NULL, "root" is assumed.
  * @commandline: The command to execute.
  *
@@ -96,13 +96,13 @@ gnome_su_exec (gchar *commandline)
  * nothing to do with the exit status of the subprocess.
  */
 gboolean
-gnome_su_spawn_command_sync (gchar *user, gchar *commandline)
+gnomesu_spawn_command_sync (gchar *user, gchar *commandline)
 {
 	int pid, status;
 
 	g_return_val_if_fail (commandline != NULL, FALSE);
 
-	if (!gnome_su_spawn_command_async (user, commandline, &pid))
+	if (!gnomesu_spawn_command_async (user, commandline, &pid))
 		return FALSE;
 	waitpid (pid, &status, 0);
 	return TRUE;
@@ -110,19 +110,19 @@ gnome_su_spawn_command_sync (gchar *user, gchar *commandline)
 
 
 /**
- * gnome_su_spawn_command_async:
+ * gnomesu_spawn_command_async:
  * @user: Execute the command with this username. If this is %NULL, "root" is assumed.
  * @commandline: The command to execute.
  * @pid: The return address of the subprocess's PID, or %NULL.
  *
- * Execute @command as @user. Unlike gnome_su_spawn_command_sync(), this
+ * Execute @command as @user. Unlike gnomesu_spawn_command_sync(), this
  * function does not wait for the subprocess to exit.
  *
  * Returns: %TRUE on success; %FALSE on error. Note that this has got
  * nothing to do with the exit status of the subprocess.
  */
 gboolean
-gnome_su_spawn_command_async (gchar *user, gchar *commandline, int *pid)
+gnomesu_spawn_command_async (gchar *user, gchar *commandline, int *pid)
 {
 	gchar **argv;
 	gboolean result;
@@ -132,20 +132,20 @@ gnome_su_spawn_command_async (gchar *user, gchar *commandline, int *pid)
 	argv = NULL;
 	if (!g_shell_parse_argv (commandline, NULL, &argv, NULL))
 		return FALSE;
-	result = gnome_su_spawn_async (user, argv, pid);
+	result = gnomesu_spawn_async (user, argv, pid);
 	g_strfreev (argv);
 	return result;
 }
 
 
 gboolean
-gnome_su_spawn_sync (gchar *user, gchar **argv)
+gnomesu_spawn_sync (gchar *user, gchar **argv)
 {
 	int pid, status;
 
 	g_return_val_if_fail (argv != NULL, FALSE);
 
-	if (!gnome_su_spawn_async (user, argv, &pid))
+	if (!gnomesu_spawn_async (user, argv, &pid))
 		return FALSE;
 
 	waitpid (pid, &status, 0);
@@ -154,7 +154,7 @@ gnome_su_spawn_sync (gchar *user, gchar **argv)
 
 
 gboolean
-gnome_su_spawn_async (gchar *user, gchar **argv, int *pid)
+gnomesu_spawn_async (gchar *user, gchar **argv, int *pid)
 {
 	GnomeSuService *service;
 	gboolean result;
@@ -166,7 +166,6 @@ gnome_su_spawn_async (gchar *user, gchar **argv, int *pid)
 	service = find_best_service (argv[0], user);
 	if (!service)
 	{
-
 		g_critical (_("No services for libgnomesu are available.\n"));
 		return FALSE;
 	}
