@@ -59,6 +59,15 @@ typedef struct
 } SudoGUI;
 
 
+static void *
+safe_memset (void *s, int c, size_t n)
+{
+	/* Works around compiler optimizations which removes memset().
+	   See http://bugzilla.gnome.org/show_bug.cgi?id=161213 */
+	return memset (s, c, n);
+}
+
+
 static gboolean
 pass_changed (GtkEntry *entry, GtkWidget *ok)
 {
@@ -98,11 +107,11 @@ clear_entry (GtkWidget *entry)
 	/* Make a pathetic stab at clearing the GtkEntry field memory */
 	blank = (gchar *) gtk_entry_get_text (GTK_ENTRY (entry));
 	if (blank && strlen (blank))
-		memset (blank, ' ', strlen (blank));
+		safe_memset (blank, ' ', strlen (blank));
 
 	blank = g_strdup (blank);
 	if (strlen (blank))
-		memset (blank, ' ', strlen (blank));
+		safe_memset (blank, ' ', strlen (blank));
 
 	gtk_entry_set_text (GTK_ENTRY (entry), blank);
 	gtk_entry_set_text (GTK_ENTRY (entry), "");
@@ -312,7 +321,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 					break;
 
 				write (child_pipe[1], password, strlen (password));
-				memset (password, 0, strlen (password));
+				safe_memset (password, 0, strlen (password));
 				g_free (password);
 				write (child_pipe[1], "\n", 1);
 			} else if (strstr (buf, " is not in the sudoers file.  This incident will be reported."))

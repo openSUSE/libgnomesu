@@ -19,7 +19,7 @@ gnomesu_backend_SOURCES = \
 gnomesu_backend_LDFLAGS = $(GNOMESU_BACKEND_LIBS) libcommon.la -lcrypt
 gnomesu_backend_DEPENDENCIES = libcommon.la
 
-libcommon_la_SOURCES = common.c
+libcommon_la_SOURCES = common.c common.h
 libcommon_la_LDFLAGS = $(GNOMESU_BACKEND_LIBS)
 
 installed_su=$(DESTDIR)$(libexecdir)/`echo gnomesu-backend | sed $(transform)`

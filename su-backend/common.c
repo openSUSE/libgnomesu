@@ -38,6 +38,15 @@
 #define DEFAULT_ROOT_LOGIN_PATH "/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/usr/bin/X11:/root/bin"
 
 
+void *
+safe_memset (void *s, int c, size_t n)
+{
+	/* Works around compiler optimizations which removes memset().
+	   See http://bugzilla.gnome.org/show_bug.cgi?id=161213 */
+	return memset (s, c, n);
+}
+
+
 /* Return a newly-allocated string whose contents concatenate
    those of S1, S2, S3.  */
 char *
@@ -191,7 +200,7 @@ change_identity (const struct passwd *pw)
 	if (!p) return;
 
 	fwrite (xauth_data, strlen (xauth_data), 1, p);
-	memset (xauth_data, 0, strlen (xauth_data));
+	safe_memset (xauth_data, 0, strlen (xauth_data));
 	g_free (xauth_data);
 	pclose (p);
 }

@@ -32,6 +32,8 @@
 # include <sys/fsuid.h>
 #endif
 
+#include "common.h"
+
 
 #define PROTOCOL_ASK_PASS		"ASK_PASS\n"		/* Need password */
 #define PROTOCOL_INCORRECT_PASSWORD	"INCORRECT_PASSWORD\n"	/* Entered password is incorrect */
@@ -73,9 +75,9 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 			gchar password[1024];
 
 			fprintf (outf, PROTOCOL_ASK_PASS);
-			memset (password, 0, sizeof (password));
+			safe_memset (password, 0, sizeof (password));
 			if (!fgets (password, sizeof (password), inf)) {
-				memset (password, 0, sizeof (password));
+				safe_memset (password, 0, sizeof (password));
 				fprintf (outf, PROTOCOL_ERROR);
 				Abort = TRUE;
 				return PAM_ABORT;
@@ -84,7 +86,7 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 			if (strlen (password) && password[strlen (password) - 1] == 10)
 				password[strlen (password) - 1] = 0;
 			reply[i].resp = g_strdup (password);
-			memset (password, 0, sizeof (password));
+			safe_memset (password, 0, sizeof (password));
 			reply[i].resp_retcode = PAM_SUCCESS;
 		}
 

@@ -1,3 +1,11 @@
+2004-12-18  Hongli Lai  <h.lai@chello.nl>
+
+	* pam-backend/{Makefile.am,pam.c},
+	  su-backend/{Makefile.am,common.c,common.h},
+	  src/services/sudo.c, src/gnomesu-auth-dialog.c:
+	  Replace memset() with safe_memset().
+	  See http://bugzilla.gnome.org/show_bug.cgi?id=161213
+
 2004-12-12  Alexander Shopov  <ash@contact.bg>
 
 	* configure.in (ALL_LINGUAS): Added "bg" (Bulgarian)

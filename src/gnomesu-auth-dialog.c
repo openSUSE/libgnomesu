@@ -46,6 +46,15 @@ struct _GnomesuAuthDialogPrivate {
 };
 
 
+static void *
+safe_memset (void *s, int c, size_t n)
+{
+	/* Works around compiler optimizations which removes memset().
+	   See http://bugzilla.gnome.org/show_bug.cgi?id=161213 */
+	return memset (s, c, n);
+}
+
+
 static GtkWidget *
 create_stock_button (const gchar *stock, const gchar *labelstr)
 {
@@ -80,7 +89,8 @@ clear_entry (GtkWidget *entry)
 	blank = (gchar *) gtk_entry_get_text (GTK_ENTRY (entry));
 	if (blank) {
 		len = strlen (blank);
-		if (len) memset (blank, ' ', len);
+		if (len)
+			safe_memset (blank, ' ', len);
 
 		blank = g_strdup (blank);
 		gtk_entry_set_text (GTK_ENTRY (entry), blank);
@@ -502,7 +512,7 @@ gnomesu_free_password (gchar **password)
 		return;
 
 	len = strlen (*password);
-	memset (*password, ' ', len);
+	safe_memset (*password, ' ', len);
 	g_free (*password);
 	*password = NULL;
 }
