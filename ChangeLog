@@ -1,3 +1,7 @@
+2003-11-20  Hongli Lai <h.lai@chello.nl>
+
+	* tools/gnomesu.c: #include <gtk/gtk.h> before gnome.h.
+
 2003-11-11  Pablo Gonzalo del Campo  <pablodc@bigfoot.com>
 
 	* configure.in: Added es (Spanish) to ALL_LINGUAS.
