@@ -1,3 +1,7 @@
+2005-01-08  Hongli Lai  <h.lai@chello.nl>
+
+	* src/utils.[ch]: Remove all libglade stuff.
+
 2005-01-07  Hongli Lai  <h.lai@chello.nl>
 
 	* nautilus/*.c, *.h, *.server*, Makefile.am:

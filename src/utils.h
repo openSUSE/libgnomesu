@@ -21,8 +21,6 @@
 #define _UTILS_H_
 
 #include <glib.h>
-#include <glade/glade.h>
-
 #include <string.h>
 
 /* These functions are private and should not be used by applications */
@@ -47,8 +45,6 @@ void   *LGSD(safe_memset) (void *s, int c, size_t n);
 GList  *LGSD(g_list_addv)	(GList *list, gchar **argv);
 gchar **LGSD(g_list_to_vector)  (GList *list, guint *size);
 guint   LGSD(count_args)	(gchar **argv);
-
-GladeXML *LGSD(load_glade) (gchar *basename);
 
 void LGSD(libgnomesu_init) (void);
 

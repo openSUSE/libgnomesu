@@ -220,32 +220,6 @@ LGSD(count_args) (gchar **argv)
 }
 
 
-GladeXML *
-LGSD(load_glade) (gchar *basename)
-{
-	gchar *filename = NULL;
-	GladeXML *xml;
-
-	#ifdef SELFPATH
-	filename = g_strdup_printf ("./src/ui/%s", SELFPATH, basename);
-	if (g_file_test (filename, G_FILE_TEST_EXISTS))
-		goto load;
-	#endif
-
-	if (filename)
-		g_free (filename);
-	filename = g_strdup_printf ("%s/%s", GLADEDIR, basename);
-	if (g_file_test (filename, G_FILE_TEST_EXISTS))
-		goto load;
-
-
-	load:
-	xml = glade_xml_new (filename, NULL, GETTEXT_PACKAGE);
-	g_free (filename);
-	return xml;
-}
-
-
 /* Initialize gettext stuff */
 void
 LGSD(libgnomesu_init) (void)
