@@ -7,99 +7,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2004-04-12 20:54-0400\n"
-"Last-Translator: Gareth Owen <gowen72@yahoo.comg>\n"
+"POT-Creation-Date: 2005-02-15 23:38+0000\n"
+"PO-Revision-Date: 2005-02-15 23:39+0100\n"
+"Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/gnomesu-auth-dialog.c:110
+#: ../src/gnomesu-auth-dialog.c:110
 msgid "Password needed"
 msgstr "Password needed"
 
-#: src/gnomesu-auth-dialog.c:163
-#, fuzzy
+#: ../src/gnomesu-auth-dialog.c:163
 msgid "Command:"
-msgstr "Command to run:"
+msgstr "Command:"
 
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "C_ontinue"
 
-#: src/gnomesu-auth-dialog.c:363
+#: ../src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
-msgstr ""
+msgstr "Administrator (root) privilege is required."
 
-#: src/gnomesu-auth-dialog.c:364
-#, fuzzy
+#: ../src/gnomesu-auth-dialog.c:364
 msgid "Please enter the root password to continue."
-msgstr "Please enter %s's password and click Run to continue."
+msgstr "Please enter the root password to continue."
 
-#: src/gnomesu-auth-dialog.c:413
-#, fuzzy
+#: ../src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
-msgstr "Your _password:"
+msgstr "_Password:"
 
-#: src/gnomesu-auth-dialog.c:438
+#: ../src/gnomesu-auth-dialog.c:438
 msgid "Please wait, verifying password..."
 msgstr "Please wait, verifying password..."
 
-#: src/gnomesu-auth-dialog.c:446
+#: ../src/gnomesu-auth-dialog.c:446
 msgid "Incorrect password, please try again."
 msgstr "Incorrect password, please try again."
 
-#: src/gnomesu-auth-dialog.c:453
+#: ../src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Incorrect password, please try again. You have one more chance."
 
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "No services for libgnomesu are available.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#: ../src/services/pam.c:192
+#: ../src/services/su.c:185
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Please enter %s's password and click Run to continue."
+msgstr "Please enter %s's password and click Continue."
 
-#: src/services/pam.c:195 src/services/su.c:188
+#: ../src/services/pam.c:194
+#: ../src/services/su.c:187
 msgid "The requested action needs further authentication."
 msgstr "The requested action needs further authentication."
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:200
+#: ../src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
 msgstr "%s's _password:"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:229
+#: ../src/services/su.c:222
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "User '%s' doesn't exist."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:234
+#: ../src/services/su.c:226
 msgid "An unknown error occured while authenticating."
 msgstr "An unknown error occured while authenticating."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:238
+#: ../src/services/su.c:230
 msgid "You do not have permission to authenticate."
 msgstr "You do not have permission to authenticate."
 
-#: src/services/pam.c:233
-#, fuzzy
+#: ../src/services/pam.c:242
 msgid "Unable to initialize the PAM authentication system."
-msgstr "Unable to initialise PAM authentication system."
+msgstr "Unable to initialise the PAM authentication system."
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71
+#: ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "write error"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "Written by %s.\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -111,70 +114,23 @@ msgstr ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Pass the command to execute as one single string."
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "COMMAND"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Run as this user instead of as root."
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:45
 msgid "USERNAME"
 msgstr "USERNAME"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"
 
-#~ msgid "GNOME SuperUser integration"
-#~ msgstr "GNOME SuperUser integration"
-
-#~ msgid "Open as superuser (root)..."
-#~ msgstr "Open as superuser (root)..."
-
-#~ msgid ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-#~ msgstr ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-
-#~ msgid "_Run"
-#~ msgstr "_Run"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs superuser (root) "
-#~ "privileges.</span>\n"
-#~ "Please enter the superuser password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">The requested action needs superuser (root) "
-#~ "privileges.</span>\n"
-#~ "Please enter the superuser password and click Run to continue."
-
-#~ msgid "Superuser _password:"
-#~ msgstr "Superuser _password:"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-#~ msgstr ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-
-#~ msgid "User's password needed"
-#~ msgstr "User's password needed"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
