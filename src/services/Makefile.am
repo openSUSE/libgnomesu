@@ -13,7 +13,6 @@ INCLUDES=\
 libservices_la_SOURCES =\
 	service.h\
 	consolehelper.c consolehelper.h\
-	sudo.c	sudo.h\
 	pam.c	pam.h\
 	su.c	su.h
 

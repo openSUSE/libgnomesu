@@ -1,3 +1,15 @@
+Version 0.9.5:
+- Corrected some licensing issues.
+- Removed the Nautilus Bonobo component because Nautilus will be
+  de-Bonobi-ized.
+- Code cleanups; added a GnomesuAuthDialog widget.
+- Removed sudo backend; there's just no way to support it without
+  crippling the feature set, or modifying sudo.
+
+Version 0.9.4:
+- Fixed some build problems on modern distributions.
+- Fixed several small bugs.
+
 Version 0.9.2:
 - Minor changes in build system.
 - Removed gnomesu-sudo-helper.

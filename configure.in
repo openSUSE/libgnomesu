@@ -227,7 +227,6 @@ AC_OUTPUT([
 libgnomesu-1.0.pc
 Makefile
 src/Makefile
-src/ui/Makefile
 src/services/Makefile
 su-backend/Makefile
 pam-backend/Makefile

@@ -2,7 +2,8 @@
 
 	* nautilus/*.c, *.h, *.server*, Makefile.am:
 	  Removed Nautilus Bonobo component. Nautilus will be de-bonobo-ized.
-	* src/libgnomesu.schemas, src/services/sudo.*, src/ui/*:
+	* src/libgnomesu.schemas, src/services/sudo.*, src/ui/*,
+	  src/libgnomesu.c:
 	  Removed sudo backend.
 	* NEWS: Update news for 0.9.5.
 

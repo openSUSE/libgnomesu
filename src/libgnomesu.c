@@ -30,7 +30,6 @@
 #ifdef HAVE_PAM
 	#include "services/pam.h"
 #endif
-#include "services/sudo.h"
 #include "services/consolehelper.h"
 #include "services/su.h"
 
@@ -42,7 +41,6 @@ G_BEGIN_DECLS
 
 
 static GnomeSuServiceConstructor services[] = {
-	__gnomesu_sudo_service_new,
 	__gnomesu_consolehelper_service_new,
 #ifdef HAVE_PAM
 	__gnomesu_pam_service_new,

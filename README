@@ -3,18 +3,9 @@ applications. It supports sudo, consolehelper, PAM and su.
 
 libgnomesu will use one the following services (in order of priority),
 depending on which one is available:
-- sudo
 - consolehelper
 - PAM
 - su
-
-Sudo support can be enabled using a GConf key since there is no way to
-autodetect whether the user can use sudo without supplying a password.
-This is the key: /desktop/gnome/superuser/use_sudo
-The sudo backend supports the following features:
-- Checking whether a password is needed (for when the sudo timestamp is
-  still active, or when a password is not needed for a certain command).
-- Asking for the password again if the entered password was incorrect.
 
 libgnomesu will use the su-based backend as final fallback, if no other
 services are available. This service uses a backend which is a modified

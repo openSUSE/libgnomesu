@@ -1,4 +1,4 @@
-SUBDIRS = ui services
+SUBDIRS = services
 
 lib_LTLIBRARIES = libgnomesu.la
 
@@ -26,13 +26,5 @@ libgnomesu_include_HEADERS =\
 	libgnomesu.h\
 	gnomesu-auth-dialog.h
 
-schemadir = @GCONF_SCHEMA_FILE_DIR@
-schema_DATA = libgnomesu.schemas
-
-if SCHEMAS_INSTALL
-install-data-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
-endif
-
  
-EXTRA_DIST=$(libgnomesu_la_SOURCES) $(schema_DATA) auth-icon.csource
+EXTRA_DIST=$(libgnomesu_la_SOURCES) auth-icon.csource
