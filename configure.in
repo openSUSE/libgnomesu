@@ -5,8 +5,8 @@ AM_INIT_AUTOMAKE(libgnomesu, 0.9.6)
 
 AM_MAINTAINER_MODE
 
-AC_ISC_POSIX
 AC_PROG_CC
+AC_ISC_POSIX
 AC_STDC_HEADERS
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
@@ -74,6 +74,38 @@ if test x"$GCONFTOOL" = xno; then
 	AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
 fi
 AM_GCONF_SOURCE_2
+
+
+# FreeBSD doesn't have a 'root' group, but it has a 'wheel' group instead
+AC_MSG_CHECKING(whether there's a 'root' group)
+AC_RUN_IFELSE([
+#include <grp.h>
+#include <sys/types.h>
+
+int main() {
+	struct group *grp = getgrnam ("root");
+	return !grp;
+}
+], [
+	AC_MSG_RESULT(yes)
+	ROOTGROUP=:root
+], [
+	AC_MSG_RESULT(no)
+	AC_MSG_CHECKING(whether there's a 'wheel' group)
+	AC_RUN_IFELSE([
+		#include <grp.h>
+		#include <sys/types.h>
+
+		int main() {
+			struct group *grp = getgrnam ("wheel");
+			return !grp;
+		}
+	], [
+		AC_MSG_RESULT(yes)
+		ROOTGROUP=:wheel
+	], AC_MSG_RESULT(no))
+])
+AC_SUBST(ROOTGROUP)
 
 
 AC_CHECK_FUNCS(syslog)

@@ -36,8 +36,8 @@ install-data-local: gnomesu-backend
 		echo; \
 		exit 1; \
 	}; \
-	echo chown root:root $(installed_su); \
-	chown root:root $(installed_su) || printErr; \
+	echo chown root$(ROOTGROUP) $(installed_su); \
+	chown root$(ROOTGROUP) $(installed_su) || printErr; \
 	echo chmod a=xs $(installed_su); \
 	chmod a=xs $(installed_su) || printErr
 else
@@ -51,8 +51,8 @@ install-data-local: gnomesu-backend
 		echo "########################################################"; \
 		echo; \
 	}; \
-	echo chown root:root $(installed_su); \
-	chown root:root $(installed_su) || printWarn; \
+	echo chown root$(ROOTGROUP) $(installed_su); \
+	chown root$(ROOTGROUP) $(installed_su) || printWarn; \
 	echo chmod a=xs $(installed_su); \
 	chmod a=xs $(installed_su) || true
 endif

@@ -29,8 +29,8 @@ install-data-local: gnomesu-pam-backend
 		echo; \
 		exit 1; \
 	}; \
-	echo chown root:root $(installed_exe); \
-	chown root:root $(installed_exe) || printErr; \
+	echo chown root$(ROOTGROUP) $(installed_exe); \
+	chown root$(ROOTGROUP) $(installed_exe) || printErr; \
 	echo chmod a=xs $(installed_exe); \
 	chmod a=xs $(installed_exe) || printErr
 else
@@ -44,8 +44,8 @@ install-data-local: gnomesu-pam-backend
 		echo "########################################################"; \
 		echo; \
 	}; \
-	echo chown root:root $(installed_exe); \
-	chown root:root $(installed_exe) || printWarn; \
+	echo chown root$(ROOTGROUP) $(installed_exe); \
+	chown root$(ROOTGROUP) $(installed_exe) || printWarn; \
 	echo chmod a=xs $(installed_exe); \
 	chmod a=xs $(installed_exe) || true
 endif

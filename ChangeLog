@@ -1,7 +1,9 @@
 2005-01-12  Hongli Lai  <h.lai@chello.nl>
 
-	* configure.in,pam-backend/pam.c:
+	* configure.in, pam-backend/pam.c, {pam,su}-backend/Makefile.am:
 	  Check whether setfsuid() is available. It's a Linux-specific call.
+	  FreeBSD apparently doesn't have a 'root' group, so autodetect
+	  it and use 'wheel' as alternative.
 
 2005-01-11  Hongli Lai  <h.lai@chello.nl>
 
