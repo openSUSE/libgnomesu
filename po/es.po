@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
-"PO-Revision-Date: 2003-11-10 21:40+0100\n"
+"POT-Creation-Date: 2004-04-10 15:31+0200\n"
+"PO-Revision-Date: 2004-04-10 15:31+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <franciscojavier.fernandez."
 "serrador@hispalinux.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
@@ -53,18 +53,22 @@ msgstr "Contraseña incorrecta. Inténtelo de nuevo."
 msgid "Please wait, verifying password..."
 msgstr "Espere,por favor. se está verificando la contraseña..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "El usuario «%s» no existe."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Ha ocurrido un error desconocido al autenticarse."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "No tiene permiso para autenticarse."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr "No es posible inicializar el sistema de autenticación PAM."
 
 #: src/sudo.c:320
 msgid ""
