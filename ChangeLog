@@ -1,3 +1,7 @@
+2005-03-21  Hongli Lai <hongli@navi.cx>
+
+	* configure.in: bump version to 0.9.8.
+
 2005-02-14  Alessio Frusciante  <algol@firenze.linux.it>
 
 	* configure.in: Added "it" (Italian) to ALL_LINGUAS. 

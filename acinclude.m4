@@ -7,7 +7,7 @@ AC_DEFUN([AM_BINRELOC],
 	AC_ARG_ENABLE(binreloc,
 		[  --enable-binreloc       compile with binary relocation support
                           (default=enable when available)],
-		enable_binreloc=$enableval,enable_binreloc=no)
+		enable_binreloc=$enableval,enable_binreloc=auto)
 
 	AC_ARG_ENABLE(binreloc-threads,
 		[  --enable-binreloc-threads      compile binary relocation with threads support
@@ -68,7 +68,7 @@ AC_DEFUN([AM_BINRELOC],
 			BINRELOC_LIBS="-lpthread"
 			AC_DEFINE(BR_PTHREAD,1,[Include pthread support for binary relocation?])
 		else
-			BINRELOC_CFLAGS="$BINRELOC_CFLAGS -DBR_PTHREAD=0"
+			BINRELOC_CFLAGS="$BINRELOC_CFLAGS -DBR_PTHREADS=0"
 			AC_DEFINE(BR_PTHREAD,0,[Include pthread support for binary relocation?])
 		fi
 	fi
