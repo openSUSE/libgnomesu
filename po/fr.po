@@ -1,16 +1,17 @@
 # French translation of libgnomesu.
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004-2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnomesu package.
 #
-#  Laurent Richard <laurent.richard@lilit.be>, 2004.
+# Laurent Richard <laurent.richard@lilit.be>, 2004.
+# Benoît Dejean <TazForEver@dlfp.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnomesu 0.9.2\n"
+"Project-Id-Version: libgnomesu 0.9.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2004-01-03 20:31+0100\n"
-"Last-Translator: Laurent Richard <laurent.richard@lilit.be>\n"
+"POT-Creation-Date: 2005-02-14 22:25+0100\n"
+"PO-Revision-Date: 2005-02-14 22:09+0100\n"
+"Last-Translator: Benoît Dejean <TazForEver@dlfp.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,28 +22,24 @@ msgid "Password needed"
 msgstr "Mot de passe nécessaire"
 
 #: src/gnomesu-auth-dialog.c:163
-#, fuzzy
 msgid "Command:"
-msgstr "Commande à lancer :"
+msgstr "Commande :"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "C_ontinuer"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
-msgstr ""
+msgstr "Les droits d'administrateur (root) sont nécessaires."
 
 #: src/gnomesu-auth-dialog.c:364
-#, fuzzy
 msgid "Please enter the root password to continue."
-msgstr ""
-"Veuillez saisir le mot de passe de %s et cliquez sur Entrée pour continuer."
+msgstr "Veuillez saisir le mot de passe de root pour continuer."
 
 #: src/gnomesu-auth-dialog.c:413
-#, fuzzy
 msgid "_Password:"
-msgstr "Votre _mot de passe :"
+msgstr "Mot de _passe de :"
 
 #: src/gnomesu-auth-dialog.c:438
 msgid "Please wait, verifying password..."
@@ -58,41 +55,40 @@ msgstr ""
 "Mot de passe incorrect, veuillez recommencer. Vous avez un essai "
 "supplémentaire."
 
-#: src/libgnomesu.c:168
+#: src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr ""
+msgstr "Aucun service disponible pour libgnomesu.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#: src/services/pam.c:192 src/services/su.c:185
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr ""
-"Veuillez saisir le mot de passe de %s et cliquez sur Entrée pour continuer."
+msgstr "Veuillez saisir le mot de passe de %s et cliquez sur continuer."
 
-#: src/services/pam.c:195 src/services/su.c:188
+#: src/services/pam.c:194 src/services/su.c:187
 msgid "The requested action needs further authentication."
 msgstr "L'action demandée nécessite une authentification complémentaire."
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: src/services/pam.c:200 src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
 msgstr "Mot de _passe de %s :"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: src/services/pam.c:229 src/services/su.c:222
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "L'utilisateur « %s » n'existe pas."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: src/services/pam.c:234 src/services/su.c:226
 msgid "An unknown error occured while authenticating."
 msgstr "Une erreur inconnue est survenue pendant l'authentification."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: src/services/pam.c:238 src/services/su.c:230
 msgid "You do not have permission to authenticate."
 msgstr "Vous n'avez pas la permission de vous authentifier."
 
-#: src/services/pam.c:233
+#: src/services/pam.c:242
 msgid "Unable to initialize the PAM authentication system."
-msgstr ""
+msgstr "Impossible d'initialiser le système d'authentification PAM."
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -135,53 +131,3 @@ msgstr "NOM D'UTILISATEUR"
 #: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME Super utilisateur"
-
-#~ msgid "GNOME SuperUser integration"
-#~ msgstr "Intégration du super utilisateur GNOME"
-
-#~ msgid "Open as superuser (root)..."
-#~ msgstr "Ouvrir en tant que super utilisateur (root)..."
-
-#~ msgid ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-#~ msgstr ""
-#~ "Vous n'avez pas la permission d'obtenir les privilèges du super "
-#~ "utilisateur (root). Cet événement sera rapporté."
-
-#~ msgid "_Run"
-#~ msgstr "_Lancer"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs superuser (root) "
-#~ "privileges.</span>\n"
-#~ "Please enter the superuser password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">L'action demandée nécessite les privilèges du super "
-#~ "utilisateur (root).</span>\n"
-#~ "Veuillez saisir le mot de passe du super utilisateur et cliquez sur "
-#~ "Entrée pour continuer."
-
-#~ msgid "Superuser _password:"
-#~ msgstr "_Mot de passe du super utilisateur :"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-#~ msgstr ""
-#~ "<span style=\"italic\" weight=\"bold\">Veuillez patienter, vérification "
-#~ "du mot de passe</span>"
-
-#~ msgid "User's password needed"
-#~ msgstr "Mot de passe utilisateur nécessaire"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">L'action demandée nécessite une authentification.</"
-#~ "span>\n"
-#~ "Veuillez saisir votre mot de passe et cliquez sur Entrée pour continuer."
