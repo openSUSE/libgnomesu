@@ -1,3 +1,10 @@
+2004-10-21  Hongli Lai  <h.lai@chello.nl>
+
+	* tools/Makefile.am:
+	  Apply Benoî Dejean's patch for removing GTK_DISABLE_DEPRECATED.
+	  GtkCombo is deprecated but he claims libgnomesu still uses that??
+	  Anyway, this patch won't do any harm.
+
 2004-09-28  Abel Cheung  <maddog@linuxhall.org>
 
 	* configure.in: Added "pa" "zh_CN" "zh_TW" to ALL_LINGUAS.
