@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-11 12:34+0100\n"
+"POT-Creation-Date: 2005-03-29 03:40+0200\n"
 "PO-Revision-Date: 2005-01-11 14:27+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -51,40 +51,40 @@ msgstr "Helytelen jelszó, próbálja újra."
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Helytelen jelszó, próbálja újra. Még egy lehetősége van."
 
-#: src/libgnomesu.c:168
+#: src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "Nem állnak rendelkezésre szolgáltatások a libgnomesu-hoz.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
+#: src/services/pam.c:192 src/services/su.c:185
 #, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "Adja meg %s jelszavát és kattintson a Folytatás gombra."
 
-#: src/services/pam.c:195 src/services/su.c:188
+#: src/services/pam.c:194 src/services/su.c:187
 msgid "The requested action needs further authentication."
-msgstr "A kért művelet további azonosítást igényel."
+msgstr "A kért művelet további hitelesítést igényel."
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: src/services/pam.c:200 src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
 msgstr "%s jel_szava:"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: src/services/pam.c:229 src/services/su.c:222
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "%s felhasználó nem létezik."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: src/services/pam.c:234 src/services/su.c:226
 msgid "An unknown error occured while authenticating."
-msgstr "Ismeretlen hiba lépett fel az azonosítás közben."
+msgstr "Ismeretlen hiba lépett fel a hitelesítés közben."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: src/services/pam.c:238 src/services/su.c:230
 msgid "You do not have permission to authenticate."
-msgstr "Nincs engedélye az azonosításra."
+msgstr "Nincs engedélye a hitelesítésre."
 
-#: src/services/pam.c:233
+#: src/services/pam.c:242
 msgid "Unable to initialize the PAM authentication system."
-msgstr "Nem lehet inicializálni a PAM azonosítási rendszert."
+msgstr "Nem lehet inicializálni a PAM hitelesítési rendszert."
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
