@@ -74,8 +74,7 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 
 			fprintf (outf, PROTOCOL_ASK_PASS);
 			memset (password, 0, sizeof (password));
-			if (!fgets (password, sizeof (password), inf))
-			{
+			if (!fgets (password, sizeof (password), inf)) {
 				memset (password, 0, sizeof (password));
 				fprintf (outf, PROTOCOL_ERROR);
 				Abort = TRUE;
@@ -223,31 +222,30 @@ main (int argc, char *argv[])
 
 	pw = init (argc, argv);
 
-	if (pam_start ("gnomesu-pam", new_user, &conv, &pamh) != PAM_SUCCESS)
-	{
+	if (pam_start ("gnomesu-pam", new_user, &conv, &pamh) != PAM_SUCCESS) {
 		fprintf (outf, PROTOCOL_INIT_ERROR);
 		exit (1);
 	}
 
-	if (pam_set_item (pamh, PAM_RUSER, g_get_user_name ()) != PAM_SUCCESS)
-	{
+	if (pam_set_item (pamh, PAM_RUSER, g_get_user_name ()) != PAM_SUCCESS) {
 		fprintf (outf, PROTOCOL_INIT_ERROR);
 		exit (1);
 	}
 
 	/* Ask for password up to 3 times */
-	for (i = 0; i < 3; i++)
-	{
+	for (i = 0; i < 3; i++)	{
 		/* Start the authentication */
 		retval = pam_authenticate (pamh, 0);
+
 		if (retval != PAM_AUTH_ERR || Abort)
 			break;
 		else
 			fprintf (outf, PROTOCOL_INCORRECT_PASSWORD);
 	}
+	if (i >= 3)
+		return 1;
 
-	if (retval == PAM_SUCCESS)
-	{
+	if (retval == PAM_SUCCESS) {
 		/* Is the user permitted to access this account? */
 		retval = pam_acct_mgmt (pamh, 0);
 

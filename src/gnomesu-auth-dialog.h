@@ -46,8 +46,10 @@ struct _GnomesuAuthDialog {
 	GtkWidget *desc_label;
 	GtkWidget *command_desc_label;
 	GtkWidget *command_label;
+	GtkWidget *prompt_label;
 	GtkWidget *input;
 	GtkWidget *mode_label;
+	GdkCursor *watch;
 };
 
 struct _GnomesuAuthDialogClass {
@@ -61,6 +63,10 @@ GtkWidget *gnomesu_auth_dialog_new	(void);
 void gnomesu_auth_dialog_set_desc	(GnomesuAuthDialog *dialog, const gchar *text);
 void gnomesu_auth_dialog_set_icon	(GnomesuAuthDialog *dialog, GdkPixbuf *pixbuf);
 void gnomesu_auth_dialog_set_command	(GnomesuAuthDialog *dialog, const gchar *command);
+void gnomesu_auth_dialog_set_prompt	(GnomesuAuthDialog *dialog, const gchar *prompt);
+
+gchar *gnomesu_auth_dialog_prompt (GnomesuAuthDialog *dialog);
+
 
 typedef enum {
 	GNOMESU_MODE_NORMAL,

@@ -1,3 +1,10 @@
+2004-11-30  Hongli Lai  <h.lai@chello.nl>
+
+	* src/pam.c: Correctly exit if user entered wrong password 3
+	  times.
+	* src/gnomesu-auth-dialog.[ch]: all kinds of improvements.
+	* src/services/pam.c: use GnomesuAthDialog.
+
 2004-11-28  Hongli Lai  <h.lai@chello.nl>
 
 	* configure.in: Bump version to 0.9.4.

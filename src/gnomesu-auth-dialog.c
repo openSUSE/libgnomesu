@@ -25,9 +25,9 @@
 #include "gnomesu-auth-dialog.h"
 #include "auth-icon.csource"
 
-#ifndef _
-#define _(x) x
-#endif
+#undef _
+#define _(x) ((gchar *) dgettext (GETTEXT_PACKAGE, x))
+
 
 G_BEGIN_DECLS
 
@@ -94,6 +94,8 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 
 	gtk_window_set_title (GTK_WINDOW (dialog), _("Password required"));
 	gtk_dialog_set_has_separator (dialog, FALSE);
+	gtk_widget_realize (GTK_WIDGET (dialog));
+	adialog->watch = gdk_cursor_new (GDK_WATCH);
 
 
 	/* Reparent dialog->action_area into a hbox */
@@ -108,10 +110,8 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 	/* Add another (left-aligned) button box to the dialog */
 	left_action_area = gtk_hbutton_box_new ();
 	gtk_container_set_border_width (GTK_CONTAINER (left_action_area), 6);
-	//gtk_button_box_set_spacing (GTK_BUTTON_BOX (left_action_area), 12);
-	g_object_set (G_OBJECT (left_action_area),
-		"child-internal-pad-x", 12,
-		NULL);
+	/* gtk_button_box_set_spacing (GTK_BUTTON_BOX (left_action_area), 12); */
+	gtk_box_set_spacing (GTK_BOX (left_action_area), 12);
 	gtk_button_box_set_layout (GTK_BUTTON_BOX (left_action_area), GTK_BUTTONBOX_START);
 	adialog->left_action_area = left_action_area;
 	gtk_box_pack_start (GTK_BOX (hbox), left_action_area, FALSE, FALSE, 0);
@@ -162,7 +162,7 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 
 
 	/* Input entry */
-	label = gtk_label_new ("_Password:");
+	adialog->prompt_label = label = gtk_label_new ("_Password:");
 	gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
 	gtk_misc_set_alignment (GTK_MISC (label), 1.0, 0.5);
 	gtk_table_attach (GTK_TABLE (table), label,
@@ -215,6 +215,14 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 
 
 static void
+gnomesu_auth_dialog_finalize (GObject *obj)
+{
+	gdk_cursor_unref (GNOMESU_AUTH_DIALOG (obj)->watch);
+	G_OBJECT_CLASS (parent_class)->finalize (obj);
+}
+
+
+static void
 gnomesu_auth_dialog_response (GtkDialog *dialog, gint response_id)
 {
 	if (response_id != GTK_RESPONSE_OK)
@@ -228,9 +236,11 @@ static void
 gnomesu_auth_dialog_class_init (gpointer c, gpointer d)
 {
 	GtkDialogClass *class = (GtkDialogClass *) c;
+	GObjectClass *oclass = (GObjectClass *) c;
 
 	parent_class = g_type_class_peek_parent (class);
 	class->response = gnomesu_auth_dialog_response;
+	oclass->finalize = gnomesu_auth_dialog_finalize;
 }
 
 
@@ -310,6 +320,20 @@ gnomesu_auth_dialog_add_custom_button (GnomesuAuthDialog *dialog, GtkWidget *but
 }
 
 
+gchar *
+gnomesu_auth_dialog_prompt (GnomesuAuthDialog *dialog)
+{
+	g_return_val_if_fail (dialog != NULL, NULL);
+	g_return_val_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog), NULL);
+
+	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_OK) {
+		gnomesu_auth_dialog_set_mode (dialog, GNOMESU_MODE_CHECKING);
+		return gnomesu_auth_dialog_get_password (dialog);
+	} else
+		return NULL;
+}
+
+
 void
 gnomesu_auth_dialog_set_desc (GnomesuAuthDialog *dialog, const gchar *text)
 {
@@ -357,6 +381,20 @@ gnomesu_auth_dialog_set_command (GnomesuAuthDialog *dialog, const gchar *command
 }
 
 
+void
+gnomesu_auth_dialog_set_prompt (GnomesuAuthDialog *dialog, const gchar *prompt)
+{
+	g_return_if_fail (dialog != NULL);
+	g_return_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog));
+
+	if (prompt) {
+		gtk_label_set_text_with_mnemonic (GTK_LABEL (dialog->prompt_label), prompt);
+	} else {
+		gtk_label_set_text_with_mnemonic (GTK_LABEL (dialog->prompt_label), _("_Password:"));
+	}
+}
+
+
 static gboolean
 stop_loop (GMainLoop *loop)
 {
@@ -368,7 +406,7 @@ stop_loop (GMainLoop *loop)
 void
 gnomesu_auth_dialog_set_mode (GnomesuAuthDialog *dialog, GnomesuAuthDialogMode mode)
 {
-	gboolean enabled = FALSE;
+	gboolean enabled = TRUE;
 	gboolean redraw = TRUE;
 
 	g_return_if_fail (dialog != NULL);
@@ -379,12 +417,15 @@ gnomesu_auth_dialog_set_mode (GnomesuAuthDialog *dialog, GnomesuAuthDialogMode m
 		gtk_label_set_text (GTK_LABEL (dialog->mode_label),
 			_("Please wait, verifying password..."));
 		gtk_widget_show (dialog->mode_label);
+		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, dialog->watch);
+		enabled = FALSE;
 		break;
 
 	case GNOMESU_MODE_WRONG_PASSWORD:
 		gtk_label_set_text (GTK_LABEL (dialog->mode_label),
 			_("Incorrect password, please try again."));
 		gtk_widget_show (dialog->mode_label);
+		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, NULL);
 		break;
 
 	case GNOMESU_MODE_LAST_CHANCE:
@@ -392,11 +433,12 @@ gnomesu_auth_dialog_set_mode (GnomesuAuthDialog *dialog, GnomesuAuthDialogMode m
 			_("Incorrect password, please try again. "
 			"You have one more chance."));
 		gtk_widget_show (dialog->mode_label);
+		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, NULL);
 		break;
 
 	default:
 		gtk_widget_hide (dialog->mode_label);
-		enabled = TRUE;
+		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, NULL);
 		redraw = FALSE;
 		break;
 	}
