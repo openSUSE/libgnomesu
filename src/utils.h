@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003,2004  Hongli Lai
+ * Copyright (C) 2003,2004,2005  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -37,12 +37,12 @@ G_BEGIN_DECLS
 #define safe_memset LGSD(safe_memset)
 
 
-gchar * LGSD(create_command)	(gchar **argv);
+gchar * LGSD(create_command)	(const gchar **argv);
 void    LGSD(replace_all)	(gchar **str, gchar *from, gchar *to);
 gchar **LGSD(generate_env)	(gchar *user);
 void   *LGSD(safe_memset) (void *s, int c, size_t n);
 
-GList  *LGSD(g_list_addv)	(GList *list, gchar **argv);
+GList  *LGSD(g_list_addv)	(GList *list, const gchar **argv);
 gchar **LGSD(g_list_to_vector)  (GList *list, guint *size);
 guint   LGSD(count_args)	(gchar **argv);
 

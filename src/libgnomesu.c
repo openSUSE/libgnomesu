@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003-2004  Hongli Lai
+ * Copyright (C) 2003-2004,2005  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -51,7 +51,7 @@ static const guint services_size = sizeof (services) / sizeof (GnomeSuServiceCon
 
 
 static GnomeSuService *
-find_best_service (gchar *exe, const gchar *user)
+find_best_service (const gchar *exe, const gchar *user)
 {
 	guint i;
 
@@ -156,6 +156,20 @@ gnomesu_spawn_sync (gchar *user, gchar **argv)
 gboolean
 gnomesu_spawn_async (gchar *user, gchar **argv, int *pid)
 {
+	GPid pid2;
+	gboolean result;
+
+	result = gnomesu_spawn_async2 (user, (const gchar **) argv, &pid2, NULL, NULL, TRUE);
+	if (pid)
+		*pid = pid2;
+	return result;
+}
+
+
+gboolean
+gnomesu_spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
+	GdkPixbuf *icon, const gchar *title, gboolean show_command)
+{
 	GnomeSuService *service;
 	gboolean result;
 
@@ -169,7 +183,7 @@ gnomesu_spawn_async (gchar *user, gchar **argv, int *pid)
 		return FALSE;
 	}
 
-	result = (*service->spawn_async) (user, argv, pid);
+	result = (*service->spawn_async2) (user, argv, pid, icon, title, show_command);
 	g_free (service);
 	return result;
 }

@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004,2005  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,6 +21,7 @@
 #define _LIBGNOMESU_H_
 
 #include <glib.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 G_BEGIN_DECLS
 
@@ -34,6 +35,9 @@ gboolean gnomesu_spawn_command_sync (gchar *user, gchar *commandline);
 gboolean gnomesu_spawn_command_async (gchar *user, gchar *commandline, int *pid);
 gboolean gnomesu_spawn_sync (gchar *user, gchar **argv);
 gboolean gnomesu_spawn_async (gchar *user, gchar **argv, int *pid);
+
+gboolean gnomesu_spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
+	GdkPixbuf *icon, const gchar *title, gboolean show_command);
 
 
 G_END_DECLS

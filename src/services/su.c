@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003,2004  Hongli Lai
+ * Copyright (C) 2003,2004,2005  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -68,7 +68,7 @@ bomb (GnomesuAuthDialog *auth, gchar *format, ...)
 
 
 static gboolean
-detect (gchar *exe, const gchar *user)
+detect (const gchar *exe, const gchar *user)
 {
 	struct stat buf;
 	gchar *filename;
@@ -86,7 +86,8 @@ detect (gchar *exe, const gchar *user)
 
 
 static gboolean
-spawn_async (gchar *user, gchar **argv, int *pid)
+spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
+	GdkPixbuf *icon, const gchar *title, gboolean show_command)
 {
 	int mypid, parent_pipe[2], child_pipe[2];
 
@@ -176,11 +177,9 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 					gchar *tmp;
 
 					gui = (GnomesuAuthDialog *) gnomesu_auth_dialog_new ();
-					tmp = LGSD(create_command) (argv);
-					gnomesu_auth_dialog_set_command (gui, tmp);
-					g_free (tmp);
 
-					if (strcmp (user, "root") != 0) {
+					/* Create GUI if not already done */
+					if (!cmp (user, "root")) {
 						gchar *tmp2;
 
 						tmp = strf (_("Please enter %s's password and click Continue."), user);
@@ -195,6 +194,16 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 						gnomesu_auth_dialog_set_prompt (gui, tmp);
 						g_free (tmp);
 					}
+
+					if (show_command) {
+						tmp = LGSD(create_command) (argv);
+						gnomesu_auth_dialog_set_command (gui, tmp);
+						g_free (tmp);
+					}
+					if (title)
+						gtk_window_set_title (GTK_WINDOW (gui), title);
+					if (icon)
+						gnomesu_auth_dialog_set_icon (gui, icon);
 				}
 
 				password = gnomesu_auth_dialog_prompt (gui);
@@ -254,7 +263,7 @@ __gnomesu_su_service_new (void)
 
 	service = (GnomeSuService *) g_new0 (GnomeSuService, 1);
 	service->detect = detect;
-	service->spawn_async = spawn_async;
+	service->spawn_async2 = spawn_async2;
 	return service;
 }
 

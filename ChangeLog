@@ -1,3 +1,13 @@
+2005-02-13  Hongli Lai  <h.lai@chello.nl>
+
+	* src/libgnomesu.[ch]: Add new function: gnomesu_spawn_async2()
+	  This allows the developer to customize the user interface a
+	  little bit.
+	* src/utils.[ch]: Add 'const' keyword to parameters of some functions.
+	* src/services/{service.h,su.c,pam.c,consolehelper.c}:
+	  Add support for gnomesu_spawn_async2().
+	* src/Makefile.am:
+
 2005-01-28  Hongli Lai  <h.lai@chello.nl>
 
 	* configure.in:

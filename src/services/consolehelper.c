@@ -32,7 +32,7 @@ G_BEGIN_DECLS
 
 
 static gboolean
-detect (gchar *exe, const gchar *user)
+detect (const gchar *exe, const gchar *user)
 {
 	gchar *fullpath, *link, *base, *path1;
 
@@ -83,7 +83,8 @@ detect (gchar *exe, const gchar *user)
 
 
 static gboolean
-spawn_async (gchar *user, gchar **argv, int *pid)
+spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
+	GdkPixbuf *icon, const gchar *title, gboolean show_command)
 {
 	pid_t mypid;
 
@@ -113,7 +114,7 @@ __gnomesu_consolehelper_service_new (void)
 
 	service = (GnomeSuService *) g_new0 (GnomeSuService, 1);
 	service->detect = detect;
-	service->spawn_async = spawn_async;
+	service->spawn_async2 = spawn_async2;
 	return service;
 }
 

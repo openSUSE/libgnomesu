@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004,2005  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,19 +21,20 @@
 #define _SERVICE_H_
 
 #include <glib.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 G_BEGIN_DECLS
 
 
-typedef gboolean (*GnomeSuServiceDetectFunc) (gchar *exe, const gchar *user);
-typedef gboolean (*GnomeSuServiceSpawnAsyncFunc) (gchar *user, gchar **argv, int *pid);
+typedef gboolean (*GnomeSuServiceDetectFunc) (const gchar *exe, const gchar *user);
+typedef gboolean (*GnomeSuServiceSpawnAsyncFunc2) (const gchar *user, const gchar **argv, GPid *pid,
+						GdkPixbuf *icon, const gchar *title, gboolean show_command);
 
 
 struct _GnomeSuService
 {
 	GnomeSuServiceDetectFunc detect;
-
-	GnomeSuServiceSpawnAsyncFunc spawn_async;
+	GnomeSuServiceSpawnAsyncFunc2 spawn_async2;
 };
 typedef struct _GnomeSuService GnomeSuService;
 

@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003,2004  Hongli Lai
+ * Copyright (C) 2003,2004,2005  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -37,7 +37,7 @@ extern char **environ;
 /* Changes an argument vector into a commandline.
    Escape special characters. */
 gchar *
-LGSD(create_command) (gchar **argv)
+LGSD(create_command) (const gchar **argv)
 {
 	GString *result;
 	gchar *str;
@@ -174,7 +174,7 @@ LGSD(safe_memset) (void *s, int c, size_t n)
 
 
 GList *
-LGSD(g_list_addv) (GList *list, gchar **argv)
+LGSD(g_list_addv) (GList *list, const gchar **argv)
 {
 	guint i, size;
 
