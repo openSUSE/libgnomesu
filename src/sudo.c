@@ -245,7 +245,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		dup2 (parent_pipe[1], STDERR_FILENO);
 
 		c = __libgnomesu_count_args (argv);
-		sudo_argv = g_new0 (gchar *, c + 10);
+		sudo_argv = g_new0 (gchar *, c + 8);
 		sudo_argv[0] = "/usr/bin/sudo";
 		sudo_argv[1] = "-H";
 		sudo_argv[2] = "-S";
@@ -253,10 +253,8 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		sudo_argv[4] = user;
 		sudo_argv[5] = "-p";
 		sudo_argv[6] = "GNOMESU_SUDO_PASS\n";
-		sudo_argv[7] = "--";
-		sudo_argv[8] = LIBEXEC "/gnomesu-sudo-helper";
 		for (i = 0; i < c; i++)
-			sudo_argv[i + 9] = argv[i];
+			sudo_argv[i + 7] = argv[i];
 
 		execv ("/usr/bin/sudo", sudo_argv);
 		_exit (1);

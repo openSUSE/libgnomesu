@@ -1,5 +1,4 @@
 bin_PROGRAMS = gnomesu
-libexec_SCRIPTS = gnomesu-sudo-helper
 
 INCLUDES =\
 	-DGETTEXT_PACKAGE="\"gnomesu\""\
@@ -16,4 +15,4 @@ gnomesu_SOURCES = gnomesu.c
 gnomesu_LDFLAGS = $(GNOMESU_LIBS)
 gnomesu_LDADD = $(top_srcdir)/src/libgnomesu.la
 
-EXTRA_DIST = $(gnomesu_SOURCES) $(libexec_SCRIPTS)
+EXTRA_DIST = $(gnomesu_SOURCES)

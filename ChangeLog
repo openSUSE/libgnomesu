@@ -1,3 +1,12 @@
+2003-11-04  Hongli Lai  <h.lai@chello.nl>
+
+	* src/ui/su(do).glade: Changed Position to Center.
+	* src/sudo.c, tools/Makefile.am, tools/gnomesu-sudo-helper:
+	  Removed support for gnomesu-sudo-helper since it screws up
+	  sudoers settings.
+	  The caveat is that you won't be able to see messages to stderr
+	  when using this backend.
+
 2003-10-25  Metin Amiroff  <metin@karegen.com>
 
 	* configure.in: Added az to ALL_LINGUAS.
