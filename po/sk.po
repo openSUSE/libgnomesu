@@ -1,15 +1,15 @@
 # Slovak translations for libgnomesu package
 # Slovenské preklady pre balík libgnomesu.
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnomesu package.
-# Marcel Telka <marcel@telka.sk>, 2003.
+# Marcel Telka <marcel@telka.sk>, 2003, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
-"PO-Revision-Date: 2003-10-05 19:47+0200\n"
+"POT-Creation-Date: 2004-05-30 13:45+0200\n"
+"PO-Revision-Date: 2004-05-30 13:47+0200\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,10 @@ msgstr "GNOME Integrácia správcu"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Otovriť ako správca..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "Nie sú dostupné služby pre libgnomesu.\n"
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -51,18 +55,22 @@ msgstr "Neplatné heslo, prosím skúste znova."
 msgid "Please wait, verifying password..."
 msgstr "Prosím čakajte, overujem heslo..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Používateľ '%s' neexistuje."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Pri overovaní totožnosti sa vyskytla neznáma chyba."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "Nemáte právo na overenie totožnosti."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr "Nepodarilo sa inicializovať systém pre overovanie totožnosti PAM."
 
 #: src/sudo.c:320
 msgid ""
