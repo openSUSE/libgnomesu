@@ -24,6 +24,7 @@
 
 #include "gnomesu-auth-dialog.h"
 #include "auth-icon.csource"
+#include "utils.h"
 
 #undef _
 #define _(x) ((gchar *) dgettext (GETTEXT_PACKAGE, x))
@@ -44,15 +45,6 @@ struct _GnomesuAuthDialogPrivate {
 	GtkWidget *mode_label;
 	GdkCursor *watch;
 };
-
-
-static void *
-safe_memset (void *s, int c, size_t n)
-{
-	/* Works around compiler optimizations which removes memset().
-	   See http://bugzilla.gnome.org/show_bug.cgi?id=161213 */
-	return memset (s, c, n);
-}
 
 
 static GtkWidget *

@@ -164,6 +164,15 @@ LGSD(generate_env) (gchar *user)
 }
 
 
+void *
+LGSD(safe_memset) (void *s, int c, size_t n)
+{
+	/* Works around compiler optimizations which removes memset().
+	   See http://bugzilla.gnome.org/show_bug.cgi?id=161213 */
+	return memset (s, c, n);
+}
+
+
 GList *
 LGSD(g_list_addv) (GList *list, gchar **argv)
 {

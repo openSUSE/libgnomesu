@@ -36,11 +36,13 @@ G_BEGIN_DECLS
 #define glt_to_vector LGSD(g_list_to_vector)
 #define strf g_strdup_printf
 #define cmp(x, y) (strcmp (x, y) == 0)
+#define safe_memset LGSD(safe_memset)
 
 
 gchar * LGSD(create_command)	(gchar **argv);
 void    LGSD(replace_all)	(gchar **str, gchar *from, gchar *to);
 gchar **LGSD(generate_env)	(gchar *user);
+void   *LGSD(safe_memset) (void *s, int c, size_t n);
 
 GList  *LGSD(g_list_addv)	(GList *list, gchar **argv);
 gchar **LGSD(g_list_to_vector)  (GList *list, guint *size);
