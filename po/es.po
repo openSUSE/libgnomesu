@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 15:31+0200\n"
-"PO-Revision-Date: 2004-04-10 15:31+0200\n"
+"POT-Creation-Date: 2004-04-12 22:15+0200\n"
+"PO-Revision-Date: 2004-04-12 22:15+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <franciscojavier.fernandez."
 "serrador@hispalinux.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
@@ -24,6 +24,10 @@ msgstr "Integración del superusuario en GNOME"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Abrir como superusuario (root)..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "No hay servicios disponibles para libgnomesu.\n"
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
