@@ -121,12 +121,22 @@ fi
 
 # Check for PAM
 LIBS=-lpam
-AC_CHECK_FUNC(pam_start,
-  [have_pam=yes
-   LIBGNOMESU_CFLAGS="$LIBGNOMESU_CFLAGS -DHAVE_PAM"
-   LIBGNOMESU_LIBS="$LIBGNOMESU_LIBS -lpam"],
-  have_pam=no)
+have_pam=no
+AC_CHECK_FUNC(pam_start, [
+	# FreeBSD has pam_mod_misc.h instead of pam_misc.h
+	AC_CHECK_HEADER(security/pam_misc.h, have_pam=yes, [
+		AC_CHECK_HEADER(security/pam_mod_misc.h, [
+			have_pam=yes
+			LIBGNOMESU_CFLAGS="$LIBGNOMESU_CFLAGS -DPAM_MOD_MISC"
+		])
+	])
+])
 AM_CONDITIONAL(HAVE_PAM, test $have_pam = yes)
+
+if test $have_pam = yes; then
+	LIBGNOMESU_CFLAGS="$LIBGNOMESU_CFLAGS -DHAVE_PAM"
+	LIBGNOMESU_LIBS="$LIBGNOMESU_LIBS -lpam"
+fi
 
 AC_SUBST(LIBGNOMESU_CFLAGS)
 AC_SUBST(LIBGNOMESU_LIBS)

@@ -17,7 +17,11 @@
  */
 
 #include <security/pam_appl.h>
-#include <security/pam_misc.h>
+#ifdef PAM_MOD_MISC
+	#include <security/pam_mod_misc.h>
+#else /* PAM_MOD_MISC */
+	#include <security/pam_misc.h>
+#endif /* PAM_MOD_MISC */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>

@@ -1,3 +1,8 @@
+2005-01-15  Hongli Lai  <h.lai@chello.nl>
+
+	* configure.in, pam-backend/pam.c:
+	  FreeBSD has pam_mod_misc.h instead of pam_misc.h. Check for it.
+
 2005-01-12  Hongli Lai  <h.lai@chello.nl>
 
 	* configure.in, pam-backend/pam.c, {pam,su}-backend/Makefile.am:
