@@ -1,0 +1,94 @@
+# -*-shell-script-*-
+
+[Meta]
+RootName: @gnome.org/libgnomesu:$SOFTWAREVERSION
+DisplayName: Superuser privilege library (libgnomesu)
+ShortName: libgnomesu
+Maintainer: Hongli Lai <h.lai@chello.nl> - http://members1.chello.nl/~h.lai/libgnomesu/
+Packager: Hongli Lai <h.lai@chello.nl>
+Summary: libgnomesu is a library which allows you to run programs as root or another user.
+SoftwareVersion: @VERSION@
+InterfaceVersion: 0.0
+PackageVersion: 1
+RootInstallOnly: Yes
+
+[Description]
+libgnomesu is a library which allows you to run programs as root or another user.
+
+[BuildPrepare]
+prepareBuild --disable-schemas-install --disable-setuid-error --disable-install-pam
+
+[BuildUnprepare]
+unprepareBuild
+
+[Imports]
+echo '*' | import
+echo "$source_dir/pam-backend/gnomesu-pam" | import
+
+[Prepare]
+require @rpm.org/popt 0.0
+require @gnome.org/libgnomeui 2.0
+require @glade.gnome.org/libglade 2.0
+require @gnome.org/gconf2 4.0
+recommend @gnome.org/libbonobo2 0.0
+
+[Install]
+installExe bin/gnomesu
+
+installLib lib/libgnomesu.so.0.0.0
+copyFiles lib/libgnomesu.la "$prefix/lib"
+copyFiles lib/bonobo/libgnomesu-nautilus.so "$prefix/lib/bonobo"
+copyFiles lib/bonobo/servers/GNOME_SuperUser_Component.server "$prefix/lib/bonobo/servers"
+
+eprefix=`escapeValue "$prefix"`
+safeSed lib/pkgconfig/libgnomesu-1.0.pc "s/^prefix=.*/prefix=$eprefix/"
+copyFiles lib/pkgconfig/libgnomesu-1.0.pc "$prefix/lib/pkgconfig"
+
+copyFiles libexec/{gnomesu-backend,gnomesu-pam-backend} "$prefix/libexec"
+chown root:root "$prefix/libexec/gnomesu-backend" "$prefix/libexec/gnomesu-pam-backend"
+chmod +s "$prefix/libexec/gnomesu-backend" "$prefix/libexec/gnomesu-pam-backend"
+copyFiles gnomesu-pam /etc/pam.d
+
+copyFiles share/libgnomesu/* "$prefix/share/libgnomesu"
+
+copyFiles share/locale/* "$prefix/share/locale"
+
+copyFiles include/* "$prefix/include"
+
+function my_installGConf2Schema()
+{
+	if [[ $# < 1 ]]; then
+		err "Usage: installGConf2Schema <SCHEMA-FILES>"
+		return 1
+	fi
+
+	local base=`basename "$1"`
+	local source
+	local esource
+	local file=`escapeFilename "$prefix/etc/gconf/schemas/$base"`
+
+	copyFiles --nolog "$1" "$prefix/etc/gconf/schemas"
+	local temp=`escapeValue "$prefix/etc/gconf/schemas/$base"`
+	logCommand "removeFile $temp"
+
+	if [[ `id -u` = 0 ]]; then
+		source=`gconftool-2 --get-default-source`
+		esource=`escapeFilename "$source"`
+		logCommand "GCONF_CONFIG_SOURCE=$esource gconftool-2 --makefile-uninstall-rule $file >/dev/null"
+		GCONF_CONFIG_SOURCE="$source" gconftool-2 --makefile-install-rule "$1" >/dev/null
+		return $?
+	else
+		logCommand "GCONF_CONFIG_SOURCE= gconftool-2 --makefile-uninstall-rule $file >/dev/null"
+		GCONF_CONFIG_SOURCE= gconftool-2 --makefile-install-rule "$1" >/dev/null
+		return $?
+	fi
+}
+
+my_installGConf2Schema etc/gconf/schemas/libgnomesu.schemas
+
+installGnome2Mime share/mime-info/gnomesu-nautilus.keys
+installGnome2AppEntry share/application-registry/gnomesu-nautilus.applications
+
+
+[Uninstall]
+uninstallFromLog
