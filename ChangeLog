@@ -1,6 +1,9 @@
 2005-01-08  Hongli Lai  <h.lai@chello.nl>
 
 	* src/utils.[ch]: Remove all libglade stuff.
+	* src/prefix.[ch]: Upgrade to latest BinReloc.
+	  br_thread_local_store will no longer show up in the symbol
+	  table when BinReloc is disabled.
 
 2005-01-07  Hongli Lai  <h.lai@chello.nl>
 

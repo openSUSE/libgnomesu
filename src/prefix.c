@@ -56,6 +56,10 @@ extern "C" {
 #endif /* __GNUC__ */
 
 
+static br_locate_fallback_func fallback_func = NULL;
+static void *fallback_data = NULL;
+
+
 #ifdef ENABLE_BINRELOC
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -104,8 +108,12 @@ br_locate (void *symbol)
 	br_return_val_if_fail (symbol != NULL, NULL);
 
 	f = fopen ("/proc/self/maps", "r");
-	if (!f)
-		return NULL;
+	if (!f) {
+		if (fallback_func)
+			return fallback_func(symbol, fallback_data);
+		else
+			return NULL;
+	}
 
 	while (!feof (f))
 	{
@@ -217,7 +225,7 @@ br_prepend_prefix (void *symbol, char *path)
 
 
 /* Pthread stuff for thread safetiness */
-#if BR_PTHREADS
+#if BR_PTHREADS && defined(ENABLE_BINRELOC)
 
 #include <pthread.h>
 
@@ -226,7 +234,7 @@ static pthread_once_t br_thread_key_once = PTHREAD_ONCE_INIT;
 
 
 static void
-br_thread_local_store_fini (void)
+br_thread_local_store_fini ()
 {
 	char *specific;
 
@@ -250,13 +258,14 @@ br_str_free (void *str)
 
 
 static void
-br_thread_local_store_init (void)
+br_thread_local_store_init ()
 {
 	if (pthread_key_create (&br_thread_key, br_str_free) == 0)
 		atexit (br_thread_local_store_fini);
 }
 
 #else /* BR_PTHREADS */
+#ifdef ENABLE_BINRELOC
 
 static char *br_last_value = (char *) NULL;
 
@@ -267,8 +276,11 @@ br_free_last_value ()
 		free (br_last_value);
 }
 
+#endif /* ENABLE_BINRELOC */
 #endif /* BR_PTHREADS */
 
+
+#ifdef ENABLE_BINRELOC
 
 /**
  * br_thread_local_store:
@@ -278,12 +290,14 @@ br_free_last_value ()
  * Store str in a thread-local variable and return str. The next
  * you run this function, that variable is freed too.
  * This function is created so you don't have to worry about freeing
- * strings.
+ * strings. Just be careful about doing this sort of thing:
  *
- * Example:
+ * some_function( BR_DATADIR("/one.png"), BR_DATADIR("/two.png") )
+ *
+ * Examples:
  * char *foo;
- * foo = thread_local_store (strdup ("hello")); --> foo == "hello"
- * foo = thread_local_store (strdup ("world")); --> foo == "world"; "hello" is now freed.
+ * foo = br_thread_local_store (strdup ("hello")); --> foo == "hello"
+ * foo = br_thread_local_store (strdup ("world")); --> foo == "world"; "hello" is now freed.
  */
 const char *
 br_thread_local_store (char *str)
@@ -313,6 +327,8 @@ br_thread_local_store (char *str)
 
 	return (const char *) str;
 }
+
+#endif /* ENABLE_BINRELOC */
 
 
 /**
@@ -439,6 +455,23 @@ br_extract_prefix (const char *path)
 	}
 
 	return result;
+}
+
+
+/**
+ * br_set_fallback_function:
+ * func: A function to call to find the binary.
+ * data: User data to pass to func.
+ *
+ * Sets a function to call to find the path to the binary, in
+ * case "/proc/self/maps" can't be opened. The function set should
+ * return a string that is safe to free with free().
+ */
+void
+br_set_locate_fallback_func (br_locate_fallback_func func, void *data)
+{
+	fallback_func = func;
+	fallback_data = data;
 }
 
 
