@@ -1,0 +1,7 @@
+src/pam.c
+src/su.c
+src/sudo.c
+src/ui/su-strings.h
+src/ui/sudo-strings.h
+tools/gnomesu.c
+nautilus/GNOME_SuperUser_Component.server.in.in

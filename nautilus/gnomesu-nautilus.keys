@@ -1,0 +1,4 @@
+x-directory/normal
+	short_list_application_ids_for_novice_user_level=gnomesu-nautilus
+	short_list_application_ids_for_intermediate_user_level=gnomesu-nautilus
+	short_list_application_ids_for_advanced_user_level=gnomesu-nautilus

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<gconfschemafile>
+<schemalist>
+
+	<schema>
+		<key>/schemas/desktop/gnome/superuser/use_sudo</key>
+		<applyto>/desktop/gnome/superuser/use_sudo</applyto>
+		<owner>gnome</owner>
+		<type>bool</type>
+		<default>false</default>
+		<locale name="C">
+			<short>Support for sudo</short>
+			<long>
+			If this key is set to TRUE, 'sudo' will be used as the authentication method for providing
+			superuser privileges to GNOME applications, and PAM and su support will be completely disabled.
+			NOTE: you should only set this key to TRUE if the current user has an entry in /etc/sudoers!
+			</long>
+		</locale>
+      </schema>
+
+</schemalist>
+</gconfschemafile>
