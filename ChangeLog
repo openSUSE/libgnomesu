@@ -1,3 +1,7 @@
+2003-09-20  Christian Rose  <menthos@menthos.com>
+
+	* configure.in: Added "sv" to ALL_LINGUAS.
+
 2003-09-20 Hongli Lai <hDOTlaiATchelloDOTnl>
 
 	* Add MAINTAINERS file.
@@ -8,3 +12,4 @@
 2003-09-20 Mark Finlay <sisobATeircomDOTnet>
 
 	* Initial Checkin
+

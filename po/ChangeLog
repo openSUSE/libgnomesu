@@ -1,5 +1,9 @@
 2003-09-20  Christian Rose  <menthos@menthos.com>
 
+	* sv.po: Added Swedish translation.
+
+2003-09-20  Christian Rose  <menthos@menthos.com>
+
 	*  libgnomesu-1.0.pot, nl.gmo: Removed. These are generated
 	files that should not be stored in CVS.
 	* .cvsignore: Added.
