@@ -1,21 +1,24 @@
+# traducción de es.po al Spanish
 # translation of libgnomesu.HEAD.po to Spanish
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Francisco Javier F. Serrador <franciscojavier.fernandez.serrador@hispalinux.es>, 2003.
+# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnomesu.HEAD\n"
+"Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-28 19:03+0100\n"
-"PO-Revision-Date: 2004-04-12 22:15+0200\n"
-"Last-Translator: Francisco Javier F. Serrador <franciscojavier.fernandez."
+"POT-Creation-Date: 2005-01-01 14:50+0100\n"
+"PO-Revision-Date: 2005-01-01 14:55+0100\n"
+"Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "serrador@hispalinux.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:1
 msgid "GNOME SuperUser integration"
@@ -25,56 +28,76 @@ msgstr "Integración del superusuario en GNOME"
 msgid "Open as superuser (root)..."
 msgstr "Abrir como superusuario (root)..."
 
-#: src/libgnomesu.c:169
+#: src/libgnomesu.c:170
 msgid "No services for libgnomesu are available.\n"
 msgstr "No hay servicios disponibles para libgnomesu.\n"
 
-#: src/pam.c:100 src/su.c:98
+#: src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr "Se necesita contraseña"
+
+#: src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "Comando:"
+
+#: src/gnomesu-auth-dialog.c:361
+msgid ""
+"<b>Administrator (root) privilege is required.</b>\n"
+"Please enter the root password to continue."
+msgstr ""
+"<b>Se requieren privilegios de administrador (root).</b>\n"
+"Por favor, introduzca la contraseña de root para continuar."
+
+#: src/gnomesu-auth-dialog.c:407
+msgid "_Password:"
+msgstr "_Contraseña:"
+
+#: src/gnomesu-auth-dialog.c:432 src/services/sudo.c:151
+msgid "Please wait, verifying password..."
+msgstr "Se está verificando la contraseña..."
+
+#: src/gnomesu-auth-dialog.c:440 src/services/sudo.c:135
+msgid "Incorrect password, please try again."
+msgstr "Contraseña incorrecta. Inténtelo de nuevo."
+
+#: src/gnomesu-auth-dialog.c:447
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Contraseña incorrecta. Inténtelo de nuevo. Tiene una oportunidad más."
+
+#: src/services/pam.c:192 src/services/su.c:185
+#, c-format
+msgid "Please enter %s's password and click Run to continue."
+msgstr ""
+"Introduzca la contraseña de %s y pulse sobre el botón «Ejecutar» para "
+"continuar."
+
+#: src/services/pam.c:194 src/services/su.c:187
+msgid "The requested action needs further authentication."
+msgstr "La acción solicitada necesita autenticación."
+
+#: src/services/pam.c:200 src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
 msgstr "_Contraseña de %s:"
 
-#: src/pam.c:104 src/su.c:102
-#, c-format
-msgid "Please enter %s's password and click Run to continue."
-msgstr ""
-"Introduzca la contraseña de %s y pulse sobre el botón Ejecutar para "
-"continuar."
-
-#: src/pam.c:106 src/su.c:104
-msgid "The requested action needs further authentication."
-msgstr "La acción solicitada necesita autenticación."
-
-#: src/pam.c:165 src/su.c:163
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Contraseña incorrecta. Inténtelo de nuevo. Tiene una oportunidad más."
-
-#: src/pam.c:171 src/su.c:169 src/sudo.c:135
-msgid "Incorrect password, please try again."
-msgstr "Contraseña incorrecta. Inténtelo de nuevo."
-
-#: src/pam.c:187 src/su.c:186 src/sudo.c:151
-msgid "Please wait, verifying password..."
-msgstr "Espere,por favor. se está verificando la contraseña..."
-
-#: src/pam.c:361 src/su.c:354
+#: src/services/pam.c:219 src/services/su.c:212
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "El usuario «%s» no existe."
 
-#: src/pam.c:366 src/su.c:359
+#: src/services/pam.c:224 src/services/su.c:216
 msgid "An unknown error occured while authenticating."
 msgstr "Ha ocurrido un error desconocido al autenticarse."
 
-#: src/pam.c:370 src/su.c:363
+#: src/services/pam.c:228 src/services/su.c:220
 msgid "You do not have permission to authenticate."
 msgstr "No tiene permiso para autenticarse."
 
-#: src/pam.c:374
-msgid "Unable to initialize PAM authentication system."
+#: src/services/pam.c:232
+msgid "Unable to initialize the PAM authentication system."
 msgstr "No es posible inicializar el sistema de autenticación PAM."
 
-#: src/sudo.c:320
+#: src/services/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."
@@ -87,69 +110,39 @@ msgstr ""
 #. * Add this file to your project's POTFILES.in.
 #. * DO NOT compile it as part of your application.
 #.
-#: src/ui/su-strings.h:7 src/ui/su.glade.h:6
-msgid "Password needed"
-msgstr "Se necesita contraseña"
-
-#: src/ui/su-strings.h:8 src/ui/su.glade.h:8 src/ui/sudo-strings.h:8
-#: src/ui/sudo.glade.h:8
-msgid "_Run"
-msgstr "_Ejecutar"
-
-#: src/ui/su-strings.h:9 src/ui/su.glade.h:3
-msgid ""
-"<span weight=\"bold\">The requested action needs superuser (root) privileges."
-"</span>\n"
-"Please enter the superuser password and click Run to continue."
-msgstr ""
-"<span weight=\"bold\">La acción solicitada necesita privilegios de "
-"superusuario (root).</span>\n"
-"Por favor, introduzca la contraseña de superusuario y pulse Ejecutar para "
-"continuar."
-
-#: src/ui/su-strings.h:11 src/ui/su.glade.h:7
-msgid "Superuser _password:"
-msgstr "_Contraseña de superusuario:"
-
-#: src/ui/su-strings.h:12 src/ui/su.glade.h:1 src/ui/sudo-strings.h:12
-#: src/ui/sudo.glade.h:1
-msgid "*"
-msgstr "*"
-
-#: src/ui/su-strings.h:13 src/ui/su.glade.h:5 src/ui/sudo-strings.h:13
-#: src/ui/sudo.glade.h:5
-msgid "Command to run:"
-msgstr "Comando a ejecutar:"
-
-#: src/ui/su-strings.h:14 src/ui/su.glade.h:2 src/ui/sudo-strings.h:14
-#: src/ui/sudo.glade.h:2
-msgid ""
-"<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
-"span>"
-msgstr ""
-"<span style=\"italic\" weight=\"bold\">Por favor, espere mientras se "
-"verifica la contraseña...</span>"
-
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
 #: src/ui/sudo-strings.h:7 src/ui/sudo.glade.h:6
 msgid "User's password needed"
 msgstr "Se necesita la contraseña del usuario"
+
+#: src/ui/sudo-strings.h:8 src/ui/sudo.glade.h:8
+msgid "_Run"
+msgstr "_Ejecutar"
 
 #: src/ui/sudo-strings.h:9 src/ui/sudo.glade.h:3
 msgid ""
 "<span weight=\"bold\">The requested action needs autentication.</span>\n"
 "Please enter your password and click Run to continue."
 msgstr ""
-"<span weight=\"bold\">La acción solicitana necesita autenticación.</span>\n"
-"Introduzca su contrasela y pulse Ejecutar para continuar."
+"<span weight=\"bold\">La acción solicitada necesita autenticación.</span>\n"
+"Introduzca su contraseña y pulse «Ejecutar» para continuar."
 
 #: src/ui/sudo-strings.h:11 src/ui/sudo.glade.h:7
 msgid "Your _password:"
 msgstr "Su _contraseña:"
+
+#: src/ui/sudo-strings.h:12 src/ui/sudo.glade.h:1
+msgid "*"
+msgstr "*"
+
+#: src/ui/sudo-strings.h:13 src/ui/sudo.glade.h:5
+msgid "Command to run:"
+msgstr "Comando a ejecutar:"
+
+#: src/ui/sudo-strings.h:14 src/ui/sudo.glade.h:2
+msgid ""
+"<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
+"span>"
+msgstr "<span style=\"italic\" weight=\"bold\">Por favor espere, se está verificando la contraseña...</span>"
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -168,31 +161,31 @@ msgid ""
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
 "\n"
-"Copyright (C) 1999 Free Software Foundation, Inc.\n"
-"Esto es software libre; vea el fuente para las condiciones de copia. Este "
-"software \n"
-"se ofrece SIN garantía de ninguna clase, bien expresa o implícita, con "
-"inclusión, pero\n"
-" sin limitación a las garantías MERCANTILES IMPLÍCITAS o a la CONVENIENCIA "
-"PARA UN PROPÓSITO\n"
-"PARTICULAR\n"
+"Copyright © 1999 Free Software Foundation, Inc.\n"
+"Esto es software libre; vea el fuente para las condiciones de copia.\n"
+"Este software se ofrece SIN garantía de ninguna clase, bien expresa\n"
+"o implícita, con inclusión, pero  sin limitación a las garantías MERCANTILES\n IMPLÍCITAS o a la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR\n"
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Pase el comando a ejecutar como una cadena única."
 
-#: tools/gnomesu.c:40
+#: tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "COMANDO"
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Ejecutar como este usuario en vez de root."
 
-#: tools/gnomesu.c:44
+#: tools/gnomesu.c:45
 msgid "USERNAME"
 msgstr "USUARIO"
 
-#: tools/gnomesu.c:64
+#: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "Superusuario GNOME"
+
+#~ msgid "Superuser _password:"
+#~ msgstr "_Contraseña de superusuario:"
+
