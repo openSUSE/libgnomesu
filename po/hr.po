@@ -1,11 +1,11 @@
 # Translation of libgnomesu to Croatian
 # Copyright (C) Croatian team
-# Translators: Automatski Prijevod <>,
+# Translators: Antun Krasic <butch@gawab.com>,Automatski Prijevod <>,
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu 0\n"
 "POT-Creation-Date: 2003-11-06 18:12+0100\n"
-"PO-Revision-Date: 2003-11-07 18:45+CET\n"
+"PO-Revision-Date: 2003-11-10 16:54+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: src/pam.c:99 src/su.c:97
 #, c-format
 msgid "%s's _password:"
-msgstr ""
+msgstr "%s's _lozinka"
 
 #: src/pam.c:103 src/su.c:101
 #, c-format
