@@ -1,0 +1,129 @@
+# Hungarian translation of libgnomesu.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgnomesu package.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnomesu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-11 12:34+0100\n"
+"PO-Revision-Date: 2005-01-11 14:27+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"Language-Team: Hungarian <gnome@gnome.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr "Jelszó szükséges"
+
+#: src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "Parancs:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr "_Folytatás"
+
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Adminisztrátori (root) jogosultság szükséges."
+
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Adja meg a root jelszót a folytatáshoz."
+
+#: src/gnomesu-auth-dialog.c:413
+msgid "_Password:"
+msgstr "_Jelszó:"
+
+#: src/gnomesu-auth-dialog.c:438
+msgid "Please wait, verifying password..."
+msgstr "Várjon, a jelszó ellenőrzése folyamatban..."
+
+#: src/gnomesu-auth-dialog.c:446
+msgid "Incorrect password, please try again."
+msgstr "Helytelen jelszó, próbálja újra."
+
+#: src/gnomesu-auth-dialog.c:453
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Helytelen jelszó, próbálja újra. Még egy lehetősége van."
+
+#: src/libgnomesu.c:168
+msgid "No services for libgnomesu are available.\n"
+msgstr "Nem állnak rendelkezésre szolgáltatások a libgnomesu-hoz.\n"
+
+#: src/services/pam.c:193 src/services/su.c:186
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "Adja meg %s jelszavát és kattintson a Folytatás gombra."
+
+#: src/services/pam.c:195 src/services/su.c:188
+msgid "The requested action needs further authentication."
+msgstr "A kért művelet további azonosítást igényel."
+
+#: src/services/pam.c:201 src/services/su.c:194
+#, c-format
+msgid "%s's _password:"
+msgstr "%s jel_szava:"
+
+#: src/services/pam.c:220 src/services/su.c:213
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "%s felhasználó nem létezik."
+
+#: src/services/pam.c:225 src/services/su.c:217
+msgid "An unknown error occured while authenticating."
+msgstr "Ismeretlen hiba lépett fel az azonosítás közben."
+
+#: src/services/pam.c:229 src/services/su.c:221
+msgid "You do not have permission to authenticate."
+msgstr "Nincs engedélye az azonosításra."
+
+#: src/services/pam.c:233
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Nem lehet inicializálni a PAM azonosítási rendszert."
+
+#: su-backend/closeout.c:71 su-backend/closeout.c:73
+msgid "write error"
+msgstr "íráshiba"
+
+#: su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Írta %s.\n"
+
+#: su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"Ez egy szabad szoftver, a másolási feltételekért lásd a forrást. \n"
+"NINCS garancia, még az eladhatóságra vagy valamely célra való "
+"alkalmazhatóságra vonatkozóan sem.\n"
+
+#: tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr "Adja meg a végrehajtandó parancsot egyetlen karakterláncként."
+
+#: tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "PARANCS"
+
+#: tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "Futtatás a root helyett ezen felhasználó nevében."
+
+#: tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "FELHASZNÁLÓNÉV"
+
+#: tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "GNOME adminisztrátor"
