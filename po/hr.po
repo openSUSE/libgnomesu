@@ -1,11 +1,11 @@
 # Translation of libgnomesu to Croatiann
 # Copyright (C) Croatiann team
-# Translators: Antun Krasic <butch@gawab.com>,Automatski Prijevod <>,Denis Lackovic <delacko@fly.srk.fer.hr>,pr pr <delacko@192.168.0.1>,
+# Translators: Antun Krasic <butch@gawab.com>,Automatski Prijevod <>,Denis Lackovic <delacko@fly.srk.fer.hr>,pr pr <delacko@192.168.0.1>,Robert Sedak <robert.sedak@sk.tel.hr>,
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu 0\n"
-"POT-Creation-Date: 2004-02-01 17:11+0100\n"
-"PO-Revision-Date: 2004-02-05 23:51+CET\n"
+"POT-Creation-Date: 2004-03-20 14:59+0100\n"
+"PO-Revision-Date: 2004-03-20 14:59+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "%s's _lozinka"
 
 #: src/pam.c:103 src/su.c:101
 msgid "Please enter %s's password and click Run to continue."
-msgstr "Molim unesite lozinku za „%s“ i kliknite „Pokreni“ za nastavak."
+msgstr "Molim unesite lozinku za \"%s\" i kliknite \"Pokreni\" za nastavak."
 
 #: src/pam.c:105 src/su.c:103
 msgid "The requested action needs further authentication."
@@ -48,7 +48,7 @@ msgstr "Molim pričekajte, provjeravam lozinku..."
 
 #: src/pam.c:352 src/su.c:348
 msgid "User '%s' doesn't exist."
-msgstr "Korisnik „%s“ ne postoji."
+msgstr "Korisnik \"%s\" ne postoji."
 
 #: src/pam.c:357 src/su.c:353
 msgid "An unknown error occured while authenticating."
@@ -86,7 +86,7 @@ msgid ""
 msgstr ""
 "<span weight=\"bold\">Tražena radnja zahtjeva administratorske (root) ovlasti.</"
 "span>\n"
-"Molim unesite lozinku administratora i kliknite „Pokreni“ za nastavak."
+"Molim unesite lozinku administratora i kliknite \"Pokreni\" za nastavak."
 
 #: src/ui/su-strings.h:11 src/ui/su.glade.h:7
 msgid "Superuser _password:"
@@ -124,17 +124,15 @@ msgid ""
 "Please enter your password and click Run to continue."
 msgstr ""
 "<span weight=\"bold\">Tražena radnja zahtjeva autentifikaciju.</span>\n"
-"Molim unesite vašu lozinku i kliknite „Pokreni“ za nastavak."
+"Molim unesite vašu lozinku i kliknite \"Pokreni\" za nastavak."
 
 #: src/ui/sudo-strings.h:11 src/ui/sudo.glade.h:7
-#, fuzzy
 msgid "Your _password:"
 msgstr "Vaša _lozinka:"
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
-#, fuzzy
 msgid "write error"
-msgstr "greška pri upisu"
+msgstr "greška prilikom zapisivanja"
 
 #: su-backend/version-etc.c:38
 #, c-format
@@ -167,9 +165,8 @@ msgid "Run as this user instead of as root."
 msgstr "Pokreni kao ovaj korisnik umjesto kao root."
 
 #: tools/gnomesu.c:43
-#, fuzzy
 msgid "USERNAME"
-msgstr "KORISNIK"
+msgstr "Korisničko ime"
 
 #: tools/gnomesu.c:63
 msgid "GNOME SuperUser"
