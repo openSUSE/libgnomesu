@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 20:41+0100\n"
-"PO-Revision-Date: 2004-12-11 22:33+0100\n"
+"POT-Creation-Date: 2005-01-06 12:26+0100\n"
+"PO-Revision-Date: 2005-01-06 20:49+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,41 +24,41 @@ msgstr "Integrace GNOME SuperUser"
 msgid "Open as superuser (root)..."
 msgstr "Otevřít jako superuživatel (root)..."
 
-#: src/libgnomesu.c:170
-msgid "No services for libgnomesu are available.\n"
-msgstr "Pro libgnomesu nejsou k dispozici žádné služby.\n"
-
-#: src/gnomesu-auth-dialog.c:108
+#: src/gnomesu-auth-dialog.c:110
 msgid "Password needed"
 msgstr "Je potřeba heslo"
 
-#: src/gnomesu-auth-dialog.c:161
+#: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "Příkaz:"
 
-#: src/gnomesu-auth-dialog.c:359
-msgid ""
-"<b>Administrator (root) privilege is required.</b>\n"
-"Please enter the root password to continue."
-msgstr ""
-"<b>Jsou potřeba oprávnění správce (root).</b>\n"
-"Pokračujte prosím zadáním hesla root."
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Jsou potřeba oprávnění správce (root)."
 
-#: src/gnomesu-auth-dialog.c:405
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Pokračujte prosím zadáním hesla uživatele root."
+
+#: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
 msgstr "_Heslo:"
 
-#: src/gnomesu-auth-dialog.c:430 src/services/sudo.c:151
+#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Čekejte prosím, ověřuji heslo..."
 
-#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:135
+#: src/gnomesu-auth-dialog.c:446 src/services/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Nesprávné heslo, zkuste to prosím znovu."
 
-#: src/gnomesu-auth-dialog.c:445
+#: src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Nesprávné heslo, zkuste to prosím znovu. Máte ještě jeden pokus."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "Pro libgnomesu nejsou k dispozici žádné služby.\n"
 
 #: src/services/pam.c:192 src/services/su.c:185
 #, c-format
