@@ -4,6 +4,8 @@
 	* src/prefix.[ch]: Upgrade to latest BinReloc.
 	  br_thread_local_store will no longer show up in the symbol
 	  table when BinReloc is disabled.
+	* src/api.html: Syntax highlight example code. Make HTML fully
+	  standards compliant.
 
 2005-01-07  Hongli Lai  <h.lai@chello.nl>
 

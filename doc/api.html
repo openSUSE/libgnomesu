@@ -54,22 +54,22 @@ All the functions you need are declared in the header file <code>libgnomesu.h</c
 
 Let's say you want to run gedit as root. This simple example will do just that:
 <pre class="example">
-/* test.c */
-#include &lt;gtk/gtk.h&gt;
-#include &lt;libgnomesu/libgnomesu.h&gt;
+<span class="comment">/* test.c */</span>
+<span class="cinc">#include</span> <span class="cinc2">&lt;gtk/gtk.h&gt;</span>
+<span class="cinc">#include</span> <span class="cinc2">&lt;libgnomesu/libgnomesu.h&gt;</span>
 
-int
-main (int argc, char *argv[])
+<span class="ctype">int</span>
+main (<span class="ctype">int</span> argc, <span class="ctype">char *</span>argv[])
 {
-    gtk_init (&argc, &argv);
+    gtk_init (&amp;argc, &amp;argv);
 
-    g_print ("Running gedit...\n");
-    if (!gnomesu_exec ("gedit")) {
-        g_printerr ("Unable to setup a subprocess!");
-        return 1;
+    g_print (<span class="cstr">"Running gedit...\n"</span>);
+    <span class="ckey">if</span> (!gnomesu_exec (<span class="cstr">"gedit"</span>)) {
+        g_printerr (<span class="cstr">"Unable to setup a subprocess!"</span>);
+        <span class="ckey">return</span> <span class="cnum">1</span>;
     }
-    g_print ("Done!\n");
-    return 0;
+    g_print (<span class="cstr">"Done!\n"</span>);
+    <span class="ckey">return</span> <span class="cnum">0</span>;
 }
 
 </pre>
