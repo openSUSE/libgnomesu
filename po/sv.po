@@ -2,12 +2,13 @@
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2003.
 #
-# $Id: sv.po,v 1.2 2003/11/07 14:28:26 hongli Exp $
+# $Id: sv.po,v 1.3 2004/04/09 19:00:02 hongli Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
-"POT-Creation-Date: 2003-11-07 14:36+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-09 17:34+0200\n"
 "PO-Revision-Date: 2003-09-20 16:57+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -160,23 +161,23 @@ msgstr ""
 "finns INTE NÅGON GARANTI, inte ens för KÖP eller LÄMPLIGHET FÖR NÅGOT\n"
 "SPECIELLT ÄNDAMÅL.\n"
 
-#: tools/gnomesu.c:37
+#: tools/gnomesu.c:38
 msgid "Pass the command to execute as one single string."
 msgstr "Ange kommandot som ska göras som en enstaka sträng."
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "COMMAND"
 msgstr "KOMMANDO"
 
-#: tools/gnomesu.c:41
+#: tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Kör som denna användare istället för root."
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "USERNAME"
 msgstr "ANVÄNDARNAMN"
 
-#: tools/gnomesu.c:62
+#: tools/gnomesu.c:63
 msgid "GNOME SuperUser"
 msgstr "GNOME-superanvändare"
 

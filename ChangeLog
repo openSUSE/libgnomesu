@@ -1,3 +1,12 @@
+2004-04-09  Hongli Lai  <h.lai@chello.nl>
+
+	* pam-backend/pam.c: #include <grp.h> to fix a compilation error.
+	  Minor code clean up.
+	* su-backend/common.c: fix X authentication restoration.
+	* Makefile.am: set DISTCHECK_CONFIG_FLAGS so 'make distcheck'
+	  will work.
+	* configure.in: correctly handle when --with-pam-dir is not given.
+
 2004-02-19  Evandro Fernandes Giovanini  <evandrofg@ig.com.br>
 
 	* configure.in (ALL_LINGUAS): Added "pt_BR" (Brazilian 

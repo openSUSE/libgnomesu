@@ -8,7 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
-"POT-Creation-Date: 2003-11-07 14:36+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-09 17:34+0200\n"
 "PO-Revision-Date: 2003-09-21 01:04+0200\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-listaL@nongnu.org>\n"
@@ -160,22 +161,22 @@ msgstr ""
 "Ово је слободан софтвер; погледајте изворни код за услове умножавања. Нема \n"
 "гаранције; чак ни гаранције о употребљивости или одређеној намени.\n"
 
-#: tools/gnomesu.c:37
+#: tools/gnomesu.c:38
 msgid "Pass the command to execute as one single string."
 msgstr "Проследите наредбу за извршење као једну ниску."
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "COMMAND"
 msgstr "НАРЕДБА"
 
-#: tools/gnomesu.c:41
+#: tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Покрени као овај корисник уместо као администратор."
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "USERNAME"
 msgstr "КОРИСНИК"
 
-#: tools/gnomesu.c:62
+#: tools/gnomesu.c:63
 msgid "GNOME SuperUser"
 msgstr "Гномов СуперКорисник"

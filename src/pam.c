@@ -306,8 +306,11 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		if (!f)
 			return FALSE;
 
-		while (!feof (f) && fgets (buf, sizeof (buf), f))
+		while (!feof (f))
 		{
+			fgets (buf, sizeof (buf), f);
+			if (!buf) continue;
+
 			if (strcmp (buf, "DONE\n") == 0)
 			{
 				fini_gui (gui);
@@ -357,8 +360,12 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 				bomb (gui, _("An unknown error occured while authenticating."));
 				break;
 			} else if (strcmp (buf, "DENIED\n") == 0)
-			{	
+			{
 				bomb (gui, _("You do not have permission to authenticate."));
+				break;
+			} else if (strcmp (buf, "INIT_ERROR\n") == 0)
+			{
+				bomb (gui, _("Unable to initialize PAM authentication system."));
 				break;
 			} else
 				break;

@@ -86,7 +86,7 @@ main (int argc, char *argv[])
 			if (!terminal)
 				terminal = "gnome-terminal";
 
-			/* Default action: launch a root/other user's terminal */
+			/* Default action: launch a terminal */
 			if (!gnome_su_spawn_command_async (user, terminal, &pid))
 				return 255;
 

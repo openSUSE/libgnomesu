@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
-"POT-Creation-Date: 2003-11-07 14:36+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-09 17:34+0200\n"
 "PO-Revision-Date: 2003-10-09 19:41+0300\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
 "Language-Team: Azərbaycan Dili <gnome@azətt.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:1
@@ -164,22 +164,22 @@ msgstr ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: tools/gnomesu.c:37
+#: tools/gnomesu.c:38
 msgid "Pass the command to execute as one single string."
 msgstr "İcra ediləcək əmri tək qatar formasında ötürün"
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "COMMAND"
 msgstr "ƏMR"
 
-#: tools/gnomesu.c:41
+#: tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Ali istifadəçi yerinə bu istifadəçi altında icra et."
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "USERNAME"
 msgstr "İSTAFADƏÇİADI"
 
-#: tools/gnomesu.c:62
+#: tools/gnomesu.c:63
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"

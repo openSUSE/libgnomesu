@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003-2004  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,6 +22,7 @@
 
 #include <sys/wait.h>
 #include <unistd.h>
+#include <libintl.h>
 #include "libgnomesu.h"
 #include "sudo.h"
 #include "consolehelper.h"
@@ -32,6 +33,9 @@
 #include "utils.h"
 
 G_BEGIN_DECLS
+
+#undef _
+#define _(x) dgettext (GETTEXT_PACKAGE, x)
 
 
 static GnomeSuServiceConstructor services[] = {
@@ -161,7 +165,11 @@ gnome_su_spawn_async (gchar *user, gchar **argv, int *pid)
 
 	service = find_best_service (argv[0], user);
 	if (!service)
+	{
+
+		g_critical (_("No services for libgnomesu are available.\n"));
 		return FALSE;
+	}
 
 	result = (*service->spawn_async) (user, argv, pid);
 	g_free (service);

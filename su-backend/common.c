@@ -147,7 +147,6 @@ modify_environment (const struct passwd *pw)
 	if (!g_getenv ("ICEAUTHORITY"))
 		xputenv (concat ("ICEAUTHORITY=", pw->pw_dir, "/.ICEauthority"));
 
-
 	/* Set HOME, SHELL, USER and LOGNAME.  */
 	xputenv (concat ("HOME", "=", pw->pw_dir));
 	xputenv (concat ("SHELL", "=", pw->pw_shell));
@@ -190,11 +189,8 @@ change_identity (const struct passwd *pw)
 	p = popen ("xauth -q 2>/dev/null", "w");
 	if (!p) return;
 
-	line = g_strdup_printf ("add %s", xauth_data);
-	fwrite (line, strlen (line), 1, p);
+	fwrite (xauth_data, strlen (xauth_data), 1, p);
 	memset (xauth_data, 0, strlen (xauth_data));
-	memset (line, 0, strlen (line));
 	g_free (xauth_data);
-	g_free (line);
 	pclose (p);
 }

@@ -27,6 +27,8 @@
 #include <unistd.h>
 #include <glib.h>
 #include <string.h>
+#include <grp.h>
+#include <sys/types.h>
 #ifdef HAVE_FSUID_H
 # include <sys/fsuid.h>
 #endif
@@ -39,6 +41,7 @@
 #define PROTOCOL_PASSWORD_FAIL		"PASSWORD_FAIL\n"	/* Entered incorrect password too many times */
 #define PROTOCOL_DONE			"DONE\n"		/* Success */
 #define PROTOCOL_NO_SUCH_USER		"NO_SUCH_USER\n"	/* USER doesn't exist */
+#define PROTOCOL_INIT_ERROR		"INIT_ERROR\n"		/* Unable to initialize PAM */
 #define PROTOCOL_ERROR			"ERROR\n"		/* Unknown error */
 #define PROTOCOL_AUTH_DENIED		"DENIED\n"		/* User is not allowed to authenticate itself */
 
@@ -47,6 +50,7 @@
 
 static FILE *inf, *outf;
 static gboolean Abort = FALSE;
+const gchar *new_user;
 
 
 static int
@@ -57,12 +61,13 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 
 	reply = g_new0 (struct pam_response, num_msg + 1);
 
-	for (i = 0; i < num_msg; i++)
+	for (i = 0; i < num_msg; i++) {
 	switch (msg[i]->msg_style)
 	{
 	case PAM_PROMPT_ECHO_ON:
 		reply[i].resp_retcode = PAM_SUCCESS;
 		break;
+
 	case PAM_PROMPT_ECHO_OFF:
 		if (strncasecmp (msg[i]->msg, "password", 8) == 0)
 		{
@@ -84,7 +89,9 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 			memset (password, 0, sizeof (password));
 			reply[i].resp_retcode = PAM_SUCCESS;
 		}
+
 		break;
+
 	case PAM_TEXT_INFO:
 	case PAM_ERROR_MSG:
 		/* Ignore it... */
@@ -92,6 +99,7 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 		break;
 	default:
 		break;
+	}
 	}
 
 	if (resp != NULL) {
@@ -109,10 +117,10 @@ static const struct pam_conv conv =
 };
 
 
-char *concat (const char *s1, const char *s2, const char *s3);
-void xputenv (const char *val);
-void change_identity (const struct passwd *pw);
-void modify_environment (const struct passwd *pw);
+extern char *concat (const char *s1, const char *s2, const char *s3);
+extern void xputenv (const char *val);
+extern void change_identity (const struct passwd *pw);
+extern void modify_environment (const struct passwd *pw);
 
 
 static void
@@ -129,32 +137,23 @@ close_pam (pam_handle_t *pamh, int retval)
 }
 
 
-/*  Usage: gnomesu-pam-backend <INFD> <OUTFD> <USER> <COMMAND> [ARG1] [ARGn..]
- *  gnomesu-pam-backend uses file descriptors INFD and OUTFD to communicate with the parent.
- *  INFD is used to retrieve the password. OUTFD is used to print messages (see the PROTOCOL_* macros).
- */
-
-int
-main (int argc, char *argv[])
+static struct passwd *
+init (int argc, char **argv)
 {
-	int retval;
-	pam_handle_t *pamh = NULL;
-	const gchar *new_user;
-	int infd, outfd, i;
-	gboolean authenticated = FALSE;
-	struct passwd *pw, pw_copy;
+	int infd, outfd;
+	struct passwd *pw;
 
 
 	if (argv[1] && strcmp (argv[1], "--version") == 0)
 	{
 		g_print ("%s\n", VERSION);
-		return 0;
+		exit (0);
 	}
 
 	if (!g_getenv ("_GNOMESU_PAM_BACKEND_START") || strcmp (g_getenv ("_GNOMESU_PAM_BACKEND_START"), "1") != 0)
 	{
 		fprintf (stderr, "This program is for internal use only! Never run this program directly!\n");
-		return 1;
+		exit (1);
 	}
 	unsetenv ("_GNOMESU_PAM_BACKEND_START");
 
@@ -163,7 +162,7 @@ main (int argc, char *argv[])
 	if (argc < 5)
 	{
 		fprintf (stderr, "Too little arguments.\n");
-		return 1;
+		exit (1);
 	}
 
 	new_user = argv[3];
@@ -175,49 +174,75 @@ main (int argc, char *argv[])
 	if (infd <= 2 || outfd <= 2)
 	{
 		fprintf (stderr, "Invalid file descriptors.\n");
-		return 1;
+		exit (1);
 	}
 	inf = fdopen (infd, "r");
 	if (!inf)
 	{
 		fprintf (stderr, "Cannot fopen() INFD\n");
-		return 1;
+		exit (1);
 	}
 	outf = fdopen (outfd, "w");
 	if (!outf)
 	{
 		fprintf (stderr, "Cannot fopen() OUTFD\n");
-		return 1;
+		exit (1);
 	}
 	setlinebuf (outf);
 
 
+	/* Check whether the given user exists */
 	pw = getpwnam (new_user);
-	if (pw == 0)
+	if (!pw)
 	{
 		fprintf (outf, PROTOCOL_NO_SUCH_USER);
-		return 1;
+		exit (1);
 	}
 
 	/* Make a copy of the password information and point pw at the local
 	   copy instead.  Otherwise, some systems (e.g. Linux) would clobber
 	   the static data through the getlogin call from log_su.  */
-	pw_copy = *pw;
-	pw = &pw_copy;
+	pw = g_memdup (pw, sizeof (struct passwd));
 	pw->pw_name = g_strdup (pw->pw_name);
 	pw->pw_dir = g_strdup (pw->pw_dir);
 	pw->pw_shell = g_strdup (pw->pw_shell);
 	endpwent ();
+	return pw;
+}
 
-	retval = pam_start ("gnomesu-pam", new_user, &conv, &pamh);
-	pam_set_item (pamh, PAM_RUSER, g_get_user_name ());
 
+/*  Usage: gnomesu-pam-backend <INFD> <OUTFD> <USER> <COMMAND> [ARG1] [ARGn..]
+ *  gnomesu-pam-backend uses file descriptors INFD and OUTFD to communicate with the parent.
+ *  INFD is used to retrieve the password. OUTFD is used to print messages (see the PROTOCOL_* macros).
+ */
+
+int
+main (int argc, char *argv[])
+{
+	struct passwd *pw;
+	gboolean authenticated = FALSE;
+	pam_handle_t *pamh = NULL;
+	int retval, i;
+
+	pw = init (argc, argv);
+
+	if (pam_start ("gnomesu-pam", new_user, &conv, &pamh) != PAM_SUCCESS)
+	{
+		fprintf (outf, PROTOCOL_INIT_ERROR);
+		exit (1);
+	}
+
+	if (pam_set_item (pamh, PAM_RUSER, g_get_user_name ()) != PAM_SUCCESS)
+	{
+		fprintf (outf, PROTOCOL_INIT_ERROR);
+		exit (1);
+	}
 
 	/* Ask for password up to 3 times */
-	if (retval == PAM_SUCCESS)
 	for (i = 0; i < 3; i++)
 	{
-		retval = pam_authenticate (pamh, 0);	/* is user really user? */
+		/* Start the authentication */
+		retval = pam_authenticate (pamh, 0);
 		if (retval != PAM_AUTH_ERR || Abort)
 			break;
 		else
@@ -226,7 +251,9 @@ main (int argc, char *argv[])
 
 	if (retval == PAM_SUCCESS)
 	{
-		retval = pam_acct_mgmt (pamh, 0);	/* permitted access? */
+		/* Is the user permitted to access this account? */
+		retval = pam_acct_mgmt (pamh, 0);
+
 		if (retval == PAM_SUCCESS)
 			authenticated = TRUE;
 		else
@@ -240,7 +267,9 @@ main (int argc, char *argv[])
 		close_pam (pamh, retval);
 		fprintf (outf, PROTOCOL_ERROR);
 		return 1;
-	} else if (authenticated)
+	}
+
+	if (authenticated)
 	{
 		char **command = argv + 4;
 		pid_t pid;
@@ -252,6 +281,7 @@ main (int argc, char *argv[])
 		initgroups (pw->pw_name, pw->pw_gid);
 		setgid (pw->pw_gid);
 		setuid (pw->pw_uid);
+
 		retval = pam_setcred (pamh, PAM_ESTABLISH_CRED);
 		if (retval != PAM_SUCCESS)
 			fprintf (stderr, "Warning: %s\n", pam_strerror (pamh, retval));
@@ -285,6 +315,7 @@ main (int argc, char *argv[])
 
 		/* evecvp() failed */
 		return exitCode;
+
 	} else
 	{
 		close_pam (pamh, retval);

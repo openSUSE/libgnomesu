@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
-"POT-Creation-Date: 2003-11-07 14:36+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-09 17:34+0200\n"
 "PO-Revision-Date: 2003-10-20 00:22+0800\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team: Projek Gabai <gabai-penyumbang@lists.sourceforge.net>\n"
@@ -158,22 +159,22 @@ msgstr ""
 "Ini adalah perisian bebas; lihat sumber untuk syarat menyalin.  Tiada \n"
 "waranti; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: tools/gnomesu.c:37
+#: tools/gnomesu.c:38
 msgid "Pass the command to execute as one single string."
 msgstr "Hantar arahan untuk dilaksanakan sebagai satu rentetan tunggal"
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "COMMAND"
 msgstr "ARAHAN"
 
-#: tools/gnomesu.c:41
+#: tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Laksana sebagai pengguna selain root."
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "USERNAME"
 msgstr "NAMAPENGGUNA"
 
-#: tools/gnomesu.c:62
+#: tools/gnomesu.c:63
 msgid "GNOME SuperUser"
 msgstr "PenggunaSuper GNOME"

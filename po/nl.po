@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
-"POT-Creation-Date: 2003-11-07 14:36+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-09 17:34+0200\n"
 "PO-Revision-Date: 2003-10-02 21:53+0100\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -159,22 +160,22 @@ msgstr ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: tools/gnomesu.c:37
+#: tools/gnomesu.c:38
 msgid "Pass the command to execute as one single string."
 msgstr "Geef de uit te voeren opdracht op als een enkel stuk tekst."
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "COMMAND"
 msgstr "OPDRACHT"
 
-#: tools/gnomesu.c:41
+#: tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Uitvoeren als deze gebruiker i.p.v. root."
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "USERNAME"
 msgstr "GEBRUIKERSNAAM"
 
-#: tools/gnomesu.c:62
+#: tools/gnomesu.c:63
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperGebruiker"

@@ -13,3 +13,5 @@ DISTCLEANFILES =\
 	intltool-merge\
 	intltool-update\
 	intltool-extract
+
+DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install --disable-setuid-error
