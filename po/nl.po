@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
-"PO-Revision-Date: 2003-10-02 21:53+0100\n"
+"POT-Creation-Date: 2004-04-13 20:02+0200\n"
+"PO-Revision-Date: 2004-04-13 20:38+0200\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,10 @@ msgstr "GNOME SuperGebruiker integratie"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Openen als supergebruiker (root)..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "Er zijn geen diensten voor libgnomesu beschikbaar.\n"
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -49,18 +53,22 @@ msgstr "Wachtwoord onjuist; probeer het nogmaals."
 msgid "Please wait, verifying password..."
 msgstr "Het wachtwoord wordt gecontroleerd, even geduld a.u.b...."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "De gebruiker '%s' bestaat niet."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Een onbekende fout is opgetreden tijdens authentificatie."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "U heeft geen toegangsrechten om te authentificeren."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr "Niet in staat het PAM aanmeldingssysteem te initialiseren."
 
 #: src/sudo.c:320
 msgid ""
