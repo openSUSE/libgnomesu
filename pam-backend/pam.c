@@ -29,7 +29,7 @@
 #include <grp.h>
 #include <sys/types.h>
 #ifdef HAVE_FSUID_H
-# include <sys/fsuid.h>
+#	include <sys/fsuid.h>
 #endif
 
 #include "common.h"
@@ -273,7 +273,9 @@ main (int argc, char *argv[])
 		int exitCode = 1, status;
 
 		modify_environment (pw);
+		#ifdef HAVE_SETFSUID
 		setfsuid (pw->pw_uid);
+		#endif /* HAVE_SETFSUID */
 		change_identity (pw);
 		initgroups (pw->pw_name, pw->pw_gid);
 		setgid (pw->pw_gid);
