@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-01 14:50+0100\n"
-"PO-Revision-Date: 2005-01-01 14:55+0100\n"
+"POT-Creation-Date: 2005-01-07 02:16+0100\n"
+"PO-Revision-Date: 2005-01-07 02:16+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
-"serrador@hispalinux.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"serrador@hispalinux.es>\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
@@ -28,10 +28,6 @@ msgstr "Integración del superusuario en GNOME"
 msgid "Open as superuser (root)..."
 msgstr "Abrir como superusuario (root)..."
 
-#: src/libgnomesu.c:170
-msgid "No services for libgnomesu are available.\n"
-msgstr "No hay servicios disponibles para libgnomesu.\n"
-
 #: src/gnomesu-auth-dialog.c:110
 msgid "Password needed"
 msgstr "Se necesita contraseña"
@@ -40,29 +36,33 @@ msgstr "Se necesita contraseña"
 msgid "Command:"
 msgstr "Comando:"
 
-#: src/gnomesu-auth-dialog.c:361
-msgid ""
-"<b>Administrator (root) privilege is required.</b>\n"
-"Please enter the root password to continue."
-msgstr ""
-"<b>Se requieren privilegios de administrador (root).</b>\n"
-"Por favor, introduzca la contraseña de root para continuar."
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Se requieren privilegios de administrador (root)."
 
-#: src/gnomesu-auth-dialog.c:407
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Introduzca la contraseña de root para continuar."
+
+#: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
 msgstr "_Contraseña:"
 
-#: src/gnomesu-auth-dialog.c:432 src/services/sudo.c:151
+#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Se está verificando la contraseña..."
 
-#: src/gnomesu-auth-dialog.c:440 src/services/sudo.c:135
+#: src/gnomesu-auth-dialog.c:446 src/services/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Contraseña incorrecta. Inténtelo de nuevo."
 
-#: src/gnomesu-auth-dialog.c:447
+#: src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Contraseña incorrecta. Inténtelo de nuevo. Tiene una oportunidad más."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "No hay servicios disponibles para libgnomesu.\n"
 
 #: src/services/pam.c:192 src/services/su.c:185
 #, c-format
@@ -142,7 +142,9 @@ msgstr "Comando a ejecutar:"
 msgid ""
 "<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
 "span>"
-msgstr "<span style=\"italic\" weight=\"bold\">Por favor espere, se está verificando la contraseña...</span>"
+msgstr ""
+"<span style=\"italic\" weight=\"bold\">Por favor espere, se está verificando "
+"la contraseña...</span>"
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -164,7 +166,9 @@ msgstr ""
 "Copyright © 1999 Free Software Foundation, Inc.\n"
 "Esto es software libre; vea el fuente para las condiciones de copia.\n"
 "Este software se ofrece SIN garantía de ninguna clase, bien expresa\n"
-"o implícita, con inclusión, pero  sin limitación a las garantías MERCANTILES\n IMPLÍCITAS o a la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR\n"
+"o implícita, con inclusión, pero  sin limitación a las garantías "
+"MERCANTILES\n"
+" IMPLÍCITAS o a la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR\n"
 
 #: tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
@@ -188,4 +192,3 @@ msgstr "Superusuario GNOME"
 
 #~ msgid "Superuser _password:"
 #~ msgstr "_Contraseña de superusuario:"
-
