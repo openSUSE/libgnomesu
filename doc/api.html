@@ -28,23 +28,23 @@ All the functions you need are declared in the header file <code>libgnomesu.h</c
 	<th>Description</th>
 </tr>
 <tr>
-	<td><code>gboolean gnome_su_exec (gchar *commandline);</code></td>
+	<td><code>gboolean gnomesu_exec (gchar *commandline);</code></td>
 	<td>Runs <code>commandline</code> as root and wait until it has finished.</td>
 </tr>
 <tr>
-	<td><code>gboolean gnome_su_spawn_command_sync (gchar *user, gchar *commandline);</code></td>
+	<td><code>gboolean gnomesu_spawn_command_sync (gchar *user, gchar *commandline);</code></td>
 	<td>Runs <code>commandline</code> as <code>user</code> and wait until it has exited.</td>
 </tr>
 <tr>
-	<td><code>gboolean gnome_su_spawn_command_async (gchar *user, gchar *commandline, int *pid);</code></td>
+	<td><code>gboolean gnomesu_spawn_command_async (gchar *user, gchar *commandline, int *pid);</code></td>
 	<td>Runs <code>commandline</code> as <code>user</code> but do not wait until it has exited.</td>
 </tr>
 <tr>
-	<td><code>gboolean gnome_su_spawn_sync (gchar *user, gchar **argv);</code></td>
+	<td><code>gboolean gnomesu_spawn_sync (gchar *user, gchar **argv);</code></td>
 	<td>Runs a program with <code>argv</code> as <code>user</code> and wait until it has exited.</td>
 </tr>
 <tr>
-	<td><code>gboolean gnome_su_spawn_async (gchar *user, gchar **argv, int *pid);</code></td>
+	<td><code>gboolean gnomesu_spawn_async (gchar *user, gchar **argv, int *pid);</code></td>
 	<td>Runs a program with <code>argv</code> as <code>user</code> but do not wait until it has exited.</td>
 </tr>
 </table>
@@ -64,7 +64,7 @@ main (int argc, char *argv[])
     gtk_init (&argc, &argv);
 
     g_print ("Running gedit...\n");
-    if (!gnome_su_exec ("gedit")) {
+    if (!gnomesu_exec ("gedit")) {
         g_printerr ("Unable to setup a subprocess!");
         return 1;
     }
@@ -95,22 +95,22 @@ Possible reasons why a function returns <code>FALSE</code>:
 
 <p>
 This return value has got nothing to do with whether <code>commandline</code> has been successfully run!
-For example, if you run <code>gnome_su_exec("this-command-does-not-exists")</code>, you will get <code>TRUE</code>
+For example, if you run <code>gnomesu_exec("this-command-does-not-exists")</code>, you will get <code>TRUE</code>
 as return value, even though the command failed to run.
 
 
 <p class="p"><h2>More complex functions</h2>
 
-<code>gnome_su_spawn_command_sync()</code> is exactly like <code>gnome_su_exec()</code>,
+<code>gnomesu_spawn_command_sync()</code> is exactly like <code>gnomesu_exec()</code>,
 except that you can also specify as what user you want to run <code>commandline</code>.
 
 <p>
-<code>gnome_su_spawn_command_async()</code> is like <code>gnome_su_command_spawn_sync()</code>,
+<code>gnomesu_spawn_command_async()</code> is like <code>gnomesu_command_spawn_sync()</code>,
 but doesn't wait until <code>commandline</code> has exited. This function returns immediately.
 It also places the subprocess's PID in the variable <code>pid</code> if it's non-<code>NULL</code>.
 
 <p>
-<code>gnome_su_spawn_sync()</code> and <code>gnome_su_spawn_async()</code> accept an array of strings instead of a commandline string.
+<code>gnomesu_spawn_sync()</code> and <code>gnomesu_spawn_async()</code> accept an array of strings instead of a commandline string.
 It is recommended that you use one of these two functions if you want to pass parameters to the program you want to run.
 
 
