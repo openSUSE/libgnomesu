@@ -1,3 +1,11 @@
+2005-01-07  Hongli Lai  <h.lai@chello.nl>
+
+	* nautilus/*.c, *.h, *.server*, Makefile.am:
+	  Removed Nautilus Bonobo component. Nautilus will be de-bonobo-ized.
+	* src/libgnomesu.schemas, src/services/sudo.*, src/ui/*:
+	  Removed sudo backend.
+	* NEWS: Update news for 0.9.5.
+
 2005-01-03  Hongli Lai  <h.lai@chello.nl>
 
 	* src/gnomesu-auth-dialog.c: Don't translate GMarkup tags.
