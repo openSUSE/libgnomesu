@@ -22,3 +22,6 @@ version of GNU su.
 
 libgnomesu comes with the GUI frontend 'gnomesu' and a Nautilus component 
 for Nautilus integration.
+
+
+You can find API documentation in the folder 'doc'.

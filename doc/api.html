@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>libgnomesu API documentation</title>
+	<link rel="stylesheet" type="text/css" href="libgnomesu.css">
+</head>
+
+<body>
+
+<div id="title">libgnomesu API Documentation</div>
+
+<div id="main">
+
+<h1>Introduction</h1>
+
+<code>libgnomesu</code> is a library which allows you to run programs as root or another user.
+
+
+<h2>Functions</h2>
+
+All the functions you need are declared in the header file <code>libgnomesu.h</code>.
+<p>
+
+<table id="functionIndex">
+<tr>
+	<th>Function</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td><code>gboolean gnome_su_exec (gchar *commandline);</code></td>
+	<td>Runs <code>commandline</code> as root and wait until it has finished.</td>
+</tr>
+<tr>
+	<td><code>gboolean gnome_su_spawn_command_sync (gchar *user, gchar *commandline);</code></td>
+	<td>Runs <code>commandline</code> as <code>user</code> and wait until it has exited.</td>
+</tr>
+<tr>
+	<td><code>gboolean gnome_su_spawn_command_async (gchar *user, gchar *commandline, int *pid);</code></td>
+	<td>Runs <code>commandline</code> as <code>user</code> but do not wait until it has exited.</td>
+</tr>
+<tr>
+	<td><code>gboolean gnome_su_spawn_sync (gchar *user, gchar **argv);</code></td>
+	<td>Runs a program with <code>argv</code> as <code>user</code> and wait until it has exited.</td>
+</tr>
+<tr>
+	<td><code>gboolean gnome_su_spawn_async (gchar *user, gchar **argv, int *pid);</code></td>
+	<td>Runs a program with <code>argv</code> as <code>user</code> but do not wait until it has exited.</td>
+</tr>
+</table>
+
+
+<p class="p"><h2>Running a program as root</h2>
+
+Let's say you want to run gedit as root. This simple example will do just that:
+<pre class="example">
+/* test.c */
+#include &lt;gtk/gtk.h&gt;
+#include &lt;libgnomesu/libgnomesu.h&gt;
+
+int
+main (int argc, char *argv[])
+{
+    gtk_init (&argc, &argv);
+
+    g_print ("Running gedit...\n");
+    if (!gnome_su_exec ("gedit")) {
+        g_printerr ("Unable to setup a subprocess!");
+        return 1;
+    }
+    g_print ("Done!\n");
+    return 0;
+}
+
+</pre>
+
+Compile with:
+<pre>gcc -Wall test.c -o test $(pkg-config --cflags --libs gtk+-2.0 libgnomesu-1.0)</pre>
+
+<p>
+<code>libgnomesu</code> will prompt the user for a password, if necessary. If the user is already root, or if root does not have a password (!), libgnomesu will run gedit without prompting for a password.
+
+
+<p class="p"><h2>Return value</h2>
+
+All <code>libgnomesu</code> functions return <code>TRUE</code> or <code>FALSE</code>.
+<code>TRUE</code> means the function is able to create setup a subprocess. <code>FALSE</code> means it failed to setup a subprocess.
+
+<p>
+Possible reasons why a function returns <code>FALSE</code>:
+<ul>
+<li>The user was prompted for a password, but he pressed the Cancel button. This is the most likely reason.</li>
+<li>It it failed to run <code>fork()</code>, failed to create a pipe to communicate with the subprocess, etc.</li>
+</ul>
+
+<p>
+This return value has got nothing to do with whether <code>commandline</code> has been successfully run!
+For example, if you run <code>gnome_su_exec("this-command-does-not-exists")</code>, you will get <code>TRUE</code>
+as return value, even though the command failed to run.
+
+
+<p class="p"><h2>More complex functions</h2>
+
+<code>gnome_su_spawn_command_sync()</code> is exactly like <code>gnome_su_exec()</code>,
+except that you can also specify as what user you want to run <code>commandline</code>.
+
+<p>
+<code>gnome_su_spawn_command_async()</code> is like <code>gnome_su_command_spawn_sync()</code>,
+but doesn't wait until <code>commandline</code> has exited. This function returns immediately.
+It also places the subprocess's PID in the variable <code>pid</code> if it's non-<code>NULL</code>.
+
+<p>
+<code>gnome_su_spawn_sync()</code> and <code>gnome_su_spawn_async()</code> accept an array of strings instead of a commandline string.
+It is recommended that you use one of these two functions if you want to pass parameters to the program you want to run.
+
+
+</div>
+</body>
+</html>

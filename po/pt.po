@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
+"POT-Creation-Date: 2004-07-14 12:40+0200\n"
 "PO-Revision-Date: 2003-09-21 03:40+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
@@ -22,6 +22,10 @@ msgstr "Integração SuperUtilizador GNOME"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Abrir como superutilizador (root)..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr ""
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -49,18 +53,22 @@ msgstr "Senha incorrecta, tente novamente."
 msgid "Please wait, verifying password..."
 msgstr "Aguarde, a verificar senha..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Utilizador '%s' não existe."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Ocorreu um erro desconhecido ao autenticar-se."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "Não possui permissões para se autenticar."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr ""
 
 #: src/sudo.c:320
 msgid ""

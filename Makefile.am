@@ -1,4 +1,4 @@
-SUBDIRS = src su-backend pam-backend tools nautilus po
+SUBDIRS = src su-backend pam-backend tools nautilus po doc
 
 pkgfilesdir = $(libdir)/pkgconfig
 pkgfiles_DATA = libgnomesu-1.0.pc
@@ -14,4 +14,5 @@ DISTCLEANFILES =\
 	intltool-update\
 	intltool-extract
 
-DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install --disable-setuid-error
+DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install \
+	--disable-setuid-error --disable-install-pam

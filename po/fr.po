@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu 0.9.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
+"POT-Creation-Date: 2004-07-14 12:40+0200\n"
 "PO-Revision-Date: 2004-01-03 20:31+0100\n"
 "Last-Translator: Laurent Richard <laurent.richard@lilit.be>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -23,6 +23,10 @@ msgstr "Intégration du super utilisateur GNOME"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Ouvrir en tant que super utilisateur (root)..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr ""
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -53,18 +57,22 @@ msgstr "Mot de passe incorrect, veuillez recommencer."
 msgid "Please wait, verifying password..."
 msgstr "Veuillez patienter, vérification du mot de passe..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "L'utilisateur « %s » n'existe pas."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Une erreur inconnue est survenue pendant l'authentification."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "Vous n'avez pas la permission de vous authentifier."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr ""
 
 #: src/sudo.c:320
 msgid ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
+"POT-Creation-Date: 2004-07-14 12:40+0200\n"
 "PO-Revision-Date: 2003-09-21 01:04+0200\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-listaL@nongnu.org>\n"
@@ -24,6 +24,10 @@ msgstr "Интеграција Гномовог СуперКорисника"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Отвори као администратор..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr ""
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -51,18 +55,22 @@ msgstr "Неисправна лозинка, молим покушајте ка�
 msgid "Please wait, verifying password..."
 msgstr "Молим сачекајте, проверавам лозинку..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Корисник „%s“ не постоји."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Дошло је до непознате грешке при овлашћивању."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "Немате дозволу за овлашћивање."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr ""
 
 #: src/sudo.c:320
 msgid ""

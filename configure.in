@@ -8,6 +8,7 @@ AM_MAINTAINER_MODE
 AC_ISC_POSIX
 AC_PROG_CC
 AC_STDC_HEADERS
+AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
 
 AC_PROG_INSTALL
@@ -208,7 +209,10 @@ AC_MSG_RESULT($setuid_error)
 AM_CONDITIONAL(SETUID_ERROR, test $setuid_error = yes)
 
 
-AC_ARG_WITH(pam-dir, [  --with-pam-dir=PATH     where to install PAM entries (default=/etc/pam.d)],,withval=/etc/pam.d)
+AC_ARG_ENABLE(install-pam, [  --disable-install-apm    Do not install PAM entry. (default=yes)],,enableval=yes)
+AM_CONDITIONAL(INSTALL_PAM, test "$enableval" = "yes")
+
+AC_ARG_WITH(pam-dir, [  --with-pam-dir=PATH     where to install PAM entries to (default=/etc/pam.d)],,withval=/etc/pam.d)
 if test "$withval" != ""; then
 	PAMDIR=$withval
 else
@@ -227,4 +231,5 @@ src/ui/Makefile
 tools/Makefile
 nautilus/Makefile
 po/Makefile.in
+doc/Makefile
 ])

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
+"POT-Creation-Date: 2004-07-14 12:40+0200\n"
 "PO-Revision-Date: 2004-01-24 09:30+0200\n"
 "Last-Translator: Aleix Badia i Bosch <abadia@ica.es>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -22,6 +22,10 @@ msgstr "Integració del superusuari del GNOME"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Obre-ho com a superusuari (root)..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr ""
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -51,18 +55,22 @@ msgstr "La contrasenya és incorrecta, torneu-ho a intentar."
 msgid "Please wait, verifying password..."
 msgstr "Espereu, s'està verificant la contrasenya..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "L'usuari %s no existeix."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "S'ha produït un error desconegut en autenticar-se."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "No teniu permisos per autenticar-vos."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr ""
 
 #: src/sudo.c:320
 msgid ""
