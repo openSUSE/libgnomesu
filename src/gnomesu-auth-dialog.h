@@ -35,25 +35,28 @@ G_BEGIN_DECLS
 
 typedef struct _GnomesuAuthDialog GnomesuAuthDialog;
 typedef struct _GnomesuAuthDialogClass GnomesuAuthDialogClass;
+typedef struct _GnomesuAuthDialogPrivate GnomesuAuthDialogPrivate;
 
 
 struct _GnomesuAuthDialog {
 	GtkDialog parent;
+	/* Reserve space for future expansion */
+	gpointer _reserved1;
+	gpointer _reserved2;
+	gpointer _reserved3;
+	gpointer _reserved4;
 
 	/*<private>*/
-	GtkWidget *left_action_area;
-	GtkWidget *icon;
-	GtkWidget *desc_label;
-	GtkWidget *command_desc_label;
-	GtkWidget *command_label;
-	GtkWidget *prompt_label;
-	GtkWidget *input;
-	GtkWidget *mode_label;
-	GdkCursor *watch;
+	GnomesuAuthDialogPrivate *_priv;
 };
 
 struct _GnomesuAuthDialogClass {
 	GtkDialogClass parent_class;
+	/* Reserve space for future expansion */
+	gpointer _reserved1;
+	gpointer _reserved2;
+	gpointer _reserved3;
+	gpointer _reserved4;
 };
 
 

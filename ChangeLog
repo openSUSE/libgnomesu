@@ -2,7 +2,11 @@
 
 	* src/services/pam.c: some minor cleanups.
 	* src/services/su.c: use GnomesuAuthDialog.
+	* src/services/consolehelper.c: Minor cleanups. Fix memory leak.
 	* src/ui/: Remove su.glade and everything related to it.
+	* src/gnomesu-auth-dialog.[ch]: move private stuff to private
+	  structure. Minor cleanups. Reserve space in structure for
+	  future expansion.
 
 2004-11-30  Hongli Lai  <h.lai@chello.nl>
 
