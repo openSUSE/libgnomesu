@@ -5,6 +5,9 @@
 	* src/libgnomesu.schemas, src/services/sudo.*, src/ui/*,
 	  src/libgnomesu.c:
 	  Removed sudo backend.
+	* configure.in: Remove Bonobo and libglade dependancy.
+	* autopackage/default.apspec.in:
+	  Remove some dependancies. Update for autopackage 0.7+.
 	* NEWS: Update news for 0.9.5.
 
 2005-01-03  Hongli Lai  <h.lai@chello.nl>

@@ -14,5 +14,4 @@ DISTCLEANFILES =\
 	intltool-update\
 	intltool-extract
 
-DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install \
-	--disable-setuid-error --disable-install-pam
+DISTCHECK_CONFIGURE_FLAGS = --disable-setuid-error --disable-install-pam
