@@ -36,6 +36,8 @@ gboolean gnomesu_spawn_command_async (gchar *user, gchar *commandline, int *pid)
 gboolean gnomesu_spawn_sync (gchar *user, gchar **argv);
 gboolean gnomesu_spawn_async (gchar *user, gchar **argv, int *pid);
 
+/* This function allows you to customize the user interface little.
+   Since 0.9.8 */
 gboolean gnomesu_spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
 	GdkPixbuf *icon, const gchar *title, gboolean show_command);
 
