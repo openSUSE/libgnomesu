@@ -11,7 +11,7 @@ gnomesu_pam_backend_LDFLAGS = \
 	-lpam
 gnomesu_pam_backend_DEPENDENCIES = $(top_srcdir)/su-backend/libcommon.la
 
-pamdir = /etc/pam.d
+pamdir = $(PAMDIR)
 pam_DATA = gnomesu-pam
 
 installed_exe=$(libexecdir)/`echo gnomesu-pam-backend | sed $(transform)`

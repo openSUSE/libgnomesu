@@ -6,6 +6,8 @@
 	  sudoers settings.
 	  The caveat is that you won't be able to see messages to stderr
 	  when using this backend.
+	* configure.in, pam-backend/Makefile.am: New option --with-pam-dir
+	  so you can install PAM entries to a folder other than /etc/pam.d
 
 2003-10-25  Metin Amiroff  <metin@karegen.com>
 

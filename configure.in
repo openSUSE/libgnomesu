@@ -208,6 +208,15 @@ AC_MSG_RESULT($setuid_error)
 AM_CONDITIONAL(SETUID_ERROR, test $setuid_error = yes)
 
 
+AC_ARG_WITH(pam-dir, [  --with-pam-dir=PATH     where to install PAM entries (default=/etc/pam.d)])
+if test "x$with_pam_dir" != x; then
+	PAMDIR=$with_pam_dir
+else
+	PAMDIR=/etc/pam.d
+fi
+AC_SUBST(PAMDIR)
+
+
 AC_OUTPUT([
 libgnomesu-1.0.pc
 Makefile
