@@ -178,7 +178,7 @@ __libgnomesu_count_args (gchar **argv)
 GladeXML *
 __libgnomesu_load_glade (gchar *basename)
 {
-	gchar *filename;
+	gchar *filename = NULL;
 	GladeXML *xml;
 
 	#ifdef SELFPATH
@@ -187,7 +187,8 @@ __libgnomesu_load_glade (gchar *basename)
 		goto load;
 	#endif
 
-	g_free (filename);
+	if (filename)
+		g_free (filename);
 	filename = g_strdup_printf ("%s/%s", GLADEDIR, basename);
 	if (g_file_test (filename, G_FILE_TEST_EXISTS))
 		goto load;

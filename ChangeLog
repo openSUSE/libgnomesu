@@ -1,3 +1,7 @@
+2004-10-27  Hongli Lai  <h.lai@chello.nl>
+
+	* src/utils.c: fix freeing of uninitialized pointer.
+
 2004-10-26  Hongli Lai  <h.lai@chello.nl>
 
 	* {su,pam}-backend/Makefile.am:
