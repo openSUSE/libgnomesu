@@ -6,6 +6,7 @@ INCLUDES = $(GNOMESU_BACKEND_CFLAGS)
 gnomesu_backend_SOURCES = \
 	basename.c\
 	closeout.c closeout.h\
+	errmsg.c errmsg.h\
 	pathmax.h\
 	malloc.c\
 	realloc.c\

@@ -1,3 +1,12 @@
+2005-01-11  Hongli Lai  <h.lai@chello.nl>
+
+	* su-backend/{closeout.c,su.c,mallo.c}:
+	  Replace "error.h" with "errmsg.h"
+	* su-backend/errmsg.[ch]: files added.
+	* configure: Check for error(). It's apparently not available on
+	  FreeBSD. errmsg.c contains an alternative implementation.
+	* Bump version to 0.9.6.
+
 2005-01-08  Hongli Lai  <h.lai@chello.nl>
 
 	* src/utils.[ch]: Remove all libglade stuff.

@@ -66,6 +66,7 @@
 #define getusershell _getusershell_sys_proto_
 
 #include "system.h"
+#include "errmsg.h"
 
 #undef getusershell
 
@@ -95,8 +96,6 @@ uid_t getuid ();
 #if HAVE_SHADOW_H
 # include <shadow.h>
 #endif
-
-#include "error.h"
 
 /* The official name of this program (e.g., no `g' prefix).  */
 #define PROGRAM_NAME "su"

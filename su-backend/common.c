@@ -182,7 +182,6 @@ void
 change_identity (const struct passwd *pw)
 {
 	FILE *p;
-	gchar *line;
 
 #ifdef HAVE_INITGROUPS
 	errno = 0;

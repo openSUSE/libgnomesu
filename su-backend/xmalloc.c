@@ -30,8 +30,8 @@ void *realloc (char *p, size_t n);
 void free (void *ptr);
 #endif
 
-#include "error.h"
 #include "xalloc.h"
+#include "errmsg.h"
 
 #ifndef EXIT_FAILURE
 # define EXIT_FAILURE 1

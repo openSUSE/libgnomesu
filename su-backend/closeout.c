@@ -40,7 +40,7 @@ extern int errno;
 
 #include <stdio.h>
 #include "closeout.h"
-#include "error.h"
+#include "errmsg.h"
 
 /* Close standard output, exiting with status STATUS on failure.
    If a program writes *anything* to stdout, that program should `fflush'
