@@ -1,0 +1,129 @@
+# libgnomesu ja.po.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the 'libgnomesu' package.
+# Takeshi AIHANA <aihana@gnome.gr.jp>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnomesu HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-16 14:12+0900\n"
+"PO-Revision-Date: 2005-01-16 14:11+0900\n"
+"Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
+"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr "パスワードが必要です"
+
+#: src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "コマンド:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr "続行(_O)"
+
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "システム管理者 (root) の権限が必要です。"
+
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "続行する場合は、root のパスワードを入力して下さい。"
+
+#: src/gnomesu-auth-dialog.c:413
+msgid "_Password:"
+msgstr "パスワード(_P):"
+
+#: src/gnomesu-auth-dialog.c:438
+msgid "Please wait, verifying password..."
+msgstr "少々、お待ち下さい。パスワードを検証しています..."
+
+#: src/gnomesu-auth-dialog.c:446
+msgid "Incorrect password, please try again."
+msgstr "パスワードが間違っています。再入力して下さい。"
+
+#: src/gnomesu-auth-dialog.c:453
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr ""
+"パスワードが間違っています。再入力して下さい (一回だけのチャンスです)。"
+
+#: src/libgnomesu.c:168
+msgid "No services for libgnomesu are available.\n"
+msgstr "利用できる libgnomesu のサービスはありません。\n"
+
+#: src/services/pam.c:193 src/services/su.c:186
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "%s のパスワードを入力して、[続行] をクリックして下さい。"
+
+#: src/services/pam.c:195 src/services/su.c:188
+msgid "The requested action needs further authentication."
+msgstr "要求したアクションには更に認証が必要です。"
+
+#: src/services/pam.c:201 src/services/su.c:194
+#, c-format
+msgid "%s's _password:"
+msgstr "%s のパスワード(_P):"
+
+#: src/services/pam.c:220 src/services/su.c:213
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "ユーザ '%s' は存在しません。"
+
+#: src/services/pam.c:225 src/services/su.c:217
+msgid "An unknown error occured while authenticating."
+msgstr "認証する際に原因不明のエラーが発生しました。"
+
+#: src/services/pam.c:229 src/services/su.c:221
+msgid "You do not have permission to authenticate."
+msgstr "認証に必要な権限をお持ちではありません。"
+
+#: src/services/pam.c:233
+msgid "Unable to initialize the PAM authentication system."
+msgstr "PAM 認証システムを初期化できません。"
+
+#: su-backend/closeout.c:71 su-backend/closeout.c:73
+msgid "write error"
+msgstr "書き込みエラー"
+
+#: su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "(%s による書き込み)\n"
+
+#: su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"これはフリー・ソフトウェアです; 複製の条件についてはソースをご覧下さい。\n"
+"商用利用または特定の目的における適合性について、いかなる保証もありません。\n"
+
+#: tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr "実行するコマンドを単一の文字列で指定する"
+
+#: tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "COMMAND"
+
+#: tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "root ではなく指定したユーザで実行する"
+
+#: tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "USERNAME"
+
+#: tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "GNOME 特権ユーザ"
