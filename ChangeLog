@@ -3,6 +3,7 @@
 	* configure.in: Fix typo: apm -> pam
 	* src/libgnomesu.[ch], tools/gnomesu.c: Rename gnome_su_*() to
 	  gnomesu_*()
+	* Bump version to 0.9.3.
 
 2004-07-14  Hongli Lai  <h.lai@chello.nl>
 

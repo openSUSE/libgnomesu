@@ -1,7 +1,7 @@
 AC_PREQ(2.53)
-AC_INIT(libgnomesu, 0.9.2)
+AC_INIT(libgnomesu, 0.9.3)
 AC_CONFIG_SRCDIR(src/libgnomesu.c)
-AM_INIT_AUTOMAKE(libgnomesu, 0.9.2)
+AM_INIT_AUTOMAKE(libgnomesu, 0.9.3)
 
 AM_MAINTAINER_MODE
 
