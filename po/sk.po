@@ -4,14 +4,14 @@
 # This file is distributed under the same license as the libgnomesu package.
 # Marcel Telka <marcel@telka.sk>, 2003, 2004, 2005.
 #
-# $Id: sk.po,v 1.10 2005/01/08 17:55:23 hongli Exp $
+# $Id: sk.po,v 1.11 2005/01/12 23:48:18 marcel Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-04 20:59+0100\n"
+"POT-Creation-Date: 2005-01-13 00:44+0100\n"
+"PO-Revision-Date: 2005-01-13 200:47+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Príkaz:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "P_okračovať"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -36,7 +36,7 @@ msgstr "Sú vyžadované práva správcu."
 
 #: src/gnomesu-auth-dialog.c:364
 msgid "Please enter the root password to continue."
-msgstr "Prosím zadajte heslo správcu pre pokračovanie."
+msgstr "Prosím, zadajte heslo správcu pre pokračovanie."
 
 #: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
@@ -59,10 +59,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "Nie sú dostupné služby pre libgnomesu.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr ""
-"Prosím zadajte heslo používateľa %s a kliknite na Spustiť pre pokračovanie."
+msgstr "Prosím, zadajte heslo používateľa %s a kliknite na Pokračovať."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
@@ -132,45 +131,3 @@ msgstr "POUŽÍVATEĽ"
 #: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME Správca"
-
-#~ msgid "GNOME SuperUser integration"
-#~ msgstr "GNOME Integrácia správcu"
-
-#~ msgid "Open as superuser (root)..."
-#~ msgstr "Otovriť ako správca..."
-
-#~ msgid ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-#~ msgstr ""
-#~ "Nemáte oprávnenie nadobudnúť práva správcu. Tento incident bude oznámený."
-
-#~ msgid "User's password needed"
-#~ msgstr "Vyžadované heslo používateľa"
-
-#~ msgid "_Run"
-#~ msgstr "_Spustiť"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">Požadovaná činnosť vyžaduje overenie totožnosti.</"
-#~ "span>\n"
-#~ "Prosím zadajte vaše heslo a kliknite na Spustiť pre pokračovanie."
-
-#~ msgid "Your _password:"
-#~ msgstr "Vaše _heslo:"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "Command to run:"
-#~ msgstr "Spustiť príkaz:"
-
-#~ msgid ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-#~ msgstr ""
-#~ "<span style=\"italic\" weight=\"bold\">Prosím čakajte, overujem heslo...</"
-#~ "span>"
