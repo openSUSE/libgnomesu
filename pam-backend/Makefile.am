@@ -16,7 +16,7 @@ pamdir = $(PAMDIR)
 pam_DATA = gnomesu-pam
 endif
 
-installed_exe=$(libexecdir)/`echo gnomesu-pam-backend | sed $(transform)`
+installed_exe=$(DESTDIR)$(libexecdir)/`echo gnomesu-pam-backend | sed $(transform)`
 
 if SETUID_ERROR
 install-data-local: gnomesu-pam-backend

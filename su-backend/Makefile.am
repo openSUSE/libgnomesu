@@ -23,7 +23,7 @@ gnomesu_backend_DEPENDENCIES = libcommon.la
 libcommon_la_SOURCES = common.c
 libcommon_la_LDFLAGS = $(GNOMESU_BACKEND_LIBS)
 
-installed_su=$(libexecdir)/`echo gnomesu-backend | sed $(transform)`
+installed_su=$(DESTDIR)$(libexecdir)/`echo gnomesu-backend | sed $(transform)`
 
 if SETUID_ERROR
 install-data-local: gnomesu-backend
