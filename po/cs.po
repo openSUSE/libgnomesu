@@ -1,15 +1,15 @@
 # Czech translation of libgnomesu.
-# Copyright (C) 2003, 2004 libgnomesu'S COPYRIGHT HOLDER
-# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
+# Copyright (C) 2003, 2004, 2005 libgnomesu'S COPYRIGHT HOLDER
+# Copyright (C) 2004, 2005 Miloslav Trmac <mitr@volny.cz>
 # This file is distributed under the same license as the libgnomesu package.
-# Miloslav Trmac <mitr@volny.cz>, 2003, 2004.
+# Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-06 20:49+0100\n"
+"POT-Creation-Date: 2005-01-09 12:25+0100\n"
+"PO-Revision-Date: 2005-01-09 15:04+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Příkaz:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "_Pokračovat"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -57,9 +57,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "Pro libgnomesu nejsou k dispozici žádné služby.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Zadejte prosím heslo %s a pokračujte kliknutím na Spustit."
+msgstr "Zadejte prosím heslo %s a klikněte na Pokračovat."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
@@ -130,45 +130,3 @@ msgstr "JMÉNOUŽIVATELE"
 #: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"
-
-#~ msgid "GNOME SuperUser integration"
-#~ msgstr "Integrace GNOME SuperUser"
-
-#~ msgid "Open as superuser (root)..."
-#~ msgstr "Otevřít jako superuživatel (root)..."
-
-#~ msgid ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-#~ msgstr ""
-#~ "Nemáte povoleno získat oprávnění superuživatele (root). Tento incident "
-#~ "bude oznámen."
-
-#~ msgid "User's password needed"
-#~ msgstr "Je potřeba heslo uživatele"
-
-#~ msgid "_Run"
-#~ msgstr "_Spustit"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">K vyžadované akci je potřeba autentizace.</span>\n"
-#~ "Zadejte prosím své heslo a pokračujte kliknutím na Spustit."
-
-#~ msgid "Your _password:"
-#~ msgstr "Vaše _heslo:"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "Command to run:"
-#~ msgstr "Příkaz, který spustit:"
-
-#~ msgid ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-#~ msgstr ""
-#~ "<span style=\"italic\" weight=\"bold\">Čekejte prosím, ověřuji heslo...</"
-#~ "span>"
