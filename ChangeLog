@@ -1,3 +1,7 @@
+2005-02-14  Baris Cicek <baris@teamforce.name.tr>
+
+	* configure.in: Added tr to ALL_LINGUAS
+
 2005-02-13  Hongli Lai  <h.lai@chello.nl>
 
 	* src/libgnomesu.[ch]: Add new function: gnomesu_spawn_async2()
