@@ -1,0 +1,156 @@
+# translation of libgnomesu to Kinyarwanda.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgnomesu package.
+# Steve Murphy <murf@e-tools.com>, 2005
+# Steve performed initial rough translation from compendium built from translations provided by the following translators:
+# Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
+# Viateur MUGENZI <muvia1@yahoo.fr>, 2005.
+# Noëlla Mupole <s24211045@tuks.co.za>, 2005.
+# Carole Karema <karemacarole@hotmail.com>, 2005.
+# JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>, 2005.
+# Augustin KIBERWA  <akiberwa@yahoo.co.uk>, 2005.
+# Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>, 2005..
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnomesu HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-01 15:55-0700\n"
+"PO-Revision-Date: 2005-03-31 20:55-0700\n"
+"Last-Translator: Steve Murphy <murf@e-tools.com>\n"
+"Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"ULL NAME <EMAIL@ADDRESS>\n"
+
+#: src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr ""
+
+# padmin/source\padialog.src:RID_PADIALOG.RID_PA_TXT_COMMAND.text
+#: src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "Komandi:"
+
+#: src/gnomesu-auth-dialog.c:213
+#, fuzzy
+msgid "C_ontinue"
+msgstr "Gukomeza"
+
+#: src/gnomesu-auth-dialog.c:363
+#, fuzzy
+msgid "Administrator (root) privilege is required."
+msgstr "Imizi ni Bya ngombwa"
+
+#: src/gnomesu-auth-dialog.c:364
+#, fuzzy
+msgid "Please enter the root password to continue."
+msgstr "Injiza i Imizi Ijambobanga... Kuri urifuzagukomeza"
+
+# basctl/source\basicide\moduldlg.src:RID_TP_LIBS.RID_PB_PASSWORD.text
+#: src/gnomesu-auth-dialog.c:413
+#, fuzzy
+msgid "_Password:"
+msgstr "Ijambobanga..."
+
+#: src/gnomesu-auth-dialog.c:438
+#, fuzzy
+msgid "Please wait, verifying password..."
+msgstr "Tegereza Ijambobanga..."
+
+#: src/gnomesu-auth-dialog.c:446
+#, fuzzy
+msgid "Incorrect password, please try again."
+msgstr "Ijambobanga..."
+
+#: src/gnomesu-auth-dialog.c:453
+#, fuzzy
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Ijambobanga... Birenzeho"
+
+#: src/libgnomesu.c:182
+#, fuzzy
+msgid "No services for libgnomesu are available.\n"
+msgstr "kugirango Bihari"
+
+#: src/services/pam.c:192 src/services/su.c:185
+#, fuzzy, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "Injiza S Ijambobanga... Na Kanda Dukomeza"
+
+#: src/services/pam.c:194 src/services/su.c:187
+#, fuzzy
+msgid "The requested action needs further authentication."
+msgstr "Igikorwa"
+
+#: src/services/pam.c:200 src/services/su.c:193
+#, fuzzy, c-format
+msgid "%s's _password:"
+msgstr "%s'S Ijambobanga..."
+
+#: src/services/pam.c:229 src/services/su.c:222
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr ""
+
+#: src/services/pam.c:234 src/services/su.c:226
+#, fuzzy
+msgid "An unknown error occured while authenticating."
+msgstr "Kitazwi Ikosa"
+
+#: src/services/pam.c:238 src/services/su.c:230
+#, fuzzy
+msgid "You do not have permission to authenticate."
+msgstr "OYA Kuri"
+
+#: src/services/pam.c:242
+#, fuzzy
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Kuri gutangiza i Sisitemu"
+
+# svtools/source\misc\errtxt.src:RID_ERRHDL.ERRCODE_CLASS_WRITE.text
+#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#, fuzzy
+msgid "write error"
+msgstr "Kwandika ikosa"
+
+#: su-backend/version-etc.c:38
+#, fuzzy, c-format
+msgid "Written by %s.\n"
+msgstr "ku"
+
+#: su-backend/version-etc.c:39
+#, fuzzy
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"C ni Kigenga i Inkomoko kugirango ni OYA ATARIIGIHARWE kugirango Cyangwa A"
+
+#: tools/gnomesu.c:40
+#, fuzzy
+msgid "Pass the command to execute as one single string."
+msgstr "i Komandi: Kuri Gukora Nka UMWE Ikurikiranyanyuguti"
+
+# padmin/source\rtsetup.src:RID_RTS_RTSDIALOG.RID_RTS_RTSDIALOG_TABCONTROL.RID_RTS_COMMANDPAGE.text
+#: tools/gnomesu.c:41
+#, fuzzy
+msgid "COMMAND"
+msgstr "Icyo wifuza"
+
+#: tools/gnomesu.c:44
+#, fuzzy
+msgid "Run as this user instead of as root."
+msgstr "Nka iyi Ukoresha: Bya Nka Imizi"
+
+#: tools/gnomesu.c:45
+#, fuzzy
+msgid "USERNAME"
+msgstr "Izina ry'ukoresha"
+
+#: tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr ""
