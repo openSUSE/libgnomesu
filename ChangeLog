@@ -1,3 +1,16 @@
+2004-11-06  Hongli Lai  <h.lai@chello.nl>
+
+	* nautilus/gnome-su-component.c
+	  src/consolehelper.c
+	  src/pam.c
+	  src/prefix.c
+	  src/su.c
+	  src/sudo.c
+	  src/utils.c
+	  su-backend/common.c
+	  su-backend/su.c:
+	  Apply Kjartan Maraas's cleanup patch.
+
 2004-10-29  Hongli Lai  <h.lai@chello.nl>
 
 	* su-backend/sys2.h: remove file. What sane system doesn't have

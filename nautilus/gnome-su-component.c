@@ -58,7 +58,7 @@ impl_Bonobo_Listener_event (PortableServer_Servant servant,
 	argv[1] = "--no-desktop";
 	for (i = 0; i < list->_length; i++)
 		argv[i + 2] = list->_buffer[i];
-	gnome_su_spawn_async (NULL, argv, NULL);
+	gnomesu_spawn_async (NULL, argv, NULL);
 	g_free (argv);
 }
 

@@ -226,7 +226,7 @@ static pthread_once_t br_thread_key_once = PTHREAD_ONCE_INIT;
 
 
 static void
-br_thread_local_store_fini ()
+br_thread_local_store_fini (void)
 {
 	char *specific;
 
@@ -250,7 +250,7 @@ br_str_free (void *str)
 
 
 static void
-br_thread_local_store_init ()
+br_thread_local_store_init (void)
 {
 	if (pthread_key_create (&br_thread_key, br_str_free) == 0)
 		atexit (br_thread_local_store_fini);

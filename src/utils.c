@@ -203,7 +203,7 @@ __libgnomesu_load_glade (gchar *basename)
 
 /* Initialize gettext stuff */
 void
-__libgnomesu_init ()
+__libgnomesu_init (void)
 {
 	static int initialized = 0;
 

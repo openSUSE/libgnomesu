@@ -109,13 +109,13 @@ uid_t getuid ();
 /* The user to become if none is specified.  */
 #define DEFAULT_USER "root"
 
-char *crypt ();
+char *crypt(const char *key, const char *salt);
 char *getusershell ();
 void endusershell ();
 void setusershell ();
 
 char *base_name ();
-char *xstrdup ();
+char *xstrdup (char *pw_name);
 
 extern char **environ;
 
@@ -223,7 +223,7 @@ int
 main (int argc, char **argv)
 {
   const char *new_user;
-  char **command = 0;
+  char **command = NULL;
   struct passwd *pw;
   struct passwd pw_copy;
   int infd, outfd, i;

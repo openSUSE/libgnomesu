@@ -66,7 +66,7 @@ xputenv (const char *val)
 static gchar *xauth_data = NULL;
 
 static void
-saveXauth ()
+saveXauth (void)
 {
 	FILE *p;
 	GString *data;

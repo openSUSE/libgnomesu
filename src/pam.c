@@ -397,7 +397,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 
 GnomeSuService *
-__gnomesu_pam_service_new ()
+__gnomesu_pam_service_new (void)
 {
 	GnomeSuService *service;
 
