@@ -6,8 +6,6 @@ src/gnomesu-auth-dialog.c
 src/services/pam.c
 src/services/su.c
 src/services/sudo.c
-src/ui/su-strings.h
-src/ui/su.glade
 src/ui/sudo-strings.h
 src/ui/sudo.glade
 su-backend/closeout.c
