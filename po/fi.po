@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-05 12:05+0200\n"
+"POT-Creation-Date: 2005-01-12 13:18+0200\n"
+"PO-Revision-Date: 2005-01-12 13:18+0200\n"
 "Last-Translator: Tommi Vainikainen <thv@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Komento:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "_Jatka"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -57,9 +57,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "Libgnomesu:n tarvitsemia palveluja ei ole saatavilla.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Syötä käyttäjän %s salasana ja napsauta Suorita jatkaaksesi."
+msgstr "Syötä käyttäjän %s salasana ja napsauta Jatka."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
