@@ -4,13 +4,13 @@
 # This file is distributed under the same license as the libgnomesu package.
 # Marcel Telka <marcel@telka.sk>, 2003, 2004, 2005.
 #
-# $Id: sk.po,v 1.9 2005/01/08 17:44:10 hongli Exp $
+# $Id: sk.po,v 1.10 2005/01/08 17:55:23 hongli Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2005-01-04 20:59+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -25,6 +25,10 @@ msgstr "Je vyžadované heslo"
 #: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "Príkaz:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr ""
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -54,35 +58,35 @@ msgstr "Nesprávne heslo, prosím skúste znova. Máte jednu ďalšiu šancu."
 msgid "No services for libgnomesu are available.\n"
 msgstr "Nie sú dostupné služby pre libgnomesu.\n"
 
-#: src/services/pam.c:192 src/services/su.c:185
-#, c-format
-msgid "Please enter %s's password and click Run to continue."
+#: src/services/pam.c:193 src/services/su.c:186
+#, fuzzy, c-format
+msgid "Please enter %s's password and click Continue."
 msgstr ""
 "Prosím zadajte heslo používateľa %s a kliknite na Spustiť pre pokračovanie."
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr "Požadovaná činnosť vyžaduje ďalšie overenie totožnosti."
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "Heslo používateľa %s:"
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Používateľ '%s' neexistuje."
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr "Pri overovaní totožnosti sa vyskytla neznáma chyba."
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "Nemáte právo na overenie totožnosti."
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Nepodarilo sa inicializovať systém PAM pre overovanie totožnosti."
 

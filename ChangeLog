@@ -7,7 +7,9 @@
 	* src/api.html: Syntax highlight example code. Make HTML fully
 	  standards compliant.
 	* src/services/{su.c,pam.c}: Only destroy dialog when it is
-	  not NULL.
+	  not NULL. Correct some strings (we're using GnomesuAuthDialog
+	  now).
+	* src/gnomesu-auth-dialog.c: Mark "C_ontinue" for translation.
 	* autopackage/default.spec.in: Fix specfile.
 
 2005-01-07  Hongli Lai  <h.lai@chello.nl>

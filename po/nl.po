@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2005-01-05 22:18+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.nl>\n"
@@ -23,6 +23,10 @@ msgstr "Wachtwoord vereist"
 #: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "Opdracht:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr "D_oorgaan"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -52,36 +56,36 @@ msgstr "Wachtwoord onjuist, probeer het nogmaals. U heeft nog één kans."
 msgid "No services for libgnomesu are available.\n"
 msgstr "Er zijn geen diensten voor libgnomesu beschikbaar.\n"
 
-#: src/services/pam.c:192 src/services/su.c:185
+#: src/services/pam.c:193 src/services/su.c:186
 #, c-format
-msgid "Please enter %s's password and click Run to continue."
-msgstr "Voer het wachtwoord van %s in en klik op Uitvoeren om door te gaan."
+msgid "Please enter %s's password and click Continue."
+msgstr "Voer het wachtwoord van %s in en klik op Doorgaan."
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr "De vereiste actie vereist verdere authentificatie."
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "Wachtwoord van %s:"
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "De gebruiker '%s' bestaat niet."
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr "Een onbekende fout is opgetreden tijdens authentificatie."
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "U heeft geen toegangsrechten om te authentificeren."
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 msgid "Unable to initialize the PAM authentication system."
-msgstr "Niet in staat het PAM aanmeldingssysteem te initialiseren."
+msgstr "Het PAM aanmeldingssysteem kon niet gestart worden."
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -124,46 +128,3 @@ msgstr "GEBRUIKERSNAAM"
 #: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"
-
-#~ msgid "GNOME SuperUser integration"
-#~ msgstr "GNOME SuperUser integratie"
-
-#~ msgid "Open as superuser (root)..."
-#~ msgstr "Openen als supergebruiker (root)..."
-
-#~ msgid ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-#~ msgstr ""
-#~ "U heeft geen toegangsrechten om supergebruiker-rechten te verkrijgen.\n"
-#~ "Dit incident zal worden gerapporteerd."
-
-#~ msgid "User's password needed"
-#~ msgstr "Wachtwoord van gebruiker vereist"
-
-#~ msgid "_Run"
-#~ msgstr "_Uitvoeren"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">De gevraagde actie vereist verdere authentificatie."
-#~ "</span>\n"
-#~ "Voer uw wachtwoord in en klik op Uitvoeren om door te gaan."
-
-#~ msgid "Your _password:"
-#~ msgstr "Uw _wachtwoord:"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "Command to run:"
-#~ msgstr "Uit te voeren opdracht:"
-
-#~ msgid ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-#~ msgstr ""
-#~ "<span style=\"italic\" weight=\"bold\">Het wachtwoord wordt "
-#~ "gecontroleerd, even geduld a.u.b...</span>"

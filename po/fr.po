@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu 0.9.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2004-01-03 20:31+0100\n"
 "Last-Translator: Laurent Richard <laurent.richard@lilit.be>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -24,6 +24,10 @@ msgstr "Mot de passe nécessaire"
 #, fuzzy
 msgid "Command:"
 msgstr "Commande à lancer :"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr ""
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -58,35 +62,35 @@ msgstr ""
 msgid "No services for libgnomesu are available.\n"
 msgstr ""
 
-#: src/services/pam.c:192 src/services/su.c:185
-#, c-format
-msgid "Please enter %s's password and click Run to continue."
+#: src/services/pam.c:193 src/services/su.c:186
+#, fuzzy, c-format
+msgid "Please enter %s's password and click Continue."
 msgstr ""
 "Veuillez saisir le mot de passe de %s et cliquez sur Entrée pour continuer."
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr "L'action demandée nécessite une authentification complémentaire."
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "Mot de _passe de %s :"
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "L'utilisateur « %s » n'existe pas."
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr "Une erreur inconnue est survenue pendant l'authentification."
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "Vous n'avez pas la permission de vous authentifier."
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 msgid "Unable to initialize the PAM authentication system."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2004-12-20 15:19+0800\n"
 "Last-Translator: storm <storm-119@163.com>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -22,6 +22,10 @@ msgstr "需要密码"
 #: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "命令："
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr ""
 
 #: src/gnomesu-auth-dialog.c:363
 #, fuzzy
@@ -55,34 +59,34 @@ msgstr "密码不正确，请重试。您还有一次机会。"
 msgid "No services for libgnomesu are available.\n"
 msgstr "没有可用于 libgnomesu 的服务。\n"
 
-#: src/services/pam.c:192 src/services/su.c:185
-#, c-format
-msgid "Please enter %s's password and click Run to continue."
+#: src/services/pam.c:193 src/services/su.c:186
+#, fuzzy, c-format
+msgid "Please enter %s's password and click Continue."
 msgstr "请输入 %s 的密码然后点击运行来继续。"
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr "请求的动作需要进一步验证。"
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "%s 的密码(_P)："
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "用户“%s”不存在。"
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr "验证过程中发生了未知错误。"
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "您无权进行身份验证。"
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 msgid "Unable to initialize the PAM authentication system."
 msgstr "无法初始化 PAM 身份验证系统。"
 

@@ -2,13 +2,13 @@
 # Copyright (C) 2003, 2005 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2003, 2005.
 #
-# $Id: sv.po,v 1.7 2005/01/08 17:44:10 hongli Exp $
+# $Id: sv.po,v 1.8 2005/01/08 17:55:23 hongli Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2005-01-03 00:52+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -23,6 +23,10 @@ msgstr "Lösenord behövs"
 #: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "Kommando:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr ""
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -52,34 +56,34 @@ msgstr "Felaktigt lösenord, försök igen. Du har en chans till."
 msgid "No services for libgnomesu are available.\n"
 msgstr "Inga tjänster för libgnomesu är tillgängliga.\n"
 
-#: src/services/pam.c:192 src/services/su.c:185
-#, c-format
-msgid "Please enter %s's password and click Run to continue."
+#: src/services/pam.c:193 src/services/su.c:186
+#, fuzzy, c-format
+msgid "Please enter %s's password and click Continue."
 msgstr "Ange lösenordet för %s och klicka på Kör för att fortsätta."
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr "Den begärda åtgärden kräver ytterligare autentisering."
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "_Lösenord för %s:"
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Användaren \"%s\" finns inte."
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr "Ett okänt fel inträffade vid autentisering."
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "Du har inte rättigheter att autentisera."
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Kan inte initiera PAM-autentiseringssystemet."
 

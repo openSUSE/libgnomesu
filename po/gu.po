@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2004-09-09 16:16+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -26,6 +26,10 @@ msgstr "પાસવર્ડ જરુરી"
 #, fuzzy
 msgid "Command:"
 msgstr "ચલાવવા માટેનો આદેશ:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr ""
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -57,34 +61,34 @@ msgstr "અયોગ્ય પાસવર્ડ, મહેરબાની ક�
 msgid "No services for libgnomesu are available.\n"
 msgstr "libgnomesu માટે કોઈ સેવાઓ ઉપ્લબ્ધ નથી.\n"
 
-#: src/services/pam.c:192 src/services/su.c:185
-#, c-format
-msgid "Please enter %s's password and click Run to continue."
+#: src/services/pam.c:193 src/services/su.c:186
+#, fuzzy, c-format
+msgid "Please enter %s's password and click Continue."
 msgstr "મહેરબાની કરીને %s નો પાસવર્ડ દાખલ કરો અને ચાલુ રાખવા માટે ચલાવો પર ક્લિક કરો."
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr "માંગણી થયેલ ક્રિયાને પછીના સત્તાધિકરણની જરુર છે."
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "%s નો પાસવર્ડ (_p):"
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "વપરાશકર્તા '%s' અસ્તિત્વમાં નથી."
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr "સત્તાધિકરણ કરતી વખતે એક અજ્ઞાત ભૂલ ઉદ્દભવી."
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "તમારી પાસે સત્તાધિકરણ કરવાની કોઈ પરવાનગી નથી."
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 #, fuzzy
 msgid "Unable to initialize the PAM authentication system."
 msgstr "PAM સત્તાધિકરણ સિસ્ટમનો પ્રારંભ કરવામાં અસમર્થ."

@@ -210,7 +210,7 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 	gtk_widget_show (button);
 	gtk_dialog_add_action_widget (dialog, button, GTK_RESPONSE_CANCEL);
 
-	button = create_stock_button (GTK_STOCK_OK, "C_ontinue");
+	button = create_stock_button (GTK_STOCK_OK, _("C_ontinue"));
 	GTK_WIDGET_SET_FLAGS (button, GTK_HAS_DEFAULT | GTK_CAN_DEFAULT);
 	gtk_widget_show (button);
 	gtk_dialog_add_action_widget (dialog, button, GTK_RESPONSE_OK);

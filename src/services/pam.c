@@ -190,7 +190,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 					if (cmp (user, "root")) {
 						gchar *tmp2;
 
-						tmp = strf (_("Please enter %s's password and click Run to continue."), user);
+						tmp = strf (_("Please enter %s's password and click Continue."), user);
 						tmp2 = g_strdup_printf ("<b>%s</b>\n%s",
 							_("The requested action needs further authentication."),
 							tmp);

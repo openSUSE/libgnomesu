@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 17:13+0100\n"
+"POT-Creation-Date: 2005-01-08 18:51+0100\n"
 "PO-Revision-Date: 2004-07-20 17:09+0530\n"
 "Last-Translator: Amanpreet Singh Alam <aalam@redhat.com>\n"
 "Language-Team: Punjabi <pa@li.org>\n"
@@ -23,6 +23,10 @@ msgstr "ਗੁਪਤ-ਕੋਡ ਲੋਡ਼ੀਦਾ ਹੈ"
 
 #: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
+msgstr ""
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
 msgstr ""
 
 #: src/gnomesu-auth-dialog.c:363
@@ -54,34 +58,34 @@ msgstr ""
 msgid "No services for libgnomesu are available.\n"
 msgstr ""
 
-#: src/services/pam.c:192 src/services/su.c:185
+#: src/services/pam.c:193 src/services/su.c:186
 #, c-format
-msgid "Please enter %s's password and click Run to continue."
+msgid "Please enter %s's password and click Continue."
 msgstr ""
 
-#: src/services/pam.c:194 src/services/su.c:187
+#: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
 msgstr ""
 
-#: src/services/pam.c:200 src/services/su.c:193
+#: src/services/pam.c:201 src/services/su.c:194
 #, c-format
 msgid "%s's _password:"
 msgstr "%s ਦਾ ਗੁਪਤ-ਕੋਡ:"
 
-#: src/services/pam.c:219 src/services/su.c:212
+#: src/services/pam.c:220 src/services/su.c:213
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr ""
 
-#: src/services/pam.c:224 src/services/su.c:216
+#: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
 msgstr ""
 
-#: src/services/pam.c:228 src/services/su.c:220
+#: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr ""
 
-#: src/services/pam.c:232
+#: src/services/pam.c:233
 msgid "Unable to initialize the PAM authentication system."
 msgstr ""
 
