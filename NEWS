@@ -1,3 +1,6 @@
+Version 0.9.6:
+- FreeBSD compilation fixes.
+
 Version 0.9.5:
 - Corrected some licensing issues.
 - Removed the Nautilus Bonobo component because Nautilus will be
