@@ -1,3 +1,7 @@
+2003-10-25  Metin Amiroff  <metin@karegen.com>
+
+	* configure.in: Added az to ALL_LINGUAS.
+
 2003-10-20  Hasbullah Bin Pit <sebol@ikhlas.com>
 
 	* configure.in: Added ms (malay) to ALL_LINGUAS.
