@@ -1,3 +1,7 @@
+2003-10-20  Hasbullah Bin Pit <sebol@ikhlas.com>
+
+	* configure.in: Added ms (malay) to ALL_LINGUAS.
+
 2003-10-05  Marcel Telka  <marcel@telka.sk>
 
 	* configure.in (ALL_LINGUAS): Added sk.
