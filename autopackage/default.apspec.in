@@ -16,7 +16,7 @@ RootInstallOnly: Yes
 libgnomesu is a library which allows you to run programs as root or another user.
 
 [BuildPrepare]
-prepareBuild --disable-schemas-install --disable-setuid-error --disable-install-pam
+prepareBuild --disable-schemas-install --disable-setuid-error --disable-install-pam --enable-binreloc
 
 [BuildUnprepare]
 unprepareBuild

@@ -1,3 +1,12 @@
+2004-11-25  Hongli Lai  <h.lai@chello.nl>
+
+	* acinclude.m4: disable BinReloc by default. Keep the security
+	  guys happy.
+	* autopackage/default.spec.in: Enable BinReloc.
+	* COPYING, pam-backend/pam.c, su-backend/common.c:
+	  License the setuid binaries GPL. Put back original
+	  copyright clause from the su source code.
+
 2004-11-06  Hongli Lai  <h.lai@chello.nl>
 
 	* nautilus/gnome-su-component.c

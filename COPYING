@@ -1,3 +1,8 @@
+NOTE: the setuid binaries in su-backend and pam-backend are GPL. The
+library itself is LGPL.
+
+--------------------
+
 		  GNU LESSER GENERAL PUBLIC LICENSE
 		       Version 2.1, February 1999
 
