@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-09 16:21-0500\n"
-"PO-Revision-Date: 2004-12-09 13:32-0400\n"
+"POT-Creation-Date: 2005-01-03 18:49-0500\n"
+"PO-Revision-Date: 2005-01-03 13:32-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canada <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,41 +24,41 @@ msgstr "GNOME SuperUser integration"
 msgid "Open as superuser (root)..."
 msgstr "Open as superuser (root)..."
 
-#: src/libgnomesu.c:170
-msgid "No services for libgnomesu are available.\n"
-msgstr "No services for libgnomesu are available.\n"
-
-#: src/gnomesu-auth-dialog.c:108
+#: src/gnomesu-auth-dialog.c:110
 msgid "Password needed"
 msgstr "Password needed"
 
-#: src/gnomesu-auth-dialog.c:161
+#: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "Command:"
 
-#: src/gnomesu-auth-dialog.c:359
-msgid ""
-"<b>Administrator (root) privilege is required.</b>\n"
-"Please enter the root password to continue."
-msgstr ""
-"<b>Administrator (root) privilege is required.</b>\n"
-"Please enter the root password to continue."
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Administrator (root) privilege is required."
 
-#: src/gnomesu-auth-dialog.c:405
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Please enter the root password to continue."
+
+#: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
 msgstr "_Password:"
 
-#: src/gnomesu-auth-dialog.c:430 src/services/sudo.c:151
+#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Please wait, verifying password..."
 
-#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:135
+#: src/gnomesu-auth-dialog.c:446 src/services/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Incorrect password, please try again."
 
-#: src/gnomesu-auth-dialog.c:445
+#: src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Incorrect password, please try again. You have one more chance."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "No services for libgnomesu are available.\n"
 
 #: src/services/pam.c:192 src/services/su.c:185
 #, c-format
