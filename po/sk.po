@@ -4,12 +4,14 @@
 # This file is distributed under the same license as the libgnomesu package.
 # Marcel Telka <marcel@telka.sk>, 2003, 2004.
 #
+# $Id: sk.po,v 1.7 2004/12/14 20:08:10 marcel Exp $
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-28 19:03+0100\n"
-"PO-Revision-Date: 2004-05-30 13:47+0200\n"
+"POT-Creation-Date: 2004-12-14 21:04+0100\n"
+"PO-Revision-Date: 2004-12-14 21:06+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -24,55 +26,75 @@ msgstr "GNOME Integrácia správcu"
 msgid "Open as superuser (root)..."
 msgstr "Otovriť ako správca..."
 
-#: src/libgnomesu.c:169
+#: src/libgnomesu.c:170
 msgid "No services for libgnomesu are available.\n"
 msgstr "Nie sú dostupné služby pre libgnomesu.\n"
 
-#: src/pam.c:100 src/su.c:98
-#, c-format
-msgid "%s's _password:"
-msgstr "Heslo používateľa %s:"
+#: src/gnomesu-auth-dialog.c:108
+msgid "Password needed"
+msgstr "Je vyžadované heslo"
 
-#: src/pam.c:104 src/su.c:102
+#: src/gnomesu-auth-dialog.c:161
+msgid "Command:"
+msgstr "Príkaz:"
+
+#: src/gnomesu-auth-dialog.c:359
+msgid ""
+"<b>Administrator (root) privilege is required.</b>\n"
+"Please enter the root password to continue."
+msgstr ""
+"<b>Sú vyžadované práva správcu.</b>\n"
+"Prosím zadajte heslo správcu pre pokračovanie."
+
+#: src/gnomesu-auth-dialog.c:405
+msgid "_Password:"
+msgstr "_Heslo:"
+
+#: src/gnomesu-auth-dialog.c:430 src/services/sudo.c:151
+msgid "Please wait, verifying password..."
+msgstr "Prosím čakajte, overujem heslo..."
+
+#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:135
+msgid "Incorrect password, please try again."
+msgstr "Neplatné heslo, prosím skúste znova."
+
+#: src/gnomesu-auth-dialog.c:445
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Nesprávne heslo, prosím skúste znova. Máte jednu ďalšiu šancu."
+
+#: src/services/pam.c:192 src/services/su.c:185
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
 msgstr ""
 "Prosím zadajte heslo používateľa %s a kliknite na Spustiť pre pokračovanie."
 
-#: src/pam.c:106 src/su.c:104
+#: src/services/pam.c:194 src/services/su.c:187
 msgid "The requested action needs further authentication."
 msgstr "Požadovaná činnosť vyžaduje ďalšie overenie totožnosti."
 
-#: src/pam.c:165 src/su.c:163
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Nesprávne heslo, prosím skúste znova. Máte jednu ďalšiu šancu."
+#: src/services/pam.c:200 src/services/su.c:193
+#, c-format
+msgid "%s's _password:"
+msgstr "Heslo používateľa %s:"
 
-#: src/pam.c:171 src/su.c:169 src/sudo.c:135
-msgid "Incorrect password, please try again."
-msgstr "Neplatné heslo, prosím skúste znova."
-
-#: src/pam.c:187 src/su.c:186 src/sudo.c:151
-msgid "Please wait, verifying password..."
-msgstr "Prosím čakajte, overujem heslo..."
-
-#: src/pam.c:361 src/su.c:354
+#: src/services/pam.c:219 src/services/su.c:212
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Používateľ '%s' neexistuje."
 
-#: src/pam.c:366 src/su.c:359
+#: src/services/pam.c:224 src/services/su.c:216
 msgid "An unknown error occured while authenticating."
 msgstr "Pri overovaní totožnosti sa vyskytla neznáma chyba."
 
-#: src/pam.c:370 src/su.c:363
+#: src/services/pam.c:228 src/services/su.c:220
 msgid "You do not have permission to authenticate."
 msgstr "Nemáte právo na overenie totožnosti."
 
-#: src/pam.c:374
-msgid "Unable to initialize PAM authentication system."
-msgstr "Nepodarilo sa inicializovať systém pre overovanie totožnosti PAM."
+#: src/services/pam.c:232
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Nepodarilo sa inicializovať systém PAM pre overovanie totožnosti."
 
-#: src/sudo.c:320
+#: src/services/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."
@@ -84,55 +106,13 @@ msgstr ""
 #. * Add this file to your project's POTFILES.in.
 #. * DO NOT compile it as part of your application.
 #.
-#: src/ui/su-strings.h:7 src/ui/su.glade.h:6
-msgid "Password needed"
-msgstr "Je vyžadované heslo"
-
-#: src/ui/su-strings.h:8 src/ui/su.glade.h:8 src/ui/sudo-strings.h:8
-#: src/ui/sudo.glade.h:8
-msgid "_Run"
-msgstr "_Spustiť"
-
-#: src/ui/su-strings.h:9 src/ui/su.glade.h:3
-msgid ""
-"<span weight=\"bold\">The requested action needs superuser (root) privileges."
-"</span>\n"
-"Please enter the superuser password and click Run to continue."
-msgstr ""
-"<span weight=\"bold\">Požadovaná činnosť potrebuje práva správcu.</span>\n"
-"Prosím zadajte heslo správcu a kliknite na Spustiť pre pokračovanie."
-
-#: src/ui/su-strings.h:11 src/ui/su.glade.h:7
-msgid "Superuser _password:"
-msgstr "_Heslo správcu:"
-
-#: src/ui/su-strings.h:12 src/ui/su.glade.h:1 src/ui/sudo-strings.h:12
-#: src/ui/sudo.glade.h:1
-msgid "*"
-msgstr "*"
-
-#: src/ui/su-strings.h:13 src/ui/su.glade.h:5 src/ui/sudo-strings.h:13
-#: src/ui/sudo.glade.h:5
-msgid "Command to run:"
-msgstr "Spustiť príkaz:"
-
-#: src/ui/su-strings.h:14 src/ui/su.glade.h:2 src/ui/sudo-strings.h:14
-#: src/ui/sudo.glade.h:2
-msgid ""
-"<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
-"span>"
-msgstr ""
-"<span style=\"italic\" weight=\"bold\">Prosím čakajte, overujem heslo...</"
-"span>"
-
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
 #: src/ui/sudo-strings.h:7 src/ui/sudo.glade.h:6
 msgid "User's password needed"
 msgstr "Vyžadované heslo používateľa"
+
+#: src/ui/sudo-strings.h:8 src/ui/sudo.glade.h:8
+msgid "_Run"
+msgstr "_Spustiť"
 
 #: src/ui/sudo-strings.h:9 src/ui/sudo.glade.h:3
 msgid ""
@@ -146,6 +126,22 @@ msgstr ""
 #: src/ui/sudo-strings.h:11 src/ui/sudo.glade.h:7
 msgid "Your _password:"
 msgstr "Vaše _heslo:"
+
+#: src/ui/sudo-strings.h:12 src/ui/sudo.glade.h:1
+msgid "*"
+msgstr "*"
+
+#: src/ui/sudo-strings.h:13 src/ui/sudo.glade.h:5
+msgid "Command to run:"
+msgstr "Spustiť príkaz:"
+
+#: src/ui/sudo-strings.h:14 src/ui/sudo.glade.h:2
+msgid ""
+"<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
+"span>"
+msgstr ""
+"<span style=\"italic\" weight=\"bold\">Prosím čakajte, overujem heslo...</"
+"span>"
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -170,22 +166,22 @@ msgstr ""
 "KONKRÉTNY\n"
 "ÚČEL.\n"
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Odovzdať príkaz na vykonanie ako jeden reťazec."
 
-#: tools/gnomesu.c:40
+#: tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "PRÍKAZ"
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Spustiť ako tento používateľ namiesto správcu."
 
-#: tools/gnomesu.c:44
+#: tools/gnomesu.c:45
 msgid "USERNAME"
 msgstr "POUŽÍVATEĽ"
 
-#: tools/gnomesu.c:64
+#: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME Správca"
