@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-14 12:40+0200\n"
+"POT-Creation-Date: 2004-11-28 19:03+0100\n"
 "PO-Revision-Date: 2004-01-24 09:30+0200\n"
 "Last-Translator: Aleix Badia i Bosch <abadia@ica.es>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -23,52 +23,52 @@ msgstr "Integració del superusuari del GNOME"
 msgid "Open as superuser (root)..."
 msgstr "Obre-ho com a superusuari (root)..."
 
-#: src/libgnomesu.c:170
+#: src/libgnomesu.c:169
 msgid "No services for libgnomesu are available.\n"
 msgstr ""
 
-#: src/pam.c:99 src/su.c:97
+#: src/pam.c:100 src/su.c:98
 #, c-format
 msgid "%s's _password:"
 msgstr "Cont_rasenya d'en %s:"
 
-#: src/pam.c:103 src/su.c:101
+#: src/pam.c:104 src/su.c:102
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
 msgstr "Introduïu la contrasenya d'en %s i premeu Executa per continuar."
 
-#: src/pam.c:105 src/su.c:103
+#: src/pam.c:106 src/su.c:104
 msgid "The requested action needs further authentication."
 msgstr "L'acció sol·licitada precisa d'autenticació."
 
-#: src/pam.c:164 src/su.c:162
+#: src/pam.c:165 src/su.c:163
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr ""
 "La contrasenya és incorrecta, torneu-ho a intentar. Teniu un altra "
 "oportunitat."
 
-#: src/pam.c:170 src/su.c:168 src/sudo.c:135
+#: src/pam.c:171 src/su.c:169 src/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "La contrasenya és incorrecta, torneu-ho a intentar."
 
-#: src/pam.c:186 src/su.c:185 src/sudo.c:151
+#: src/pam.c:187 src/su.c:186 src/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Espereu, s'està verificant la contrasenya..."
 
-#: src/pam.c:355 src/su.c:348
+#: src/pam.c:361 src/su.c:354
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "L'usuari %s no existeix."
 
-#: src/pam.c:360 src/su.c:353
+#: src/pam.c:366 src/su.c:359
 msgid "An unknown error occured while authenticating."
 msgstr "S'ha produït un error desconegut en autenticar-se."
 
-#: src/pam.c:364 src/su.c:357
+#: src/pam.c:370 src/su.c:363
 msgid "You do not have permission to authenticate."
 msgstr "No teniu permisos per autenticar-vos."
 
-#: src/pam.c:368
+#: src/pam.c:374
 msgid "Unable to initialize PAM authentication system."
 msgstr ""
 
@@ -171,22 +171,22 @@ msgstr ""
 "hi ha cap garantia; ni tan sols per a COMERCIABILITAT o ADEQÜACIÓ PER A UN\n"
 "PROPÒSIT PARTICULAR.\n"
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "Pass the command to execute as one single string."
 msgstr "Introduïu l'ordre a executar en una única cadena de text."
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "COMMAND"
 msgstr "Ordre"
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "Run as this user instead of as root."
 msgstr "Executa-ho com a aquest usuari en comptes de com a superusuari."
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "USERNAME"
 msgstr "Nom d'usuari"
 
-#: tools/gnomesu.c:63
+#: tools/gnomesu.c:64
 msgid "GNOME SuperUser"
 msgstr "Superusuari del GNOME"

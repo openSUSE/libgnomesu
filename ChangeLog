@@ -2,6 +2,12 @@
 
 	* configure.in: Bump version to 0.9.4.
 
+	------------------
+	* Bump version to 0.9.5.
+	* Move service sources into the 'services' subfolder.
+	* Add authentication dialog widget.
+	* Clean up some code.
+
 2004-11-27  Changwoo Ryu  <cwryu@debian.org>
 
 	* configure.in: Add ko to ALL_LINGUAS.

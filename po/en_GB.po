@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-14 12:40+0200\n"
+"POT-Creation-Date: 2004-11-28 19:03+0100\n"
 "PO-Revision-Date: 2004-04-12 20:54-0400\n"
 "Last-Translator: Gareth Owen <gowen72@yahoo.comg>\n"
 "Language-Team: \n"
@@ -23,50 +23,50 @@ msgstr "GNOME SuperUser integration"
 msgid "Open as superuser (root)..."
 msgstr "Open as superuser (root)..."
 
-#: src/libgnomesu.c:170
+#: src/libgnomesu.c:169
 msgid "No services for libgnomesu are available.\n"
 msgstr "No services for libgnomesu are available.\n"
 
-#: src/pam.c:99 src/su.c:97
+#: src/pam.c:100 src/su.c:98
 #, c-format
 msgid "%s's _password:"
 msgstr "%s's _password:"
 
-#: src/pam.c:103 src/su.c:101
+#: src/pam.c:104 src/su.c:102
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
 msgstr "Please enter %s's password and click Run to continue."
 
-#: src/pam.c:105 src/su.c:103
+#: src/pam.c:106 src/su.c:104
 msgid "The requested action needs further authentication."
 msgstr "The requested action needs further authentication."
 
-#: src/pam.c:164 src/su.c:162
+#: src/pam.c:165 src/su.c:163
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Incorrect password, please try again. You have one more chance."
 
-#: src/pam.c:170 src/su.c:168 src/sudo.c:135
+#: src/pam.c:171 src/su.c:169 src/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Incorrect password, please try again."
 
-#: src/pam.c:186 src/su.c:185 src/sudo.c:151
+#: src/pam.c:187 src/su.c:186 src/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Please wait, verifying password..."
 
-#: src/pam.c:355 src/su.c:348
+#: src/pam.c:361 src/su.c:354
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "User '%s' doesn't exist."
 
-#: src/pam.c:360 src/su.c:353
+#: src/pam.c:366 src/su.c:359
 msgid "An unknown error occured while authenticating."
 msgstr "An unknown error occured while authenticating."
 
-#: src/pam.c:364 src/su.c:357
+#: src/pam.c:370 src/su.c:363
 msgid "You do not have permission to authenticate."
 msgstr "You do not have permission to authenticate."
 
-#: src/pam.c:368
+#: src/pam.c:374
 msgid "Unable to initialize PAM authentication system."
 msgstr "Unable to initialise PAM authentication system."
 
@@ -167,22 +167,22 @@ msgstr ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "Pass the command to execute as one single string."
 msgstr "Pass the command to execute as one single string."
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "COMMAND"
 msgstr "COMMAND"
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "Run as this user instead of as root."
 msgstr "Run as this user instead of as root."
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "USERNAME"
 msgstr "USERNAME"
 
-#: tools/gnomesu.c:63
+#: tools/gnomesu.c:64
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"

@@ -259,8 +259,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 	if (pipe (parent_pipe) == -1)
 		return FALSE;
-	if (pipe (child_pipe) == -1)
-	{
+	if (pipe (child_pipe) == -1) {
 		close (parent_pipe[0]);
 		close (parent_pipe[1]);
 		return FALSE;
@@ -268,33 +267,31 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 
 	mypid = fork ();
-	switch (mypid)
-	{
+	switch (mypid) {
 	case -1: /* error */
 		close (parent_pipe[0]);
 		close (parent_pipe[1]);
 		close (child_pipe[0]);
 		close (child_pipe[1]);
 		return FALSE;
+
 	case 0: /* child */
 	    {
-	        gchar **su_argv;
-	        guint i, c;
+		GList *args = NULL;
+		gchar **su_argv;
 
 		close (child_pipe[1]);
 		close (parent_pipe[0]);
 
-		c = __libgnomesu_count_args (argv);
-		su_argv = g_new0 (gchar *, c + 5);
-		su_argv[0] = g_strdup_printf ("%s/gnomesu-pam-backend", LIBEXECDIR);
-		su_argv[1] = g_strdup_printf ("%d", child_pipe[0]);
-		su_argv[2] = g_strdup_printf ("%d", parent_pipe[1]);
-		su_argv[3] = user;
-		for (i = 0; i < c; i++)
-			su_argv[i + 4] = argv[i];
+		glt_add ( args, strf ("%s/gnomesu-pam-backend", LIBEXECDIR) );
+		glt_add ( args, strf ("%d", child_pipe[0]) );
+		glt_add ( args, strf ("%d", parent_pipe[1]) );
+		glt_add ( args, user );
+		glt_addv (args, argv);
+		su_argv = glt_to_vector (args, NULL);
 
 		putenv ("_GNOMESU_PAM_BACKEND_START=1");
-		execv (g_strdup_printf ("%s/gnomesu-pam-backend", LIBEXECDIR), su_argv);
+		execv (su_argv[0], su_argv);
 		_exit (1);
 		break;
 	    }
@@ -312,13 +309,11 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		if (!f)
 			return FALSE;
 
-		while (!feof (f))
-		{
+		while (!feof (f)) {
 			fgets (buf, sizeof (buf), f);
 			if (!buf) continue;
 
-			if (strcmp (buf, "DONE\n") == 0)
-			{
+			if (strcmp (buf, "DONE\n") == 0) {
 				fini_gui (gui);
 				fclose (f);
 				close (parent_pipe[0]);
@@ -326,18 +321,16 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 				if (pid)
 					*pid = mypid;
 				return TRUE;
-			}
-			else if (strcmp (buf, "INCORRECT_PASSWORD\n") == 0)
-			{
+
+			} else if (strcmp (buf, "INCORRECT_PASSWORD\n") == 0) {
 				previous_incorrect = TRUE;
-			}
-			else if (strcmp (buf, "ASK_PASS\n") == 0)
-			{
+
+			} else if (strcmp (buf, "ASK_PASS\n") == 0) {
 				gchar *password = NULL, *commandline;
 
 				if (!gui)
 				{
-					commandline = __libgnomesu_create_command (argv);
+					commandline = LGSD(create_command) (argv);
 					gui = init_gui (commandline, user);
 					g_free (commandline);
 				}
@@ -353,26 +346,26 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 			}
 
 			/* These are all errors */
-			else if (strcmp (buf, "PASSWORD_FAIL\n") == 0)
-			{
+			else if (strcmp (buf, "PASSWORD_FAIL\n") == 0) {
 				break;
-			} else if (strcmp (buf, "NO_SUCH_USER\n") == 0)
-			{
+
+			} else if (strcmp (buf, "NO_SUCH_USER\n") == 0) {
 				bomb (gui, _("User '%s' doesn't exist."),
 					user);
 				break;
-			} else if (strcmp (buf, "ERROR\n") == 0)
-			{
+
+			} else if (strcmp (buf, "ERROR\n") == 0) {
 				bomb (gui, _("An unknown error occured while authenticating."));
 				break;
-			} else if (strcmp (buf, "DENIED\n") == 0)
-			{
+
+			} else if (strcmp (buf, "DENIED\n") == 0) {
 				bomb (gui, _("You do not have permission to authenticate."));
 				break;
-			} else if (strcmp (buf, "INIT_ERROR\n") == 0)
-			{
-				bomb (gui, _("Unable to initialize PAM authentication system."));
+
+			} else if (strcmp (buf, "INIT_ERROR\n") == 0) {
+				bomb (gui, _("Unable to initialize the PAM authentication system."));
 				break;
+
 			} else
 				break;
 		}
@@ -381,8 +374,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		fclose (f);
 		close (child_pipe[1]);
 
-		while (waitpid (mypid, &status, WNOHANG) == 0)
-		{
+		while (waitpid (mypid, &status, WNOHANG) == 0) {
 			while (gtk_events_pending ())
 				gtk_main_iteration ();
 			usleep (100000);

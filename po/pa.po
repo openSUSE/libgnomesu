@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-20 04:27+0200\n"
+"POT-Creation-Date: 2004-11-28 19:03+0100\n"
 "PO-Revision-Date: 2004-07-20 17:09+0530\n"
 "Last-Translator: Amanpreet Singh Alam <aalam@redhat.com>\n"
 "Language-Team: Punjabi <pa@li.org>\n"
@@ -175,4 +175,3 @@ msgstr "ਉਪਭੋਗਤਾ ਨਾਉ"
 #: tools/gnomesu.c:64
 msgid "GNOME SuperUser"
 msgstr "ਗਨੋਮ ਸੁਪਰ-ਉਪਭੋਗਤਾ"
-

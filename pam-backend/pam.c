@@ -158,8 +158,7 @@ init (int argc, char **argv)
 
 
 	/* Parse arguments */
-	if (argc < 5)
-	{
+	if (argc < 5) {
 		fprintf (stderr, "Too little arguments.\n");
 		exit (1);
 	}
@@ -170,20 +169,20 @@ init (int argc, char **argv)
 
 	infd = atoi (argv[1]);
 	outfd = atoi (argv[2]);
-	if (infd <= 2 || outfd <= 2)
-	{
+
+	if (infd <= 2 || outfd <= 2) {
 		fprintf (stderr, "Invalid file descriptors.\n");
 		exit (1);
 	}
+
 	inf = fdopen (infd, "r");
-	if (!inf)
-	{
+	if (!inf) {
 		fprintf (stderr, "Cannot fopen() INFD\n");
 		exit (1);
 	}
+
 	outf = fdopen (outfd, "w");
-	if (!outf)
-	{
+	if (!outf) {
 		fprintf (stderr, "Cannot fopen() OUTFD\n");
 		exit (1);
 	}
@@ -192,8 +191,7 @@ init (int argc, char **argv)
 
 	/* Check whether the given user exists */
 	pw = getpwnam (new_user);
-	if (!pw)
-	{
+	if (!pw) {
 		fprintf (outf, PROTOCOL_NO_SUCH_USER);
 		exit (1);
 	}

@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,6 +25,7 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <unistd.h>
+
 #include "utils.h"
 #include "prefix.h"
 
@@ -36,7 +37,7 @@ extern char **environ;
 /* Changes an argument vector into a commandline.
    Escape special characters. */
 gchar *
-__libgnomesu_create_command (gchar **argv)
+LGSD(create_command) (gchar **argv)
 {
 	GString *result;
 	gchar *str;
@@ -49,13 +50,13 @@ __libgnomesu_create_command (gchar **argv)
 		gchar *tmp;
 
 		tmp = g_strdup (argv[i]);
-		__libgnomesu_replace_all (&tmp, "\"", "\\\"");
-		__libgnomesu_replace_all (&tmp, ">", "\\>");
-		__libgnomesu_replace_all (&tmp, "<", "\\<");
-		__libgnomesu_replace_all (&tmp, " ", "\\ ");
-		__libgnomesu_replace_all (&tmp, "!", "\\!");
-		__libgnomesu_replace_all (&tmp, "$", "\\$");
-		__libgnomesu_replace_all (&tmp, "&", "\\&");
+		LGSD(replace_all) (&tmp, "\"", "\\\"");
+		LGSD(replace_all) (&tmp, ">", "\\>");
+		LGSD(replace_all) (&tmp, "<", "\\<");
+		LGSD(replace_all) (&tmp, " ", "\\ ");
+		LGSD(replace_all) (&tmp, "!", "\\!");
+		LGSD(replace_all) (&tmp, "$", "\\$");
+		LGSD(replace_all) (&tmp, "&", "\\&");
 		if (!*tmp)
 			g_string_append (result, "\"\" ");
 		else
@@ -73,7 +74,7 @@ __libgnomesu_create_command (gchar **argv)
 
 /* Replace all occurences of from in string str to to. */
 void
-__libgnomesu_replace_all (gchar **str, gchar *from, gchar *to)
+LGSD(replace_all) (gchar **str, gchar *from, gchar *to)
 {
 	GString *newstr;
 	gchar *found;
@@ -102,7 +103,8 @@ __libgnomesu_replace_all (gchar **str, gchar *from, gchar *to)
 
 
 /* Copy the current environment and modify some */
-gchar **__libgnomesu_generate_env (gchar *user)
+gchar **
+LGSD(generate_env) (gchar *user)
 {
 	GList *list = NULL;
 	gchar **env;
@@ -162,8 +164,42 @@ gchar **__libgnomesu_generate_env (gchar *user)
 }
 
 
+GList *
+LGSD(g_list_addv) (GList *list, gchar **argv)
+{
+	guint i, size;
+
+	size = LGSD(count_args) (argv);
+	for (i = 0; i < size; i++) {
+		list = g_list_append (list, argv[i]);
+	}
+	return list;
+}
+
+
+gchar **
+LGSD(g_list_to_vector) (GList *list, guint *size)
+{
+	gchar **vec;
+	GList *tmp;
+	guint i = 0;
+
+	g_return_val_if_fail (list != NULL, NULL);
+
+	vec = g_new0 (gchar *, g_list_length (list) + 1);
+	for (tmp = list; tmp; tmp = tmp->next) {
+		vec[i] = (gchar *) tmp->data;
+		i++;
+	}
+
+	if (size)
+		*size = i;
+	return vec;
+}
+
+
 guint
-__libgnomesu_count_args (gchar **argv)
+LGSD(count_args) (gchar **argv)
 {
 	guint n = 0;
 
@@ -176,7 +212,7 @@ __libgnomesu_count_args (gchar **argv)
 
 
 GladeXML *
-__libgnomesu_load_glade (gchar *basename)
+LGSD(load_glade) (gchar *basename)
 {
 	gchar *filename = NULL;
 	GladeXML *xml;
@@ -203,7 +239,7 @@ __libgnomesu_load_glade (gchar *basename)
 
 /* Initialize gettext stuff */
 void
-__libgnomesu_init (void)
+LGSD(libgnomesu_init) (void)
 {
 	static int initialized = 0;
 

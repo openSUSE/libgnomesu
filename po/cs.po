@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-14 12:40+0200\n"
+"POT-Creation-Date: 2004-11-28 19:03+0100\n"
 "PO-Revision-Date: 2004-04-13 13:47+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -24,50 +24,50 @@ msgstr "Integrace GNOME SuperUser"
 msgid "Open as superuser (root)..."
 msgstr "Otevřít jako superuživatel (root)..."
 
-#: src/libgnomesu.c:170
+#: src/libgnomesu.c:169
 msgid "No services for libgnomesu are available.\n"
 msgstr "Pro libgnomesu nejsou k dispozici žádné služby.\n"
 
-#: src/pam.c:99 src/su.c:97
+#: src/pam.c:100 src/su.c:98
 #, c-format
 msgid "%s's _password:"
 msgstr "Heslo %s:"
 
-#: src/pam.c:103 src/su.c:101
+#: src/pam.c:104 src/su.c:102
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
 msgstr "Zadejte prosím heslo %s a pokračujte kliknutím na Spustit."
 
-#: src/pam.c:105 src/su.c:103
+#: src/pam.c:106 src/su.c:104
 msgid "The requested action needs further authentication."
 msgstr "K vyžadované akci je potřeba další autentizace."
 
-#: src/pam.c:164 src/su.c:162
+#: src/pam.c:165 src/su.c:163
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Nesprávné heslo, zkuste to prosím znovu. Máte ještě jeden pokus."
 
-#: src/pam.c:170 src/su.c:168 src/sudo.c:135
+#: src/pam.c:171 src/su.c:169 src/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Nesprávné heslo, zkuste to prosím znovu."
 
-#: src/pam.c:186 src/su.c:185 src/sudo.c:151
+#: src/pam.c:187 src/su.c:186 src/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Čekejte prosím, ověřuji heslo..."
 
-#: src/pam.c:355 src/su.c:348
+#: src/pam.c:361 src/su.c:354
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Uživatel '%s' neexistuje."
 
-#: src/pam.c:360 src/su.c:353
+#: src/pam.c:366 src/su.c:359
 msgid "An unknown error occured while authenticating."
 msgstr "Při autentizaci došlo k neznámé chybě."
 
-#: src/pam.c:364 src/su.c:357
+#: src/pam.c:370 src/su.c:363
 msgid "You do not have permission to authenticate."
 msgstr "Nemáte povoleno se autentizovat."
 
-#: src/pam.c:368
+#: src/pam.c:374
 msgid "Unable to initialize PAM authentication system."
 msgstr "Nemohu inicializovat systém autentizace PAM."
 
@@ -171,22 +171,22 @@ msgstr ""
 "KONKRÉTNÍ\n"
 "ÚČEL.\n"
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "Pass the command to execute as one single string."
 msgstr "Předejte příkaz, který spustit, jako jeden řetězec."
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "COMMAND"
 msgstr "PŘÍKAZ"
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "Run as this user instead of as root."
 msgstr "Spustit jako tento uživatel místo roota."
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "USERNAME"
 msgstr "JMÉNOUŽIVATELE"
 
-#: tools/gnomesu.c:63
+#: tools/gnomesu.c:64
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"

@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,20 +23,29 @@
 #include <glib.h>
 #include <glade/glade.h>
 
-G_BEGIN_DECLS
-
-
 /* These functions are private and should not be used by applications */
 
-gchar *__libgnomesu_create_command (gchar **argv);
-void __libgnomesu_replace_all (gchar **str, gchar *from, gchar *to);
-gchar **__libgnomesu_generate_env (gchar *user);
+G_BEGIN_DECLS
 
-guint __libgnomesu_count_args (gchar **argv);
+#define LGSD(x) __libgnomesu_ ## x
 
-GladeXML *__libgnomesu_load_glade (gchar *basename);
+#define glt_add(list, item) list = g_list_append (list, (gpointer) item)
+#define glt_addv(list, vec) list = LGSD(g_list_addv) (list, vec)
+#define glt_to_vector LGSD(g_list_to_vector)
+#define strf g_strdup_printf
 
-void __libgnomesu_init (void);
+
+gchar * LGSD(create_command)	(gchar **argv);
+void    LGSD(replace_all)	(gchar **str, gchar *from, gchar *to);
+gchar **LGSD(generate_env)	(gchar *user);
+
+GList  *LGSD(g_list_addv)	(GList *list, gchar **argv);
+gchar **LGSD(g_list_to_vector)  (GList *list, guint *size);
+guint   LGSD(count_args)	(gchar **argv);
+
+GladeXML *LGSD(load_glade) (gchar *basename);
+
+void LGSD(libgnomesu_init) (void);
 
 
 G_END_DECLS

@@ -1,7 +1,7 @@
 AC_PREQ(2.53)
-AC_INIT(libgnomesu, 0.9.4)
+AC_INIT(libgnomesu, 0.9.5)
 AC_CONFIG_SRCDIR(src/libgnomesu.c)
-AM_INIT_AUTOMAKE(libgnomesu, 0.9.4)
+AM_INIT_AUTOMAKE(libgnomesu, 0.9.5)
 
 AM_MAINTAINER_MODE
 
@@ -227,9 +227,10 @@ AC_OUTPUT([
 libgnomesu-1.0.pc
 Makefile
 src/Makefile
+src/ui/Makefile
+src/services/Makefile
 su-backend/Makefile
 pam-backend/Makefile
-src/ui/Makefile
 tools/Makefile
 nautilus/Makefile
 po/Makefile.in

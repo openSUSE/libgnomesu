@@ -23,14 +23,17 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <libintl.h>
+
 #include "libgnomesu.h"
-#include "sudo.h"
-#include "consolehelper.h"
-#include "su.h"
-#ifdef HAVE_PAM
-# include "pam.h"
-#endif
 #include "utils.h"
+
+#ifdef HAVE_PAM
+	#include "services/pam.h"
+#endif
+#include "services/sudo.h"
+#include "services/consolehelper.h"
+#include "services/su.h"
+
 
 G_BEGIN_DECLS
 
@@ -54,8 +57,7 @@ find_best_service (gchar *exe, const gchar *user)
 {
 	guint i;
 
-	for (i = 0; i < services_size; i++)
-	{
+	for (i = 0; i < services_size; i++) {
 		GnomeSuService *service;
 
 		service = (*(services[i])) ();
@@ -161,11 +163,10 @@ gnomesu_spawn_async (gchar *user, gchar **argv, int *pid)
 
 	g_return_val_if_fail (argv != NULL, FALSE);
 
-	__libgnomesu_init ();
+	LGSD(libgnomesu_init) ();
 
 	service = find_best_service (argv[0], user);
-	if (!service)
-	{
+	if (!service) {
 		g_critical (_("No services for libgnomesu are available.\n"));
 		return FALSE;
 	}

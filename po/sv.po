@@ -2,13 +2,13 @@
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2003.
 #
-# $Id: sv.po,v 1.4 2004/07/14 10:56:38 hongli Exp $
+# $Id: sv.po,v 1.5 2004/11/28 19:16:15 hongli Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-14 12:40+0200\n"
+"POT-Creation-Date: 2004-11-28 19:03+0100\n"
 "PO-Revision-Date: 2003-09-20 16:57+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -24,50 +24,50 @@ msgstr "GNOME-superanvändarintegration"
 msgid "Open as superuser (root)..."
 msgstr "Öppna som superanvändare (root)..."
 
-#: src/libgnomesu.c:170
+#: src/libgnomesu.c:169
 msgid "No services for libgnomesu are available.\n"
 msgstr ""
 
-#: src/pam.c:99 src/su.c:97
+#: src/pam.c:100 src/su.c:98
 #, c-format
 msgid "%s's _password:"
 msgstr "_Lösenord för %s:"
 
-#: src/pam.c:103 src/su.c:101
+#: src/pam.c:104 src/su.c:102
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
 msgstr "Ange lösenordet för %s och klicka på Kör för att fortsätta."
 
-#: src/pam.c:105 src/su.c:103
+#: src/pam.c:106 src/su.c:104
 msgid "The requested action needs further authentication."
 msgstr "Den begärda åtgärden kräver ytterligare autentisering."
 
-#: src/pam.c:164 src/su.c:162
+#: src/pam.c:165 src/su.c:163
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Felaktigt lösenord, försök igen. Du har en chans till."
 
-#: src/pam.c:170 src/su.c:168 src/sudo.c:135
+#: src/pam.c:171 src/su.c:169 src/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Felaktigt lösenord, försök igen."
 
-#: src/pam.c:186 src/su.c:185 src/sudo.c:151
+#: src/pam.c:187 src/su.c:186 src/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Var vänlig vänta, verifierar lösenord..."
 
-#: src/pam.c:355 src/su.c:348
+#: src/pam.c:361 src/su.c:354
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Användaren \"%s\" finns inte."
 
-#: src/pam.c:360 src/su.c:353
+#: src/pam.c:366 src/su.c:359
 msgid "An unknown error occured while authenticating."
 msgstr "Ett okänt fel inträffade vid autentisering."
 
-#: src/pam.c:364 src/su.c:357
+#: src/pam.c:370 src/su.c:363
 msgid "You do not have permission to authenticate."
 msgstr "Du har inte rättigheter att autentisera."
 
-#: src/pam.c:368
+#: src/pam.c:374
 msgid "Unable to initialize PAM authentication system."
 msgstr ""
 
@@ -169,23 +169,23 @@ msgstr ""
 "finns INTE NÅGON GARANTI, inte ens för KÖP eller LÄMPLIGHET FÖR NÅGOT\n"
 "SPECIELLT ÄNDAMÅL.\n"
 
-#: tools/gnomesu.c:38
+#: tools/gnomesu.c:39
 msgid "Pass the command to execute as one single string."
 msgstr "Ange kommandot som ska göras som en enstaka sträng."
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "COMMAND"
 msgstr "KOMMANDO"
 
-#: tools/gnomesu.c:42
+#: tools/gnomesu.c:43
 msgid "Run as this user instead of as root."
 msgstr "Kör som denna användare istället för root."
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "USERNAME"
 msgstr "ANVÄNDARNAMN"
 
-#: tools/gnomesu.c:63
+#: tools/gnomesu.c:64
 msgid "GNOME SuperUser"
 msgstr "GNOME-superanvändare"
 

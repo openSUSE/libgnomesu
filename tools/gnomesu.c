@@ -1,6 +1,6 @@
 /* 
  * Gnome SuperUser
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004  Hongli Lai
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,10 +21,12 @@
 #include <gtk/gtk.h>
 #include <gnome.h>
 #include <gconf/gconf-client.h>
+
 #include <string.h>
 #include <libintl.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+
 #include "libgnomesu.h"
 #include "prefix.h"
 
@@ -33,8 +35,7 @@ static gchar *command = NULL;
 static gchar *user = NULL;
 
 
-static struct poptOption options[] =
-{
+static struct poptOption options[] = {
 	{ "command", 'c', POPT_ARG_STRING, &command, 0,
 	  N_("Pass the command to execute as one single string."),
 	  N_("COMMAND") },
@@ -69,8 +70,7 @@ main (int argc, char *argv[])
 		g_value_init (&value, G_TYPE_POINTER));
 	pctx = g_value_get_pointer (&value);
 
-	if (!command)
-	{
+	if (!command) {
 		GList *arglist = NULL;
 		gchar *arg, **args;
 		int status, pid, i = 0;
@@ -78,8 +78,7 @@ main (int argc, char *argv[])
 		while ((arg = (gchar *) poptGetArg (pctx)) != NULL)
 			arglist = g_list_append (arglist, arg);
 
-		if (g_list_length (arglist) == 0)
-		{
+		if (g_list_length (arglist) == 0) {
 			gchar *terminal;
 
 			terminal = gconf_client_get_string (gconf_client_get_default (),
@@ -96,8 +95,7 @@ main (int argc, char *argv[])
 		}
 
 		args = g_new0 (gchar *, g_list_length (arglist) + 1);
-		for (arglist = g_list_first (arglist); arglist != NULL; arglist = arglist->next)
-		{
+		for (arglist = g_list_first (arglist); arglist != NULL; arglist = arglist->next) {
 			args[i] = arglist->data;
 			i++;
 		}
@@ -109,8 +107,8 @@ main (int argc, char *argv[])
 		g_list_free (arglist);
 		g_free (args);
 		return WEXITSTATUS (status);
-	} else
-	{
+
+	} else {
 		int status, pid;
 
 		if (!gnomesu_spawn_command_async (user, command, &pid))
