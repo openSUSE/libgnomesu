@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-05 15:31+0100\n"
+"POT-Creation-Date: 2005-02-01 08:56+0100\n"
+"PO-Revision-Date: 2005-02-01 08:59+0100\n"
 "Last-Translator: Martin Willemoes Hansen <mwh@sysrq.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Kommando:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "F_ortsæt"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -56,9 +56,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "Ingen tilgængelige tjenester for libgnomesu.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Angiv adgangskoden for %s og klik på Kør for at fortsætte."
+msgstr "Angiv adgangskoden for %s og klik på Fortsæt."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
