@@ -73,7 +73,7 @@ AC_SUBST(NAUTILUS_LIBS)
 
 GETTEXT_PACKAGE=libgnomesu-1.0
 AC_SUBST(GETTEXT_PACKAGE)
-ALL_LINGUAS="az cs ms nl pl pt sk sr sr@Latn sv"
+ALL_LINGUAS="az cs es ms nl pl pt sk sr sr@Latn sv"
 AM_GLIB_GNU_GETTEXT
 AC_PROG_INTLTOOL
 
