@@ -2,7 +2,7 @@
 
 [Meta]
 RootName: @gnome.org/libgnomesu:$SOFTWAREVERSION
-DisplayName: Superuser privilege library (libgnomesu)
+DisplayName: Superuser privilege library
 ShortName: libgnomesu
 Maintainer: Hongli Lai <h.lai@chello.nl> - http://members1.chello.nl/~h.lai/libgnomesu/
 Packager: Hongli Lai <h.lai@chello.nl>
