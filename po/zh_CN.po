@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2004-12-20 15:19+0800\n"
+"POT-Creation-Date: 2005-01-22 04:37+0100\n"
+"PO-Revision-Date: 2005-01-22 17:29+0800\n"
 "Last-Translator: storm <storm-119@163.com>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -25,19 +25,15 @@ msgstr "命令："
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "继续(_O)"
 
 #: src/gnomesu-auth-dialog.c:363
-#, fuzzy
 msgid "Administrator (root) privilege is required."
-msgstr ""
-"<b>请求的动作需要管理员(root)的权限。</b>\n"
-"请输入 root 的密码然后继续。"
+msgstr "需要管理员(root)的权限。"
 
 #: src/gnomesu-auth-dialog.c:364
-#, fuzzy
 msgid "Please enter the root password to continue."
-msgstr "请输入 %s 的密码然后点击运行来继续。"
+msgstr "请输入 root 的密码再继续。"
 
 #: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
@@ -60,9 +56,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "没有可用于 libgnomesu 的服务。\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "请输入 %s 的密码然后点击运行来继续。"
+msgstr "请输入 %s 的密码然后点击继续。"
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
@@ -131,40 +127,3 @@ msgstr "用户名"
 msgid "GNOME SuperUser"
 msgstr "GNOME 超级用户"
 
-#~ msgid "GNOME SuperUser integration"
-#~ msgstr "GNOME 超级用户集成"
-
-#~ msgid "Open as superuser (root)..."
-#~ msgstr "作为超级用户(root)打开..."
-
-#~ msgid ""
-#~ "You do not have permission gain superuser (root) privileges. This "
-#~ "incident will be reported."
-#~ msgstr "您没有权限来获得超级用户(root)的特权。这次事件会被报告。"
-
-#~ msgid "User's password needed"
-#~ msgstr "需要用户密码"
-
-#~ msgid "_Run"
-#~ msgstr "运行(_R)"
-
-#~ msgid ""
-#~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
-#~ "Please enter your password and click Run to continue."
-#~ msgstr ""
-#~ "<span weight=\"bold\">请求的动作需要验证。</span>\n"
-#~ "请输入您的密码然后点击运行来继续。"
-
-#~ msgid "Your _password:"
-#~ msgstr "您的密码(_P)："
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "Command to run:"
-#~ msgstr "要运行的命令："
-
-#~ msgid ""
-#~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
-#~ "</span>"
-#~ msgstr "<span style=\"italic\" weight=\"bold\">请稍候，验证密码中...</span>"
