@@ -54,6 +54,7 @@ __libgnomesu_create_command (gchar **argv)
 		__libgnomesu_replace_all (&tmp, " ", "\\ ");
 		__libgnomesu_replace_all (&tmp, "!", "\\!");
 		__libgnomesu_replace_all (&tmp, "$", "\\$");
+		__libgnomesu_replace_all (&tmp, "&", "\\&");
 		if (!*tmp)
 			g_string_append (result, "\"\" ");
 		else
