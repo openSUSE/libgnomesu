@@ -1,0 +1,129 @@
+# Italian translation.
+# Copyright (C) 2004 THE libgnomesu's COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgnomesu package.
+# Andrea Pelusio <andre@quipo.it>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnomesu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-27 16:04+0100\n"
+"PO-Revision-Date: 2005-02-14 21:59+0100\n"
+"Last-Translator: Andrea Pelusio <andre@quipo.it>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr "Richiesta password"
+
+#: src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "Comando:"
+
+#: src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr "C_ontinua"
+
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Sono richiesti i privilegi di amministratore (root)"
+
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Inserire la password di root per continuare."
+
+#: src/gnomesu-auth-dialog.c:413
+msgid "_Password:"
+msgstr "_Password:"
+
+#: src/gnomesu-auth-dialog.c:438
+msgid "Please wait, verifying password..."
+msgstr "Attendere, verifica della password in corso."
+
+#: src/gnomesu-auth-dialog.c:446
+msgid "Incorrect password, please try again."
+msgstr "Password errata, riprovare."
+
+#: src/gnomesu-auth-dialog.c:453
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Password errata, riprovare. Rimane un solo tentativo."
+
+#: src/libgnomesu.c:168
+msgid "No services for libgnomesu are available.\n"
+msgstr "Nessun servizio disponibile per libgnomesu.\n"
+
+#: src/services/pam.c:193 src/services/su.c:186
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "Inserire password per \"%s\" e premere Continua."
+
+#: src/services/pam.c:195 src/services/su.c:188
+msgid "The requested action needs further authentication."
+msgstr "L'azione richiesta richiede una ulteriore autenticazione."
+
+#: src/services/pam.c:201 src/services/su.c:194
+#, c-format
+msgid "%s's _password:"
+msgstr "_Password per \"%s\":"
+
+#: src/services/pam.c:220 src/services/su.c:213
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "L'utente \"%s\" non esiste."
+
+#: src/services/pam.c:225 src/services/su.c:217
+msgid "An unknown error occured while authenticating."
+msgstr "Errore durante l'autenticazione."
+
+#: src/services/pam.c:229 src/services/su.c:221
+msgid "You do not have permission to authenticate."
+msgstr "Permessi insufficienti per l'identificazione."
+
+#: src/services/pam.c:233
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Impossibile inizializzare il sistema PAM di autenticazione."
+
+#: su-backend/closeout.c:71 su-backend/closeout.c:73
+msgid "write error"
+msgstr "errore di scrittura"
+
+#: su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Scritto da %s.\n"
+
+#: su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"Questo software è libero; per le condizioni di copia consultare il codice. NON c'è\n"
+"alcuna garanzia; neppure  di COMMERCIABILITÀ o APPLICABILITÀ AD UNO "
+"SCOPO PARTICOLARE.\n"
+
+#: tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr "Inserire il comando da eseguire come una singola stringa."
+
+#: tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "COMANDO"
+
+#: tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "Esegui come questo utente, invece che come root."
+
+#: tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "NOME UTENTE"
+
+#: tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "SuperUtente GNOME"
