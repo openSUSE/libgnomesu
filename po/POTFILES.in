@@ -1,7 +1,13 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+nautilus/GNOME_SuperUser_Component.server.in.in
 src/pam.c
 src/su.c
 src/sudo.c
 src/ui/su-strings.h
+src/ui/su.glade
 src/ui/sudo-strings.h
+src/ui/sudo.glade
+su-backend/closeout.c
+su-backend/version-etc.c
 tools/gnomesu.c
-nautilus/GNOME_SuperUser_Component.server.in.in
