@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu 2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-09 17:34+0200\n"
-"PO-Revision-Date: 2004-03-18 16:35-0300\n"
+"POT-Creation-Date: 2004-04-14 15:30-0400\n"
+"PO-Revision-Date: 2004-04-14 05:40-0300\n"
 "Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,10 @@ msgstr "Integração do GNOME com o SuperUsuário"
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:2
 msgid "Open as superuser (root)..."
 msgstr "Abrir como superusuário (root)..."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "Nenhum serviço para a libgnomesu está disponível.\n"
 
 #: src/pam.c:99 src/su.c:97
 #, c-format
@@ -49,18 +53,22 @@ msgstr "Senha incorreta, por favor tente novamente."
 msgid "Please wait, verifying password..."
 msgstr "Por favor espere, verificando a senha..."
 
-#: src/pam.c:352 src/su.c:348
+#: src/pam.c:355 src/su.c:348
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "O usuário '%s' não existe."
 
-#: src/pam.c:357 src/su.c:353
+#: src/pam.c:360 src/su.c:353
 msgid "An unknown error occured while authenticating."
 msgstr "Um erro desconhecido ocorreu durante a autenticação."
 
-#: src/pam.c:361 src/su.c:357
+#: src/pam.c:364 src/su.c:357
 msgid "You do not have permission to authenticate."
 msgstr "Você não tem permissão para se autenticar."
+
+#: src/pam.c:368
+msgid "Unable to initialize PAM authentication system."
+msgstr "Impossível inicializar o sistema de autenticação PAM."
 
 #: src/sudo.c:320
 msgid ""
@@ -77,7 +85,7 @@ msgstr ""
 #.
 #: src/ui/su-strings.h:7 src/ui/su.glade.h:6
 msgid "Password needed"
-msgstr "É necessário uma senha"
+msgstr "É necessária uma senha"
 
 #: src/ui/su-strings.h:8 src/ui/su.glade.h:8 src/ui/sudo-strings.h:8
 #: src/ui/sudo.glade.h:8
@@ -172,7 +180,7 @@ msgstr "COMANDO"
 
 #: tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "Executar como este usuário em vez de root."
+msgstr "Executa como este usuário em vez de root."
 
 #: tools/gnomesu.c:43
 msgid "USERNAME"
