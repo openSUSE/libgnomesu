@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 nautilus/GNOME_SuperUser_Component.server.in.in
-src/libgnomesu.c
 src/gnomesu-auth-dialog.c
+src/libgnomesu.c
 src/services/pam.c
 src/services/su.c
 src/services/sudo.c

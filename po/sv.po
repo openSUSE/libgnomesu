@@ -1,15 +1,15 @@
 # Swedish messages for libgnomesu.
-# Copyright (C) 2003 Free Software Foundation, Inc.
-# Christian Rose <menthos@menthos.com>, 2003.
+# Copyright (C) 2003, 2005 Free Software Foundation, Inc.
+# Christian Rose <menthos@menthos.com>, 2003, 2005.
 #
-# $Id: sv.po,v 1.5 2004/11/28 19:16:15 hongli Exp $
+# $Id: sv.po,v 1.6 2005/01/02 23:53:23 menthos Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-28 19:03+0100\n"
-"PO-Revision-Date: 2003-09-20 16:57+0200\n"
+"POT-Creation-Date: 2005-01-03 00:52+0100\n"
+"PO-Revision-Date: 2005-01-03 00:52+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,54 +24,74 @@ msgstr "GNOME-superanvändarintegration"
 msgid "Open as superuser (root)..."
 msgstr "Öppna som superanvändare (root)..."
 
-#: src/libgnomesu.c:169
-msgid "No services for libgnomesu are available.\n"
+#: src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr "Lösenord behövs"
+
+#: src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "Kommando:"
+
+#: src/gnomesu-auth-dialog.c:361
+msgid ""
+"<b>Administrator (root) privilege is required.</b>\n"
+"Please enter the root password to continue."
 msgstr ""
+"<b>Superanvändarprivilegier (rootprivilegier) krävs.</b>\n"
+"Ange rootlösenordet för att fortsätta."
 
-#: src/pam.c:100 src/su.c:98
-#, c-format
-msgid "%s's _password:"
-msgstr "_Lösenord för %s:"
+#: src/gnomesu-auth-dialog.c:407
+msgid "_Password:"
+msgstr "_Lösenord:"
 
-#: src/pam.c:104 src/su.c:102
+#: src/gnomesu-auth-dialog.c:432 src/services/sudo.c:151
+msgid "Please wait, verifying password..."
+msgstr "Var vänlig vänta, verifierar lösenord..."
+
+#: src/gnomesu-auth-dialog.c:440 src/services/sudo.c:135
+msgid "Incorrect password, please try again."
+msgstr "Felaktigt lösenord, försök igen."
+
+#: src/gnomesu-auth-dialog.c:447
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Felaktigt lösenord, försök igen. Du har en chans till."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "Inga tjänster för libgnomesu är tillgängliga.\n"
+
+#: src/services/pam.c:192 src/services/su.c:185
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
 msgstr "Ange lösenordet för %s och klicka på Kör för att fortsätta."
 
-#: src/pam.c:106 src/su.c:104
+#: src/services/pam.c:194 src/services/su.c:187
 msgid "The requested action needs further authentication."
 msgstr "Den begärda åtgärden kräver ytterligare autentisering."
 
-#: src/pam.c:165 src/su.c:163
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Felaktigt lösenord, försök igen. Du har en chans till."
+#: src/services/pam.c:200 src/services/su.c:193
+#, c-format
+msgid "%s's _password:"
+msgstr "_Lösenord för %s:"
 
-#: src/pam.c:171 src/su.c:169 src/sudo.c:135
-msgid "Incorrect password, please try again."
-msgstr "Felaktigt lösenord, försök igen."
-
-#: src/pam.c:187 src/su.c:186 src/sudo.c:151
-msgid "Please wait, verifying password..."
-msgstr "Var vänlig vänta, verifierar lösenord..."
-
-#: src/pam.c:361 src/su.c:354
+#: src/services/pam.c:219 src/services/su.c:212
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Användaren \"%s\" finns inte."
 
-#: src/pam.c:366 src/su.c:359
+#: src/services/pam.c:224 src/services/su.c:216
 msgid "An unknown error occured while authenticating."
 msgstr "Ett okänt fel inträffade vid autentisering."
 
-#: src/pam.c:370 src/su.c:363
+#: src/services/pam.c:228 src/services/su.c:220
 msgid "You do not have permission to authenticate."
 msgstr "Du har inte rättigheter att autentisera."
 
-#: src/pam.c:374
-msgid "Unable to initialize PAM authentication system."
-msgstr ""
+#: src/services/pam.c:232
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Kan inte initiera PAM-autentiseringssystemet."
 
-#: src/sudo.c:320
+#: src/services/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."
@@ -84,56 +104,13 @@ msgstr ""
 #. * Add this file to your project's POTFILES.in.
 #. * DO NOT compile it as part of your application.
 #.
-#: src/ui/su-strings.h:7 src/ui/su.glade.h:6
-msgid "Password needed"
-msgstr "Lösenord behövs"
-
-#: src/ui/su-strings.h:8 src/ui/su.glade.h:8 src/ui/sudo-strings.h:8
-#: src/ui/sudo.glade.h:8
-msgid "_Run"
-msgstr "_Kör"
-
-#: src/ui/su-strings.h:9 src/ui/su.glade.h:3
-msgid ""
-"<span weight=\"bold\">The requested action needs superuser (root) privileges."
-"</span>\n"
-"Please enter the superuser password and click Run to continue."
-msgstr ""
-"<span weight=\"bold\">Den begärda åtgärden behöver superanvändarrättigheter "
-"rooträttigheter).</span>\n"
-"Ange superanvändarlösenordet och klicka på Kör för att fortsätta."
-
-#: src/ui/su-strings.h:11 src/ui/su.glade.h:7
-msgid "Superuser _password:"
-msgstr "Superanvändar_lösenord:"
-
-#: src/ui/su-strings.h:12 src/ui/su.glade.h:1 src/ui/sudo-strings.h:12
-#: src/ui/sudo.glade.h:1
-msgid "*"
-msgstr "*"
-
-#: src/ui/su-strings.h:13 src/ui/su.glade.h:5 src/ui/sudo-strings.h:13
-#: src/ui/sudo.glade.h:5
-msgid "Command to run:"
-msgstr "Kommando att köra:"
-
-#: src/ui/su-strings.h:14 src/ui/su.glade.h:2 src/ui/sudo-strings.h:14
-#: src/ui/sudo.glade.h:2
-msgid ""
-"<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
-"span>"
-msgstr ""
-"<span style=\"italic\" weight=\"bold\">Var vänlig vänta, verifierar "
-"lösenord...</span>"
-
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
 #: src/ui/sudo-strings.h:7 src/ui/sudo.glade.h:6
 msgid "User's password needed"
 msgstr "Användarens lösenord behövs"
+
+#: src/ui/sudo-strings.h:8 src/ui/sudo.glade.h:8
+msgid "_Run"
+msgstr "_Kör"
 
 #: src/ui/sudo-strings.h:9 src/ui/sudo.glade.h:3
 msgid ""
@@ -146,6 +123,22 @@ msgstr ""
 #: src/ui/sudo-strings.h:11 src/ui/sudo.glade.h:7
 msgid "Your _password:"
 msgstr "Ditt _lösenord:"
+
+#: src/ui/sudo-strings.h:12 src/ui/sudo.glade.h:1
+msgid "*"
+msgstr "*"
+
+#: src/ui/sudo-strings.h:13 src/ui/sudo.glade.h:5
+msgid "Command to run:"
+msgstr "Kommando att köra:"
+
+#: src/ui/sudo-strings.h:14 src/ui/sudo.glade.h:2
+msgid ""
+"<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</"
+"span>"
+msgstr ""
+"<span style=\"italic\" weight=\"bold\">Var vänlig vänta, verifierar "
+"lösenord...</span>"
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -169,31 +162,46 @@ msgstr ""
 "finns INTE NÅGON GARANTI, inte ens för KÖP eller LÄMPLIGHET FÖR NÅGOT\n"
 "SPECIELLT ÄNDAMÅL.\n"
 
-#: tools/gnomesu.c:39
+#: tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Ange kommandot som ska göras som en enstaka sträng."
 
-#: tools/gnomesu.c:40
+#: tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "KOMMANDO"
 
-#: tools/gnomesu.c:43
+#: tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Kör som denna användare istället för root."
 
-#: tools/gnomesu.c:44
+#: tools/gnomesu.c:45
 msgid "USERNAME"
 msgstr "ANVÄNDARNAMN"
 
-#: tools/gnomesu.c:64
+#: tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME-superanvändare"
 
-#~ msgid "Password required"
-#~ msgstr "Lösenord krävs"
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "Superanvändarprivilegier (rootprivilegier) krävs."
+
+#~ msgid "Please enter the root password to continue."
+#~ msgstr "Ange rootlösenordet för att fortsätta."
+
+#~ msgid "_Password"
+#~ msgstr "_Lösenord"
+
+#~ msgid "Password:"
+#~ msgstr "Lösenord:"
 
 #~ msgid "Password"
 #~ msgstr "Lösenord"
+
+#~ msgid "Superuser _password:"
+#~ msgstr "Superanvändar_lösenord:"
+
+#~ msgid "Password required"
+#~ msgstr "Lösenord krävs"
 
 #~ msgid "Run"
 #~ msgstr "Kör"
@@ -207,9 +215,6 @@ msgstr "GNOME-superanvändare"
 
 #~ msgid "Superuser password:"
 #~ msgstr "Superanvändarlösenord:"
-
-#~ msgid "Command:"
-#~ msgstr "Kommando:"
 
 #~ msgid "Command"
 #~ msgstr "Kommando"
