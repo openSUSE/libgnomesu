@@ -1,3 +1,7 @@
+2004-10-29  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Add «nb» to ALL_LINGUAS.
+
 2004-10-27  Hongli Lai  <h.lai@chello.nl>
 
 	* src/utils.c: fix freeing of uninitialized pointer.
