@@ -91,7 +91,7 @@ init_gui (gchar *command, gchar *user)
 	if (strcmp (user, "root") != 0)
 	{
 		GtkWidget *passLabel, *info;
-		gchar *tmp;
+		gchar *tmp, *tmp2;
 
 		passLabel = glade_xml_get_widget (gui->xml, "passLabel");
 		info = glade_xml_get_widget (gui->xml, "info");
@@ -100,11 +100,12 @@ init_gui (gchar *command, gchar *user)
 		gtk_label_set_text_with_mnemonic (GTK_LABEL (passLabel), tmp);
 		g_free (tmp);
 
-		tmp = g_strdup_printf (_(
-			"<span weight=\"bold\">The requested action needs further authentication.</span>\n"
-			"Please enter %s's password and click Run to continue."),
-			user);
-		gtk_label_set_markup (GTK_LABEL (info), tmp);
+		tmp = g_strdup_printf (_("Please enter %s's password and click Run to continue."), user);
+		tmp2 = g_strdup_printf ("<b>%s</b>\n%s",
+			_("The requested action needs further authentication."),
+			tmp);
+		gtk_label_set_markup (GTK_LABEL (info), tmp2);
+		g_free (tmp2);
 		g_free (tmp);
 	}
 
@@ -155,13 +156,20 @@ get_password (SuGUI *gui, gchar **password, gboolean previous_was_incorrect)
 
 	if (previous_was_incorrect)
 	{
+		gchar *tmp;
+
 		if (gui->tries >= 2)
-			gtk_label_set_markup (GTK_LABEL (gui->verify),
-				_("<span style=\"italic\" weight=\"bold\">Incorrect password, please try again. "
-				  "You have one more chance.</span>"));
-		else
-			gtk_label_set_markup (GTK_LABEL (gui->verify),
-				_("<span style=\"italic\" weight=\"bold\">Incorrect password, please try again.</span>"));
+		{
+			tmp = g_strdup_printf ("<i><b>%s</b></i>",
+				_("Incorrect password, please try again. "
+				  "You have one more chance."));
+			gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
+		} else
+		{
+			tmp = g_strdup_printf ("<i><b>%s</b></i>",
+				_("Incorrect password, please try again."));
+			gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
+		}
 		gtk_widget_show (gui->verify);
 	} else
 		gtk_widget_hide (gui->verify);
@@ -172,9 +180,13 @@ get_password (SuGUI *gui, gchar **password, gboolean previous_was_incorrect)
 	
 	if (response == GTK_RESPONSE_OK)
 	{
+		gchar *tmp;
+
 		gui->tries++;
-		gtk_label_set_markup (GTK_LABEL (gui->verify),
-			_("<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</span>"));
+		tmp = g_strdup_printf ("<i><b>%s</b></i>", _("Please wait, verifying password..."));
+		gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
+		g_free (tmp);
+
 		gtk_widget_show (gui->verify);
 		gdk_window_set_cursor (gui->win->window, gui->watch);
 		gtk_widget_set_sensitive (gui->win, FALSE);

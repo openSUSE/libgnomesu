@@ -129,8 +129,12 @@ get_password (SudoGUI *gui, gchar **password, gboolean previous_was_incorrect)
 
 	if (previous_was_incorrect)
 	{
-		gtk_label_set_markup (GTK_LABEL (gui->verify),
-			_("<span style=\"italic\" weight=\"bold\">Incorrect password, please try again.</span>"));
+		gchar *tmp;
+
+		tmp = g_strdup_printf ("<i><b>%s</b></i>",
+			_("Incorrect password, please try again."));
+		gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
+		g_free (tmp);
 		gtk_widget_show (gui->verify);
 	} else
 		gtk_widget_hide (gui->verify);
@@ -141,8 +145,12 @@ get_password (SudoGUI *gui, gchar **password, gboolean previous_was_incorrect)
 	
 	if (response == GTK_RESPONSE_OK)
 	{
-		gtk_label_set_markup (GTK_LABEL (gui->verify),
-			_("<span style=\"italic\" weight=\"bold\">Please wait, verifying password...</span>"));
+		gchar *tmp;
+
+		tmp = g_strdup_printf ("<i><b>%s</b></i>",
+			_("Please wait, verifying password..."));
+		gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
+		g_free (tmp);
 		gtk_widget_show (gui->verify);
 		gdk_window_set_cursor (gui->win->window, gui->watch);
 		gtk_widget_set_sensitive (gui->win, FALSE);

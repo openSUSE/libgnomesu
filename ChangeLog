@@ -1,6 +1,9 @@
 2003-09-20 Hongli Lai <hDOTlaiATchelloDOTnl>
 
 	* Add MAINTAINERS file.
+	* src/su.c, sudo.c, pam.c: Don't include markup in translated
+	  strings (bug #122804).
+	* po/nl.po: Updated translation.
 
 2003-09-20 Mark Finlay <sisobATeircomDOTnet>
 
