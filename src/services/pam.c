@@ -23,7 +23,6 @@
 #ifdef HAVE_PAM
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 
