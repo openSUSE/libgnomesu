@@ -1,2 +1,3 @@
 - Question: should we grab the X server like gnome-ssh-askpass?
 - Support startup notification.
+- Error reporting through GError.
