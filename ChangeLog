@@ -1,3 +1,7 @@
+2005-01-03  Martin Willemoes Hansen  <mwh@sysrq.dk>
+
+	* configure.in: Added "da" (Danish) to ALL_LINGUAS.
+
 2004-12-18  Hongli Lai  <h.lai@chello.nl>
 
 	* pam-backend/{Makefile.am,pam.c},
