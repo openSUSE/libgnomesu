@@ -1,3 +1,8 @@
+2004-04-12  Hongli Lai  <h.lai@chello.nl>
+
+	* po/POTFILES.in: add src/libgnomesu.c
+	* src/utils.c (__libgnomesu_create_command): escape '$'
+
 2004-04-09  Hongli Lai  <h.lai@chello.nl>
 
 	* pam-backend/pam.c: #include <grp.h> to fix a compilation error.
