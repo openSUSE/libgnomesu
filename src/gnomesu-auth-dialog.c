@@ -356,10 +356,16 @@ gnomesu_auth_dialog_set_desc (GnomesuAuthDialog *dialog, const gchar *text)
 
 	if (text)
 		gtk_label_set_markup (GTK_LABEL (dialog->_priv->desc_label), text);
-	else
+	else {
+		gchar *msg;
+
+		msg = g_strdup_printf ("<b>%s</b>\n%s",
+			_("Administrator (root) privilege is required."),
+			_("Please enter the root password to continue."));
 		gtk_label_set_markup (GTK_LABEL (dialog->_priv->desc_label),
-			_("<b>Administrator (root) privilege is required.</b>\n"
-			"Please enter the root password to continue."));
+			msg);
+		g_free (msg);
+	}
 }
 
 

@@ -1,3 +1,8 @@
+2005-01-03  Hongli Lai  <h.lai@chello.nl>
+
+	* src/gnomesu-auth-dialog.c: Don't translate GMarkup tags.
+	  Fix bug #162763.
+
 2005-01-03  Martin Willemoes Hansen  <mwh@sysrq.dk>
 
 	* configure.in: Added "da" (Danish) to ALL_LINGUAS.
