@@ -1,3 +1,7 @@
+2004-02-25  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in (ALL_LINGUAS): Added "ca" (Catalan).
+
 2004-02-07  Robert Sedak  <robert.sedak@sk.htnet.hr>
 
         * configure.in: Added "hr" (Croatian) to ALL_LINGUAS.
