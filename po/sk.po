@@ -1,17 +1,17 @@
 # Slovak translations for libgnomesu package
 # Slovenské preklady pre balík libgnomesu.
-# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnomesu package.
-# Marcel Telka <marcel@telka.sk>, 2003, 2004.
+# Marcel Telka <marcel@telka.sk>, 2003, 2004, 2005.
 #
-# $Id: sk.po,v 1.7 2004/12/14 20:08:10 marcel Exp $
+# $Id: sk.po,v 1.8 2005/01/04 20:01:16 marcel Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-14 21:04+0100\n"
-"PO-Revision-Date: 2004-12-14 21:06+0100\n"
+"POT-Creation-Date: 2005-01-04 20:58+0100\n"
+"PO-Revision-Date: 2005-01-04 20:59+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -26,41 +26,41 @@ msgstr "GNOME Integrácia správcu"
 msgid "Open as superuser (root)..."
 msgstr "Otovriť ako správca..."
 
-#: src/libgnomesu.c:170
-msgid "No services for libgnomesu are available.\n"
-msgstr "Nie sú dostupné služby pre libgnomesu.\n"
-
-#: src/gnomesu-auth-dialog.c:108
+#: src/gnomesu-auth-dialog.c:110
 msgid "Password needed"
 msgstr "Je vyžadované heslo"
 
-#: src/gnomesu-auth-dialog.c:161
+#: src/gnomesu-auth-dialog.c:163
 msgid "Command:"
 msgstr "Príkaz:"
 
-#: src/gnomesu-auth-dialog.c:359
-msgid ""
-"<b>Administrator (root) privilege is required.</b>\n"
-"Please enter the root password to continue."
-msgstr ""
-"<b>Sú vyžadované práva správcu.</b>\n"
-"Prosím zadajte heslo správcu pre pokračovanie."
+#: src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Sú vyžadované práva správcu."
 
-#: src/gnomesu-auth-dialog.c:405
+#: src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Prosím zadajte heslo správcu pre pokračovanie."
+
+#: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
 msgstr "_Heslo:"
 
-#: src/gnomesu-auth-dialog.c:430 src/services/sudo.c:151
+#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:151
 msgid "Please wait, verifying password..."
 msgstr "Prosím čakajte, overujem heslo..."
 
-#: src/gnomesu-auth-dialog.c:438 src/services/sudo.c:135
+#: src/gnomesu-auth-dialog.c:446 src/services/sudo.c:135
 msgid "Incorrect password, please try again."
 msgstr "Neplatné heslo, prosím skúste znova."
 
-#: src/gnomesu-auth-dialog.c:445
+#: src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Nesprávne heslo, prosím skúste znova. Máte jednu ďalšiu šancu."
+
+#: src/libgnomesu.c:170
+msgid "No services for libgnomesu are available.\n"
+msgstr "Nie sú dostupné služby pre libgnomesu.\n"
 
 #: src/services/pam.c:192 src/services/su.c:185
 #, c-format
