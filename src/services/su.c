@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,9 +21,6 @@
 #define _SU_C_
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
 
 #include <libintl.h>
 #include <stdio.h>
@@ -39,6 +36,7 @@
 #include "utils.h"
 #include "libgnomesu.h"
 #include "prefix.h"
+#include "gnomesu-auth-dialog.h"
 
 G_BEGIN_DECLS
 
@@ -47,164 +45,11 @@ G_BEGIN_DECLS
 #define _(x) dgettext (GETTEXT_PACKAGE, x)
 
 
-typedef struct
-{
-	GladeXML *xml;
-	GtkWidget *win;		/* the window */
-	GtkWidget *pass;	/* the password entry */
-	GtkWidget *command;	/* the 'Command to run' label */
-	GtkWidget *verify;	/* the "verifying password..." label */
-	GdkCursor *watch;	/* The watch busy cursor */
-	guint tries;
-} SuGUI;
-
-
-static gboolean
-pass_changed (GtkEntry *entry, GtkWidget *ok)
-{
-	gtk_widget_set_sensitive (ok, gtk_entry_get_text (entry) != NULL
-		&& strlen (gtk_entry_get_text (entry)) > 0);
-	return FALSE;
-}
-
-
-static SuGUI *
-init_gui (gchar *command, gchar *user)
-{
-	SuGUI *gui;
-
-	gui = (SuGUI *) g_new0 (SuGUI, 1);
-	gui->xml = __libgnomesu_load_glade ("su.glade");
-	glade_xml_signal_autoconnect (gui->xml);
-
-	gui->win = glade_xml_get_widget (gui->xml, "SuDialog");
-	gtk_widget_realize (gui->win);
-	gui->pass = glade_xml_get_widget (gui->xml, "password");
-	g_signal_connect (gui->pass, "changed", G_CALLBACK (pass_changed),
-		glade_xml_get_widget (gui->xml, "ok"));
-	gui->command = glade_xml_get_widget (gui->xml, "command");
-	gtk_label_set_text (GTK_LABEL (gui->command), command);
-	gui->verify = glade_xml_get_widget (gui->xml, "verifying");
-	gui->watch = gdk_cursor_new (GDK_WATCH);
-
-	if (strcmp (user, "root") != 0)
-	{
-		GtkWidget *passLabel, *info;
-		gchar *tmp, *tmp2;
-
-		passLabel = glade_xml_get_widget (gui->xml, "passLabel");
-		info = glade_xml_get_widget (gui->xml, "info");
-
-		tmp = g_strdup_printf (_("%s's _password:"), user);
-		gtk_label_set_text_with_mnemonic (GTK_LABEL (passLabel), tmp);
-		g_free (tmp);
-
-		tmp = g_strdup_printf (_("Please enter %s's password and click Run to continue."), user);
-		tmp2 = g_strdup_printf ("<b>%s<b>\n%s",
-			_("The requested action needs further authentication."),
-			tmp);
-		gtk_label_set_markup (GTK_LABEL (info), tmp2);
-		g_free (tmp2);
-		g_free (tmp);
-	}
-
-	gtk_widget_show (gui->win);
-
-	return gui;
-}
-
-
-static void
-clear_entry (GtkWidget *entry)
-{
-	gchar *blank;
-
-	/* Make a pathetic stab at clearing the GtkEntry field memory */
-	blank = (gchar *) gtk_entry_get_text (GTK_ENTRY (entry));
-	if (blank && strlen (blank))
-		memset (blank, ' ', strlen (blank));
-
-	blank = g_strdup (blank);
-	if (strlen (blank))
-		memset (blank, ' ', strlen (blank));
-
-	gtk_entry_set_text (GTK_ENTRY (entry), blank);
-	gtk_entry_set_text (GTK_ENTRY (entry), "");
-}
-
-
-static void
-fini_gui (SuGUI *gui)
-{
-	if (!gui) return;
-
-	clear_entry (gui->pass);
-	gtk_widget_destroy (gui->win);
-	g_object_unref (gui->xml);
-	gdk_cursor_unref (gui->watch);
-	g_free (gui);
-	while (gtk_events_pending ())
-		gtk_main_iteration ();
-}
-
-
-static void
-get_password (SuGUI *gui, gchar **password, gboolean previous_was_incorrect)
-{
-	gint response;
-
-	if (previous_was_incorrect)
-	{
-		gchar *tmp;
-
-		if (gui->tries >= 2)
-		{
-			tmp = g_strdup_printf ("<i><b>%s</b></i>",
-				_("Incorrect password, please try again. "
-				  "You have one more chance."));
-			gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
-		} else
-		{
-			tmp = g_strdup_printf ("<i><b>%s</b></i>",
-				_("Incorrect password, please try again."));
-			gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
-		}
-		g_free (tmp);
-		gtk_widget_show (gui->verify);
-	} else
-		gtk_widget_hide (gui->verify);
-	gtk_widget_set_sensitive (gui->win, TRUE);
-	gdk_window_set_cursor (gui->win->window, NULL);
-	gtk_widget_grab_focus (gui->pass);
-	response = gtk_dialog_run (GTK_DIALOG (gui->win));
-	
-	if (response == GTK_RESPONSE_OK)
-	{
-		gchar *tmp;
-
-		gui->tries++;
-		tmp = g_strdup_printf ("<i><b>%s</b></i>", _("Please wait, verifying password..."));
-		gtk_label_set_markup (GTK_LABEL (gui->verify), tmp);
-		g_free (tmp);
-
-		gtk_widget_show (gui->verify);
-		gdk_window_set_cursor (gui->win->window, gui->watch);
-		gtk_widget_set_sensitive (gui->win, FALSE);
-
-		*password = g_strdup (gtk_entry_get_text (GTK_ENTRY (gui->pass)));
-	}
-
-	clear_entry (gui->pass);
-	while (gtk_events_pending ())
-		gtk_main_iteration ();
-}
-
-
 /* Show an error message */
 static void
-bomb (SuGUI *gui, gchar *format, ...)
+bomb (GnomesuAuthDialog *auth, gchar *format, ...)
 {
-	GtkWidget *dialog, *win = NULL;
+	GtkWidget *dialog;
 	va_list ap;
 	gchar *msg;
 
@@ -212,9 +57,7 @@ bomb (SuGUI *gui, gchar *format, ...)
 	msg = g_strdup_vprintf (format, ap);
 	va_end (ap);
 
-	if (gui)
-		win = gui->win;
-	dialog = gtk_message_dialog_new (GTK_WINDOW (win),
+	dialog = gtk_message_dialog_new ((GtkWindow *) auth,
 		GTK_DIALOG_MODAL,
 		GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
 		msg);
@@ -255,8 +98,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 	if (pipe (parent_pipe) == -1)
 		return FALSE;
-	if (pipe (child_pipe) == -1)
-	{
+	if (pipe (child_pipe) == -1) {
 		close (parent_pipe[0]);
 		close (parent_pipe[1]);
 		return FALSE;
@@ -264,43 +106,42 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 
 	mypid = fork ();
-	switch (mypid)
-	{
+	switch (mypid) {
 	case -1: /* error */
 		close (parent_pipe[0]);
 		close (parent_pipe[1]);
 		close (child_pipe[0]);
 		close (child_pipe[1]);
 		return FALSE;
+
 	case 0: /* child */
 	    {
+	        GList *args = NULL;
 	        gchar **su_argv;
-	        guint i, c;
 
 		close (child_pipe[1]);
 		close (parent_pipe[0]);
 
-		c = __libgnomesu_count_args (argv);
-		su_argv = g_new0 (gchar *, c + 5);
-		su_argv[0] = g_strdup_printf ("%s/gnomesu-backend", LIBEXECDIR);
-		su_argv[1] = g_strdup_printf ("%d", child_pipe[0]);
-		su_argv[2] = g_strdup_printf ("%d", parent_pipe[1]);
-		su_argv[3] = user;
-		for (i = 0; i < c; i++)
-			su_argv[i + 4] = argv[i];
+		glt_add (args, strf ("%s/gnomesu-backend", LIBEXECDIR));
+		glt_add (args, strf ("%d", child_pipe[0]));
+		glt_add (args, strf ("%d", parent_pipe[1]));
+		glt_add (args, user);
+		glt_addv (args, argv);
+		su_argv = glt_to_vector (args, NULL);
 
 		putenv ("_GNOMESU_BACKEND_START=1");
-		execv (g_strdup_printf ("%s/gnomesu-backend", LIBEXECDIR), su_argv);
+		execv (su_argv[0], su_argv);
 		_exit (1);
 		break;
 	    }
+
 	default: /* parent */
 	    {
 		gchar buf[1024];
 		FILE *f;
 		int status;
-		SuGUI *gui = NULL;
-		gboolean previous_incorrect = FALSE;
+		GnomesuAuthDialog *gui = NULL;
+		guint tries = 0;
 
 		close (parent_pipe[1]);
 		close (child_pipe[0]);
@@ -308,70 +149,89 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		if (!f)
 			return FALSE;
 
-		while (!feof (f) && fgets (buf, sizeof (buf), f))
-		{
-			if (strcmp (buf, "DONE\n") == 0)
-			{
-				fini_gui (gui);
+		while (!feof (f) && fgets (buf, sizeof (buf), f)) {
+			if (cmp (buf, "DONE\n")) {
+				gtk_widget_destroy (GTK_WIDGET (gui));
+				while (gtk_events_pending ())
+					gtk_main_iteration ();
 				fclose (f);
 				close (parent_pipe[0]);
 				close (child_pipe[1]);
 				if (pid)
 					*pid = mypid;
 				return TRUE;
-			}
-			else if (strcmp (buf, "INCORRECT_PASSWORD\n") == 0)
-			{
-				previous_incorrect = TRUE;
-			}
-			else if (strcmp (buf, "ASK_PASS\n") == 0)
-			{
-				gchar *password = NULL, *commandline;
 
-				if (!gui)
-				{
-					commandline = __libgnomesu_create_command (argv);
-					gui = init_gui (commandline, user);
-					g_free (commandline);
+			} else if (cmp (buf, "INCORRECT_PASSWORD\n")) {
+				tries++;
+				if (tries >= 2)
+					gnomesu_auth_dialog_set_mode (gui, GNOMESU_MODE_LAST_CHANCE);
+				else
+					gnomesu_auth_dialog_set_mode (gui, GNOMESU_MODE_WRONG_PASSWORD);
+
+			} else if (cmp (buf, "ASK_PASS\n")) {
+				gchar *password = NULL;
+
+				if (!gui) {
+					gchar *tmp;
+
+					gui = (GnomesuAuthDialog *) gnomesu_auth_dialog_new ();
+					tmp = LGSD(create_command) (argv);
+					gnomesu_auth_dialog_set_command (gui, tmp);
+					g_free (tmp);
+
+					if (strcmp (user, "root") != 0) {
+						gchar *tmp2;
+
+						tmp = strf (_("Please enter %s's password and click Run to continue."), user);
+						tmp2 = g_strdup_printf ("<b>%s</b>\n%s",
+							_("The requested action needs further authentication."),
+							tmp);
+						gnomesu_auth_dialog_set_desc (gui, tmp2);
+						g_free (tmp);
+						g_free (tmp2);
+
+						tmp = g_strdup_printf (_("%s's _password:"), user);
+						gnomesu_auth_dialog_set_prompt (gui, tmp);
+						g_free (tmp);
+					}
 				}
 
-				get_password (gui, &password, previous_incorrect);
+				password = gnomesu_auth_dialog_prompt (gui);
 				if (!password)
 					break;
 
 				write (child_pipe[1], password, strlen (password));
-				memset (password, 0, strlen (password));
-				g_free (password);
+				gnomesu_free_password (&password);
 				write (child_pipe[1], "\n", 1);
-			}
 
 			/* These are all errors */
-			else if (strcmp (buf, "PASSWORD_FAIL\n") == 0)
-			{
+			} else if (cmp (buf, "PASSWORD_FAIL\n")) {
 				break;
-			} else if (strcmp (buf, "NO_SUCH_USER\n") == 0)
-			{
-				bomb (gui, _("User '%s' doesn't exist."),
-					user);
+
+			} else if (cmp (buf, "NO_SUCH_USER\n")) {
+				bomb (gui, _("User '%s' doesn't exist."), user);
 				break;
-			} else if (strcmp (buf, "ERROR\n") == 0)
-			{
+
+			} else if (cmp (buf, "ERROR\n")) {
 				bomb (gui, _("An unknown error occured while authenticating."));
 				break;
-			} else if (strcmp (buf, "DENIED\n") == 0)
-			{	
+
+			} else if (cmp (buf, "DENIED\n")) {
 				bomb (gui, _("You do not have permission to authenticate."));
 				break;
+
 			} else
 				break;
 		}
 
-		fini_gui (gui);
+		gtk_widget_destroy (GTK_WIDGET (gui));
+		while (gtk_events_pending ())
+			gtk_main_iteration ();
+
 		fclose (f);
 		close (child_pipe[1]);
 
-		while (waitpid (mypid, &status, WNOHANG) == 0)
-		{
+		while (waitpid (mypid, &status, WNOHANG) == 0) {
 			while (gtk_events_pending ())
 				gtk_main_iteration ();
 			usleep (100000);

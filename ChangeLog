@@ -1,6 +1,12 @@
+2004-12-05  Hongli Lai  <h.lai@chello.nl>
+
+	* src/services/pam.c: some minor cleanups.
+	* src/services/su.c: use GnomesuAuthDialog.
+	* src/ui/: Remove su.glade and everything related to it.
+
 2004-11-30  Hongli Lai  <h.lai@chello.nl>
 
-	* src/pam.c: Correctly exit if user entered wrong password 3
+	* pam-backend/pam.c: Correctly exit if user entered wrong password 3
 	  times.
 	* src/gnomesu-auth-dialog.[ch]: all kinds of improvements.
 	* src/services/pam.c: use GnomesuAthDialog.

@@ -23,6 +23,8 @@
 #include <glib.h>
 #include <glade/glade.h>
 
+#include <string.h>
+
 /* These functions are private and should not be used by applications */
 
 G_BEGIN_DECLS
@@ -33,6 +35,7 @@ G_BEGIN_DECLS
 #define glt_addv(list, vec) list = LGSD(g_list_addv) (list, vec)
 #define glt_to_vector LGSD(g_list_to_vector)
 #define strf g_strdup_printf
+#define cmp(x, y) (strcmp (x, y) == 0)
 
 
 gchar * LGSD(create_command)	(gchar **argv);

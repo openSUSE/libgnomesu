@@ -92,7 +92,7 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 	GtkWidget *button;
 
 
-	gtk_window_set_title (GTK_WINDOW (dialog), _("Password required"));
+	gtk_window_set_title (GTK_WINDOW (dialog), _("Password needed"));
 	gtk_dialog_set_has_separator (dialog, FALSE);
 	gtk_widget_realize (GTK_WIDGET (dialog));
 	adialog->watch = gdk_cursor_new (GDK_WATCH);

@@ -1,5 +1,5 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2003  Hongli Lai
+ * Copyright (C) 2003,2004  Hongli Lai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -141,6 +141,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		_exit (1);
 		break;
 	    }
+
 	default: /* parent */
 	    {
 		gchar buf[1024];
@@ -155,11 +156,8 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 		if (!f)
 			return FALSE;
 
-		while (!feof (f)) {
-			if (!fgets (buf, sizeof (buf), f))
-				break;
-
-			if (strcmp (buf, "DONE\n") == 0) {
+		while (!feof (f) && fgets (buf, sizeof (buf), f)) {
+			if (cmp (buf, "DONE\n")) {
 				gtk_widget_destroy (GTK_WIDGET (gui));
 				while (gtk_events_pending ())
 					gtk_main_iteration ();
@@ -170,14 +168,14 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 					*pid = mypid;
 				return TRUE;
 
-			} else if (strcmp (buf, "INCORRECT_PASSWORD\n") == 0) {
+			} else if (cmp (buf, "INCORRECT_PASSWORD\n")) {
 				tries++;
 				if (tries >= 2)
 					gnomesu_auth_dialog_set_mode (gui, GNOMESU_MODE_LAST_CHANCE);
 				else
 					gnomesu_auth_dialog_set_mode (gui, GNOMESU_MODE_WRONG_PASSWORD);
 
-			} else if (strcmp (buf, "ASK_PASS\n") == 0) {
+			} else if (cmp (buf, "ASK_PASS\n")) {
 				gchar *password = NULL;
 
 				if (!gui) {
@@ -188,7 +186,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 					gnomesu_auth_dialog_set_command (gui, tmp);
 					g_free (tmp);
 
-					if (strcmp (user, "root") != 0) {
+					if (cmp (user, "root")) {
 						gchar *tmp2;
 
 						tmp = strf (_("Please enter %s's password and click Run to continue."), user);
@@ -210,28 +208,27 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 					break;
 
 				write (child_pipe[1], password, strlen (password));
-				write (child_pipe[1], "\n", 1);
 				gnomesu_free_password (&password);
-			}
+				write (child_pipe[1], "\n", 1);
 
 			/* These are all errors */
-			else if (strcmp (buf, "PASSWORD_FAIL\n") == 0) {
+			} else if (cmp (buf, "PASSWORD_FAIL\n")) {
 				break;
 
-			} else if (strcmp (buf, "NO_SUCH_USER\n") == 0) {
+			} else if (cmp (buf, "NO_SUCH_USER\n")) {
 				bomb (gui, _("User '%s' doesn't exist."),
 					user);
 				break;
 
-			} else if (strcmp (buf, "ERROR\n") == 0) {
+			} else if (cmp (buf, "ERROR\n")) {
 				bomb (gui, _("An unknown error occured while authenticating."));
 				break;
 
-			} else if (strcmp (buf, "DENIED\n") == 0) {
+			} else if (cmp (buf, "DENIED\n")) {
 				bomb (gui, _("You do not have permission to authenticate."));
 				break;
 
-			} else if (strcmp (buf, "INIT_ERROR\n") == 0) {
+			} else if (cmp (buf, "INIT_ERROR\n")) {
 				bomb (gui, _("Unable to initialize the PAM authentication system."));
 				break;
 
