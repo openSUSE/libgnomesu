@@ -1,106 +1,106 @@
 # libgnomesu translation to Catalan.
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004,2005 Free Software Foundation, Inc.
+#
 # Softcatalà <info@softcatala.org>, 2004.
 # Aleix Badia i Bosch <abadia@ica.es>, 2004.
 # Xavier Conde Rueda <xaviconde@eresmas.com>, 2004
+# Josep Puigdemont <josep@imatge-sintetica>, 2005
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2004-01-24 09:30+0200\n"
+"POT-Creation-Date: 2005-03-28 19:02+0200\n"
+"PO-Revision-Date: 2005-03-29 00:01+0200\n"
 "Last-Translator: Aleix Badia i Bosch <abadia@ica.es>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/gnomesu-auth-dialog.c:110
+#: ../src/gnomesu-auth-dialog.c:110
 msgid "Password needed"
 msgstr "Es necessita contrasenya"
 
-#: src/gnomesu-auth-dialog.c:163
-#, fuzzy
+#: ../src/gnomesu-auth-dialog.c:163
 msgid "Command:"
-msgstr "Ordre a executar:"
+msgstr "Ordre:"
 
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "C_ontinua"
 
-#: src/gnomesu-auth-dialog.c:363
+#: ../src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
-msgstr ""
+msgstr "Calen privilegis d'administrador (root)."
 
-#: src/gnomesu-auth-dialog.c:364
-#, fuzzy
+#: ../src/gnomesu-auth-dialog.c:364
 msgid "Please enter the root password to continue."
-msgstr "Introduïu la contrasenya d'en %s i premeu Executa per continuar."
+msgstr "Introduïu la contrasenya del superusuari (root) per continuar."
 
-#: src/gnomesu-auth-dialog.c:413
-#, fuzzy
+#: ../src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
-msgstr "La vostra con_trasenya:"
+msgstr "Con_trasenya:"
 
-#: src/gnomesu-auth-dialog.c:438
+#: ../src/gnomesu-auth-dialog.c:438
 msgid "Please wait, verifying password..."
 msgstr "Espereu, s'està verificant la contrasenya..."
 
-#: src/gnomesu-auth-dialog.c:446
+#: ../src/gnomesu-auth-dialog.c:446
 msgid "Incorrect password, please try again."
-msgstr "La contrasenya és incorrecta, torneu-ho a intentar."
+msgstr "La contrasenya no és correcta, torneu-ho a intentar."
 
-#: src/gnomesu-auth-dialog.c:453
+#: ../src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr ""
-"La contrasenya és incorrecta, torneu-ho a intentar. Teniu un altra "
+"La contrasenya no és correcta, torneu-ho a intentar. Teniu una altra "
 "oportunitat."
 
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr ""
+msgstr "No hi ha cap servei disponible per a libgnomesu.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#: ../src/services/pam.c:192 ../src/services/su.c:185
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Introduïu la contrasenya d'en %s i premeu Executa per continuar."
+msgstr "Introduïu la contrasenya de %s i premeu Continua per continuar."
 
-#: src/services/pam.c:195 src/services/su.c:188
+#: ../src/services/pam.c:194 ../src/services/su.c:187
 msgid "The requested action needs further authentication."
-msgstr "L'acció sol·licitada precisa d'autenticació."
+msgstr "L'acció sol·licitada requereix autenticació."
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:200 ../src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
-msgstr "Cont_rasenya d'en %s:"
+msgstr "Cont_rasenya de %s:"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:229 ../src/services/su.c:222
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "L'usuari %s no existeix."
+msgstr "L'usuari «%s» no existeix."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:234 ../src/services/su.c:226
 msgid "An unknown error occured while authenticating."
 msgstr "S'ha produït un error desconegut en autenticar-se."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:238 ../src/services/su.c:230
 msgid "You do not have permission to authenticate."
 msgstr "No teniu permisos per autenticar-vos."
 
-#: src/services/pam.c:233
+#: ../src/services/pam.c:242
 msgid "Unable to initialize the PAM authentication system."
-msgstr ""
+msgstr "No s'ha pogut inicialitzar el sistema d'autenticació PAM."
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "error d'escriptura"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr "Desenvolupat per en %s.\n"
+msgstr "Desenvolupat per %s.\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -109,28 +109,28 @@ msgid ""
 msgstr ""
 "\n"
 "Copyright © 1999 Free Software Foundation, Inc.\n"
-"Això és programari lliure; consulteu el codi font les condicions de còpia. "
+"Això és programari lliure; consulteu al codi font les condicions de còpia. "
 "NO\n"
-"hi ha cap garantia; ni tan sols per a COMERCIABILITAT o ADEQÜACIÓ PER A UN\n"
+"hi ha cap garantia; ni tan sols per a COMERCIABILITAT o ADEQÜACIÓ PER A CAP\n"
 "PROPÒSIT PARTICULAR.\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Introduïu l'ordre a executar en una única cadena de text."
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
-msgstr "Ordre"
+msgstr "ORDRE"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Executa-ho com a aquest usuari en comptes de com a superusuari."
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:45
 msgid "USERNAME"
-msgstr "Nom d'usuari"
+msgstr "USUARI"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "Superusuari del GNOME"
 
