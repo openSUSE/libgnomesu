@@ -47,6 +47,11 @@ All the functions you need are declared in the header file <code>libgnomesu.h</c
 	<td><code>gboolean gnomesu_spawn_async (gchar *user, gchar **argv, int *pid);</code></td>
 	<td>Runs a program with <code>argv</code> as <code>user</code> but do not wait until it has exited.</td>
 </tr>
+<tr>
+	<td><code>gboolean gnomesu_spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
+		GdkPixbuf *icon, const gchar *title, gboolean show_command);</code></td>
+	<td>Same as <code>gnomesu_spawn_async()</code>, but with more parameters which the developer can use to
+		customize the user interface.</td>
 </table>
 
 
