@@ -151,7 +151,8 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 		while (!feof (f) && fgets (buf, sizeof (buf), f)) {
 			if (cmp (buf, "DONE\n")) {
-				gtk_widget_destroy (GTK_WIDGET (gui));
+				if (gui)
+					gtk_widget_destroy (GTK_WIDGET (gui));
 				while (gtk_events_pending ())
 					gtk_main_iteration ();
 				fclose (f);
@@ -224,7 +225,8 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 				break;
 		}
 
-		gtk_widget_destroy (GTK_WIDGET (gui));
+		if (gui)
+			gtk_widget_destroy (GTK_WIDGET (gui));
 		while (gtk_events_pending ())
 			gtk_main_iteration ();
 

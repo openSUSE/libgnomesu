@@ -6,6 +6,9 @@
 	  table when BinReloc is disabled.
 	* src/api.html: Syntax highlight example code. Make HTML fully
 	  standards compliant.
+	* src/services/{su.c,pam.c}: Only destroy dialog when it is
+	  not NULL.
+	* autopackage/default.spec.in: Fix specfile.
 
 2005-01-07  Hongli Lai  <h.lai@chello.nl>
 

@@ -11,6 +11,7 @@ SoftwareVersion: @VERSION@
 InterfaceVersion: 0.1
 PackageVersion: 1
 RootInstallOnly: Yes
+AutopackageTarget: 1.0
 
 [Description]
 libgnomesu is a library which allows you to run programs as root or another user.
@@ -22,6 +23,7 @@ prepareBuild --disable-setuid-error --disable-install-pam --enable-binreloc
 unprepareBuild
 
 [Imports]
+chmod +r libexec/*
 echo '*' | import
 echo "$source_dir/pam-backend/gnomesu-pam" | import
 
@@ -43,9 +45,8 @@ copyFiles lib/pkgconfig/libgnomesu-1.0.pc "$PREFIX/lib/pkgconfig"
 copyFiles libexec/{gnomesu-backend,gnomesu-pam-backend} "$PREFIX/libexec"
 chown root:root "$PREFIX/libexec/gnomesu-backend" "$PREFIX/libexec/gnomesu-pam-backend"
 chmod +s "$PREFIX/libexec/gnomesu-backend" "$PREFIX/libexec/gnomesu-pam-backend"
-copyFiles gnomesu-pam /etc/pam.d
 
-copyFiles share/libgnomesu/* "$PREFIX/share/libgnomesu"
+copyFiles gnomesu-pam /etc/pam.d
 
 copyFiles share/locale/* "$PREFIX/share/locale"
 
