@@ -171,7 +171,7 @@ AC_CACHE_CHECK([for working realloc], jm_cv_func_working_realloc,
 	 jm_cv_func_working_realloc=no)
   ])
 if test $jm_cv_func_working_realloc = no; then
-    GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DRPL_REALLOC -Dmalloc=rpl_realloc"
+    GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DRPL_REALLOC -Drealloc=rpl_realloc"
 fi
 
 AC_CHECK_FUNC(initgroups, [
@@ -209,8 +209,8 @@ AM_CONDITIONAL(SETUID_ERROR, test $setuid_error = yes)
 
 
 AC_ARG_WITH(pam-dir, [  --with-pam-dir=PATH     where to install PAM entries (default=/etc/pam.d)])
-if test "x$with_pam_dir" != x; then
-	PAMDIR=$with_pam_dir
+if test "x$withval" != x; then
+	PAMDIR=$withval
 else
 	PAMDIR=/etc/pam.d
 fi

@@ -9,10 +9,10 @@ INCLUDES =\
 	-DGTK_DISABLE_DEPRECATED\
 	$(LIBGNOMESU_CFLAGS)\
 	$(GNOMESU_CFLAGS)\
-	-I../src
+	-I$(top_srcdir)/src
 
 gnomesu_SOURCES = gnomesu.c
 gnomesu_LDFLAGS = $(GNOMESU_LIBS)
-gnomesu_LDADD = $(top_srcdir)/src/libgnomesu.la
+gnomesu_LDADD = ../src/libgnomesu.la
 
 EXTRA_DIST = $(gnomesu_SOURCES)

@@ -2,12 +2,12 @@
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2003.
 #
-# $Id: sv.po,v 1.1 2003/09/20 14:59:55 menthos Exp $
+# $Id: sv.po,v 1.2 2003/11/07 14:28:26 hongli Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
-"POT-Creation-Date: 2003-09-20 16:55+0200\n"
+"POT-Creation-Date: 2003-11-07 14:36+0100\n"
 "PO-Revision-Date: 2003-09-20 16:57+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "Ett okänt fel inträffade vid autentisering."
 msgid "You do not have permission to authenticate."
 msgstr "Du har inte rättigheter att autentisera."
 
-#: src/sudo.c:313
+#: src/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."

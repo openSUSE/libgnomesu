@@ -3,7 +3,7 @@ INCLUDES =\
 	-DGTK_DISABLE_DEPREATED\
 	$(LIBGNOMESU_CFLAGS)\
 	$(NAUTILUS_CFLAGS)\
-	-I../src
+	-I$(top_srcdir)/src
 
 bonobodir = $(libdir)/bonobo
 bonobo_LTLIBRARIES = libgnomesu-nautilus.la
@@ -13,7 +13,7 @@ libgnomesu_nautilus_la_SOURCES =\
 	gnome-su-component.h\
 	gnome-su-component.c
 
-libgnomesu_nautilus_la_LIBADD = $(NAUTILUS_LIBS) -L$(top_srcdir)/src -lgnomesu
+libgnomesu_nautilus_la_LIBADD = $(NAUTILUS_LIBS) -L../src -lgnomesu
 libgnomesu_nautilus_la_LDFLAGS = -module -avoid-version
 
 appregistrydir = $(datadir)/application-registry

@@ -1,3 +1,14 @@
+2003-11-07  Hongli Lai  <h.lai@chello.nl>
+
+	* src/sudo.c (detect): disable backend because it's broken. See
+	  the comments in that file.
+	* TODO: new items.
+	* configure.in: changed "-Dmalloc=rpl_realloc" to
+	  "-Drealloc=rpl_realloc".
+	* {nautilus,pam-backend,tools}/Makefile.am: fix problems with
+	  'make distcheck'.
+	* su-backend/xmalloc.c: correct function definitions.
+
 2003-11-04  Hongli Lai  <h.lai@chello.nl>
 
 	* src/ui/su(do).glade: Changed Position to Center.

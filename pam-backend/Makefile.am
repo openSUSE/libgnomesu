@@ -7,7 +7,7 @@ INCLUDES = $(GNOMESU_PAM_BACKEND_CFLAGS)
 gnomesu_pam_backend_SOURCES = pam.c
 gnomesu_pam_backend_LDFLAGS = \
 	$(GNOMESU_PAM_BACKEND_LIBS)\
-	$(top_srcdir)/su-backend/libcommon.la\
+	../su-backend/libcommon.la\
 	-lpam
 gnomesu_pam_backend_DEPENDENCIES = $(top_srcdir)/su-backend/libcommon.la
 

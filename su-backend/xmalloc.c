@@ -24,10 +24,10 @@
 #if STDC_HEADERS
 # include <stdlib.h>
 #else
-void *calloc ();
-void *malloc ();
-void *realloc ();
-void free ();
+void *calloc (size_t nmemb, size_t size);
+void *malloc (size_t n);
+void *realloc (char *p, size_t n);
+void free (void *ptr);
 #endif
 
 #include "error.h"
@@ -57,8 +57,8 @@ void (*xalloc_fail_func) () = 0;
 char *const xalloc_msg_memory_exhausted = "Memory exhausted";
 
 
-char *rpl_malloc (size_t n);
-char *rpl_realloc (char *p, size_t n);
+void *rpl_malloc (size_t n);
+void *rpl_realloc (char *p, size_t n);
 
 
 static void

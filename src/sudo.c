@@ -193,6 +193,15 @@ detect (gchar *exe, const gchar *user)
 {
 	GConfClient *client;
 
+	/* sudo support is disabled. We used to use a helper program
+	 * (gnomesu-sudo-helper) but it broke settings in sudoers so I
+	 * removed it. Now there's no way to verify that the password has
+	 * been successfully accepted, so this backend is broken.
+	 * Unless I find a good way to fix this, this backend may be
+	 * removed in the future.
+	 */
+	return FALSE;
+
 	/* There is no way to autodetect whether sudo is available without
 	 * asking for a password first, so this is a configuration option. */
 

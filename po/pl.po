@@ -9,14 +9,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-28 22:04+0200\n"
+"POT-Creation-Date: 2003-11-07 14:36+0100\n"
 "PO-Revision-Date: 2003-09-28 12:39+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: nautilus/GNOME_SuperUser_Component.server.in.in.h:1
 msgid "GNOME SuperUser integration"
@@ -65,7 +65,7 @@ msgstr "Podczas uwierzytelniania wystąpił nieznany błąd."
 msgid "You do not have permission to authenticate."
 msgstr "Nie posiadasz uprawnień do uwierzytelnienia."
 
-#: src/sudo.c:313
+#: src/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
-"POT-Creation-Date: 2003-10-02 12:34+0200\n"
+"POT-Creation-Date: 2003-11-07 14:36+0100\n"
 "PO-Revision-Date: 2003-10-02 21:53+0100\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -61,7 +61,7 @@ msgstr "Een onbekende fout is opgetreden tijdens authentificatie."
 msgid "You do not have permission to authenticate."
 msgstr "U heeft geen toegangsrechten om te authentificeren."
 
-#: src/sudo.c:313
+#: src/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."

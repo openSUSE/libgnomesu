@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
-"POT-Creation-Date: 2003-10-05 19:29+0200\n"
+"POT-Creation-Date: 2003-11-07 14:36+0100\n"
 "PO-Revision-Date: 2003-10-05 19:47+0200\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -31,7 +31,8 @@ msgstr "Heslo používateľa %s:"
 #: src/pam.c:103 src/su.c:101
 #, c-format
 msgid "Please enter %s's password and click Run to continue."
-msgstr "Prosím zadajte heslo používateľa %s a kliknite na Spustiť pre pokračovanie."
+msgstr ""
+"Prosím zadajte heslo používateľa %s a kliknite na Spustiť pre pokračovanie."
 
 #: src/pam.c:105 src/su.c:103
 msgid "The requested action needs further authentication."
@@ -62,7 +63,7 @@ msgstr "Pri overovaní totožnosti sa vyskytla neznáma chyba."
 msgid "You do not have permission to authenticate."
 msgstr "Nemáte právo na overenie totožnosti."
 
-#: src/sudo.c:313
+#: src/sudo.c:320
 msgid ""
 "You do not have permission gain superuser (root) privileges. This incident "
 "will be reported."
@@ -129,8 +130,8 @@ msgid ""
 "<span weight=\"bold\">The requested action needs autentication.</span>\n"
 "Please enter your password and click Run to continue."
 msgstr ""
-"<span weight=\"bold\">Požadovaná činnosť vyžaduje overenie totožnosti."
-"</span>\n"
+"<span weight=\"bold\">Požadovaná činnosť vyžaduje overenie totožnosti.</"
+"span>\n"
 "Prosím zadajte vaše heslo a kliknite na Spustiť pre pokračovanie."
 
 #: src/ui/sudo-strings.h:11 src/ui/sudo.glade.h:7
@@ -156,7 +157,8 @@ msgstr ""
 "\n"
 "Autorské práva © 1999 Free Software Foundation, Inc.\n"
 "Toto je voľný softvér; pozrite si zdrojový kód pre podmienky kopírovania.\n"
-"Záruka sa NEPOSKYTUJE; ani pre OBCHODOVATEĽNOSŤ alebo VHODNOSŤ PRE KONKRÉTNY\n"
+"Záruka sa NEPOSKYTUJE; ani pre OBCHODOVATEĽNOSŤ alebo VHODNOSŤ PRE "
+"KONKRÉTNY\n"
 "ÚČEL.\n"
 
 #: tools/gnomesu.c:37
