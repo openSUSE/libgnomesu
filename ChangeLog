@@ -1,3 +1,9 @@
+2004-10-29  Hongli Lai  <h.lai@chello.nl>
+
+	* su-backend/sys2.h: remove file. What sane system doesn't have
+	  definitions for malloc() and friends?!?!
+	* su-backend/{system.h,Makefile.am}: remove sys2.h
+
 2004-10-29  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Add «nb» to ALL_LINGUAS.

@@ -214,5 +214,3 @@ extern int errno;
 # define W_OK 2
 # define R_OK 4
 #endif
-
-#include "sys2.h"

@@ -10,7 +10,6 @@ gnomesu_backend_SOURCES = \
 	malloc.c\
 	realloc.c\
 	su.c\
-	sys2.h\
 	system.h\
 	version-etc.c version-etc.h\
 	xalloc.h\
