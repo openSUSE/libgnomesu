@@ -1,3 +1,10 @@
+2005-01-28  Hongli Lai  <h.lai@chello.nl>
+
+	* configure.in:
+	  Define PAM_MOD_MISC in the PAM backend's CFLAGS.
+	* pam-backend/pam.c, su-backend/{common.h,common.c,su.c}:
+	  Move some function definitions to common.h.
+
 2005-01-16  Takeshi AIHANA <aihana@gnome.gr.jp>
 
 	* configure.in: Added 'ja' (Japanese) to ALL_LINGUAS.

@@ -36,10 +36,11 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/resource.h>
-#include <pwd.h>
 #include <grp.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#include "common.h"
 
 #if STDC_HEADERS || HAVE_STRING_H
 # include <string.h>
@@ -210,12 +211,6 @@ correct_password (const struct passwd *pw)
   memset (unencrypted, 0, sizeof (unencrypted));
   return strcmp (encrypted, correct) == 0;
 }
-
-
-char *concat (const char *s1, const char *s2, const char *s3);
-void xputenv (const char *val);
-void change_identity (const struct passwd *pw);
-void modify_environment (const struct passwd *pw);
 
 
 int

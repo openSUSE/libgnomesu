@@ -21,12 +21,13 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <pwd.h>
 #include <grp.h>
 #include <glib.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+
+#include "common.h"
 
 
 /* The default PATH for simulated logins to non-superuser accounts.  */

@@ -26,7 +26,6 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <pwd.h>
 #include <unistd.h>
 #include <glib.h>
 #include <string.h>
@@ -118,12 +117,6 @@ static const struct pam_conv conv = {
 	su_conv,
 	NULL
 };
-
-
-extern char *concat (const char *s1, const char *s2, const char *s3);
-extern void xputenv (const char *val);
-extern void change_identity (const struct passwd *pw);
-extern void modify_environment (const struct passwd *pw);
 
 
 static void

@@ -127,7 +127,7 @@ AC_CHECK_FUNC(pam_start, [
 	AC_CHECK_HEADER(security/pam_misc.h, have_pam=yes, [
 		AC_CHECK_HEADER(security/pam_mod_misc.h, [
 			have_pam=yes
-			LIBGNOMESU_CFLAGS="$LIBGNOMESU_CFLAGS -DPAM_MOD_MISC"
+			GNOMESU_PAM_BACKEND_CFLAGS="$GNOMESU_PAM_BACKEND_CFLAGS -DPAM_MOD_MISC"
 		])
 	])
 ])
