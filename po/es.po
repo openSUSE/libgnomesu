@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-07 02:16+0100\n"
+"POT-Creation-Date: 2005-01-13 22:53+0100\n"
+"PO-Revision-Date: 2005-01-13 22:54+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Comando:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "C_ontinuar"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
@@ -61,11 +61,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "No hay servicios disponibles para libgnomesu.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr ""
-"Introduzca la contraseña de %s y pulse sobre el botón «Ejecutar» para "
-"continuar."
+msgstr "Introduzca la contraseña de %s y pulse «Continuar»."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
@@ -182,3 +180,4 @@ msgstr "Superusuario GNOME"
 
 #~ msgid "Superuser _password:"
 #~ msgstr "_Contraseña de superusuario:"
+
