@@ -1,3 +1,8 @@
+Version 0.9.7:
+- More FreeBSD compatibility fixes.
+- Double free bug fix.
+- Updated translations.
+
 Version 0.9.6:
 - FreeBSD compilation fixes.
 
