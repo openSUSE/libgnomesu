@@ -40,6 +40,7 @@
 #include "pam.h"
 #include "utils.h"
 #include "libgnomesu.h"
+#include "prefix.h"
 
 G_BEGIN_DECLS
 
@@ -228,16 +229,21 @@ static gboolean
 detect (gchar *exe, const gchar *user)
 {
 	struct stat buf;
+	gchar *filename;
 
 	if (g_getenv ("GNOMESU_DISABLE_PAM")
 	    && strcmp (g_getenv ("GNOMESU_DISABLE_PAM"), "1") == 0)
 		return FALSE;
 
 	/* Check whether gnomesu-pam-backend is present and setuid root */
-	if (stat (LIBEXEC "/gnomesu-pam-backend", &buf) == -1)
+	filename = g_strdup_printf ("%s/gnomesu-pam-backend", LIBEXECDIR);
+	if (stat (filename, &buf) == -1) {
+		g_free (filename);
 		return FALSE;
-	else
+	} else {
+		g_free (filename);
 		return (buf.st_uid == 0) && (buf.st_mode & S_ISUID);
+	}
 }
 
 
@@ -280,7 +286,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 
 		c = __libgnomesu_count_args (argv);
 		su_argv = g_new0 (gchar *, c + 5);
-		su_argv[0] = LIBEXEC "/gnomesu-pam-backend";
+		su_argv[0] = g_strdup_printf ("%s/gnomesu-pam-backend", LIBEXECDIR);
 		su_argv[1] = g_strdup_printf ("%d", child_pipe[0]);
 		su_argv[2] = g_strdup_printf ("%d", parent_pipe[1]);
 		su_argv[3] = user;
@@ -288,7 +294,7 @@ spawn_async (gchar *user, gchar **argv, int *pid)
 			su_argv[i + 4] = argv[i];
 
 		putenv ("_GNOMESU_PAM_BACKEND_START=1");
-		execv (LIBEXEC "/gnomesu-pam-backend", su_argv);
+		execv (g_strdup_printf ("%s/gnomesu-pam-backend", LIBEXECDIR), su_argv);
 		_exit (1);
 		break;
 	    }

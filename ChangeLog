@@ -1,6 +1,13 @@
 2004-07-14  Hongli Lai  <h.lai@chello.nl>
 
+	* doc: Folder added. Contains API documentation.
+	* src/prefix.[ch]: Added.
+	* autopackage: Folder added. Autopackage support.
+	* acinclude.m4: Added. Contains BinReloc macro.
 	* src/utils.c (__libgnomesu_create_command): escape '&'.
+	  (__libgnomesu_load_glade): BinReloc support.
+	* src/pam.c, src/su.c: BinReloc support.
+	* tools/gnomesu.c: BinReloc support.
 
 2004-05-14  Hongli Lai  <h.lai@chello.nl>
 

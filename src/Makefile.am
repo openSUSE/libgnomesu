@@ -1,11 +1,11 @@
 SUBDIRS = ui
 
 lib_LTLIBRARIES = libgnomesu.la
- 
+
 INCLUDES=\
 	$(LIBGNOMESU_CFLAGS)\
 	-DLOCALEDIR="\"$(datadir)/locale\""\
-	-DLIBEXEC="\"$(libexecdir)\""\
+	-DLIBEXECDIR="\"$(libexecdir)\""\
 	-DGETTEXT_PACKAGE="\"$(GETTEXT_PACKAGE)\""\
 	-DG_DISABLE_DEPRECATED\
 	-DGTK_DISABLE_DEPRECATED\
@@ -15,6 +15,7 @@ libgnomesu_la_SOURCES =\
 	$(libgnomesu_include_HEADERS)\
 	libgnomesu.c\
 	service.h\
+	prefix.c prefix.h\
 	utils.c	utils.h\
 	consolehelper.c consolehelper.h\
 	sudo.c	sudo.h\
@@ -23,7 +24,7 @@ libgnomesu_la_SOURCES =\
 
 libgnomesu_la_LIBADD = -L../src $(LIBGNOMESU_LIBS)
 libgnomesu_la_LDFLAGS = -version-info 0:0:0
- 
+
 libgnomesu_includedir = $(includedir)/libgnomesu-1.0/libgnomesu
 libgnomesu_include_HEADERS =\
 	libgnomesu.h

@@ -26,6 +26,7 @@
 #include <pwd.h>
 #include <unistd.h>
 #include "utils.h"
+#include "prefix.h"
 
 G_BEGIN_DECLS
 
@@ -180,7 +181,7 @@ __libgnomesu_load_glade (gchar *basename)
 	gchar *filename;
 	GladeXML *xml;
 
-	filename = g_strdup_printf ("./src/ui/%s", basename);
+	filename = g_strdup_printf ("./src/ui/%s", SELFPATH, basename);
 	if (g_file_test (filename, G_FILE_TEST_EXISTS))
 		goto load;
 

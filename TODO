@@ -1,4 +1,3 @@
 - Question: should we grab the X server like gnome-ssh-askpass?
 - Support startup notification.
-- Use gtk-doc to generate API documentation.
 - Write patches for system monitor, clock applet, panel. Maybe Nautilus too?

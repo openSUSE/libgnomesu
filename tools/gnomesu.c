@@ -26,6 +26,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include "libgnomesu.h"
+#include "prefix.h"
 
 
 static gchar *command = NULL;

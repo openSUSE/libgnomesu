@@ -220,6 +220,8 @@ else
 fi
 AC_SUBST(PAMDIR)
 
+AM_BINRELOC
+
 
 AC_OUTPUT([
 libgnomesu-1.0.pc
@@ -232,4 +234,5 @@ tools/Makefile
 nautilus/Makefile
 po/Makefile.in
 doc/Makefile
+autopackage/Makefile
 ])
