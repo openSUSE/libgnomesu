@@ -1,14 +1,14 @@
 # Brazilian Portuguese translation of libgnomesu
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004-2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnomesu package.
-# Raphael Higino <raphaelh@uai.com.br>, 2004.
+# Raphael Higino <raphaelh@uai.com.br>, 2004-2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnomesu 2.6\n"
+"Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2004-04-14 05:40-0300\n"
+"POT-Creation-Date: 2005-02-01 22:08+0100\n"
+"PO-Revision-Date: 2005-02-02 09:35-0200\n"
 "Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -20,48 +20,45 @@ msgid "Password needed"
 msgstr "É necessária uma senha"
 
 #: src/gnomesu-auth-dialog.c:163
-#, fuzzy
 msgid "Command:"
 msgstr "Comando:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "C_ontinuar"
 
 #: src/gnomesu-auth-dialog.c:363
 msgid "Administrator (root) privilege is required."
-msgstr ""
+msgstr "São necessários privilégios de administrador (root)"
 
 #: src/gnomesu-auth-dialog.c:364
-#, fuzzy
 msgid "Please enter the root password to continue."
-msgstr "Por favor, digite a senha de %s e clique em Executar para continuar."
+msgstr "Por favor, digite a senha de root para continuar."
 
 #: src/gnomesu-auth-dialog.c:413
-#, fuzzy
 msgid "_Password:"
-msgstr "Sua _senha:"
+msgstr "_Senha:"
 
 #: src/gnomesu-auth-dialog.c:438
 msgid "Please wait, verifying password..."
-msgstr "Por favor espere, verificando a senha..."
+msgstr "Por favor, espere. Verificando a senha..."
 
 #: src/gnomesu-auth-dialog.c:446
 msgid "Incorrect password, please try again."
-msgstr "Senha incorreta, por favor tente novamente."
+msgstr "Senha incorreta. Por favor, tente novamente."
 
 #: src/gnomesu-auth-dialog.c:453
 msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Senha incorreta, por favor tente novamente. Você tem mais uma chance."
+msgstr "Senha incorreta. Por favor, tente novamente. Você tem mais uma chance."
 
 #: src/libgnomesu.c:168
 msgid "No services for libgnomesu are available.\n"
 msgstr "Nenhum serviço para a libgnomesu está disponível.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Por favor, digite a senha de %s e clique em Executar para continuar."
+msgstr "Por favor, digite a senha de %s e clique em Continuar."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
@@ -79,16 +76,15 @@ msgstr "O usuário '%s' não existe."
 
 #: src/services/pam.c:225 src/services/su.c:217
 msgid "An unknown error occured while authenticating."
-msgstr "Um erro desconhecido ocorreu durante a autenticação."
+msgstr "Ocorreu um erro desconhecido durante a autenticação."
 
 #: src/services/pam.c:229 src/services/su.c:221
 msgid "You do not have permission to authenticate."
 msgstr "Você não tem permissão para se autenticar."
 
 #: src/services/pam.c:233
-#, fuzzy
 msgid "Unable to initialize the PAM authentication system."
-msgstr "Impossível inicializar o sistema de autenticação PAM."
+msgstr "Impossível iniciar o sistema de autenticação PAM."
 
 #: su-backend/closeout.c:71 su-backend/closeout.c:73
 msgid "write error"
@@ -115,7 +111,7 @@ msgstr ""
 
 #: tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
-msgstr "Passe o comando a ser executado como uma única string."
+msgstr "Passe o comando a ser executado como uma única expressão."
 
 #: tools/gnomesu.c:41
 msgid "COMMAND"
@@ -123,7 +119,7 @@ msgstr "COMANDO"
 
 #: tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
-msgstr "Executa como este usuário em vez de root."
+msgstr "Executar como este usuário em vez de root."
 
 #: tools/gnomesu.c:45
 msgid "USERNAME"
