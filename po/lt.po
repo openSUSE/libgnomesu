@@ -1,15 +1,15 @@
 # Lithuanian translation of libgnomesu.
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004-2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgnomesu package.
-# Žygimantas Beručka <uid0@akl.lt>, 2004.
+# Žygimantas Beručka <uid0@akl.lt>, 2004-2005.
 # 
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2004-12-11 14:07+0200\n"
+"POT-Creation-Date: 2005-01-15 14:08+0200\n"
+"PO-Revision-Date: 2005-01-15 14:10+0200\n"
 "Last-Translator: Žygimantas Beručka <uid0@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +26,15 @@ msgstr "Komanda:"
 
 #: src/gnomesu-auth-dialog.c:213
 msgid "C_ontinue"
-msgstr ""
+msgstr "_Tęsti"
 
 #: src/gnomesu-auth-dialog.c:363
-#, fuzzy
 msgid "Administrator (root) privilege is required."
-msgstr ""
-"<b>Reikalingos administratoriaus (root) privilegijos.</b>\n"
-"Norėdami tęsti Jūs turite įvesti „root“ vartotojo slaptažodį."
+msgstr "Reikalingos administratoriaus (root) privilegijos."
 
 #: src/gnomesu-auth-dialog.c:364
-#, fuzzy
 msgid "Please enter the root password to continue."
-msgstr "Norėdami tęsti įveskite %s slaptažodį ir spauskite mygtuką Vykdyti."
+msgstr "Norėdami tęsti, įveskite root slaptažodį."
 
 #: src/gnomesu-auth-dialog.c:413
 msgid "_Password:"
@@ -62,9 +58,9 @@ msgid "No services for libgnomesu are available.\n"
 msgstr "Nėra libgnomesu prieinamų paslaugų.\n"
 
 #: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Norėdami tęsti įveskite %s slaptažodį ir spauskite mygtuką Vykdyti."
+msgstr "Prašau įveskite %s slaptažodį ir spauskite mygtuką Tęsti."
 
 #: src/services/pam.c:195 src/services/su.c:188
 msgid "The requested action needs further authentication."
