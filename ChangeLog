@@ -1,3 +1,8 @@
+2004-02-19  Evandro Fernandes Giovanini  <evandrofg@ig.com.br>
+
+	* configure.in (ALL_LINGUAS): Added "pt_BR" (Brazilian 
+	Portuguese).
+
 2004-02-25  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in (ALL_LINGUAS): Added "ca" (Catalan).
