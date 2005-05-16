@@ -1,0 +1,134 @@
+# translation of eu.po to 
+# translation of libgnomesu.HEAD.eu.po to
+# translation of libgnomesu.HEAD.po to Euskara
+# This file is distributed under the same license as the libgnomesu package.
+# Copyright (C) 2004 Mikel Olasagasti.
+# Mikel Olasagasti <hey_neken@mundurat.net>, 2004, 2005.
+# Iñaki Larrañaga  <dooteo@euskalgnu.org>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: eu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-05-16 17:46+0200\n"
+"PO-Revision-Date: 2005-05-16 17:48+0200\n"
+"Last-Translator: Iñaki Larrañaga  <dooteo@euskalgnu.org>\n"
+"Language-Team:  <itzulpena@euskalgnu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../src/gnomesu-auth-dialog.c:110
+msgid "Password needed"
+msgstr "Pasahitza behar da"
+
+#: ../src/gnomesu-auth-dialog.c:163
+msgid "Command:"
+msgstr "Komandoa:"
+
+#: ../src/gnomesu-auth-dialog.c:213
+msgid "C_ontinue"
+msgstr "_Jarraitu"
+
+#: ../src/gnomesu-auth-dialog.c:363
+msgid "Administrator (root) privilege is required."
+msgstr "Administratzaile (root) eskubidea behar da."
+
+#: ../src/gnomesu-auth-dialog.c:364
+msgid "Please enter the root password to continue."
+msgstr "Sartu root-aren pasahitza jarraitzeko."
+
+#: ../src/gnomesu-auth-dialog.c:413
+msgid "_Password:"
+msgstr "_Pasahitza:"
+
+#: ../src/gnomesu-auth-dialog.c:438
+msgid "Please wait, verifying password..."
+msgstr "Itxaron, pasahitza egiaztatzen..."
+
+#: ../src/gnomesu-auth-dialog.c:446
+msgid "Incorrect password, please try again."
+msgstr "Pasahitza okerra, saiatu berriro."
+
+#: ../src/gnomesu-auth-dialog.c:453
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Pasahitza okerra, saiatu berriro. Beste saiakera bat daukazu."
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr "Ez dago zerbitzurik eskuragarri libgnomesu-rentzat.\n"
+
+#: ../src/services/pam.c:192 ../src/services/su.c:185
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "Sartu %s(r)en pasahitza eta egin klik 'Jarraitu'n."
+
+#: ../src/services/pam.c:194 ../src/services/su.c:187
+msgid "The requested action needs further authentication."
+msgstr "Eskatutako ekintzak autentifikazio gehiago behar du."
+
+#: ../src/services/pam.c:200 ../src/services/su.c:193
+#, c-format
+msgid "%s's _password:"
+msgstr "%s(r)en p_asahitza:"
+
+#: ../src/services/pam.c:229 ../src/services/su.c:222
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "'%s' erabiltzailea ez da existitzen."
+
+#: ../src/services/pam.c:234 ../src/services/su.c:226
+msgid "An unknown error occured while authenticating."
+msgstr "Errore bat gertatu da autentifikatzean."
+
+#: ../src/services/pam.c:238 ../src/services/su.c:230
+msgid "You do not have permission to authenticate."
+msgstr "Ez daukazu autentifikatzeko baimenik."
+
+#: ../src/services/pam.c:242
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Ezin izan da PAM autentifikazio sistema hasieratu."
+
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
+msgid "write error"
+msgstr "idazketa errorea"
+
+#: ../su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "%s(e)k idatzia.\n"
+
+#: ../su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"Hau software librea da, ikusi iturburua kopiatzeko kondizioentzat. EZ dago\n"
+"inolako bermerik; ez MERKATARITZA ez EDOZEIN ASMO PARTIKULARRAREN "
+"OSASUNERAKO.\n"
+
+#: ../tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr "Bidali exekutatuko den komandoa kate bakar bat bezala."
+
+#: ../tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "KOMANDOA"
+
+#: ../tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "Exekutatu erabiltzaile honen gisa, root-n ordez."
+
+#: ../tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "ERABILTZAILE-IZENA"
+
+#: ../tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "GNOME supererabiltzailea"
+
