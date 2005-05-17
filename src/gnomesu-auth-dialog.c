@@ -21,6 +21,7 @@
 #define _GNOMESU_AUTH_DIALOG_C_
 
 #include <string.h>
+#include <libintl.h>
 
 #include "gnomesu-auth-dialog.h"
 #include "auth-icon.csource"

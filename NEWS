@@ -1,6 +1,7 @@
 Version 0.9.8:
 - Add gnomesu_spawn_async2(), which allows the developer to customize
   the user interface a little.
+- Fix crash on x86_64 (thanks Stanislav).
 
 Version 0.9.7:
 - More FreeBSD compatibility fixes.
