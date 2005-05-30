@@ -1,4 +1,4 @@
-Version 0.9.8:
+Version 1.0.0:
 - Add gnomesu_spawn_async2(), which allows the developer to customize
   the user interface a little.
 - Fix crash on x86_64 (thanks Stanislav).

@@ -4,11 +4,11 @@
 RootName: @gnome.org/libgnomesu:$SOFTWAREVERSION
 DisplayName: Superuser privilege library
 ShortName: libgnomesu
-Maintainer: Hongli Lai <h.lai@chello.nl> - http://members1.chello.nl/~h.lai/libgnomesu/
+Maintainer: Hongli Lai <h.lai@chello.nl> - http://members.chello.nl/~h.lai/libgnomesu/
 Packager: Hongli Lai <h.lai@chello.nl>
 Summary: libgnomesu is a library which allows you to run programs as root or another user.
 SoftwareVersion: @VERSION@
-InterfaceVersion: 0.1
+InterfaceVersion: 0.2
 PackageVersion: 1
 RootInstallOnly: Yes
 AutopackageTarget: 1.0
