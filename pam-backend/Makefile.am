@@ -7,9 +7,9 @@ INCLUDES = $(GNOMESU_PAM_BACKEND_CFLAGS) -I$(top_srcdir)/su-backend
 gnomesu_pam_backend_SOURCES = pam.c
 gnomesu_pam_backend_LDFLAGS = \
 	$(GNOMESU_PAM_BACKEND_LIBS)\
-	../su-backend/libcommon.la\
+	$(top_builddir)/su-backend/libcommon.la \
 	-lpam
-gnomesu_pam_backend_DEPENDENCIES = $(top_srcdir)/su-backend/libcommon.la
+gnomesu_pam_backend_DEPENDENCIES = $(top_builddir)/su-backend/libcommon.la
 
 if INSTALL_PAM
 pamdir = $(PAMDIR)

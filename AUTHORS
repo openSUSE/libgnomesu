@@ -1,3 +1,9 @@
-Hongli Lai <h.lai@chello.nl>
+Hongli Lai <h.lai AT chello.nl>
 
-Some code (like the su setup code) are copied from Ximian Setup Tools.
+Thanks to the following contributors:
+- Stanislav Brabec <sbrabec AT suse DOT cz>
+- Ludwig Nussel <ludwig DOT nussel AT suse DOT de>
+
+Some code are taken from:
+- Ximian Setup Tools
+- GNU coreutils
