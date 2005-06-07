@@ -93,7 +93,7 @@ spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
 
 	mypid = fork ();
 	if (mypid == 0) { /* child */
-		execvp (argv[0], argv);
+		execvp (argv[0], (char **) argv);
 		_exit (1);
 
 	} else if (mypid < 0) { /* error */

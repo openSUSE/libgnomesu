@@ -180,7 +180,7 @@ LGSD(g_list_addv) (GList *list, const gchar **argv)
 
 	size = LGSD(count_args) (argv);
 	for (i = 0; i < size; i++) {
-		list = g_list_append (list, argv[i]);
+		list = g_list_append (list, (gpointer) argv[i]);
 	}
 	return list;
 }
@@ -208,7 +208,7 @@ LGSD(g_list_to_vector) (GList *list, guint *size)
 
 
 guint
-LGSD(count_args) (gchar **argv)
+LGSD(count_args) (const gchar **argv)
 {
 	guint n = 0;
 

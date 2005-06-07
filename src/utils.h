@@ -44,7 +44,7 @@ void   *LGSD(safe_memset) (void *s, int c, size_t n);
 
 GList  *LGSD(g_list_addv)	(GList *list, const gchar **argv);
 gchar **LGSD(g_list_to_vector)  (GList *list, guint *size);
-guint   LGSD(count_args)	(gchar **argv);
+guint   LGSD(count_args)	(const gchar **argv);
 
 void LGSD(libgnomesu_init) (void);
 
