@@ -30,6 +30,8 @@
 
 G_BEGIN_DECLS
 
+#define CONSOLEHELPER "/usr/bin/consolehelperr"
+
 
 static gboolean
 detect (const gchar *exe, const gchar *user)
@@ -46,6 +48,8 @@ detect (const gchar *exe, const gchar *user)
 
 
 	fullpath = g_find_program_in_path (exe);
+	if (!fullpath)
+		return FALSE;
 
 	/* Check whether the executable is a symlink to consolehelper */
 	link = g_new0 (gchar, PATH_MAX + 1);
@@ -58,7 +62,7 @@ detect (const gchar *exe, const gchar *user)
 		path1 = g_find_program_in_path (link);
 
 		g_free (link);
-		if (!cmp (path1, "/usr/bin/consolehelper")) {
+		if (!path1 || !cmp (path1, CONSOLEHELPER)) {
 			g_free (path1);
 			return FALSE;
 		} else
@@ -72,7 +76,7 @@ detect (const gchar *exe, const gchar *user)
 	path1 = g_build_filename ("/etc", "security", "console.apps",
 		base, NULL);
 	if (!g_file_test (path1, G_FILE_TEST_EXISTS)
-	 || !g_file_test ("/usr/bin/consolehelper", G_FILE_TEST_EXISTS)) {
+	 || !g_file_test (CONSOLEHELPER, G_FILE_TEST_EXISTS)) {
 		g_free (path1);
 		return FALSE;
 	} else {

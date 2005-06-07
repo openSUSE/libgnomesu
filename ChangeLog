@@ -2,6 +2,9 @@
 
 	* src/utils.[ch], src/services/consolehelper.c:
 	  Fix compiler warnings.
+	* src/services/consolehelper.c (detect):
+	  Fix a crash when consolehelper is not found. Patch
+	  by Ludwig Nussel (ludwig DOT nussel AT suse DOT de).
 
 2005-05-17  Hongli Lai  <hongli@navi.cx>
 
