@@ -8,97 +8,96 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-08 11:10+0200\n"
+"POT-Creation-Date: 2005-06-15 14:43+0300\n"
+"PO-Revision-Date: 2005-06-15 14:43+0300\n"
 "Last-Translator: Vladimir Petkov <vpetkov@i-space.org>\n"
-"Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/gnomesu-auth-dialog.c:110
+#: ../src/gnomesu-auth-dialog.c:111
 msgid "Password needed"
 msgstr "Необходима е парола"
 
-#: src/gnomesu-auth-dialog.c:163
+#: ../src/gnomesu-auth-dialog.c:164
 msgid "Command:"
 msgstr "Команда:"
 
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:214
 msgid "C_ontinue"
-msgstr ""
+msgstr "П_родължаване"
 
-#: src/gnomesu-auth-dialog.c:363
+#: ../src/gnomesu-auth-dialog.c:364
 msgid "Administrator (root) privilege is required."
 msgstr "Необходими са права на администратор (root)."
 
-#: src/gnomesu-auth-dialog.c:364
+#: ../src/gnomesu-auth-dialog.c:365
 msgid "Please enter the root password to continue."
-msgstr "Моля, въведете административната парола за да продължите."
+msgstr "Въведете паролата на администратора, за да продължите."
 
-#: src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:414
 msgid "_Password:"
 msgstr "_Парола:"
 
-#: src/gnomesu-auth-dialog.c:438
+#: ../src/gnomesu-auth-dialog.c:439
 msgid "Please wait, verifying password..."
 msgstr "Изчакайте, паролата се проверява..."
 
-#: src/gnomesu-auth-dialog.c:446
+#: ../src/gnomesu-auth-dialog.c:447
 msgid "Incorrect password, please try again."
 msgstr "Невярна парола, опитайте отново."
 
-#: src/gnomesu-auth-dialog.c:453
+#: ../src/gnomesu-auth-dialog.c:454
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Невярна парола, опитайте отново. Това е последният ви опит."
 
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "Няма налични услуги за libgnomesu.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#: ../src/services/pam.c:192 ../src/services/su.c:185
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr ""
-"Въведете паролата на \"%s\" и натиснете \"Стартиране\", за да продължите."
+msgstr "Въведете паролата на %s и натиснете \"Продължаване\"."
 
-#: src/services/pam.c:195 src/services/su.c:188
+#: ../src/services/pam.c:194 ../src/services/su.c:187
 msgid "The requested action needs further authentication."
 msgstr "Необходима е допълнителна идентификация за заявеното действие."
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:200 ../src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
 msgstr "Парола на _%s"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:229 ../src/services/su.c:222
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Потребителят \"%s\" не съществува."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:234 ../src/services/su.c:226
 msgid "An unknown error occured while authenticating."
 msgstr "Възникна непозната грешка при идентификацията."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:238 ../src/services/su.c:230
 msgid "You do not have permission to authenticate."
 msgstr "Нямате права за идентификация."
 
-#: src/services/pam.c:233
+#: ../src/services/pam.c:242
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Неуспех при стартиране на системата за идентификация PAM."
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "грешка при запис"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "Написано от %s.\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -111,22 +110,22 @@ msgstr ""
 "Няма НИКАКВИ\n"
 "гаранции, дори за ПРОДАВАЕМОСТ или ГОДНОСТ ЗА ОПРЕДЕЛЕНА УПОТРЕБА.\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Подайте командата, която да се стартира, като един низ."
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "КОМАНДА"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Стартиране като този потребител, а не като администратор."
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:45
 msgid "USERNAME"
 msgstr "ИМЕ_НА_ПОТРЕБИТЕЛ"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "Права на администратор за GNOME"
