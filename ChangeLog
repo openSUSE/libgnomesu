@@ -1,3 +1,7 @@
+2005-07-19  Pawan Chitrakar  <pawan@nplinux.org>
+
+	* configure.in: Added ne in ALL_LINGUAS
+
 --------- 1.0.0 released; 1.0 series branched as BRANCH-1-0-0 ----------
 
 2005-06-07  Hongli Lai  <hongli@navi.cx>
