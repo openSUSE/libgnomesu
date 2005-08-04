@@ -1,0 +1,128 @@
+# Ukrainian translation of notifier. 
+# Copyright (C) 2005 Free Software Foundation, Inc. 
+# Maxim Dziumanenko <mvd@mylinux.ua>, 2005 
+msgid ""
+msgstr ""
+"Project-Id-Version: notifier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-08-04 13:20+0200\n"
+"PO-Revision-Date: 2005-08-04 11:46+0300\n"
+"Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../src/gnomesu-auth-dialog.c:111
+msgid "Password needed"
+msgstr "Потрібен пароль"
+
+#: ../src/gnomesu-auth-dialog.c:164
+msgid "Command:"
+msgstr "Команда:"
+
+#: ../src/gnomesu-auth-dialog.c:214
+msgid "C_ontinue"
+msgstr "_Продовжити"
+
+#: ../src/gnomesu-auth-dialog.c:364
+msgid "Administrator (root) privilege is required."
+msgstr "Потрібні привілеї адміністратора (root)"
+
+#: ../src/gnomesu-auth-dialog.c:365
+msgid "Please enter the root password to continue."
+msgstr "Введіть пароль користувача root."
+
+#: ../src/gnomesu-auth-dialog.c:414
+msgid "_Password:"
+msgstr "_Пароль:"
+
+#: ../src/gnomesu-auth-dialog.c:439
+msgid "Please wait, verifying password..."
+msgstr "Зачекайте, пароль перевіряється..."
+
+#: ../src/gnomesu-auth-dialog.c:447
+msgid "Incorrect password, please try again."
+msgstr "Некоректний пароль, спробуйте ще раз."
+
+#: ../src/gnomesu-auth-dialog.c:454
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Некоректний пароль, спробуйте ще раз. У вас залишився лише один шанс."
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr "Служби для libgnomesu недоступні.\n"
+
+#: ../src/services/pam.c:192 ../src/services/su.c:185
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "Введіть пароль користувача %s та натисніть Продовжити."
+
+#: ../src/services/pam.c:194 ../src/services/su.c:187
+msgid "The requested action needs further authentication."
+msgstr "Для подальшої автентифікації не вимагатимуться ніякі дії."
+
+#: ../src/services/pam.c:200 ../src/services/su.c:193
+#, c-format
+msgid "%s's _password:"
+msgstr "_Пароль користувача %s:"
+
+#: ../src/services/pam.c:229 ../src/services/su.c:222
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "Користувач %s не існує:"
+
+#: ../src/services/pam.c:234 ../src/services/su.c:226
+msgid "An unknown error occured while authenticating."
+msgstr "Невідома помилка при автентифікації."
+
+#: ../src/services/pam.c:238 ../src/services/su.c:230
+msgid "You do not have permission to authenticate."
+msgstr "Ви не маєте прав для автентифікації."
+
+#: ../src/services/pam.c:242
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Не вдається ініціалізувати систему автентифікації PAM."
+
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
+msgid "write error"
+msgstr "помилка запису"
+
+#: ../su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Записано %s.\n"
+
+#: ../su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"\n"
+"Авторські права (C) 1999 Free Software Foundation, Inc.\n"
+"Це -вільне програмне забезпечення; умови копіювання дивіться у коді програми.\n"
+"Не надається НІЯКОЇ гарантії; навіть ПРИДАТНОСТІ ДО ПРОДАЖУ чи ВІДПОВІДНОСТІ ПЕВНІЙ МЕТІ.\n"
+
+#: ../tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr "Передайте команду для виконання як один єдиний рядок."
+
+#: ../tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "КОМАНДА"
+
+#: ../tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "Запустити відо користувача а не від root."
+
+#: ../tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "ІМ'ЯКОРИСТУВАЧА"
+
+#: ../tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "Адміністратор GNOME"
