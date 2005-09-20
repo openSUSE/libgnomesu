@@ -1,7 +1,7 @@
 bin_PROGRAMS = gnomesu
 
 INCLUDES =\
-	-DGETTEXT_PACKAGE="\"gnomesu\""\
+	-DGETTEXT_PACKAGE="\"$(GETTEXT_PACKAGE)\""\
 	-DLOCALEDIR="\"$(datadir)/locale\""\
 	-DGNOMESU_VERSION="\"$(VERSION)\""\
 	-DGNOMESU_PREFIX="\"$(prefix)\""\
