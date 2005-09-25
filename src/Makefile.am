@@ -18,7 +18,7 @@ libgnomesu_la_SOURCES =\
 	utils.c	utils.h\
 	gnomesu-auth-dialog.c
 
-libgnomesu_la_LIBADD = -L../src $(LIBGNOMESU_LIBS) services/libservices.la
+libgnomesu_la_LIBADD = $(LIBGNOMESU_LIBS) $(top_builddir)/src/services/libservices.la
 libgnomesu_la_LDFLAGS = -version-info 2:0:2
 
 libgnomesu_includedir = $(includedir)/libgnomesu-1.0/libgnomesu
@@ -26,5 +26,5 @@ libgnomesu_include_HEADERS =\
 	libgnomesu.h\
 	gnomesu-auth-dialog.h
 
- 
+
 EXTRA_DIST=$(libgnomesu_la_SOURCES) auth-icon.csource
