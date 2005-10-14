@@ -84,13 +84,12 @@ saveXauth (void)
 	gchar line[1024];
 
 	/* Save X authorization data for after we changed identity */
-	p = popen ("xauth list", "r");
+	p = popen ("xauth nlist", "r");
 	if (!p) return;
 
 	data = g_string_new ("");
 	while (!feof (p) && fgets (line, sizeof (line), p))
 	{
-		g_string_append (data, "add ");
 		g_string_append (data, line);
 	}
 	pclose (p);
@@ -196,7 +195,7 @@ change_identity (const struct passwd *pw)
 
 	/* Create a new .Xauthorization file */
 	if (!xauth_data) return;
-	p = popen ("xauth -q 2>/dev/null", "w");
+	p = popen ("xauth -q nmerge - 2>/dev/null", "w");
 	if (!p) return;
 
 	fwrite (xauth_data, strlen (xauth_data), 1, p);
