@@ -33,7 +33,8 @@
 
 static gchar *command = NULL;
 static gchar *user = NULL;
-
+static gint   final_status = 0;
+GMainLoop    *main_loop;
 
 static struct poptOption options[] = {
 	{ "command", 'c', POPT_ARG_STRING, &command, 0,
@@ -47,6 +48,12 @@ static struct poptOption options[] = {
 	{ NULL, '\0', 0, NULL, 0 }
 };
 
+static void
+child_exit_cb (GPid pid, gint status, gpointer data)
+{
+	final_status = status;
+	g_main_loop_quit (main_loop);
+}
 
 int
 main (int argc, char *argv[])
@@ -70,6 +77,8 @@ main (int argc, char *argv[])
 		g_value_init (&value, G_TYPE_POINTER));
 	pctx = g_value_get_pointer (&value);
 
+	main_loop = g_main_loop_new (NULL, FALSE);
+
 	if (!command) {
 		GList *arglist = NULL;
 		gchar *arg, **args;
@@ -90,8 +99,10 @@ main (int argc, char *argv[])
 			if (!gnomesu_spawn_command_async (user, terminal, &pid))
 				return 255;
 
-			waitpid (pid, &status, 0);
-			return WEXITSTATUS (status);
+			g_child_watch_add (pid, child_exit_cb, NULL);
+			g_main_loop_run (main_loop);
+
+			return WEXITSTATUS (final_status);
 		}
 
 		args = g_new0 (gchar *, g_list_length (arglist) + 1);
@@ -102,11 +113,13 @@ main (int argc, char *argv[])
 
 		if (!gnomesu_spawn_async (user, args, &pid))
 			return 255;
-		waitpid (pid, &status, 0);
+
+		g_child_watch_add (pid, child_exit_cb, NULL);
+		g_main_loop_run (main_loop);
 
 		g_list_free (arglist);
 		g_free (args);
-		return WEXITSTATUS (status);
+		return WEXITSTATUS (final_status);
 
 	} else {
 		int status, pid;
@@ -114,8 +127,10 @@ main (int argc, char *argv[])
 		if (!gnomesu_spawn_command_async (user, command, &pid))
 			return 255;
 
-		waitpid (pid, &status, 0);
-		return WEXITSTATUS (status);
+		g_child_watch_add (pid, child_exit_cb, NULL);
+		g_main_loop_run (main_loop);
+
+		return WEXITSTATUS (final_status);
 	}
 
 	return 0;
