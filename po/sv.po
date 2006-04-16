@@ -1,102 +1,110 @@
 # Swedish messages for libgnomesu.
-# Copyright (C) 2003, 2005 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2005, 2006 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2003, 2005.
+# Daniel Nylander <po@danielnylander.se>, 2006.
 #
-# $Id: sv.po,v 1.8 2005/01/08 17:55:23 hongli Exp $
+# $Id: sv.po,v 1.9 2006/04/16 23:04:26 dnylande Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
-"PO-Revision-Date: 2005-01-03 00:52+0100\n"
-"Last-Translator: Christian Rose <menthos@menthos.com>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"POT-Creation-Date: 2006-04-12 20:14+0200\n"
+"PO-Revision-Date: 2006-04-17 01:01+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/gnomesu-auth-dialog.c:110
+#: ../src/gnomesu-auth-dialog.c:111
 msgid "Password needed"
 msgstr "Lösenord behövs"
 
-#: src/gnomesu-auth-dialog.c:163
+#: ../src/gnomesu-auth-dialog.c:164
 msgid "Command:"
 msgstr "Kommando:"
 
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:214
 msgid "C_ontinue"
-msgstr ""
+msgstr "_Fortsätt"
 
-#: src/gnomesu-auth-dialog.c:363
+#: ../src/gnomesu-auth-dialog.c:364
 msgid "Administrator (root) privilege is required."
 msgstr "Superanvändarprivilegier (rootprivilegier) krävs."
 
-#: src/gnomesu-auth-dialog.c:364
+#: ../src/gnomesu-auth-dialog.c:365
 msgid "Please enter the root password to continue."
 msgstr "Ange rootlösenordet för att fortsätta."
 
-#: src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:414
 msgid "_Password:"
 msgstr "_Lösenord:"
 
-#: src/gnomesu-auth-dialog.c:438
+#: ../src/gnomesu-auth-dialog.c:439
 msgid "Please wait, verifying password..."
 msgstr "Var vänlig vänta, verifierar lösenord..."
 
-#: src/gnomesu-auth-dialog.c:446
+#: ../src/gnomesu-auth-dialog.c:447
 msgid "Incorrect password, please try again."
 msgstr "Felaktigt lösenord, försök igen."
 
-#: src/gnomesu-auth-dialog.c:453
+#: ../src/gnomesu-auth-dialog.c:454
 msgid "Incorrect password, please try again. You have one more chance."
 msgstr "Felaktigt lösenord, försök igen. Du har en chans till."
 
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "Inga tjänster för libgnomesu är tillgängliga.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
+#: ../src/services/pam.c:192
+#: ../src/services/su.c:185
+#, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Ange lösenordet för %s och klicka på Kör för att fortsätta."
+msgstr "Ange lösenordet för %s och klicka på Fortsätt."
 
-#: src/services/pam.c:195 src/services/su.c:188
+#: ../src/services/pam.c:194
+#: ../src/services/su.c:187
 msgid "The requested action needs further authentication."
 msgstr "Den begärda åtgärden kräver ytterligare autentisering."
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:200
+#: ../src/services/su.c:193
 #, c-format
 msgid "%s's _password:"
 msgstr "_Lösenord för %s:"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:229
+#: ../src/services/su.c:222
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "Användaren \"%s\" finns inte."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:234
+#: ../src/services/su.c:226
 msgid "An unknown error occured while authenticating."
 msgstr "Ett okänt fel inträffade vid autentisering."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:238
+#: ../src/services/su.c:230
 msgid "You do not have permission to authenticate."
 msgstr "Du har inte rättigheter att autentisera."
 
-#: src/services/pam.c:233
+#: ../src/services/pam.c:242
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Kan inte initiera PAM-autentiseringssystemet."
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71
+#: ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "skrivfel"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "Skrivet av %s.\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -109,139 +117,107 @@ msgstr ""
 "finns INTE NÅGON GARANTI, inte ens för KÖP eller LÄMPLIGHET FÖR NÅGOT\n"
 "SPECIELLT ÄNDAMÅL.\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:40
 msgid "Pass the command to execute as one single string."
 msgstr "Ange kommandot som ska göras som en enstaka sträng."
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "KOMMANDO"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:44
 msgid "Run as this user instead of as root."
 msgstr "Kör som denna användare istället för root."
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:45
 msgid "USERNAME"
 msgstr "ANVÄNDARNAMN"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:65
 msgid "GNOME SuperUser"
 msgstr "GNOME-superanvändare"
 
 #~ msgid "GNOME SuperUser integration"
 #~ msgstr "GNOME-superanvändarintegration"
-
 #~ msgid "Open as superuser (root)..."
 #~ msgstr "Öppna som superanvändare (root)..."
-
 #~ msgid ""
 #~ "<b>Administrator (root) privilege is required.</b>\n"
 #~ "Please enter the root password to continue."
 #~ msgstr ""
 #~ "<b>Superanvändarprivilegier (rootprivilegier) krävs.</b>\n"
 #~ "Ange rootlösenordet för att fortsätta."
-
 #~ msgid ""
 #~ "You do not have permission gain superuser (root) privileges. This "
 #~ "incident will be reported."
 #~ msgstr ""
 #~ "Du har inte rättigheter att få superanvändarrättigheter "
 #~ "(rooträttigheter). Denna incident kommer att rapporteras."
-
 #~ msgid "User's password needed"
 #~ msgstr "Användarens lösenord behövs"
-
 #~ msgid "_Run"
 #~ msgstr "_Kör"
-
 #~ msgid ""
 #~ "<span weight=\"bold\">The requested action needs autentication.</span>\n"
 #~ "Please enter your password and click Run to continue."
 #~ msgstr ""
 #~ "<span weight=\"bold\">Den begärda åtgärden behöver autentisering.</span>\n"
 #~ "Ange ditt lösenord och klicka på Kör för att fortsätta."
-
 #~ msgid "Your _password:"
 #~ msgstr "Ditt _lösenord:"
-
 #~ msgid "*"
 #~ msgstr "*"
-
 #~ msgid "Command to run:"
 #~ msgstr "Kommando att köra:"
-
 #~ msgid ""
 #~ "<span style=\"italic\" weight=\"bold\">Please wait, verifying password..."
 #~ "</span>"
 #~ msgstr ""
 #~ "<span style=\"italic\" weight=\"bold\">Var vänlig vänta, verifierar "
 #~ "lösenord...</span>"
-
 #~ msgid "_Password"
 #~ msgstr "_Lösenord"
-
 #~ msgid "Password:"
 #~ msgstr "Lösenord:"
-
 #~ msgid "Password"
 #~ msgstr "Lösenord"
-
 #~ msgid "Superuser _password:"
 #~ msgstr "Superanvändar_lösenord:"
-
 #~ msgid "Password required"
 #~ msgstr "Lösenord krävs"
-
 #~ msgid "Run"
 #~ msgstr "Kör"
-
 #~ msgid "The requested action needs superuser (root) privileges."
 #~ msgstr ""
 #~ "Den begärda åtgärden behöver superanvändarrättigheter rooträttigheter)."
-
 #~ msgid "Please enter the superuser password and click Run to continue."
 #~ msgstr "Ange superanvändarlösenordet och klicka på Kör för att fortsätta."
-
 #~ msgid "Superuser password:"
 #~ msgstr "Superanvändarlösenord:"
-
 #~ msgid "Command"
 #~ msgstr "Kommando"
-
 #~ msgid "User's password required"
 #~ msgstr "Användarens lösenord krävs"
-
 #~ msgid "The requested action needs autentication."
 #~ msgstr "Den begärda åtgärden behöver autentisering."
-
 #~ msgid "Please enter your password and click Run to continue."
 #~ msgstr "Ange ditt lösenord och klicka på Kör för att fortsätta."
-
 #~ msgid "Your password:"
 #~ msgstr "Ditt lösenord:"
-
 #~ msgid "Write error"
 #~ msgstr "Skrivfel"
-
 #~ msgid "Username"
 #~ msgstr "Användarnamn"
-
 #~ msgid "Username:"
 #~ msgstr "Användarnamn:"
-
 #~ msgid "_Username:"
 #~ msgstr "_Användarnamn:"
-
 #~ msgid "Open as superuser..."
 #~ msgstr "Öppna som superanvändare..."
-
 #~ msgid "%s's password:"
 #~ msgstr "Lösenord för %s:"
-
 #~ msgid "%s's Password:"
 #~ msgstr "Lösenord för %s:"
-
 #~ msgid ""
 #~ "<span weight=\"bold\">The requested action needs further authentication.</"
 #~ "span>\n"
@@ -250,17 +226,16 @@ msgstr "GNOME-superanvändare"
 #~ "<span weight=\"bold\">Den begärda åtgärden kräver ytterligare "
 #~ "autentisering.</span>\n"
 #~ "Ange lösenordet för %s och klicka på Kör för att fortsätta."
-
 #~ msgid ""
 #~ "<span style=\"italic\" weight=\"bold\">Incorrect password, please try "
 #~ "again. You have one more chance.</span>"
 #~ msgstr ""
 #~ "<span style=\"italic\" weight=\"bold\">Felaktigt lösenord, försök igen. "
 #~ "Du har en chans till.</span>"
-
 #~ msgid ""
 #~ "<span style=\"italic\" weight=\"bold\">Incorrect password, please try "
 #~ "again.</span>"
 #~ msgstr ""
 #~ "<span style=\"italic\" weight=\"bold\">Felaktigt lösenord, försök igen.</"
 #~ "span>"
+
