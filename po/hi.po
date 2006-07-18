@@ -1,0 +1,128 @@
+# translation of libgnomesu.HEAD.po to Hindi
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# G Karunakar <karunakar@freedomink.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnomesu.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-07-13 04:51+0200\n"
+"PO-Revision-Date: 2006-07-15 10:24+0530\n"
+"Last-Translator: G Karunakar <karunakar@freedomink.org>\n"
+"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10.2\n"
+
+#: ../src/gnomesu-auth-dialog.c:111
+msgid "Password needed"
+msgstr "पासवर्ड चाहिए"
+
+#: ../src/gnomesu-auth-dialog.c:164
+msgid "Command:"
+msgstr "आदेश:ंडः"
+
+#: ../src/gnomesu-auth-dialog.c:214
+msgid "C_ontinue"
+msgstr "जारी रखें (_o)"
+
+#: ../src/gnomesu-auth-dialog.c:364
+#, fuzzy
+msgid "Administrator (root) privilege is required."
+msgstr "रूट है."
+
+#: ../src/gnomesu-auth-dialog.c:365
+msgid "Please enter the root password to continue."
+msgstr "जारी रखने के लिए  रूटपासवर्ड दें."
+
+#: ../src/gnomesu-auth-dialog.c:414
+msgid "_Password:"
+msgstr "पासवर्ड (_P):"
+
+#: ../src/gnomesu-auth-dialog.c:439
+msgid "Please wait, verifying password..."
+msgstr "इंतजार करें, पासवर्ड जाँच जारी..."
+
+#: ../src/gnomesu-auth-dialog.c:447
+msgid "Incorrect password, please try again."
+msgstr "गलत पासवर्ड, फिर कोशिश करें"
+
+#: ../src/gnomesu-auth-dialog.c:454
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "गलत पासवर्ड, फिर कोशिश करें, आपके पास ओर एक मोका है"
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr "libgnomesu के के लिये सेवाएँ  उपब्धल नहीं है.\n"
+
+#: ../src/services/pam.c:192 ../src/services/su.c:185
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "कृपया %s का पासवर्ड डालें ओर क्लिक करें"
+
+#: ../src/services/pam.c:194 ../src/services/su.c:187
+#, fuzzy
+msgid "The requested action needs further authentication."
+msgstr "प्रामाणीकरण."
+
+#: ../src/services/pam.c:200 ../src/services/su.c:193
+#, c-format
+msgid "%s's _password:"
+msgstr "%s का पासवर्ड (_p):"
+
+#: ../src/services/pam.c:229 ../src/services/su.c:222
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "उपयोक्ता '%s' का अस्तित्व नहीं है"
+
+#: ../src/services/pam.c:234 ../src/services/su.c:226
+msgid "An unknown error occured while authenticating."
+msgstr "प्रमानीकरण के दोरान अज्ञात त्रुटि हुई"
+
+#: ../src/services/pam.c:238 ../src/services/su.c:230
+msgid "You do not have permission to authenticate."
+msgstr "प्रमानीकरण के लिए आप को अनुमति नहीं है"
+
+#: ../src/services/pam.c:242
+msgid "Unable to initialize the PAM authentication system."
+msgstr "PAM  प्रामाणीकर तंत्र को चालू नहीं कर पाए"
+
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
+msgid "write error"
+msgstr "लेखन ें त्रुटि"
+
+#: ../su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "%s द्वारा लिखित.\n"
+
+#: ../su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: ../tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr " कार्यान्वित कने के लिए  ए लडी ट्रिंगमें आदेश दें."
+
+#: ../tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "आदेश"
+
+#: ../tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "का  की जगह इस उपयोक्ता की तरह चलाएँूट."
+
+#: ../tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "उपयोक्ता नाम"
+
+#: ../tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "ग्नोम सूपरउप्योक्ता"
+
