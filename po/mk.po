@@ -1,0 +1,130 @@
+# translation of libgnomesu.HEAD.po to Macedonian
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jovan Naumovski <jovan@lugola.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: libgnomesu.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-08-06 12:56+0200\n"
+"PO-Revision-Date: 2006-08-06 17:15+0200\n"
+"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
+"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+
+#: ../src/gnomesu-auth-dialog.c:111
+msgid "Password needed"
+msgstr "Потребна е лозинка"
+
+#: ../src/gnomesu-auth-dialog.c:164
+msgid "Command:"
+msgstr "Команда:"
+
+#: ../src/gnomesu-auth-dialog.c:214
+msgid "C_ontinue"
+msgstr "П_родолжи"
+
+#: ../src/gnomesu-auth-dialog.c:364
+msgid "Administrator (root) privilege is required."
+msgstr "Потребна е администраторска привилегија (root)."
+
+#: ../src/gnomesu-auth-dialog.c:365
+msgid "Please enter the root password to continue."
+msgstr "Ве молам, внесете ја лозинката за root за да продолжите."
+
+#: ../src/gnomesu-auth-dialog.c:414
+msgid "_Password:"
+msgstr "_Лозинка:"
+
+#: ../src/gnomesu-auth-dialog.c:439
+msgid "Please wait, verifying password..."
+msgstr "Почекајте, ве молам, ја проверувам лозинката..."
+
+#: ../src/gnomesu-auth-dialog.c:447
+msgid "Incorrect password, please try again."
+msgstr "Неточна лозинка, обидете се повторно."
+
+#: ../src/gnomesu-auth-dialog.c:454
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr "Неточна лозинка, обидете се повторно. Имате уште една шанса."
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr "Нема достапни сервиси за libgnomesu.\n"
+
+#: ../src/services/pam.c:192 ../src/services/su.c:185
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "Внесете ја лозинката на %s и кликнете Продолжи."
+
+#: ../src/services/pam.c:194 ../src/services/su.c:187
+msgid "The requested action needs further authentication."
+msgstr "Бараното дејство бара понатамошна проверка на автентичноста."
+
+#: ../src/services/pam.c:200 ../src/services/su.c:193
+#, c-format
+msgid "%s's _password:"
+msgstr "Лозинката на %s:"
+
+#: ../src/services/pam.c:229 ../src/services/su.c:222
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr "Корисникот '%s' не постои."
+
+#: ../src/services/pam.c:234 ../src/services/su.c:226
+msgid "An unknown error occured while authenticating."
+msgstr "Непозната грешка се случи при проверка на автентичноста."
+
+#: ../src/services/pam.c:238 ../src/services/su.c:230
+msgid "You do not have permission to authenticate."
+msgstr "Немате дозвола за проверка на автентичноста."
+
+#: ../src/services/pam.c:242
+msgid "Unable to initialize the PAM authentication system."
+msgstr "Не можам да го иницијализирам PAM системот за проверка на автентичност."
+
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
+msgid "write error"
+msgstr "грешка во пишувањето"
+
+#: ../su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Напишано од %s.\n"
+
+#: ../su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"\n"
+"Авторски права (C) 1999 Free Software Foundation, Inc.\n"
+"Ова е слободен софтвер; видете го изворот за условите за копирање.  НЕМА\n"
+"гаранција; Ниту за КОМЕРЦИЈАЛНА ниту за ИНДИВИДУАЛНА употреба.\n"
+
+#: ../tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr "Напишете ја командата за извршување како една знаковна низа."
+
+#: ../tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr "КОМАНДА"
+
+#: ../tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr "Извршете како овој корисник наместо како root."
+
+#: ../tools/gnomesu.c:45
+msgid "USERNAME"
+msgstr "КОРИСНИЧКО ИМЕ"
+
+#: ../tools/gnomesu.c:65
+msgid "GNOME SuperUser"
+msgstr "GNOME Супер корисник"
+
