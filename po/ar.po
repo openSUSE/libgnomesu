@@ -1,0 +1,145 @@
+# Arabic translations for PACKAGE package.
+# Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Project\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-17 21:14+0000\n"
+"PO-Revision-Date: 2006-11-18 00:25+0100\n"
+"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n >= 3 && n <= 10 ? 3 : n >= 11 && n <= 99 ? 4 : 5;\n"
+"X-Poedit-Language: Arabic\n"
+
+#: ../src/gnomesu-auth-dialog.c:111
+#, fuzzy
+msgid "Password needed"
+msgstr "مطلوب تحوّل بين كلمة السر"
+
+#: ../src/gnomesu-auth-dialog.c:164
+#, fuzzy
+msgid "Command:"
+msgstr "أمر:"
+
+#: ../src/gnomesu-auth-dialog.c:214
+msgid "C_ontinue"
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:364
+msgid "Administrator (root) privilege is required."
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:365
+msgid "Please enter the root password to continue."
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:414
+#, fuzzy
+msgid "_Password:"
+msgstr "_كلمة المرور:"
+
+#: ../src/gnomesu-auth-dialog.c:439
+#, fuzzy
+msgid "Please wait, verifying password..."
+msgstr "الرجاء إدخال كلمة المرور:"
+
+#: ../src/gnomesu-auth-dialog.c:447
+#, fuzzy
+msgid "Incorrect password, please try again."
+msgstr "الرجاء التأكد من التهجأة ثم الإعادة مرة أخرى."
+
+#: ../src/gnomesu-auth-dialog.c:454
+msgid "Incorrect password, please try again. You have one more chance."
+msgstr ""
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr ""
+
+#: ../src/services/pam.c:192
+#: ../src/services/su.c:185
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr ""
+
+#: ../src/services/pam.c:194
+#: ../src/services/su.c:187
+msgid "The requested action needs further authentication."
+msgstr ""
+
+#: ../src/services/pam.c:200
+#: ../src/services/su.c:193
+#, fuzzy, c-format
+msgid "%s's _password:"
+msgstr "كلمة المرور:"
+
+#: ../src/services/pam.c:229
+#: ../src/services/su.c:222
+#, fuzzy, c-format
+msgid "User '%s' doesn't exist."
+msgstr "الدّليل غير موجود"
+
+#: ../src/services/pam.c:234
+#: ../src/services/su.c:226
+#, fuzzy
+msgid "An unknown error occured while authenticating."
+msgstr "حدث خطأ مجهول عند محاولة فتح \"%s\""
+
+#: ../src/services/pam.c:238
+#: ../src/services/su.c:230
+#, fuzzy
+msgid "You do not have permission to authenticate."
+msgstr "يبدو انك لا تملك ترخيصا للنفاذ إلى %s."
+
+#: ../src/services/pam.c:242
+msgid "Unable to initialize the PAM authentication system."
+msgstr ""
+
+#: ../su-backend/closeout.c:71
+#: ../su-backend/closeout.c:73
+#, fuzzy
+msgid "write error"
+msgstr "حصل خطأ عند الكتابة."
+
+#: ../su-backend/version-etc.c:38
+#, fuzzy, c-format
+msgid "Written by %s.\n"
+msgstr "المطورون"
+
+#: ../su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: ../tools/gnomesu.c:40
+msgid "Pass the command to execute as one single string."
+msgstr ""
+
+#: ../tools/gnomesu.c:41
+#, fuzzy
+msgid "COMMAND"
+msgstr "أمر"
+
+#: ../tools/gnomesu.c:44
+msgid "Run as this user instead of as root."
+msgstr ""
+
+#: ../tools/gnomesu.c:45
+#, fuzzy
+msgid "USERNAME"
+msgstr "اسم المستخدم: "
+
+#: ../tools/gnomesu.c:65
+#, fuzzy
+msgid "GNOME SuperUser"
+msgstr "آي أوف جنوم"
+
