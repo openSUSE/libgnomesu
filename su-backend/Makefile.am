@@ -23,7 +23,7 @@ gnomesu_backend_DEPENDENCIES = libcommon.la
 libcommon_la_SOURCES = common.c common.h
 libcommon_la_LDFLAGS = $(GNOMESU_BACKEND_LIBS)
 
-installed_su=$(DESTDIR)$(libexecdir)/`echo gnomesu-backend | sed $(transform)`
+installed_su=$(DESTDIR)$(libexecdir)/`echo gnomesu-backend | sed '$(transform)'`
 
 if SETUID_ERROR
 install-data-local: gnomesu-backend
@@ -38,8 +38,8 @@ install-data-local: gnomesu-backend
 	}; \
 	echo chown root$(ROOTGROUP) $(installed_su); \
 	chown root$(ROOTGROUP) $(installed_su) || printErr; \
-	echo chmod a=xs $(installed_su); \
-	chmod a=xs $(installed_su) || printErr
+	echo chmod u=rxs,go=xs $(installed_su); \
+	chmod u=rxs,go=xs $(installed_su) || printErr
 else
 install-data-local: gnomesu-backend
 	@printWarn() { \
@@ -53,8 +53,8 @@ install-data-local: gnomesu-backend
 	}; \
 	echo chown root$(ROOTGROUP) $(installed_su); \
 	chown root$(ROOTGROUP) $(installed_su) || printWarn; \
-	echo chmod a=xs $(installed_su); \
-	chmod a=xs $(installed_su) || true
+	echo chmod u=rxs,go=xs $(installed_su); \
+	chmod u=rxs,go=xs $(installed_su) || true
 endif
 
 EXTRA_DIST = $(gnomesu_backend_SOURCES) $(libcommon_la_SOURCES)

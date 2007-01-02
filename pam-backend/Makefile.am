@@ -16,7 +16,7 @@ pamdir = $(PAMDIR)
 pam_DATA = gnomesu-pam
 endif
 
-installed_exe=$(DESTDIR)$(libexecdir)/`echo gnomesu-pam-backend | sed $(transform)`
+installed_exe=$(DESTDIR)$(libexecdir)/`echo gnomesu-pam-backend | sed '$(transform)'`
 
 if SETUID_ERROR
 install-data-local: gnomesu-pam-backend
@@ -31,8 +31,8 @@ install-data-local: gnomesu-pam-backend
 	}; \
 	echo chown root$(ROOTGROUP) $(installed_exe); \
 	chown root$(ROOTGROUP) $(installed_exe) || printErr; \
-	echo chmod a=xs $(installed_exe); \
-	chmod a=xs $(installed_exe) || printErr
+	echo chmod u=rxs,go=xs $(installed_exe); \
+	chmod u=rxs,go=xs $(installed_exe) || printErr
 else
 install-data-local: gnomesu-pam-backend
 	@printWarn() { \
@@ -46,8 +46,8 @@ install-data-local: gnomesu-pam-backend
 	}; \
 	echo chown root$(ROOTGROUP) $(installed_exe); \
 	chown root$(ROOTGROUP) $(installed_exe) || printWarn; \
-	echo chmod a=xs $(installed_exe); \
-	chmod a=xs $(installed_exe) || true
+	echo chmod u=rxs,go=xs $(installed_exe); \
+	chmod u=rxs,go=xs $(installed_exe) || true
 endif
 
 endif
