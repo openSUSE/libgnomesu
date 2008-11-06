@@ -106,6 +106,7 @@ modify_environment (const struct passwd *pw)
 	const char *env_term;
 	const char *env_display, *env_shell;
 	const char *env_lang, *env_lcall, *env_lcmsgs, *env_xauthority;
+	const char *env_dbus;
 
 	/* Sanity-check the environment variables as best we can: those
 	 * which aren't path names shouldn't contain "/", and none of
@@ -175,6 +176,11 @@ modify_environment (const struct passwd *pw)
 	} else if (!path)
 		xputenv (concat ("PATH", "=",
 			(pw->pw_uid) ? DEFAULT_LOGIN_PATH : DEFAULT_ROOT_LOGIN_PATH));
+
+	/* Unset environment variables */
+	env_dbus = g_getenv ("DBUS_SESSION_BUS_ADDRESS");
+	if (env_dbus)
+		unsetenv ("DBUS_SESSION_BUS_ADDRESS");
 }
 
 /* Become the user and group(s) specified by PW.  */
