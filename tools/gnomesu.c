@@ -77,6 +77,8 @@ main (int argc, char *argv[])
 		g_value_init (&value, G_TYPE_POINTER));
 	pctx = g_value_get_pointer (&value);
 
+	gtk_window_set_default_icon_name (GTK_STOCK_DIALOG_AUTHENTICATION);
+
 	main_loop = g_main_loop_new (NULL, FALSE);
 
 	if (!command) {

@@ -64,6 +64,7 @@ GType      gnomesu_auth_dialog_get_type	(void) G_GNUC_CONST;
 GtkWidget *gnomesu_auth_dialog_new	(void);
 
 void gnomesu_auth_dialog_set_desc	(GnomesuAuthDialog *dialog, const gchar *text);
+void gnomesu_auth_dialog_set_desc_ps (GnomesuAuthDialog *dialog, const gchar *primary, const gchar *secondary);
 void gnomesu_auth_dialog_set_icon	(GnomesuAuthDialog *dialog, GdkPixbuf *pixbuf);
 void gnomesu_auth_dialog_set_command	(GnomesuAuthDialog *dialog, const gchar *command);
 void gnomesu_auth_dialog_set_prompt	(GnomesuAuthDialog *dialog, const gchar *prompt);

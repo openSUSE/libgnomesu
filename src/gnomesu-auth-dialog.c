@@ -1,5 +1,7 @@
 /* libgnomesu - Library for providing superuser privileges to GNOME apps.
- * Copyright (C) 2004  Hongli Lai
+ * Copyright (C) 2004 Hongli Lai
+ * Copyright (C) 2007 David Zeuthen <david@fubar.dk>
+ * Copyright (C) 2008 Novell, Inc.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,29 +26,159 @@
 #include <libintl.h>
 
 #include "gnomesu-auth-dialog.h"
-#include "auth-icon.csource"
 #include "utils.h"
 
 #undef _
 #define _(x) ((gchar *) dgettext (GETTEXT_PACKAGE, x))
 
-
 G_BEGIN_DECLS
 
-static gpointer parent_class = NULL;
-
 struct _GnomesuAuthDialogPrivate {
+	GdkCursor *watch;
 	GtkWidget *left_action_area;
-	GtkWidget *icon;
-	GtkWidget *desc_label;
+	GtkWidget *message_label;
+	GtkWidget *message_label_secondary;
+	GtkWidget *user_combobox;
+	GtkWidget *prompt_label;
 	GtkWidget *command_desc_label;
 	GtkWidget *command_label;
-	GtkWidget *prompt_label;
-	GtkWidget *input;
-	GtkWidget *mode_label;
-	GdkCursor *watch;
+	GtkWidget *password_entry;
+	GtkWidget *details_expander;
+	GtkWidget *icon;
 };
 
+G_DEFINE_TYPE (GnomesuAuthDialog, gnomesu_auth_dialog, GTK_TYPE_DIALOG);
+
+// ============================================================================
+// PRIVATE UTILITIES
+// ============================================================================
+
+static GList *
+split_lines_strip_markup (const gchar *text, gssize length, gint max_lines)
+{
+	GList *lines = NULL;
+	gint line_count = 0;
+	GString *str;
+	const gchar *p;
+	const gchar *end;
+	gint ignore_ref = 0;
+
+	g_return_val_if_fail (text != NULL, NULL);
+
+	if (length < 0)
+		length = strlen (text);
+
+	str = g_string_sized_new (length);
+
+	p = text;
+	end = text + length;
+
+	while (p != end) {
+		const gchar *next;
+		next = g_utf8_next_char (p);
+
+		switch (*p) {
+			case '<': ignore_ref++; break;
+			case '>': ignore_ref--; break;
+			default:
+				if (ignore_ref <= 0) {
+					if (*p == '\n' && (max_lines <= 0 || line_count < max_lines - 1)) {
+						lines = g_list_append (lines, g_string_free (str, FALSE));
+						str = g_string_sized_new (end - p + 1);
+						line_count++;
+						break;
+					}
+
+					g_string_append_len (str, p, next - p);
+				}
+				break;
+		}
+
+		p = next;
+	}
+
+	lines = g_list_append (lines, g_string_free (str, FALSE));
+	return lines;
+}
+
+static void
+gnomesu_auth_dialog_set_icon_internal (GnomesuAuthDialog *auth_dialog, GdkPixbuf *vendor_pixbuf)
+{
+	GdkPixbuf *pixbuf;
+	GdkPixbuf *copy_pixbuf;
+
+	gint icon_size = 48, half_size;
+	gint v_width, v_height;
+	gint v_scale_width, v_scale_height;
+	gint ofs_x, ofs_y;
+	gdouble s_x, s_y;
+
+	pixbuf = NULL;
+	copy_pixbuf = NULL;
+	half_size = icon_size / 2;
+
+	pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
+		GTK_STOCK_DIALOG_AUTHENTICATION, icon_size, 0, NULL);
+	if (pixbuf == NULL)
+		goto out;
+
+	if (vendor_pixbuf == NULL) {
+		gtk_image_set_from_pixbuf (GTK_IMAGE (auth_dialog->_priv->icon), pixbuf);
+		goto out;
+	}
+
+	/* need to copy the pixbuf since we're modifying it */
+	copy_pixbuf = gdk_pixbuf_copy (pixbuf);
+	if (copy_pixbuf == NULL)
+		goto out;
+
+	/* compute scaling and translating for overlay */
+	v_width = gdk_pixbuf_get_width (vendor_pixbuf);
+	v_height = gdk_pixbuf_get_height (vendor_pixbuf);
+	v_scale_width = v_width <= half_size ? v_width : half_size;
+	v_scale_height = v_height <= half_size ? v_height : half_size;
+	s_x = v_width <= half_size ? 1.0 : half_size / (gdouble)v_width;
+	s_y = v_height <= half_size ? 1.0 : half_size / (gdouble)v_height;
+	ofs_x = half_size + (half_size - v_scale_width);
+	ofs_y = half_size + (half_size - v_scale_height);
+
+	/* blend the vendor icon in the bottom right quarter */
+	gdk_pixbuf_composite (vendor_pixbuf,
+		copy_pixbuf,
+		ofs_x, ofs_y, v_scale_width, v_scale_height,
+		ofs_x, ofs_y, s_x, s_y,
+		GDK_INTERP_BILINEAR,
+		255);
+
+	gtk_image_set_from_pixbuf (GTK_IMAGE (auth_dialog->_priv->icon), copy_pixbuf);
+
+out:
+	if (pixbuf != NULL)
+		g_object_unref (pixbuf);
+	if (copy_pixbuf != NULL)
+		g_object_unref (copy_pixbuf);
+	if (vendor_pixbuf != NULL)
+		g_object_unref (vendor_pixbuf);
+}
+
+static GtkWidget *
+add_row (GtkWidget *table, int row, const char *label_text, gboolean centered, GtkWidget *entry)
+{
+	GtkWidget *label;
+
+	label = gtk_label_new_with_mnemonic (label_text);
+	gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
+	gtk_misc_set_alignment (GTK_MISC (label), 1.0, centered ? 0.5 : 0.0);
+
+	gtk_table_attach (GTK_TABLE (table), label,
+		0, 1, row, row + 1,
+		GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
+	gtk_table_attach_defaults (GTK_TABLE (table), entry,
+		1, 2, row, row + 1);
+	gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
+
+	return label;
+}
 
 static GtkWidget *
 create_stock_button (const gchar *stock, const gchar *labelstr)
@@ -71,7 +203,6 @@ create_stock_button (const gchar *stock, const gchar *labelstr)
 	return button;
 }
 
-
 static void
 clear_entry (GtkWidget *entry)
 {
@@ -93,26 +224,67 @@ clear_entry (GtkWidget *entry)
 	if (blank) g_free (blank);
 }
 
+void
+indicate_auth_error (GnomesuAuthDialog *auth_dialog)
+{
+	gint x, y, n;
+
+	gtk_window_get_position (GTK_WINDOW (auth_dialog), &x, &y);
+
+	for (n = 0; n < 10; n++) {
+		gint diff = n % 2 == 0 ? -15 : 15;
+		gtk_window_move (GTK_WINDOW (auth_dialog), x + diff, y);
+
+		while (gtk_events_pending ()) {
+			gtk_main_iteration ();
+		}
+
+		g_usleep (10000);
+	}
+
+	gtk_window_move (GTK_WINDOW (auth_dialog), x, y);
+}
+
+// ============================================================================
+// GTK CLASS/OBJECT INITIALIZING
+// ============================================================================
+
+static gboolean
+delete_event_handler (GtkWindow *window, gpointer user_data)
+{
+	return TRUE;
+}
 
 static void
-gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
+gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 {
-	GtkDialog *dialog = (GtkDialog *) instance;
-	GnomesuAuthDialog *adialog = (GnomesuAuthDialog *) instance;
-	GtkWidget *action_area_parent, *hbox;
+	GtkDialog *dialog = GTK_DIALOG (auth_dialog);
+	GnomesuAuthDialogPrivate *priv;
+	GtkWidget *action_area_parent;
 	GtkWidget *left_action_area;
-	GtkWidget *vbox;
-	GtkWidget *icon, *label;
-	GtkWidget *table, *input;
-	GtkWidget *button;
+	GtkWidget *default_button;
+	GtkWidget *image;
 
-	adialog->_priv = g_new0 (GnomesuAuthDialogPrivate, 1);
+	priv = auth_dialog->_priv = g_new0 (GnomesuAuthDialogPrivate, 1);
 
-	gtk_window_set_title (GTK_WINDOW (dialog), _("Password needed"));
+	priv->watch = gdk_cursor_new (GDK_WATCH);
+
+	gtk_dialog_add_button (dialog, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
+	default_button = gtk_dialog_add_button (dialog, _("C_ontinue"), GTK_RESPONSE_OK);
+	image = gtk_image_new_from_stock (GTK_STOCK_OK, GTK_ICON_SIZE_BUTTON);
+	gtk_button_set_image (GTK_BUTTON (default_button), image);
+
+	gtk_widget_set_can_default (default_button, TRUE);
+	gtk_dialog_set_default_response (dialog, GTK_RESPONSE_OK);
+	gtk_window_set_default (GTK_WINDOW (dialog), default_button);
+
 	gtk_dialog_set_has_separator (dialog, FALSE);
-	gtk_widget_realize (GTK_WIDGET (dialog));
-	adialog->_priv->watch = gdk_cursor_new (GDK_WATCH);
+	gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
+	gtk_box_set_spacing (GTK_BOX (dialog->vbox), 2); /* 2 * 5 + 2 = 12 */
+	gtk_container_set_border_width (GTK_CONTAINER (dialog->action_area), 5);
+	gtk_box_set_spacing (GTK_BOX (dialog->action_area), 6);
 
+	GtkWidget *hbox, *main_vbox, *vbox;
 
 	/* Reparent dialog->action_area into a hbox */
 	g_object_ref (dialog->action_area);
@@ -129,171 +301,164 @@ gnomesu_auth_dialog_instance_init (GTypeInstance *instance, gpointer g_class)
 	/* gtk_button_box_set_spacing (GTK_BUTTON_BOX (left_action_area), 12); */
 	gtk_box_set_spacing (GTK_BOX (left_action_area), 12);
 	gtk_button_box_set_layout (GTK_BUTTON_BOX (left_action_area), GTK_BUTTONBOX_START);
-	adialog->_priv->left_action_area = left_action_area;
+	priv->left_action_area = left_action_area;
 	gtk_box_pack_start (GTK_BOX (hbox), left_action_area, FALSE, FALSE, 0);
 
 	gtk_box_pack_start (GTK_BOX (hbox), dialog->action_area, TRUE, TRUE, 0);
 	g_object_unref (dialog->action_area);
 	gtk_widget_show_all (action_area_parent);
 
-
-	/* HBox with icon and description label */
-	vbox = gtk_vbox_new (FALSE, 12);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), 10);
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), vbox, TRUE, TRUE, 0);
-
 	hbox = gtk_hbox_new (FALSE, 12);
-	gtk_box_pack_start (GTK_BOX (vbox), hbox, TRUE, FALSE, 0);
+	gtk_container_set_border_width (GTK_CONTAINER (hbox), 5);
+	gtk_box_pack_start (GTK_BOX (dialog->vbox), hbox, TRUE, TRUE, 0);
 
-	adialog->_priv->icon = icon = gtk_image_new ();
-	gtk_misc_set_alignment (GTK_MISC (icon), 0.5, 0.0);
-	gtk_box_pack_start (GTK_BOX (hbox), icon, FALSE, FALSE, 0);
+	priv->icon = gtk_image_new_from_stock (GTK_STOCK_DIALOG_AUTHENTICATION, GTK_ICON_SIZE_DIALOG);
+	gtk_misc_set_alignment (GTK_MISC (priv->icon), 0.5, 0.0);
+	gtk_box_pack_start (GTK_BOX (hbox), priv->icon, FALSE, FALSE, 0);
 
-	adialog->_priv->desc_label = label = gtk_label_new ("");
-	gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.0);
-	gtk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
+	main_vbox = gtk_vbox_new (FALSE, 10);
+	gtk_box_pack_start (GTK_BOX (hbox), main_vbox, TRUE, TRUE, 0);
 
+	/* main message */
+	priv->message_label = gtk_label_new (NULL);
+	gtk_misc_set_alignment (GTK_MISC (priv->message_label), 0.0, 0.5);
+	gtk_label_set_line_wrap (GTK_LABEL (priv->message_label), TRUE);
+	gtk_box_pack_start (GTK_BOX (main_vbox), GTK_WIDGET (priv->message_label),
+				FALSE, FALSE, 0);
 
-	/* Command label */
-	table = gtk_table_new (2, 2, FALSE);
-	gtk_table_set_col_spacings (GTK_TABLE (table), 6);
+	/* secondary message */
+	priv->message_label_secondary = gtk_label_new (NULL);
+		gtk_label_set_markup (GTK_LABEL (priv->message_label_secondary), "");
+	gtk_misc_set_alignment (GTK_MISC (priv->message_label_secondary), 0.0, 0.5);
+	gtk_label_set_line_wrap (GTK_LABEL (priv->message_label_secondary), TRUE);
+	gtk_box_pack_start (GTK_BOX (main_vbox), GTK_WIDGET (priv->message_label_secondary),
+				FALSE, FALSE, 0);
+
+	/* password entry */
+	vbox = gtk_vbox_new (FALSE, 6);
+	gtk_box_pack_start (GTK_BOX (main_vbox), vbox, FALSE, FALSE, 0);
+
+	GtkWidget *table_alignment;
+	GtkWidget *table;
+	table_alignment = gtk_alignment_new (0.0, 0.0, 1.0, 1.0);
+	gtk_box_pack_start (GTK_BOX (vbox), table_alignment, FALSE, FALSE, 0);
+	table = gtk_table_new (1, 2, FALSE);
+	gtk_table_set_col_spacings (GTK_TABLE (table), 12);
 	gtk_table_set_row_spacings (GTK_TABLE (table), 6);
-	gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
+	gtk_container_add (GTK_CONTAINER (table_alignment), table);
+	priv->password_entry = gtk_entry_new ();
+	gtk_entry_set_visibility (GTK_ENTRY (priv->password_entry), FALSE);
+	gtk_entry_set_activates_default (GTK_ENTRY (priv->password_entry), TRUE);
+	priv->prompt_label = add_row (table, 0, "", TRUE, priv->password_entry);
 
-	adialog->_priv->command_desc_label = label = gtk_label_new (_("Command:"));
-	gtk_misc_set_alignment (GTK_MISC (label), 1.0, 0.5);
-	gtk_table_attach (GTK_TABLE (table), label,
-		0, 1, 0, 1,
-		GTK_FILL, GTK_FILL,
-		0, 0);
+	priv->details_expander = gtk_expander_new_with_mnemonic (_("<small><b>_Details</b></small>"));
+	gtk_expander_set_use_markup (GTK_EXPANDER (priv->details_expander), TRUE);
+	gtk_box_pack_start (GTK_BOX (dialog->vbox), priv->details_expander, FALSE, FALSE, 0);
 
-	adialog->_priv->command_label = label = gtk_label_new ("");
-	gtk_label_set_selectable (GTK_LABEL (label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-	gtk_table_attach (GTK_TABLE (table), label,
-		1, 2, 0, 1,
-		GTK_FILL | GTK_EXPAND, GTK_FILL,
-		0, 0);
+	GtkWidget *details_vbox;
+	details_vbox = gtk_vbox_new (FALSE, 10);
+	gtk_container_add (GTK_CONTAINER (priv->details_expander), details_vbox);
 
+	table_alignment = gtk_alignment_new (0.0, 0.0, 1.0, 1.0);
+	gtk_box_pack_start (GTK_BOX (details_vbox), table_alignment, FALSE, FALSE, 0);
+	table = gtk_table_new (1, 3, FALSE);
 
-	/* Input entry */
-	adialog->_priv->prompt_label = label = gtk_label_new ("_Password:");
-	gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (label), 1.0, 0.5);
-	gtk_table_attach (GTK_TABLE (table), label,
-		0, 1, 1, 2,
-		GTK_FILL, GTK_FILL,
-		0, 0);
+	gint expander_size;
+	gtk_widget_style_get (priv->details_expander,
+		"expander-size", &expander_size,
+		NULL);
 
-	adialog->_priv->input = input = gtk_entry_new ();
-	g_signal_connect (input, "destroy", G_CALLBACK (clear_entry), NULL);
-	gtk_entry_set_activates_default (GTK_ENTRY (input), TRUE);
-	gtk_entry_set_visibility (GTK_ENTRY (input), FALSE);
-	gtk_table_attach (GTK_TABLE (table), input,
-		1, 2, 1, 2,
-		GTK_EXPAND | GTK_FILL, 0,
-		0, 0);
-	gtk_label_set_mnemonic_widget (GTK_LABEL (label), input);
+	gtk_alignment_set_padding (GTK_ALIGNMENT (table_alignment), 6, 0, 2 * expander_size, 6);
+	gtk_table_set_col_spacings (GTK_TABLE (table), 12);
+	gtk_table_set_row_spacings (GTK_TABLE (table), 6);
+	gtk_container_add (GTK_CONTAINER (table_alignment), table);
 
+	/* Command Label */
+	priv->command_label = gtk_label_new (NULL);
+	gtk_misc_set_alignment (GTK_MISC (priv->command_label), 0, 0);
+	gtk_label_set_selectable (GTK_LABEL (priv->command_label), TRUE);
 
-	/* Mode label */
-	adialog->_priv->mode_label = label = gtk_label_new ("");
-	gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);
-	gtk_label_set_selectable (GTK_LABEL (label), TRUE);
-	gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-	gtk_widget_modify_font (label, pango_font_description_from_string ("Bold"));
-	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, TRUE, 0);
+	GtkWidget *scroll = gtk_scrolled_window_new (NULL, NULL);
+	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
+	gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scroll), priv->command_label);
+	gtk_viewport_set_shadow_type (GTK_VIEWPORT (gtk_bin_get_child (GTK_BIN (scroll))), GTK_SHADOW_NONE);
 
-
-	/* Add OK and Cancel buttons */
-	button = gtk_button_new_from_stock (GTK_STOCK_CANCEL);
-	gtk_widget_show (button);
-	gtk_dialog_add_action_widget (dialog, button, GTK_RESPONSE_CANCEL);
-
-	button = create_stock_button (GTK_STOCK_OK, _("C_ontinue"));
-	GTK_WIDGET_SET_FLAGS (button, GTK_HAS_DEFAULT | GTK_CAN_DEFAULT);
-	gtk_widget_show (button);
-	gtk_dialog_add_action_widget (dialog, button, GTK_RESPONSE_OK);
-	gtk_widget_grab_default (button);
-
-
+	gchar *msg = g_markup_printf_escaped ("<small><b>%s</b></small>", _("Command:"));
+	priv->command_desc_label = add_row (table, 0, msg, FALSE, scroll);
+	g_free (msg);
 
 	gtk_widget_show_all (dialog->vbox);
-	gnomesu_auth_dialog_set_desc (adialog, NULL);
-	gnomesu_auth_dialog_set_icon (adialog, NULL);
-	gnomesu_auth_dialog_set_command (adialog, NULL);
-	gnomesu_auth_dialog_set_mode (adialog, GNOMESU_MODE_NORMAL);
-	g_object_set (dialog,
-		"resizable", FALSE,
-		NULL);
+	gtk_widget_grab_default (default_button);
+
+	/* Configure */
+	gnomesu_auth_dialog_set_desc (auth_dialog, NULL);
+	gnomesu_auth_dialog_set_icon (auth_dialog, NULL);
+	gnomesu_auth_dialog_set_command (auth_dialog, NULL);
+	gnomesu_auth_dialog_set_prompt (auth_dialog, NULL);
+	gnomesu_auth_dialog_set_mode (auth_dialog, GNOMESU_MODE_NORMAL);
 }
-
-
-static void
-gnomesu_auth_dialog_finalize (GObject *obj)
-{
-	gdk_cursor_unref (GNOMESU_AUTH_DIALOG (obj)->_priv->watch);
-	g_free  (GNOMESU_AUTH_DIALOG (obj)->_priv);
-	G_OBJECT_CLASS (parent_class)->finalize (obj);
-}
-
 
 static void
 gnomesu_auth_dialog_response (GtkDialog *dialog, gint response_id)
 {
 	if (response_id != GTK_RESPONSE_OK)
-		clear_entry (GNOMESU_AUTH_DIALOG (dialog)->_priv->input);
-	if (GTK_DIALOG_CLASS (parent_class)->response)
-		GTK_DIALOG_CLASS (parent_class)->response (dialog, response_id);
-}
+		clear_entry (GNOMESU_AUTH_DIALOG (dialog)->_priv->password_entry);
 
+	if (GTK_DIALOG_CLASS (gnomesu_auth_dialog_parent_class)->response)
+		GTK_DIALOG_CLASS (gnomesu_auth_dialog_parent_class)->response (dialog, response_id);
+}
 
 static void
-gnomesu_auth_dialog_class_init (gpointer c, gpointer d)
+gnomesu_auth_dialog_finalize (GObject *object)
 {
-	GtkDialogClass *class = (GtkDialogClass *) c;
-	GObjectClass *oclass = (GObjectClass *) c;
+	GnomesuAuthDialog *auth_dialog = GNOMESU_AUTH_DIALOG (object);
 
-	parent_class = g_type_class_peek_parent (class);
-	class->response = gnomesu_auth_dialog_response;
-	oclass->finalize = gnomesu_auth_dialog_finalize;
+	g_free (auth_dialog->_priv);
+
+	G_OBJECT_CLASS (gnomesu_auth_dialog_parent_class)->finalize (object);
 }
 
-
-GType
-gnomesu_auth_dialog_get_type ()
+static void
+gnomesu_auth_dialog_class_init (GnomesuAuthDialogClass * klass)
 {
-	static GType class_type = 0;
-	if (!class_type) {
-		static const GTypeInfo class_info = {
-			sizeof (GnomesuAuthDialogClass),
-			NULL,		/* base_init */
-			NULL,		/* base_finalize */
-			gnomesu_auth_dialog_class_init,		/* class_init */
-			NULL,		/* class_finalize */
-			NULL,		/* class_data */
-			sizeof (GnomesuAuthDialog),
-			0,		/* n_preallocs */
-			gnomesu_auth_dialog_instance_init	/* instance_init */
-		};
-		class_type = g_type_register_static (GTK_TYPE_DIALOG,
-			"GnomesuAuthDialog", &class_info, 0);
-	}
-	return class_type;
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+
+	gnomesu_auth_dialog_parent_class = (GObjectClass *) g_type_class_peek_parent (klass);
+
+	gobject_class->finalize = gnomesu_auth_dialog_finalize;
+	GTK_DIALOG_CLASS (klass)->response = gnomesu_auth_dialog_response;
 }
 
+// ============================================================================
+// PUBLIC API
+// ============================================================================
 
 GtkWidget *
-gnomesu_auth_dialog_new (void)
+gnomesu_auth_dialog_new ()
 {
-	GtkWidget *dialog;
+	GnomesuAuthDialog *auth_dialog;
+	GtkWindow *window;
 
-	dialog = gtk_widget_new (GNOMESU_TYPE_AUTH_DIALOG, NULL);
-	gtk_widget_realize (dialog);
-	return dialog;
+	auth_dialog = g_object_new (GNOMESU_TYPE_AUTH_DIALOG, NULL);
+	window = GTK_WINDOW (auth_dialog);
+
+	gtk_window_set_position (window, GTK_WIN_POS_CENTER);
+	gtk_window_set_modal (window, TRUE);
+	gtk_window_set_resizable (window, FALSE);
+	gtk_window_set_keep_above (window, TRUE);
+	gtk_window_set_resizable (window, FALSE);
+	gtk_window_set_icon_name (window, GTK_STOCK_DIALOG_AUTHENTICATION);
+
+	gchar *title = g_strdup (_("Password needed"));
+	LGSD (replace_all) (&title, "needed", "Needed");
+	gtk_window_set_title (window, title);
+	g_free (title);
+
+	g_signal_connect (auth_dialog, "delete-event",
+		G_CALLBACK (delete_event_handler), NULL);
+
+	return GTK_WIDGET (auth_dialog);
 }
-
 
 GtkWidget *
 gnomesu_auth_dialog_add_button (GnomesuAuthDialog *dialog, const char *stock_id,
@@ -312,14 +477,12 @@ gnomesu_auth_dialog_add_button (GnomesuAuthDialog *dialog, const char *stock_id,
 	return button;
 }
 
-
 static void
 on_action_button_click (GtkWidget *button, gpointer response)
 {
 	GtkDialog *dialog = GTK_DIALOG (gtk_widget_get_toplevel (button));
 	gtk_dialog_response (dialog, GPOINTER_TO_INT (response));
 }
-
 
 void
 gnomesu_auth_dialog_add_custom_button (GnomesuAuthDialog *dialog, GtkWidget *button,
@@ -334,7 +497,6 @@ gnomesu_auth_dialog_add_custom_button (GnomesuAuthDialog *dialog, GtkWidget *but
 		GINT_TO_POINTER (response_id));
 }
 
-
 gchar *
 gnomesu_auth_dialog_prompt (GnomesuAuthDialog *dialog)
 {
@@ -348,6 +510,39 @@ gnomesu_auth_dialog_prompt (GnomesuAuthDialog *dialog)
 		return NULL;
 }
 
+void
+gnomesu_auth_dialog_set_desc_ps (GnomesuAuthDialog *dialog, const gchar *primary, const gchar *secondary)
+{
+	const gchar *_primary = primary ? primary : /*_("Administrator (root) privilege is required.");*/
+		 _("The requested action needs further authentication.");
+	const gchar *_secondary = secondary ? secondary : _("Please enter the root password to continue.");
+	gchar *msg, *mod_primary = NULL;
+	gssize p_len = strlen (_primary);
+
+	/* Try to make the header string nicer to read and more HIGgy;
+	   ugly hack, but beats breaking all the translations */
+	if (p_len > 2) {
+		mod_primary = g_strdup (_primary);
+		if (mod_primary[p_len - 2] != '.' && mod_primary[p_len - 1] == '.') {
+			mod_primary[p_len - 1] = '\0';
+		}
+
+		// LGSD (replace_all) (&mod_primary, " (root)", "");
+	}
+
+	msg = g_markup_printf_escaped ("<big><b>%s</b></big>", mod_primary ? mod_primary : _primary);
+	gtk_label_set_markup (GTK_LABEL (dialog->_priv->message_label), msg);
+	g_free (msg);
+	g_free (mod_primary);
+
+	gtk_label_set_text (GTK_LABEL (dialog->_priv->message_label_secondary), _secondary);
+
+	/* Force both labels to be as wide as their parent; one of them will decide the width */
+	GtkRequisition requisition;
+	gtk_widget_size_request (dialog->_priv->message_label->parent, &requisition);
+	gtk_widget_set_size_request (dialog->_priv->message_label, requisition.width, -1);
+	gtk_widget_set_size_request (dialog->_priv->message_label_secondary, requisition.width, -1);
+}
 
 void
 gnomesu_auth_dialog_set_desc (GnomesuAuthDialog *dialog, const gchar *text)
@@ -355,20 +550,27 @@ gnomesu_auth_dialog_set_desc (GnomesuAuthDialog *dialog, const gchar *text)
 	g_return_if_fail (dialog != NULL);
 	g_return_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog));
 
-	if (text)
-		gtk_label_set_markup (GTK_LABEL (dialog->_priv->desc_label), text);
-	else {
-		gchar *msg;
+	if (text) {
+		GList *lines = split_lines_strip_markup (text, -1, 2);
+		gchar *line1 = NULL;
+		gchar *line2 = NULL;
 
-		msg = g_strdup_printf ("<b>%s</b>\n%s",
-			_("Administrator (root) privilege is required."),
-			_("Please enter the root password to continue."));
-		gtk_label_set_markup (GTK_LABEL (dialog->_priv->desc_label),
-			msg);
-		g_free (msg);
+		if (lines) {
+			line1 = (gchar *)lines->data;
+			if (lines->next) {
+				line2 = (gchar *)lines->next->data;
+			}
+
+			g_list_free (lines);
+		}
+
+		gnomesu_auth_dialog_set_desc_ps (dialog, line1, line2);
+		g_free (line1);
+		g_free (line2);
+	} else {
+		gnomesu_auth_dialog_set_desc_ps (dialog, NULL, NULL);
 	}
 }
-
 
 void
 gnomesu_auth_dialog_set_icon (GnomesuAuthDialog *dialog, GdkPixbuf *pixbuf)
@@ -376,14 +578,11 @@ gnomesu_auth_dialog_set_icon (GnomesuAuthDialog *dialog, GdkPixbuf *pixbuf)
 	g_return_if_fail (dialog != NULL);
 	g_return_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog));
 
-	if (!pixbuf)
-		pixbuf = gdk_pixbuf_new_from_inline (sizeof (auth_icon), auth_icon, FALSE, NULL);
-	else
+	if (pixbuf)
 		g_object_ref (pixbuf);
-	gtk_image_set_from_pixbuf (GTK_IMAGE (dialog->_priv->icon), pixbuf);
-	g_object_unref (pixbuf);
-}
 
+	gnomesu_auth_dialog_set_icon_internal (dialog, pixbuf);
+}
 
 void
 gnomesu_auth_dialog_set_command (GnomesuAuthDialog *dialog, const gchar *command)
@@ -392,15 +591,15 @@ gnomesu_auth_dialog_set_command (GnomesuAuthDialog *dialog, const gchar *command
 	g_return_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog));
 
 	if (command) {
-		gtk_label_set_text (GTK_LABEL (dialog->_priv->command_label), command);
-		gtk_widget_show (dialog->_priv->command_desc_label);
-		gtk_widget_show (dialog->_priv->command_label);
+		gchar *msg = g_markup_printf_escaped ("<small><i>%s</i></small>", command);
+		gtk_label_set_markup (GTK_LABEL (dialog->_priv->command_label), msg);
+		g_free (msg);
+
+		gtk_widget_show (dialog->_priv->details_expander);
 	} else {
-		gtk_widget_hide (dialog->_priv->command_desc_label);
-		gtk_widget_hide (dialog->_priv->command_label);
+		gtk_widget_hide (dialog->_priv->details_expander);
 	}
 }
-
 
 void
 gnomesu_auth_dialog_set_prompt (GnomesuAuthDialog *dialog, const gchar *prompt)
@@ -415,78 +614,51 @@ gnomesu_auth_dialog_set_prompt (GnomesuAuthDialog *dialog, const gchar *prompt)
 	}
 }
 
-
-static gboolean
-stop_loop (GMainLoop *loop)
-{
-	g_main_loop_quit (loop);
-	return FALSE;
-}
-
-
 void
 gnomesu_auth_dialog_set_mode (GnomesuAuthDialog *dialog, GnomesuAuthDialogMode mode)
 {
 	gboolean enabled = TRUE;
 	gboolean redraw = TRUE;
+	GdkWindow *window;
 
 	g_return_if_fail (dialog != NULL);
 	g_return_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog));
 
+	if (!gtk_widget_get_realized (GTK_WIDGET (dialog))) {
+		gtk_widget_realize (GTK_WIDGET (dialog));
+	}
+
+#ifdef gtk_widget_get_window
+	window = gtk_widget_get_window (GTK_WIDGET (dialog));
+#else
+	window = GTK_WIDGET (dialog)->window;
+#endif
+
 	switch (mode) {
 	case GNOMESU_MODE_CHECKING:
-		gtk_label_set_text (GTK_LABEL (dialog->_priv->mode_label),
-			_("Please wait, verifying password..."));
-		gtk_widget_show (dialog->_priv->mode_label);
-		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, dialog->_priv->watch);
+		gdk_window_set_cursor (window, dialog->_priv->watch);
 		enabled = FALSE;
 		break;
 
 	case GNOMESU_MODE_WRONG_PASSWORD:
-		gtk_label_set_text (GTK_LABEL (dialog->_priv->mode_label),
-			_("Incorrect password, please try again."));
-		gtk_widget_show (dialog->_priv->mode_label);
-		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, NULL);
-		break;
-
 	case GNOMESU_MODE_LAST_CHANCE:
-		gtk_label_set_text (GTK_LABEL (dialog->_priv->mode_label),
-			_("Incorrect password, please try again. "
-			"You have one more chance."));
-		gtk_widget_show (dialog->_priv->mode_label);
-		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, NULL);
+		gdk_window_set_cursor (window, NULL);
+		indicate_auth_error (dialog);
 		break;
 
 	default:
-		gtk_widget_hide (dialog->_priv->mode_label);
-		gdk_window_set_cursor (GTK_WIDGET (dialog)->window, NULL);
+		gdk_window_set_cursor (window, NULL);
 		redraw = FALSE;
 		break;
 	}
 
-	gtk_widget_set_sensitive (dialog->_priv->input, enabled);
+	gtk_widget_set_sensitive (dialog->_priv->password_entry, enabled);
 	gtk_widget_set_sensitive (dialog->_priv->left_action_area, enabled);
 	gtk_widget_set_sensitive (GTK_DIALOG (dialog)->action_area, enabled);
+
 	if (enabled)
-		gtk_widget_grab_focus (dialog->_priv->input);
-
-
-	/* Attempts to immediately redraw the label */
-	if (redraw) {
-		GMainLoop *loop;
-
-		gtk_widget_queue_draw (GTK_WIDGET (dialog));
-		while (gtk_events_pending ())
-			gtk_main_iteration ();
-
-		/* Apparently the above isn't enough */
-		loop = g_main_loop_new (NULL, FALSE);
-		gtk_timeout_add (100, (GtkFunction) stop_loop, loop);
-		g_main_loop_run (loop);
-		g_main_loop_unref (loop);
-	}
+		gtk_widget_grab_focus (dialog->_priv->password_entry);
 }
-
 
 gchar *
 gnomesu_auth_dialog_get_password (GnomesuAuthDialog *dialog)
@@ -496,11 +668,10 @@ gnomesu_auth_dialog_get_password (GnomesuAuthDialog *dialog)
 	g_return_val_if_fail (dialog != NULL, NULL);
 	g_return_val_if_fail (GNOMESU_IS_AUTH_DIALOG (dialog), NULL);
 
-	password = g_strdup (gtk_entry_get_text (GTK_ENTRY (dialog->_priv->input)));
-	clear_entry (dialog->_priv->input);
+	password = g_strdup (gtk_entry_get_text (GTK_ENTRY (dialog->_priv->password_entry)));
+	clear_entry (dialog->_priv->password_entry);
 	return password;
 }
-
 
 void
 gnomesu_free_password (gchar **password)

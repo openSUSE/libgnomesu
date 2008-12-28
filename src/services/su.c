@@ -180,15 +180,10 @@ spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
 
 					/* Create GUI if not already done */
 					if (!cmp (user, "root")) {
-						gchar *tmp2;
-
 						tmp = strf (_("Please enter %s's password and click Continue."), user);
-						tmp2 = g_strdup_printf ("<b>%s</b>\n%s",
-							_("The requested action needs further authentication."),
-							tmp);
-						gnomesu_auth_dialog_set_desc (gui, tmp2);
+						gnomesu_auth_dialog_set_desc_ps (gui,
+							_("The requested action needs further authentication."), tmp);
 						g_free (tmp);
-						g_free (tmp2);
 
 						tmp = g_strdup_printf (_("%s's _password:"), user);
 						gnomesu_auth_dialog_set_prompt (gui, tmp);
