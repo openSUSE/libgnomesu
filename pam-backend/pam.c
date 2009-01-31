@@ -53,6 +53,7 @@
 
 
 static FILE *inf, *outf;
+static gboolean interacted = FALSE;
 static gboolean Abort = FALSE;
 const gchar *new_user;
 
@@ -77,6 +78,7 @@ su_conv (int num_msg, const struct pam_message **msg, struct pam_response **resp
 		{
 			gchar password[1024];
 
+			interacted = TRUE;
 			fprintf (outf, PROTOCOL_ASK_PASS);
 			safe_memset (password, 0, sizeof (password));
 			if (!fgets (password, sizeof (password), inf)) {
@@ -286,6 +288,12 @@ main (int argc, char *argv[])
 			outf = NULL;
 			break;
 		case 0:
+			if (!interacted) {
+				const char *desktop_startup_id;
+				desktop_startup_id = g_getenv ("_GNOMESU_DESKTOP_STARTUP_ID");
+				if (desktop_startup_id)
+					g_setenv ("DESKTOP_STARTUP_ID", desktop_startup_id, FALSE);
+			}
 			execvp (command[0], command);
 			_exit (1);
 			break;

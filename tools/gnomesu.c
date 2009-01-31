@@ -61,10 +61,17 @@ main (int argc, char *argv[])
 	GnomeProgram *program;
 	GValue value = { 0 };
 	poptContext pctx;
+	const char *desktop_startup_id;
 
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
+
+	/* get the startup id before GTK+ unsets it, so we can forward it if
+	 * there's no authentication dialog */
+	desktop_startup_id = g_getenv ("DESKTOP_STARTUP_ID");
+	if (desktop_startup_id)
+		g_setenv ("_GNOMESU_DESKTOP_STARTUP_ID", desktop_startup_id, TRUE);
 
 	program = gnome_program_init ("gnomesu", VERSION,
 			LIBGNOMEUI_MODULE, argc, argv,
