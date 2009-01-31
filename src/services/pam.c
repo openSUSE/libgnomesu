@@ -233,6 +233,24 @@ spawn_async2 (const gchar *user, const gchar **argv, GPid *pid,
 				bomb (gui, _("You do not have permission to authenticate."));
 				break;
 
+			} else if (cmp (buf, "AUTHINFO_UNAVAIL\n")) {
+				bomb (gui, _("Unable to access the authentication information."));
+				break;
+
+			} else if (cmp (buf, "MAXTRIES\n")) {
+				bomb (gui, _("You reached the limit of tries to authenticate."));
+				break;
+
+			} else if (cmp (buf, "USER_EXPIRED\n")) {
+				bomb (gui, _("User account '%s' has expired."),
+					user);
+				break;
+
+			} else if (cmp (buf, "PASSWORD_EXPIRED\n")) {
+				bomb (gui, _("The password of '%s' has expired. Please update the password."),
+					user);
+				break;
+
 			} else if (cmp (buf, "INIT_ERROR\n")) {
 				bomb (gui, _("Unable to initialize the PAM authentication system."));
 				break;

@@ -42,12 +42,16 @@
 #define PROTOCOL_INCORRECT_PASSWORD	"INCORRECT_PASSWORD\n"	/* Entered password is incorrect */
 
 /* One of the following messages are printed on exit */
-#define PROTOCOL_PASSWORD_FAIL		"PASSWORD_FAIL\n"	/* Entered incorrect password too many times */
+#define PROTOCOL_PASSWORD_FAIL		"PASSWORD_FAIL\n"	/* Entered incorrect password too many times (but not an error from PAM) */
 #define PROTOCOL_DONE			"DONE\n"		/* Success */
 #define PROTOCOL_NO_SUCH_USER		"NO_SUCH_USER\n"	/* USER doesn't exist */
 #define PROTOCOL_INIT_ERROR		"INIT_ERROR\n"		/* Unable to initialize PAM */
 #define PROTOCOL_ERROR			"ERROR\n"		/* Unknown error */
 #define PROTOCOL_AUTH_DENIED		"DENIED\n"		/* User is not allowed to authenticate itself */
+#define PROTOCOL_AUTHINFO_UNAVAIL	"AUTHINFO_UNAVAIL\n"	/* Unable to access the authentication information (network or hardware failure) */
+#define PROTOCOL_MAXTRIES		"MAXTRIES\n"		/* Entered incorrect password too many times (error from PAM) */
+#define PROTOCOL_USER_EXPIRED		"USER_EXPIRED\n"	/* User account has expired */
+#define PROTOCOL_PASSWORD_EXPIRED	"PASSWORD_EXPIRED\n"	/* Password has expired */
 
 #define DEFAULT_USER "root"
 
@@ -215,7 +219,6 @@ int
 main (int argc, char *argv[])
 {
 	struct passwd *pw;
-	gboolean authenticated = FALSE;
 	pam_handle_t *pamh = NULL;
 	int retval, i;
 
@@ -241,20 +244,74 @@ main (int argc, char *argv[])
 		else
 			fprintf (outf, PROTOCOL_INCORRECT_PASSWORD);
 	}
-	if (i >= 3)
-		return 1;
 
-	if (retval == PAM_SUCCESS) {
-		/* Is the user permitted to access this account? */
-		retval = pam_acct_mgmt (pamh, 0);
-
-		if (retval == PAM_SUCCESS)
-			authenticated = TRUE;
-		else
-			fprintf (outf, PROTOCOL_AUTH_DENIED);
-	} else
+	if (i >= 3) {
 		fprintf (outf, PROTOCOL_PASSWORD_FAIL);
+		close_pam (pamh, retval);
+		return 1;
+	}
 
+	if (Abort) {
+		fprintf (outf, PROTOCOL_ERROR);
+		close_pam (pamh, retval);
+		return 1;
+	}
+
+	switch (retval) {
+		case PAM_SUCCESS:
+			break;
+		case PAM_CRED_INSUFFICIENT:
+			fprintf (outf, PROTOCOL_AUTH_DENIED);
+			break;
+		case PAM_AUTHINFO_UNAVAIL:
+			fprintf (outf, PROTOCOL_AUTHINFO_UNAVAIL);
+			break;
+		case PAM_MAXTRIES:
+			fprintf (outf, PROTOCOL_MAXTRIES);
+			break;
+		case PAM_USER_UNKNOWN:
+			fprintf (outf, PROTOCOL_NO_SUCH_USER);
+			break;
+		default:
+			fprintf (outf, PROTOCOL_ERROR);
+			break;
+	}
+
+	switch (retval) {
+		case PAM_SUCCESS:
+			break;
+		default:
+			close_pam (pamh, retval);
+			return 1;
+	}
+
+	/* Is the user permitted to access this account? */
+	retval = pam_acct_mgmt (pamh, 0);
+
+	switch (retval) {
+		case PAM_SUCCESS:
+			break;
+		case PAM_ACCT_EXPIRED:
+			fprintf (outf, PROTOCOL_USER_EXPIRED);
+			break;
+		case PAM_NEW_AUTHTOK_REQD:
+			fprintf (outf, PROTOCOL_PASSWORD_EXPIRED);
+			break;
+		case PAM_USER_UNKNOWN:
+			fprintf (outf, PROTOCOL_NO_SUCH_USER);
+			break;
+		default:
+			fprintf (outf, PROTOCOL_AUTH_DENIED);
+			break;
+	}
+
+	switch (retval) {
+		case PAM_SUCCESS:
+			break;
+		default:
+			close_pam (pamh, retval);
+			return 1;
+	}
 
 	if (Abort) {
 		close_pam (pamh, retval);
@@ -262,7 +319,7 @@ main (int argc, char *argv[])
 		return 1;
 	}
 
-	if (authenticated) {
+	do {
 		char **command = argv + 4;
 		pid_t pid;
 		int exitCode = 1, status;
@@ -312,9 +369,5 @@ main (int argc, char *argv[])
 		/* evecvp() failed */
 		return exitCode;
 
-	} else
-	{
-		close_pam (pamh, retval);
-		return 1;
-	}
+	} while (0);
 }
