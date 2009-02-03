@@ -89,10 +89,10 @@ LGSD(replace_all) (gchar **str, gchar *from, gchar *to)
 	{
 		gint pos;
 
-		pos = GPOINTER_TO_INT (found) - GPOINTER_TO_INT (newstr->str);
+		pos = found - newstr->str;
 		g_string_erase (newstr, pos, strlen (from));
 		g_string_insert (newstr, pos, to);
-		found = GINT_TO_POINTER (GPOINTER_TO_INT (found) + strlen (to));
+		found = newstr->str + pos + strlen (to);
 		found = strstr (found, from);
 	}
 
