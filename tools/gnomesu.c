@@ -18,8 +18,8 @@
  * Boston, MA 02111-1307, USA.
  */
 
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <gnome.h>
 #include <gconf/gconf-client.h>
 
 #include <string.h>
@@ -36,17 +36,12 @@ static gchar *user = NULL;
 static gint   final_status = 0;
 GMainLoop    *main_loop;
 
-static struct poptOption options[] = {
-	{ "command", 'c', POPT_ARG_STRING, &command, 0,
-	  N_("Pass the command to execute as one single string."),
-	  N_("COMMAND") },
-
-	{ "user", 'u', POPT_ARG_STRING, &user, 0,
-	  N_("Run as this user instead of as root."),
-	  N_("USERNAME") },
-
-	{ NULL, '\0', 0, NULL, 0 }
-};
+static GOptionEntry entries[] =
+{
+  { "command", 'c', 0, G_OPTION_ARG_STRING, &command, N_("Pass the command to execute as one single string."), N_("COMMAND") },
+  { "user", 'u', 0, G_OPTION_ARG_STRING, &user, N_("Run as this user instead of as root."), N_("USERNAME") },
+  { NULL }
+  };
 
 static void
 child_exit_cb (GPid pid, gint status, gpointer data)
@@ -58,9 +53,7 @@ child_exit_cb (GPid pid, gint status, gpointer data)
 int
 main (int argc, char *argv[])
 {
-	GnomeProgram *program;
-	GValue value = { 0 };
-	poptContext pctx;
+	GError *error;
 	const char *desktop_startup_id;
 
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
@@ -73,30 +66,38 @@ main (int argc, char *argv[])
 	if (desktop_startup_id)
 		g_setenv ("_GNOMESU_DESKTOP_STARTUP_ID", desktop_startup_id, TRUE);
 
-	program = gnome_program_init ("gnomesu", VERSION,
-			LIBGNOMEUI_MODULE, argc, argv,
-			GNOME_PARAM_POPT_TABLE, options,
-			GNOME_PARAM_HUMAN_READABLE_NAME, _("GNOME SuperUser"),
-			GNOME_PARAM_APP_PREFIX, GNOMESU_PREFIX,
-			NULL);
-	g_object_get_property (G_OBJECT (program),
-		GNOME_PARAM_POPT_CONTEXT,
-		g_value_init (&value, G_TYPE_POINTER));
-	pctx = g_value_get_pointer (&value);
+	error = NULL;
+	if (!gtk_init_with_args (&argc, &argv, NULL, entries, GETTEXT_PACKAGE, &error)) {
+		if (error) {
+			g_printerr ("%s\n", error->message);
+			g_error_free (error);
+		} else
+			g_printerr (_("An unknown error occurred.\n"));
 
+		return 1;
+	}
+
+	g_set_application_name (_("GNOME SuperUser"));
 	gtk_window_set_default_icon_name (GTK_STOCK_DIALOG_AUTHENTICATION);
 
 	main_loop = g_main_loop_new (NULL, FALSE);
 
 	if (!command) {
-		GList *arglist = NULL;
-		gchar *arg, **args;
-		int status, pid, i = 0;
+		gchar **args;
+		int pid, i = 0;
 
-		while ((arg = (gchar *) poptGetArg (pctx)) != NULL)
-			arglist = g_list_append (arglist, arg);
+		/* skipping the program at argv[0] */
+		argc--;
+		argv++;
 
-		if (g_list_length (arglist) == 0) {
+		/* Skip any potential leading "--" in argv.
+		 * This can happen with "gnomesu -- gnomesu -- ls" */
+		while (argc > 0 && argv[0] && strcmp (argv[0], "--") == 0) {
+			argc--;
+			argv++;
+		}
+
+		if (argc == 0) {
 			gchar *terminal;
 
 			terminal = gconf_client_get_string (gconf_client_get_default (),
@@ -114,11 +115,10 @@ main (int argc, char *argv[])
 			return WEXITSTATUS (final_status);
 		}
 
-		args = g_new0 (gchar *, g_list_length (arglist) + 1);
-		for (arglist = g_list_first (arglist); arglist != NULL; arglist = arglist->next) {
-			args[i] = arglist->data;
-			i++;
-		}
+		/* we have to copy argv to have a NULL-terminated array */
+		args = g_new0 (gchar *, argc + 1);
+		for (i = 0; i < argc; i++)
+			args[i] = argv[i];
 
 		if (!gnomesu_spawn_async (user, args, &pid))
 			return 255;
@@ -126,12 +126,11 @@ main (int argc, char *argv[])
 		g_child_watch_add (pid, child_exit_cb, NULL);
 		g_main_loop_run (main_loop);
 
-		g_list_free (arglist);
 		g_free (args);
 		return WEXITSTATUS (final_status);
 
 	} else {
-		int status, pid;
+		int pid;
 
 		if (!gnomesu_spawn_command_async (user, command, &pid))
 			return 255;

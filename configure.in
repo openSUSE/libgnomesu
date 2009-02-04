@@ -48,7 +48,6 @@ AC_TRY_LINK(
 
 
 PKG_CHECK_MODULES(GNOMESU,[
-	libgnomeui-2.0
 	gconf-2.0
 ])
 AC_SUBST(GNOMESU_CFLAGS)
