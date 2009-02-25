@@ -213,6 +213,8 @@ void
 change_identity (const struct passwd *pw)
 {
 	FILE *p;
+	const gchar *hostname;
+	gchar *command;
 
 #ifdef HAVE_INITGROUPS
 	errno = 0;
@@ -223,6 +225,9 @@ change_identity (const struct passwd *pw)
 		perror ("cannot set group id");
 	if (setuid (pw->pw_uid))
 		perror ("cannot set user id");
+
+        command = g_strdup_printf ("xauth -q remove %s/unix:0", g_get_host_name ());
+        g_spawn_command_line_sync (command, NULL, NULL, NULL, NULL);
 
 	/* Create a new .Xauthorization file */
 	if (!xauth_data) return;
