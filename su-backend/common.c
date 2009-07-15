@@ -170,10 +170,35 @@ modify_environment (const struct passwd *pw)
 	    || (strlen (path) > 2 && strcmp (path + strlen (path) - 2, ":.") == 0)
 	    || strcmp (path, ".") == 0))
 	{
-		/* Reset PATH to a reasonably safe list of directories */
-		path = (pw->pw_uid) ? DEFAULT_LOGIN_PATH : DEFAULT_ROOT_LOGIN_PATH;
-		setenv ("PATH", path, 1);
-	} else if (!path)
+		char **paths;
+		char **new_paths;
+		int    path_len;
+		int    i, j;
+
+		paths = g_strsplit (path, ":", -1);
+		path_len = g_strv_length (paths);
+		new_paths = g_new0 (char *, path_len);
+
+		j = 0;
+		for (i = 0; i < path_len; i++) {
+			if (paths[i] && !strchr(paths[i], '.')) {
+				new_paths[j++] = g_strdup (paths[i]);
+			}
+		}
+
+		g_strfreev (paths);
+		if (j != 0) {
+			char *new_path;
+			new_path = g_strjoinv (":", new_paths);
+			setenv ("PATH", new_path, 1);
+			g_free (new_path);
+		} else {
+			/* make sure we set PATH to something below */
+			path = NULL;
+		}
+	}
+
+	if (!path)
 		xputenv (concat ("PATH", "=",
 			(pw->pw_uid) ? DEFAULT_LOGIN_PATH : DEFAULT_ROOT_LOGIN_PATH));
 
