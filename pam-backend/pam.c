@@ -374,9 +374,21 @@ main (int argc, char *argv[])
 			fclose (inf);
 			fclose (outf);
 			outf = NULL;
-			waitpid (pid, &status, 0);
-			exitCode = WEXITSTATUS (status);
-			break;
+                        for (;;) {
+                          /* Exit if child dies */
+                          if (waitpid (pid, &status, WNOHANG) != 0)
+                          {
+                            exitCode = WEXITSTATUS (status);
+                            break;
+                          }
+
+                          /* Exit if parent dies */
+                          if (getppid () == 1)
+                            break;
+
+                          sleep (1);
+                        }
+                        break;
 		}
 		pam_close_session (pamh, 0);
 		if (setcred)
