@@ -206,6 +206,14 @@ create_stock_button (const gchar *stock, const gchar *labelstr)
 static void
 clear_entry (GtkWidget *entry)
 {
+#if GTK_CHECK_VERSION(2,18,0)
+	/* With GTK+ 2.18, GtkEntry uses a GtkEntryBuffer which cleans the
+	 * memory for passwords. See trash_area() in gtkentrybuffer.c.
+	 * The code below actually creates some bugs, like
+	 * https://bugzilla.novell.com/show_bug.cgi?id=351917 so we shouldn't
+	 * use it, if possible. */
+	gtk_entry_set_text (GTK_ENTRY (entry), "");
+#else
 	gchar *blank;
 	size_t len;
 
@@ -222,6 +230,7 @@ clear_entry (GtkWidget *entry)
 
 	gtk_entry_set_text (GTK_ENTRY (entry), "");
 	if (blank) g_free (blank);
+#endif
 }
 
 void
