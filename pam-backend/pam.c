@@ -323,18 +323,25 @@ main (int argc, char *argv[])
 		char **command = argv + 4;
 		pid_t pid;
 		int exitCode = 1, status;
+		int setcred = 0;
 
-		modify_environment (pw);
+		init_groups (pw);
+
+		retval = pam_setcred (pamh, PAM_ESTABLISH_CRED);
+		if (retval != PAM_SUCCESS)
+			fprintf (stderr, "Warning: %s\n", pam_strerror (pamh, retval));
+		else
+			setcred = 1;
+
+		pam_open_session (pamh, 0);
+
 		#ifdef HAVE_SETFSUID
 		setfsuid (pw->pw_uid);
 		#endif /* HAVE_SETFSUID */
 		change_identity (pw);
 
-		retval = pam_setcred (pamh, PAM_ESTABLISH_CRED);
-		if (retval != PAM_SUCCESS)
-			fprintf (stderr, "Warning: %s\n", pam_strerror (pamh, retval));
+		modify_environment (pw);
 
-		pam_open_session (pamh, 0);
 		pid = fork ();
 		switch (pid)
 		{
@@ -364,6 +371,8 @@ main (int argc, char *argv[])
 			break;
 		}
 		pam_close_session (pamh, 0);
+		if (setcred)
+			pam_setcred (pamh, PAM_DELETE_CRED | PAM_SILENT);
 		close_pam (pamh, retval);
 
 		/* evecvp() failed */

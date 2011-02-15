@@ -223,13 +223,18 @@ modify_environment (const struct passwd *pw)
 
 /* Become the user and group(s) specified by PW.  */
 void
-change_identity (const struct passwd *pw)
+init_groups (const struct passwd *pw)
 {
 #ifdef HAVE_INITGROUPS
 	errno = 0;
 	initgroups (pw->pw_name, pw->pw_gid);
 	endgrent ();
 #endif
+}
+
+void
+change_identity (const struct passwd *pw)
+{
 	if (setgid (pw->pw_gid))
 		perror ("cannot set group id");
 	if (setuid (pw->pw_uid))

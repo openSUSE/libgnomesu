@@ -322,6 +322,7 @@ main (int argc, char **argv)
 
   init_xauth (pw);
   modify_environment (pw);
+  init_groups (pw);
   change_identity (pw);
   setup_xauth (pw);
 
