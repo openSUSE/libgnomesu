@@ -28,6 +28,8 @@
 
 char *concat (const char *s1, const char *s2, const char *s3);
 void xputenv (const char *val);
+void init_xauth (const struct passwd *pw);
+void setup_xauth (const struct passwd *pw);
 void change_identity (const struct passwd *pw);
 void modify_environment (const struct passwd *pw);
 void *safe_memset (void *s, int c, size_t n);

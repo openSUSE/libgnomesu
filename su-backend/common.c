@@ -97,6 +97,32 @@ saveXauth (void)
 	g_string_free (data, FALSE);
 }
 
+void
+init_xauth (const struct passwd *pw)
+{
+	const char *env_term;
+	const char *env_xauthority;
+
+	env_term = g_getenv ("TERM");
+	env_xauthority = g_getenv ("XAUTHORITY");
+
+	/* Sanity-check the environment variables as best we can: those
+	 * which aren't path names shouldn't contain "/", and none of
+	 * them should contain ".." or "%". */
+        if (env_term &&
+            (strstr(env_term, "..") ||
+             strchr(env_term, '%')))
+                setenv ("XAUTHORITY", "dumb", 1);
+        if (env_xauthority &&
+            (strstr(env_xauthority , "..") ||
+             strchr(env_xauthority , '%')))
+                unsetenv ("XAUTHORITY");
+
+        /* Setup X authentication stuff. */
+        saveXauth ();
+        xputenv (concat ("XAUTHORITY=", pw->pw_dir, "/.Xauthority"));
+}
+
 
 /* Update environment variables for the new user. */
 void
@@ -105,7 +131,7 @@ modify_environment (const struct passwd *pw)
 	const gchar *path;
 	const char *env_term;
 	const char *env_display, *env_shell;
-	const char *env_lang, *env_lcall, *env_lcmsgs, *env_xauthority;
+	const char *env_lang, *env_lcall, *env_lcmsgs;
 	const char *env_dbus;
 
 	/* Sanity-check the environment variables as best we can: those
@@ -117,7 +143,6 @@ modify_environment (const struct passwd *pw)
 	env_lcmsgs = g_getenv ("LC_MESSAGES");
 	env_shell = g_getenv ("SHELL");
 	env_term = g_getenv ("TERM");
-	env_xauthority = g_getenv ("XAUTHORITY");
 
 	if (env_display &&
 	    (strstr(env_display, "..") ||
@@ -142,19 +167,7 @@ modify_environment (const struct passwd *pw)
 	    (strstr(env_shell, "..") ||
 	     strchr(env_shell, '%')))
 		unsetenv ("SHELL");
-	if (env_term &&
-	    (strstr(env_term, "..") ||
-	     strchr(env_term, '%')))
-		setenv ("XAUTHORITY", "dumb", 1);
-	if (env_xauthority &&
-	    (strstr(env_xauthority , "..") ||
-	     strchr(env_xauthority , '%')))
-		unsetenv ("XAUTHORITY");
 
-
-	/* Setup X authentication stuff. */
-	saveXauth ();
-	xputenv (concat ("XAUTHORITY=", pw->pw_dir, "/.Xauthority"));
 	if (!g_getenv ("ICEAUTHORITY"))
 		xputenv (concat ("ICEAUTHORITY=", pw->pw_dir, "/.ICEauthority"));
 
@@ -212,10 +225,6 @@ modify_environment (const struct passwd *pw)
 void
 change_identity (const struct passwd *pw)
 {
-	FILE *p;
-	const gchar *hostname;
-	gchar *command;
-
 #ifdef HAVE_INITGROUPS
 	errno = 0;
 	initgroups (pw->pw_name, pw->pw_gid);
@@ -225,6 +234,13 @@ change_identity (const struct passwd *pw)
 		perror ("cannot set group id");
 	if (setuid (pw->pw_uid))
 		perror ("cannot set user id");
+}
+
+void
+setup_xauth (const struct passwd *pw)
+{
+	FILE *p;
+	gchar *command;
 
         command = g_strdup_printf ("xauth -q remove %s/unix:0", g_get_host_name ());
         g_spawn_command_line_sync (command, NULL, NULL, NULL, NULL);

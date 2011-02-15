@@ -320,8 +320,10 @@ main (int argc, char **argv)
         }
   }
 
+  init_xauth (pw);
   modify_environment (pw);
   change_identity (pw);
+  setup_xauth (pw);
 
   fprintf (outf, PROTOCOL_DONE);
   fclose (inf);
