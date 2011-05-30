@@ -338,7 +338,15 @@ main (int argc, char *argv[])
 		#ifdef HAVE_SETFSUID
 		setfsuid (pw->pw_uid);
 		#endif /* HAVE_SETFSUID */
-		change_identity (pw);
+
+		if (change_identity (pw)) {
+			pam_close_session (pamh, 0);
+			if (setcred)
+				pam_setcred (pamh, PAM_DELETE_CRED | PAM_SILENT);
+			close_pam (pamh, retval);
+			fprintf (outf, PROTOCOL_ERROR);
+			return 1;
+		}
 
 		modify_environment (pw);
 

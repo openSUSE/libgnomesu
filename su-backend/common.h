@@ -31,7 +31,7 @@ void xputenv (const char *val);
 void init_xauth (const struct passwd *pw);
 void setup_xauth (const struct passwd *pw);
 void init_groups (const struct passwd *pw);
-void change_identity (const struct passwd *pw);
+int  change_identity (const struct passwd *pw);
 void modify_environment (const struct passwd *pw);
 void *safe_memset (void *s, int c, size_t n);
 

@@ -323,7 +323,12 @@ main (int argc, char **argv)
   init_xauth (pw);
   modify_environment (pw);
   init_groups (pw);
-  change_identity (pw);
+
+  if (change_identity (pw)) {
+	  fprintf (outf, PROTOCOL_ERROR);
+	  return 1;
+  }
+
   setup_xauth (pw);
 
   fprintf (outf, PROTOCOL_DONE);

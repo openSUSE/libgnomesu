@@ -232,13 +232,20 @@ init_groups (const struct passwd *pw)
 #endif
 }
 
-void
+int
 change_identity (const struct passwd *pw)
 {
-	if (setgid (pw->pw_gid))
+	if (setgid (pw->pw_gid)) {
 		perror ("cannot set group id");
-	if (setuid (pw->pw_uid))
+		return -1;
+	}
+
+	if (setuid (pw->pw_uid)) {
 		perror ("cannot set user id");
+		return -1;
+	}
+
+	return 0;
 }
 
 void
