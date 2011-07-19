@@ -19,7 +19,7 @@ AC_PROG_MAKE_SET
 PKG_CHECK_MODULES(LIBGNOMESU,
 [
 	glib-2.0
-	gtk+-2.0
+	gtk+-3.0
 ])
 
 AC_MSG_CHECKING(for forkpty())

@@ -22,6 +22,7 @@
 #ifndef _GNOMESU_AUTH_DIALOG_C_
 #define _GNOMESU_AUTH_DIALOG_C_
 
+#undef GTK_DISABLE_DEPRECATED
 #include <string.h>
 #include <libintl.h>
 
@@ -190,7 +191,7 @@ create_stock_button (const gchar *stock, const gchar *labelstr)
 	align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
 	gtk_container_add (GTK_CONTAINER (button), align);
 
-	hbox = gtk_hbox_new (FALSE, 2);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
 	gtk_container_add (GTK_CONTAINER (align), hbox);
 	image = gtk_image_new_from_stock (stock, GTK_ICON_SIZE_BUTTON);
 	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 0);
@@ -273,6 +274,11 @@ gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 	GtkWidget *left_action_area;
 	GtkWidget *default_button;
 	GtkWidget *image;
+	GtkWidget *action_area;
+	GtkWidget *dialog_vbox;
+
+	action_area = gtk_dialog_get_action_area (dialog);
+	dialog_vbox = gtk_dialog_get_content_area (dialog);
 
 	priv = auth_dialog->_priv = g_new0 (GnomesuAuthDialogPrivate, 1);
 
@@ -287,25 +293,24 @@ gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 	gtk_dialog_set_default_response (dialog, GTK_RESPONSE_OK);
 	gtk_window_set_default (GTK_WINDOW (dialog), default_button);
 
-	gtk_dialog_set_has_separator (dialog, FALSE);
 	gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
-	gtk_box_set_spacing (GTK_BOX (dialog->vbox), 2); /* 2 * 5 + 2 = 12 */
-	gtk_container_set_border_width (GTK_CONTAINER (dialog->action_area), 5);
-	gtk_box_set_spacing (GTK_BOX (dialog->action_area), 6);
+	gtk_box_set_spacing (GTK_BOX (dialog_vbox), 2); /* 2 * 5 + 2 = 12 */
+	gtk_container_set_border_width (GTK_CONTAINER (action_area), 5);
+	gtk_box_set_spacing (GTK_BOX (action_area), 6);
 
 	GtkWidget *hbox, *main_vbox, *vbox;
 
 	/* Reparent dialog->action_area into a hbox */
-	g_object_ref (dialog->action_area);
-	action_area_parent = gtk_widget_get_parent (dialog->action_area);
-	gtk_container_remove (GTK_CONTAINER (action_area_parent), dialog->action_area);
-	hbox = gtk_hbox_new (FALSE, 12);
+	g_object_ref (action_area);
+	action_area_parent = gtk_widget_get_parent (action_area);
+	gtk_container_remove (GTK_CONTAINER (action_area_parent), action_area);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
 	gtk_box_pack_end (GTK_BOX (action_area_parent), hbox, FALSE, TRUE, 0);
 	gtk_box_reorder_child (GTK_BOX (action_area_parent), hbox, -1);
 
 	/* Add another (left-aligned) button box to the dialog */
-	left_action_area = gtk_hbutton_box_new ();
+	left_action_area = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
 	gtk_container_set_border_width (GTK_CONTAINER (left_action_area), 6);
 	/* gtk_button_box_set_spacing (GTK_BUTTON_BOX (left_action_area), 12); */
 	gtk_box_set_spacing (GTK_BOX (left_action_area), 12);
@@ -313,19 +318,19 @@ gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 	priv->left_action_area = left_action_area;
 	gtk_box_pack_start (GTK_BOX (hbox), left_action_area, FALSE, FALSE, 0);
 
-	gtk_box_pack_start (GTK_BOX (hbox), dialog->action_area, TRUE, TRUE, 0);
-	g_object_unref (dialog->action_area);
+	gtk_box_pack_start (GTK_BOX (hbox), action_area, TRUE, TRUE, 0);
+	g_object_unref (action_area);
 	gtk_widget_show_all (action_area_parent);
 
-	hbox = gtk_hbox_new (FALSE, 12);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 5);
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), hbox, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (dialog_vbox), hbox, TRUE, TRUE, 0);
 
 	priv->icon = gtk_image_new_from_stock (GTK_STOCK_DIALOG_AUTHENTICATION, GTK_ICON_SIZE_DIALOG);
 	gtk_misc_set_alignment (GTK_MISC (priv->icon), 0.5, 0.0);
 	gtk_box_pack_start (GTK_BOX (hbox), priv->icon, FALSE, FALSE, 0);
 
-	main_vbox = gtk_vbox_new (FALSE, 10);
+	main_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 10);
 	gtk_box_pack_start (GTK_BOX (hbox), main_vbox, TRUE, TRUE, 0);
 
 	/* main message */
@@ -344,7 +349,7 @@ gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 				FALSE, FALSE, 0);
 
 	/* password entry */
-	vbox = gtk_vbox_new (FALSE, 6);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_box_pack_start (GTK_BOX (main_vbox), vbox, FALSE, FALSE, 0);
 
 	GtkWidget *table_alignment;
@@ -362,10 +367,10 @@ gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 
 	priv->details_expander = gtk_expander_new_with_mnemonic (_("<small><b>_Details</b></small>"));
 	gtk_expander_set_use_markup (GTK_EXPANDER (priv->details_expander), TRUE);
-	gtk_box_pack_start (GTK_BOX (dialog->vbox), priv->details_expander, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (dialog_vbox), priv->details_expander, FALSE, FALSE, 0);
 
 	GtkWidget *details_vbox;
-	details_vbox = gtk_vbox_new (FALSE, 10);
+	details_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 10);
 	gtk_container_add (GTK_CONTAINER (priv->details_expander), details_vbox);
 
 	table_alignment = gtk_alignment_new (0.0, 0.0, 1.0, 1.0);
@@ -396,7 +401,7 @@ gnomesu_auth_dialog_init (GnomesuAuthDialog *auth_dialog)
 	priv->command_desc_label = add_row (table, 0, msg, FALSE, scroll);
 	g_free (msg);
 
-	gtk_widget_show_all (dialog->vbox);
+	gtk_widget_show_all (dialog_vbox);
 	gtk_widget_grab_default (default_button);
 
 	/* Configure */
@@ -548,7 +553,7 @@ gnomesu_auth_dialog_set_desc_ps (GnomesuAuthDialog *dialog, const gchar *primary
 
 	/* Force both labels to be as wide as their parent; one of them will decide the width */
 	GtkRequisition requisition;
-	gtk_widget_size_request (dialog->_priv->message_label->parent, &requisition);
+	gtk_widget_size_request (gtk_widget_get_parent (dialog->_priv->message_label), &requisition);
 	gtk_widget_set_size_request (dialog->_priv->message_label, requisition.width, -1);
 	gtk_widget_set_size_request (dialog->_priv->message_label_secondary, requisition.width, -1);
 }
@@ -637,11 +642,7 @@ gnomesu_auth_dialog_set_mode (GnomesuAuthDialog *dialog, GnomesuAuthDialogMode m
 		gtk_widget_realize (GTK_WIDGET (dialog));
 	}
 
-#ifdef gtk_widget_get_window
 	window = gtk_widget_get_window (GTK_WIDGET (dialog));
-#else
-	window = GTK_WIDGET (dialog)->window;
-#endif
 
 	switch (mode) {
 	case GNOMESU_MODE_CHECKING:
@@ -663,7 +664,7 @@ gnomesu_auth_dialog_set_mode (GnomesuAuthDialog *dialog, GnomesuAuthDialogMode m
 
 	gtk_widget_set_sensitive (dialog->_priv->password_entry, enabled);
 	gtk_widget_set_sensitive (dialog->_priv->left_action_area, enabled);
-	gtk_widget_set_sensitive (GTK_DIALOG (dialog)->action_area, enabled);
+	gtk_widget_set_sensitive (gtk_dialog_get_action_area (GTK_DIALOG (dialog)), enabled);
 
 	if (enabled)
 		gtk_widget_grab_focus (dialog->_priv->password_entry);
