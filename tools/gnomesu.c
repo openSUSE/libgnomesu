@@ -19,8 +19,8 @@
  */
 
 #include <glib/gi18n.h>
+#include <gio/gio.h>
 #include <gtk/gtk.h>
-#include <gconf/gconf-client.h>
 
 #include <string.h>
 #include <libintl.h>
@@ -98,16 +98,23 @@ main (int argc, char *argv[])
 		}
 
 		if (argc == 0) {
+			GSettings *settings;
 			gchar *terminal;
 
-			terminal = gconf_client_get_string (gconf_client_get_default (),
-				"/desktop/gnome/applications/terminal/exec", NULL);
-			if (!terminal)
-				terminal = "gnome-terminal";
+			settings = g_settings_new ("org.gnome.desktop.default-applications.terminal");
+			terminal = g_settings_get_string (settings, "exec");
+			g_object_unref (settings);
+
+			if (!terminal || !terminal[0])
+				terminal = g_strdup ("gnome-terminal");
 
 			/* Default action: launch a terminal */
-			if (!gnomesu_spawn_command_async (user, terminal, &pid))
+			if (!gnomesu_spawn_command_async (user, terminal, &pid)) {
+				g_free (terminal);
 				return 255;
+			}
+
+			g_free (terminal);
 
 			g_child_watch_add (pid, child_exit_cb, NULL);
 			g_main_loop_run (main_loop);
