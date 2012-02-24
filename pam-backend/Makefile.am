@@ -5,7 +5,13 @@ libexec_PROGRAMS = gnomesu-pam-backend
 INCLUDES = $(GNOMESU_PAM_BACKEND_CFLAGS) -I$(top_srcdir)/su-backend
 
 gnomesu_pam_backend_SOURCES = pam.c
+gnomesu_pam_backend_CFLAGS = \
+	$(INCLUDES) \
+	$(SUID_CFLAGS) \
+	$(AM_CFLAGS)
 gnomesu_pam_backend_LDFLAGS = \
+	$(SUID_LDFLAGS) \
+	$(AM_LDFLAGS) \
 	$(GNOMESU_PAM_BACKEND_LIBS)\
 	$(top_builddir)/su-backend/libcommon.la \
 	-lpam

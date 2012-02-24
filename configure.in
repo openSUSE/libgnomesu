@@ -247,6 +247,11 @@ else
 fi
 AC_SUBST(PAMDIR)
 
+AC_ARG_VAR([SUID_CFLAGS],
+	   [CFLAGS used for binaries which are usually with the suid bit])
+AC_ARG_VAR([SUID_LDFLAGS],
+	   [LDFLAGS used for binaries which are usually with the suid bit])
+
 AM_BINRELOC
 
 
