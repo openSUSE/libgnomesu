@@ -177,6 +177,9 @@ modify_environment (const struct passwd *pw)
 	xputenv (concat ("USER", "=", pw->pw_name));
 	xputenv (concat ("LOGNAME", "=", pw->pw_name));
 
+	/* set XDG_RUNTIME_DIR for the new user */
+	xputenv (g_strdup_printf("XDG_RUNTIME_DIR=/run/user/%d", pw->pw_uid));
+
 	/* Sanity-check PATH. It shouldn't contain . entries! */
 	path = g_getenv ("PATH");
 	if (path && (strstr (path, ":.:") || strncmp (path, ".:", 2) == 0
