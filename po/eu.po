@@ -8,84 +8,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-09 14:47+0000\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2006-08-09 14:48+0000\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.10.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/gnomesu-auth-dialog.c:111
-msgid "Password needed"
-msgstr "Pasahitza behar da"
-
-#: ../src/gnomesu-auth-dialog.c:164
-msgid "Command:"
-msgstr "Komandoa:"
-
-#: ../src/gnomesu-auth-dialog.c:214
+#: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
 msgstr "_Jarraitu"
 
-#: ../src/gnomesu-auth-dialog.c:364
-msgid "Administrator (root) privilege is required."
-msgstr "Administratzaile (root) eskubidea behar da."
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr ""
 
-#: ../src/gnomesu-auth-dialog.c:365
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "Komandoa:"
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr "Pasahitza behar da"
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+msgid "The requested action needs further authentication."
+msgstr "Eskatutako ekintzak autentifikazio gehiago behar du."
+
+#: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
 msgstr "Sartu root-aren pasahitza jarraitzeko."
 
-#: ../src/gnomesu-auth-dialog.c:414
+#: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
 msgstr "_Pasahitza:"
-
-#: ../src/gnomesu-auth-dialog.c:439
-msgid "Please wait, verifying password..."
-msgstr "Itxaron, pasahitza egiaztatzen..."
-
-#: ../src/gnomesu-auth-dialog.c:447
-msgid "Incorrect password, please try again."
-msgstr "Pasahitza okerra, saiatu berriro."
-
-#: ../src/gnomesu-auth-dialog.c:454
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Pasahitza okerra, saiatu berriro. Beste saiakera bat daukazu."
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "Ez dago zerbitzurik eskuragarri libgnomesu-rentzat.\n"
 
-#: ../src/services/pam.c:192 ../src/services/su.c:185
+#: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "Sartu %s(r)en pasahitza eta egin klik 'Jarraitu'n."
 
-#: ../src/services/pam.c:194 ../src/services/su.c:187
-msgid "The requested action needs further authentication."
-msgstr "Eskatutako ekintzak autentifikazio gehiago behar du."
-
-#: ../src/services/pam.c:200 ../src/services/su.c:193
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
 msgstr "%s(r)en p_asahitza:"
 
-#: ../src/services/pam.c:229 ../src/services/su.c:222
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "'%s' erabiltzailea ez da existitzen."
 
-#: ../src/services/pam.c:234 ../src/services/su.c:226
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
 msgstr "Errore bat gertatu da autentifikatzean."
 
-#: ../src/services/pam.c:238 ../src/services/su.c:230
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
 msgstr "Ez daukazu autentifikatzeko baimenik."
 
-#: ../src/services/pam.c:242
+#: ../src/services/pam.c:237
+#, fuzzy
+msgid "Unable to access the authentication information."
+msgstr "Ezin izan da PAM autentifikazio sistema hasieratu."
+
+#: ../src/services/pam.c:241
+#, fuzzy
+msgid "You reached the limit of tries to authenticate."
+msgstr "Ez daukazu autentifikatzeko baimenik."
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr ""
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr ""
+
+#: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Ezin izan da PAM autentifikazio sistema hasieratu."
 
@@ -111,7 +122,7 @@ msgstr ""
 "inolako bermerik; ez MERKATARITZA ez EDOZEIN ASMO PARTIKULARRAREN "
 "OSASUNERAKO.\n"
 
-#: ../tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
 msgstr "Bidali exekutatuko den komandoa kate bakar bat bezala."
 
@@ -119,15 +130,31 @@ msgstr "Bidali exekutatuko den komandoa kate bakar bat bezala."
 msgid "COMMAND"
 msgstr "KOMANDOA"
 
-#: ../tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Exekutatu erabiltzaile honen gisa, root-n ordez."
 
-#: ../tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "ERABILTZAILE-IZENA"
 
-#: ../tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, fuzzy, c-format
+msgid "An unknown error occurred.\n"
+msgstr "Errore bat gertatu da autentifikatzean."
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
 msgstr "GNOME supererabiltzailea"
 
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "Administratzaile (root) eskubidea behar da."
+
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "Itxaron, pasahitza egiaztatzen..."
+
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "Pasahitza okerra, saiatu berriro."
+
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr "Pasahitza okerra, saiatu berriro. Beste saiakera bat daukazu."

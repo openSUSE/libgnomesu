@@ -7,95 +7,104 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-22 04:37+0100\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2005-01-22 17:29+0800\n"
 "Last-Translator: storm <storm-119@163.com>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/gnomesu-auth-dialog.c:110
-msgid "Password needed"
-msgstr "需要密码"
-
-#: src/gnomesu-auth-dialog.c:163
-msgid "Command:"
-msgstr "命令："
-
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
 msgstr "继续(_O)"
 
-#: src/gnomesu-auth-dialog.c:363
-msgid "Administrator (root) privilege is required."
-msgstr "需要管理员(root)的权限。"
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr "<small><b>细节(_D)</b></small>"
 
-#: src/gnomesu-auth-dialog.c:364
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "命令："
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr "需要密码"
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+msgid "The requested action needs further authentication."
+msgstr "请求的动作需要进一步验证。"
+
+#: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
 msgstr "请输入 root 的密码再继续。"
 
-#: src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
 msgstr "密码(_P)："
 
-#: src/gnomesu-auth-dialog.c:438
-msgid "Please wait, verifying password..."
-msgstr "请稍候，验证密码中..."
-
-#: src/gnomesu-auth-dialog.c:446
-msgid "Incorrect password, please try again."
-msgstr "密码不正确，请重试。"
-
-#: src/gnomesu-auth-dialog.c:453
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "密码不正确，请重试。您还有一次机会。"
-
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "没有可用于 libgnomesu 的服务。\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
+#: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "请输入 %s 的密码然后点击继续。"
 
-#: src/services/pam.c:195 src/services/su.c:188
-msgid "The requested action needs further authentication."
-msgstr "请求的动作需要进一步验证。"
-
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
 msgstr "%s 的密码(_P)："
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "用户“%s”不存在。"
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
 msgstr "验证过程中发生了未知错误。"
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
 msgstr "您无权进行身份验证。"
 
-#: src/services/pam.c:233
+#: ../src/services/pam.c:237
+msgid "Unable to access the authentication information."
+msgstr "无法访问身份验证信息。"
+
+#: ../src/services/pam.c:241
+msgid "You reached the limit of tries to authenticate."
+msgstr "已达到身份验证尝试次数限制。"
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr "用户帐户“%s”已失效。"
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr "密码“%s”已失效。请更新密码。"
+
+#: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
 msgstr "无法初始化 PAM 身份验证系统。"
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "写错误"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "作者 %s 。\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -107,23 +116,39 @@ msgstr ""
 "这个是自由软件；在源代码中可以看到复制条件。\n"
 "软件没有保证，当然也不对用于销售或是其他特别目的进行保证。\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
 msgstr "将要执行的命令作为单个字符串传递。"
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "命令"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "作为这个用户运行来代替 root。"
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "用户名"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, c-format
+msgid "An unknown error occurred.\n"
+msgstr "发生未知错误。\n"
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
 msgstr "GNOME 超级用户"
 
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "需要管理员(root)的权限。"
+
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "请稍候，验证密码中..."
+
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "密码不正确，请重试。"
+
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr "密码不正确，请重试。您还有一次机会。"

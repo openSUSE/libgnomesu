@@ -15,112 +15,119 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-01 15:55-0700\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2005-03-31 20:55-0700\n"
 "Last-Translator: Steve Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
+"Language: rw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "ULL NAME <EMAIL@ADDRESS>\n"
 
-#: src/gnomesu-auth-dialog.c:110
-msgid "Password needed"
-msgstr ""
-
-# padmin/source\padialog.src:RID_PADIALOG.RID_PA_TXT_COMMAND.text
-#: src/gnomesu-auth-dialog.c:163
-msgid "Command:"
-msgstr "Komandi:"
-
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:288
 #, fuzzy
 msgid "C_ontinue"
 msgstr "Gukomeza"
 
-#: src/gnomesu-auth-dialog.c:363
-#, fuzzy
-msgid "Administrator (root) privilege is required."
-msgstr "Imizi ni Bya ngombwa"
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr ""
 
-#: src/gnomesu-auth-dialog.c:364
+# padmin/source\padialog.src:RID_PADIALOG.RID_PA_TXT_COMMAND.text
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "Komandi:"
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr ""
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+#, fuzzy
+msgid "The requested action needs further authentication."
+msgstr "Igikorwa"
+
+#: ../src/gnomesu-auth-dialog.c:532
 #, fuzzy
 msgid "Please enter the root password to continue."
 msgstr "Injiza i Imizi Ijambobanga... Kuri urifuzagukomeza"
 
 # basctl/source\basicide\moduldlg.src:RID_TP_LIBS.RID_PB_PASSWORD.text
-#: src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:627
 #, fuzzy
 msgid "_Password:"
 msgstr "Ijambobanga..."
 
-#: src/gnomesu-auth-dialog.c:438
-#, fuzzy
-msgid "Please wait, verifying password..."
-msgstr "Tegereza Ijambobanga..."
-
-#: src/gnomesu-auth-dialog.c:446
-#, fuzzy
-msgid "Incorrect password, please try again."
-msgstr "Ijambobanga..."
-
-#: src/gnomesu-auth-dialog.c:453
-#, fuzzy
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Ijambobanga... Birenzeho"
-
-#: src/libgnomesu.c:182
+#: ../src/libgnomesu.c:182
 #, fuzzy
 msgid "No services for libgnomesu are available.\n"
 msgstr "kugirango Bihari"
 
-#: src/services/pam.c:192 src/services/su.c:185
+#: ../src/services/pam.c:190 ../src/services/su.c:183
 #, fuzzy, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "Injiza S Ijambobanga... Na Kanda Dukomeza"
 
-#: src/services/pam.c:194 src/services/su.c:187
-#, fuzzy
-msgid "The requested action needs further authentication."
-msgstr "Igikorwa"
-
-#: src/services/pam.c:200 src/services/su.c:193
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, fuzzy, c-format
 msgid "%s's _password:"
 msgstr "%s'S Ijambobanga..."
 
-#: src/services/pam.c:229 src/services/su.c:222
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr ""
 
-#: src/services/pam.c:234 src/services/su.c:226
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 #, fuzzy
 msgid "An unknown error occured while authenticating."
 msgstr "Kitazwi Ikosa"
 
-#: src/services/pam.c:238 src/services/su.c:230
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 #, fuzzy
 msgid "You do not have permission to authenticate."
 msgstr "OYA Kuri"
 
-#: src/services/pam.c:242
+#: ../src/services/pam.c:237
+#, fuzzy
+msgid "Unable to access the authentication information."
+msgstr "Kuri gutangiza i Sisitemu"
+
+#: ../src/services/pam.c:241
+#, fuzzy
+msgid "You reached the limit of tries to authenticate."
+msgstr "OYA Kuri"
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr ""
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr ""
+
+#: ../src/services/pam.c:255
 #, fuzzy
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Kuri gutangiza i Sisitemu"
 
 # svtools/source\misc\errtxt.src:RID_ERRHDL.ERRCODE_CLASS_WRITE.text
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 #, fuzzy
 msgid "write error"
 msgstr "Kwandika ikosa"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, fuzzy, c-format
 msgid "Written by %s.\n"
 msgstr "ku"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 #, fuzzy
 msgid ""
 "\n"
@@ -130,27 +137,48 @@ msgid ""
 msgstr ""
 "C ni Kigenga i Inkomoko kugirango ni OYA ATARIIGIHARWE kugirango Cyangwa A"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 #, fuzzy
 msgid "Pass the command to execute as one single string."
 msgstr "i Komandi: Kuri Gukora Nka UMWE Ikurikiranyanyuguti"
 
 # padmin/source\rtsetup.src:RID_RTS_RTSDIALOG.RID_RTS_RTSDIALOG_TABCONTROL.RID_RTS_COMMANDPAGE.text
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 #, fuzzy
 msgid "COMMAND"
 msgstr "Icyo wifuza"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 #, fuzzy
 msgid "Run as this user instead of as root."
 msgstr "Nka iyi Ukoresha: Bya Nka Imizi"
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 #, fuzzy
 msgid "USERNAME"
 msgstr "Izina ry'ukoresha"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, fuzzy, c-format
+msgid "An unknown error occurred.\n"
+msgstr "Kitazwi Ikosa"
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "Imizi ni Bya ngombwa"
+
+#, fuzzy
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "Tegereza Ijambobanga..."
+
+#, fuzzy
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "Ijambobanga..."
+
+#, fuzzy
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr "Ijambobanga... Birenzeho"

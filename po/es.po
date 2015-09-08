@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-13 22:53+0100\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2005-01-13 22:54+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,87 +21,95 @@ msgstr ""
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: src/gnomesu-auth-dialog.c:110
-msgid "Password needed"
-msgstr "Se necesita contraseña"
-
-#: src/gnomesu-auth-dialog.c:163
-msgid "Command:"
-msgstr "Comando:"
-
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
 msgstr "C_ontinuar"
 
-#: src/gnomesu-auth-dialog.c:363
-msgid "Administrator (root) privilege is required."
-msgstr "Se requieren privilegios de administrador (root)."
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr "<small><b>_Detalles</b></small>"
 
-#: src/gnomesu-auth-dialog.c:364
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "Comando:"
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr "Se necesita contraseña"
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+msgid "The requested action needs further authentication."
+msgstr "La acción solicitada necesita autenticación."
+
+#: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
 msgstr "Introduzca la contraseña de root para continuar."
 
-#: src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
 msgstr "_Contraseña:"
 
-#: src/gnomesu-auth-dialog.c:438
-msgid "Please wait, verifying password..."
-msgstr "Se está verificando la contraseña..."
-
-#: src/gnomesu-auth-dialog.c:446
-msgid "Incorrect password, please try again."
-msgstr "Contraseña incorrecta. Inténtelo de nuevo."
-
-#: src/gnomesu-auth-dialog.c:453
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Contraseña incorrecta. Inténtelo de nuevo. Tiene una oportunidad más."
-
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "No hay servicios disponibles para libgnomesu.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
+#: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "Introduzca la contraseña de %s y pulse «Continuar»."
 
-#: src/services/pam.c:195 src/services/su.c:188
-msgid "The requested action needs further authentication."
-msgstr "La acción solicitada necesita autenticación."
-
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
 msgstr "_Contraseña de %s:"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "El usuario «%s» no existe."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
 msgstr "Ha ocurrido un error desconocido al autenticarse."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
 msgstr "No tiene permiso para autenticarse."
 
-#: src/services/pam.c:233
+#: ../src/services/pam.c:237
+msgid "Unable to access the authentication information."
+msgstr "No es posible acceder a la información de autenticación."
+
+#: ../src/services/pam.c:241
+msgid "You reached the limit of tries to authenticate."
+msgstr "Ha alcanzado el límite de intentos permitidos para autenticarse."
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr "La cuenta del usuario '%s' ha caducado."
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr "La contraseña para '%s' ha caducado. Actualice la contraseña."
+
+#: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
 msgstr "No es posible inicializar el sistema de autenticación PAM."
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "error de escritura"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "Escrito por %s. \n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -115,25 +124,43 @@ msgstr ""
 "MERCANTILES\n"
 " IMPLÍCITAS o a la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
 msgstr "Pase el comando a ejecutar como una cadena única."
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "COMANDO"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Ejecutar como este usuario en vez de root."
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "USUARIO"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, c-format
+msgid "An unknown error occurred.\n"
+msgstr "Error desconocido.\n"
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
 msgstr "Superusuario GNOME"
+
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "Se requieren privilegios de administrador (root)."
+
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "Se está verificando la contraseña..."
+
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "Contraseña incorrecta. Inténtelo de nuevo."
+
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr ""
+#~ "Contraseña incorrecta. Inténtelo de nuevo. Tiene una oportunidad más."
 
 #~ msgid "GNOME SuperUser integration"
 #~ msgstr "Integración del superusuario en GNOME"
@@ -180,4 +207,3 @@ msgstr "Superusuario GNOME"
 
 #~ msgid "Superuser _password:"
 #~ msgstr "_Contraseña de superusuario:"
-

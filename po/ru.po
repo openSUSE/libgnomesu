@@ -1,108 +1,106 @@
-# Italian translation.
-# Copyright (C) 2004 THE libgnomesu's COPYRIGHT HOLDER
-# This file is distributed under the same license as the libgnomesu package.
-# Andrea Pelusio <andre@quipo.it>, 2005.
+# Copyright (C) 2006 SuSE Linux Products GmbH, Nuernberg
+# This file is distributed under the same license as the package.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-08 22:20+0200\n"
-"PO-Revision-Date: 2005-02-14 21:59+0100\n"
-"Last-Translator: Andrea Pelusio <andre@quipo.it>\n"
-"Language-Team: Italian <tp@lists.linux.it>\n"
-"Language: it\n"
+"PO-Revision-Date: 2011-11-02 09:26\n"
+"Last-Translator: Novell Language <language@novell.com>\n"
+"Language-Team: Novell Language <language@novell.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
-msgstr "C_ontinua"
+msgstr "Пр_одолжить"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
-msgstr "<small><b>_Dettagli</b></small>"
+msgstr "<small><b>_Подробности</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
-msgstr "Comando:"
+msgstr "Команда:"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
-msgstr "Richiesta password"
+msgstr "Необходим пароль"
 
 #. _("Administrator (root) privilege is required.");
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr "L'azione richiesta richiede una ulteriore autenticazione."
+msgstr "Запрошенное действие требует дополнительной проверки подлинности."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
-msgstr "Inserire la password di root per continuare."
+msgstr "Для продолжения введите пароль пользователя root."
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
-msgstr "_Password:"
+msgstr "_Пароль:"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr "Nessun servizio disponibile per libgnomesu.\n"
+msgstr "Службы для libgnomesu недоступны.\n"
 
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Inserire password per \"%s\" e premere Continua."
+msgstr "Введите пароль для %s и нажмите кнопку \"Продолжить\"."
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
-msgstr "_Password per \"%s\":"
+msgstr "_Пароль пользователя %s:"
 
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "L'utente \"%s\" non esiste."
+msgstr "Пользователь '%s' не существует."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr "Errore durante l'autenticazione."
+msgstr "При проверке подлинности возникла неизвестная ошибка."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr "Permessi insufficienti per l'identificazione."
+msgstr "У вас нет разрешения на проверку подлинности."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
-msgstr "Impossibile accedere alle informazioni di autenticazione."
+msgstr "Не удалось получить доступ к данным для аутентификации"
 
 #: ../src/services/pam.c:241
 msgid "You reached the limit of tries to authenticate."
-msgstr "Si è raggiunto il limite di tentativi per l'autenticazione."
+msgstr "Превышен предел количества попыток аутентификации."
 
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr "L'account utente '%s' è scaduto."
+msgstr "Срок действия учетной записи \"%s\" пользователя истек."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr "La password di '%s' è scaduta. Aggiornare la password."
+msgstr "Срок действия пароля \"%s\" истек. Обновите пароль."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr "Impossibile inizializzare il sistema PAM di autenticazione."
+msgstr "Не удается инициировать систему проверки подлинности PAM."
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
-msgstr "errore di scrittura"
+msgstr "ошибка записи"
 
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr "Scritto da %s.\n"
+msgstr "Запись выполнена %s.\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -112,45 +110,33 @@ msgid ""
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
 "\n"
-"Copyright (C) 1999 Free Software Foundation, Inc.\n"
-"Questo software è libero; per le condizioni di copia consultare il codice. "
-"NON c'è\n"
-"alcuna garanzia; neppure  di COMMERCIABILITÀ o APPLICABILITÀ AD UNO SCOPO "
-"PARTICOLARE.\n"
+"Авторские права (C) 1999 Free Software Foundation, Inc. Это программное "
+"обеспечение распространяется бесплатно; условия копирования см. в "
+"источнике.  Нет НИКАКИХ\n"
+" гарантий; не гарантируется даже ПРИГОДНОСТЬ ДЛЯ ПРОДАЖИ или ПРИГОДНОСТЬ ДЛЯ "
+"ПРИМЕНЕНИЯ ПО НАЗНАЧЕНИЮ.\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr "Inserire il comando da eseguire come una singola stringa."
+msgstr "Для выполнения команды введите ее в виде одной строки."
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
-msgstr "COMANDO"
+msgstr "COMMAND"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "Esegui come questo utente, invece che come root."
+msgstr "Выполнить от имени данного пользователя вместо пользователя root."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
-msgstr "NOME UTENTE"
+msgstr "USERNAME"
 
 #: ../tools/gnomesu.c:75
 #, c-format
 msgid "An unknown error occurred.\n"
-msgstr "Si è verificato un errore sconosciuto.\n"
+msgstr "Произошла неизвестная ошибка.\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr "SuperUtente GNOME"
-
-#~ msgid "Administrator (root) privilege is required."
-#~ msgstr "Sono richiesti i privilegi di amministratore (root)"
-
-#~ msgid "Please wait, verifying password..."
-#~ msgstr "Attendere, verifica della password in corso."
-
-#~ msgid "Incorrect password, please try again."
-#~ msgstr "Password errata, riprovare."
-
-#~ msgid "Incorrect password, please try again. You have one more chance."
-#~ msgstr "Password errata, riprovare. Rimane un solo tentativo."
+msgstr "Суперпользователь GNOME"

@@ -7,93 +7,97 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-15 23:38+0000\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2005-02-15 23:39+0100\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/gnomesu-auth-dialog.c:110
-msgid "Password needed"
-msgstr "Password needed"
-
-#: ../src/gnomesu-auth-dialog.c:163
-msgid "Command:"
-msgstr "Command:"
-
-#: ../src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
 msgstr "C_ontinue"
 
-#: ../src/gnomesu-auth-dialog.c:363
-msgid "Administrator (root) privilege is required."
-msgstr "Administrator (root) privilege is required."
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr ""
 
-#: ../src/gnomesu-auth-dialog.c:364
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "Command:"
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr "Password needed"
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+msgid "The requested action needs further authentication."
+msgstr "The requested action needs further authentication."
+
+#: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
 msgstr "Please enter the root password to continue."
 
-#: ../src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
 msgstr "_Password:"
-
-#: ../src/gnomesu-auth-dialog.c:438
-msgid "Please wait, verifying password..."
-msgstr "Please wait, verifying password..."
-
-#: ../src/gnomesu-auth-dialog.c:446
-msgid "Incorrect password, please try again."
-msgstr "Incorrect password, please try again."
-
-#: ../src/gnomesu-auth-dialog.c:453
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Incorrect password, please try again. You have one more chance."
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "No services for libgnomesu are available.\n"
 
-#: ../src/services/pam.c:192
-#: ../src/services/su.c:185
+#: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "Please enter %s's password and click Continue."
 
-#: ../src/services/pam.c:194
-#: ../src/services/su.c:187
-msgid "The requested action needs further authentication."
-msgstr "The requested action needs further authentication."
-
-#: ../src/services/pam.c:200
-#: ../src/services/su.c:193
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
 msgstr "%s's _password:"
 
-#: ../src/services/pam.c:229
-#: ../src/services/su.c:222
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "User '%s' doesn't exist."
 
-#: ../src/services/pam.c:234
-#: ../src/services/su.c:226
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
 msgstr "An unknown error occured while authenticating."
 
-#: ../src/services/pam.c:238
-#: ../src/services/su.c:230
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
 msgstr "You do not have permission to authenticate."
 
-#: ../src/services/pam.c:242
+#: ../src/services/pam.c:237
+#, fuzzy
+msgid "Unable to access the authentication information."
+msgstr "Unable to initialise the PAM authentication system."
+
+#: ../src/services/pam.c:241
+#, fuzzy
+msgid "You reached the limit of tries to authenticate."
+msgstr "You do not have permission to authenticate."
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr ""
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr ""
+
+#: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Unable to initialise the PAM authentication system."
 
-#: ../su-backend/closeout.c:71
-#: ../su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "write error"
 
@@ -114,7 +118,7 @@ msgstr ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
-#: ../tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
 msgstr "Pass the command to execute as one single string."
 
@@ -122,15 +126,31 @@ msgstr "Pass the command to execute as one single string."
 msgid "COMMAND"
 msgstr "COMMAND"
 
-#: ../tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Run as this user instead of as root."
 
-#: ../tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "USERNAME"
 
-#: ../tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, fuzzy, c-format
+msgid "An unknown error occurred.\n"
+msgstr "An unknown error occured while authenticating."
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUser"
 
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "Administrator (root) privilege is required."
+
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "Please wait, verifying password..."
+
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "Incorrect password, please try again."
+
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr "Incorrect password, please try again. You have one more chance."

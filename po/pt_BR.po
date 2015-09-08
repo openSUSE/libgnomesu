@@ -7,95 +7,104 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-01 22:08+0100\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2005-02-02 09:35-0200\n"
 "Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/gnomesu-auth-dialog.c:110
-msgid "Password needed"
-msgstr "É necessária uma senha"
-
-#: src/gnomesu-auth-dialog.c:163
-msgid "Command:"
-msgstr "Comando:"
-
-#: src/gnomesu-auth-dialog.c:213
+#: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
 msgstr "C_ontinuar"
 
-#: src/gnomesu-auth-dialog.c:363
-msgid "Administrator (root) privilege is required."
-msgstr "São necessários privilégios de administrador (root)"
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr "<small><b>_Detalhes</b></small>"
 
-#: src/gnomesu-auth-dialog.c:364
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "Comando:"
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr "É necessária uma senha"
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+msgid "The requested action needs further authentication."
+msgstr "A ação requisitada precisa de autenticação adicional."
+
+#: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
 msgstr "Por favor, digite a senha de root para continuar."
 
-#: src/gnomesu-auth-dialog.c:413
+#: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
 msgstr "_Senha:"
 
-#: src/gnomesu-auth-dialog.c:438
-msgid "Please wait, verifying password..."
-msgstr "Por favor, espere. Verificando a senha..."
-
-#: src/gnomesu-auth-dialog.c:446
-msgid "Incorrect password, please try again."
-msgstr "Senha incorreta. Por favor, tente novamente."
-
-#: src/gnomesu-auth-dialog.c:453
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "Senha incorreta. Por favor, tente novamente. Você tem mais uma chance."
-
-#: src/libgnomesu.c:168
+#: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
 msgstr "Nenhum serviço para a libgnomesu está disponível.\n"
 
-#: src/services/pam.c:193 src/services/su.c:186
+#: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
 msgstr "Por favor, digite a senha de %s e clique em Continuar."
 
-#: src/services/pam.c:195 src/services/su.c:188
-msgid "The requested action needs further authentication."
-msgstr "A ação requisitada precisa de autenticação adicional."
-
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
 msgstr "_Senha de %s:"
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "O usuário '%s' não existe."
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
 msgstr "Ocorreu um erro desconhecido durante a autenticação."
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
 msgstr "Você não tem permissão para se autenticar."
 
-#: src/services/pam.c:233
+#: ../src/services/pam.c:237
+msgid "Unable to access the authentication information."
+msgstr "Impossível acessar as informações de autenticação."
+
+#: ../src/services/pam.c:241
+msgid "You reached the limit of tries to authenticate."
+msgstr "Você atingiu o limite de tentativas de autenticação."
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr "A conta do usuário '%s' expirou."
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr "A senha de '%s' expirou. Atualize-a."
+
+#: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
 msgstr "Impossível iniciar o sistema de autenticação PAM."
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "erro de gravação"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "Escrito por %s.\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
@@ -109,25 +118,43 @@ msgstr ""
 "Não há NENHUMA garantia; nem mesmo para COMERCIALIZAÇÃO ou de ADAPTAÇÃO A UM "
 "PROPÓSITO EM PARTICULAR.\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
 msgstr "Passe o comando a ser executado como uma única expressão."
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "COMANDO"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "Executar como este usuário em vez de root."
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "NOME DO USUÁRIO"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, c-format
+msgid "An unknown error occurred.\n"
+msgstr "Erro desconhecido.\n"
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
 msgstr "GNOME SuperUsuário"
+
+#~ msgid "Administrator (root) privilege is required."
+#~ msgstr "São necessários privilégios de administrador (root)"
+
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "Por favor, espere. Verificando a senha..."
+
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "Senha incorreta. Por favor, tente novamente."
+
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr ""
+#~ "Senha incorreta. Por favor, tente novamente. Você tem mais uma chance."
 
 #~ msgid "GNOME SuperUser integration"
 #~ msgstr "Integração do GNOME com o SuperUsuário"

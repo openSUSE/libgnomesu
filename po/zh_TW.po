@@ -6,125 +6,148 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgnomesu 0.9.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 18:51+0100\n"
+"POT-Creation-Date: 2015-09-08 22:20+0200\n"
 "PO-Revision-Date: 2004-09-28 18:36+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
 "Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/gnomesu-auth-dialog.c:110
+#: ../src/gnomesu-auth-dialog.c:288
+msgid "C_ontinue"
+msgstr "繼續(_O)"
+
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr "<small><b>詳細資料(_D)</b></small>"
+
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr "指令："
+
+#: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
 msgstr "需要密碼"
 
-#: src/gnomesu-auth-dialog.c:163
-#, fuzzy
-msgid "Command:"
-msgstr "準備執行的程式："
-
-#: src/gnomesu-auth-dialog.c:213
-msgid "C_ontinue"
-msgstr ""
-
-#: src/gnomesu-auth-dialog.c:363
-msgid "Administrator (root) privilege is required."
-msgstr ""
-
-#: src/gnomesu-auth-dialog.c:364
-#, fuzzy
-msgid "Please enter the root password to continue."
-msgstr "請輸入 %s 的密碼並按「執行」繼續。"
-
-#: src/gnomesu-auth-dialog.c:413
-#, fuzzy
-msgid "_Password:"
-msgstr "您的密碼(_P)："
-
-#: src/gnomesu-auth-dialog.c:438
-msgid "Please wait, verifying password..."
-msgstr "請稍等，正在檢驗密碼..."
-
-#: src/gnomesu-auth-dialog.c:446
-msgid "Incorrect password, please try again."
-msgstr "密碼錯誤，請再試一次。"
-
-#: src/gnomesu-auth-dialog.c:453
-msgid "Incorrect password, please try again. You have one more chance."
-msgstr "密碼錯誤，請再試一次。您還有一次機會。"
-
-#: src/libgnomesu.c:168
-msgid "No services for libgnomesu are available.\n"
-msgstr ""
-
-#: src/services/pam.c:193 src/services/su.c:186
-#, fuzzy, c-format
-msgid "Please enter %s's password and click Continue."
-msgstr "請輸入 %s 的密碼並按「執行」繼續。"
-
-#: src/services/pam.c:195 src/services/su.c:188
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr ""
+msgstr "所申請的動作還需要其他驗證。"
 
-#: src/services/pam.c:201 src/services/su.c:194
+#: ../src/gnomesu-auth-dialog.c:532
+msgid "Please enter the root password to continue."
+msgstr "若要繼續執行，請輸入 root 使用者密碼。"
+
+#: ../src/gnomesu-auth-dialog.c:627
+msgid "_Password:"
+msgstr "密碼(_P)："
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr "libgnomesu 沒有可用的服務。\n"
+
+#: ../src/services/pam.c:190 ../src/services/su.c:183
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr "請輸入 %s 的密碼並按一下「繼續」。"
+
+#: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
 msgstr "%s 的密碼(_P)："
 
-#: src/services/pam.c:220 src/services/su.c:213
+#: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
 msgstr "用戶‘%s’不存在。"
 
-#: src/services/pam.c:225 src/services/su.c:217
+#: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
 msgstr "認證時出現原因不明的錯誤。"
 
-#: src/services/pam.c:229 src/services/su.c:221
+#: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr ""
+msgstr "您沒有驗證的許可。"
 
-#: src/services/pam.c:233
-#, fuzzy
+#: ../src/services/pam.c:237
+msgid "Unable to access the authentication information."
+msgstr "無法存取驗證資訊。"
+
+#: ../src/services/pam.c:241
+msgid "You reached the limit of tries to authenticate."
+msgstr "您已達到驗證的嘗試限制次數。"
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr "使用者帳號「%s」已過期。"
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr "密碼「%s」已過期。請更新密碼。"
+
+#: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr "無法初始化 PAM 認證系統。"
+msgstr "無法啟始化 PAM 驗證系統。"
 
-#: su-backend/closeout.c:71 su-backend/closeout.c:73
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
 msgstr "寫入資料發生錯誤"
 
-#: su-backend/version-etc.c:38
+#: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
 msgstr "由 %s 編寫。\n"
 
-#: su-backend/version-etc.c:39
+#: ../su-backend/version-etc.c:39
 msgid ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"版權所有 (C) 1999 Free Software Foundation, Inc. \n"
+" 這是免費軟體。有關複製條件，請參閱原始檔。  本軟體不做\n"
+"商業性、適用性等任何方面的保證。\n"
 
-#: tools/gnomesu.c:40
+#: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
 msgstr "指定準備執行的指令，以一個字串表示"
 
-#: tools/gnomesu.c:41
+#: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "程式"
 
-#: tools/gnomesu.c:44
+#: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
 msgstr "以指定的身分 (而不是 root) 來執行程式"
 
-#: tools/gnomesu.c:45
+#: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "用戶名稱"
 
-#: tools/gnomesu.c:65
+#: ../tools/gnomesu.c:75
+#, c-format
+msgid "An unknown error occurred.\n"
+msgstr "發生未知錯誤。\n"
+
+#: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr ""
+msgstr "GNOME 超級使用者"
+
+#~ msgid "Please wait, verifying password..."
+#~ msgstr "請稍等，正在檢驗密碼..."
+
+#~ msgid "Incorrect password, please try again."
+#~ msgstr "密碼錯誤，請再試一次。"
+
+#~ msgid "Incorrect password, please try again. You have one more chance."
+#~ msgstr "密碼錯誤，請再試一次。您還有一次機會。"
 
 #~ msgid "Open as superuser (root)..."
 #~ msgstr "以最高權限用戶 (root) 的身分開啟..."
