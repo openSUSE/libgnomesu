@@ -265,5 +265,4 @@ pam-backend/Makefile
 tools/Makefile
 po/Makefile.in
 doc/Makefile
-autopackage/Makefile
 ])
