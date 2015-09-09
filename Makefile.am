@@ -1,4 +1,4 @@
-SUBDIRS = src su-backend pam-backend tools nautilus po doc autopackage
+SUBDIRS = src su-backend pam-backend tools po doc autopackage
 
 pkgfilesdir = $(libdir)/pkgconfig
 pkgfiles_DATA = libgnomesu-1.0.pc

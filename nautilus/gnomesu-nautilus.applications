@@ -1,8 +1,0 @@
-gnomesu-nautilus
-	command=gnomesu -- nautilus --no-desktop
-	name=Superuser acess
-	can_open_multiple_files=true
-	expects_uris=true
-	supported_uri_schemes=file
-	requires_terminal=false
-	mime_types=x-directory/normal

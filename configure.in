@@ -263,7 +263,6 @@ src/services/Makefile
 su-backend/Makefile
 pam-backend/Makefile
 tools/Makefile
-nautilus/Makefile
 po/Makefile.in
 doc/Makefile
 autopackage/Makefile
