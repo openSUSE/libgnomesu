@@ -11,8 +11,7 @@ libgnomesu will use the su-based backend as final fallback, if no other
 services are available. This service uses a backend which is a modified
 version of GNU su.
 
-libgnomesu comes with the GUI frontend 'gnomesu' and a Nautilus component 
-for Nautilus integration.
+libgnomesu comes with the GUI frontend 'gnomesu'.
 
 
 You can find API documentation in the folder 'doc'.

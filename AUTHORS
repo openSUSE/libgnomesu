@@ -1,8 +1,17 @@
-Hongli Lai <h.lai AT chello.nl>
+Original author of libgnomesu:
+Hongli Lai <hongli@phusion.nl>
 
-Thanks to the following contributors:
-- Stanislav Brabec <sbrabec AT suse DOT cz>
-- Ludwig Nussel <ludwig DOT nussel AT suse DOT de>
+Ported to GTK+ 3 by:
+Vincent Untz <vuntz@opensuse.org>
+
+Other contributors:
+Stanislav Brabec <sbrabec@suse.cz>
+Ludwig Nussel <lnussel@suse.de>
+Hans-Peter Jansen <hpj@novell.com>
+Dominique Leuenberger a.k.a. Dimstar <dimstar@opensuse.org>
+Andreas Schwab <schwab@suse.de>
+Aaron Bockover <abockover@novell.com>
+Joe Hargadon <jhargadon@suse.de>
 
 Some code are taken from:
 - Ximian Setup Tools

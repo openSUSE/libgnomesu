@@ -1,3 +1,11 @@
+Version 2.0.0:
+- New upstream. Now maintained by openSUSE project.
+- Modernized gnomesu GUI.
+- Ported to GNOME 3.
+- Dropped dependencies on GNOME 2.
+- Dropped support for GNOME 1.
+- Improved PAM support.
+
 Version 1.0.0:
 - Add gnomesu_spawn_async2(), which allows the developer to customize
   the user interface a little.

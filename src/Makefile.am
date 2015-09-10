@@ -19,7 +19,7 @@ libgnomesu_la_SOURCES =\
 	gnomesu-auth-dialog.c
 
 libgnomesu_la_LIBADD = $(LIBGNOMESU_LIBS) $(top_builddir)/src/services/libservices.la
-libgnomesu_la_LDFLAGS = -version-info 2:0:2
+libgnomesu_la_LDFLAGS = -version-info 3:0:3
 
 libgnomesu_includedir = $(includedir)/libgnomesu-1.0/libgnomesu
 libgnomesu_include_HEADERS =\
