@@ -9,17 +9,19 @@ msgstr ""
 "Project-Id-Version: libgnomesu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-08 22:20+0200\n"
-"PO-Revision-Date: 2005-01-09 15:04+0100\n"
-"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2015-09-11 11:10+0200\n"
+"Last-Translator: Tomáš Chvátal <tchvatal@suse.com>\n"
+"Language-Team: Czech <http://example.com/projects/libgnomesu/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.3\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
-msgstr "_Pokračovat"
+msgstr "P_okračovat"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
@@ -37,11 +39,11 @@ msgstr "Je potřeba heslo"
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr "K vyžadované akci je potřeba další autentizace."
+msgstr "K vyžadované akci je potřeba další ověření."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
-msgstr "Pokračujte prosím zadáním hesla uživatele root."
+msgstr "Pokračujte prosím zadáním hesla správce."
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
@@ -68,11 +70,11 @@ msgstr "Uživatel '%s' neexistuje."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr "Při autentizaci došlo k neznámé chybě."
+msgstr "Při ověřování došlo k neznámé chybě."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr "Nemáte povoleno se autentizovat."
+msgstr "Nemáte práva k provedení ověření."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
@@ -94,7 +96,7 @@ msgstr "Platnost hesla „%s“ vypršela. Aktualizujte své heslo."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr "Nemohu inicializovat systém autentizace PAM."
+msgstr "Nelze inicializovat systém ověřování PAM."
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
@@ -130,7 +132,7 @@ msgstr "PŘÍKAZ"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "Spustit jako tento uživatel místo roota."
+msgstr "Spustit jako uživatel místo správce."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
