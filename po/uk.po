@@ -6,15 +6,17 @@ msgstr ""
 "Project-Id-Version: notifier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-08 22:20+0200\n"
-"PO-Revision-Date: 2005-08-04 11:46+0300\n"
-"Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
-"Language-Team: Ukrainian <uk@li.org>\n"
+"PO-Revision-Date: 2015-10-10 20:13+0200\n"
+"Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
+"Language-Team: Ukrainian "
+"<http://10n.opensuse.org/projects/libgnomesu/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.3\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -22,7 +24,7 @@ msgstr "_Продовжити"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
-msgstr ""
+msgstr "<small><b>_Подробиці</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
@@ -63,7 +65,7 @@ msgstr "_Пароль користувача %s:"
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "Користувач %s не існує:"
+msgstr "Користувач %s не існує."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
@@ -74,24 +76,22 @@ msgid "You do not have permission to authenticate."
 msgstr "Ви не маєте прав для автентифікації."
 
 #: ../src/services/pam.c:237
-#, fuzzy
 msgid "Unable to access the authentication information."
-msgstr "Не вдається ініціалізувати систему автентифікації PAM."
+msgstr "Не вдається отримати доступ до системи розпізнавання."
 
 #: ../src/services/pam.c:241
-#, fuzzy
 msgid "You reached the limit of tries to authenticate."
-msgstr "Ви не маєте прав для автентифікації."
+msgstr "Ви досягли обмеження числа спроб розпізнавання."
 
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr ""
+msgstr "Термін дії облікового запису \"%s\" користувача вже минув."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr ""
+msgstr "Термін дії паролю '%s' вже минув. Будь ласка, оновіть пароль."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
@@ -137,9 +137,9 @@ msgid "USERNAME"
 msgstr "ІМ'ЯКОРИСТУВАЧА"
 
 #: ../tools/gnomesu.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "An unknown error occurred.\n"
-msgstr "Невідома помилка при автентифікації."
+msgstr "Трапилася невідома помилка.↵\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
