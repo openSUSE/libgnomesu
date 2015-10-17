@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: libgnomesu 0.9.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-08 22:20+0200\n"
-"PO-Revision-Date: 2004-09-28 18:36+0800\n"
-"Last-Translator: Abel Cheung <abel@oaka.org>\n"
-"Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
+"PO-Revision-Date: 2015-10-17 04:33+0200\n"
+"Last-Translator: Ramax Lo <ramaxlo@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<http://10n.opensuse.org/projects/libgnomesu/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.3\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -117,7 +120,7 @@ msgstr ""
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr "指定準備執行的指令，以一個字串表示"
+msgstr "指定準備執行的指令，以一個字串表示。"
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
@@ -125,7 +128,7 @@ msgstr "程式"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "以指定的身分 (而不是 root) 來執行程式"
+msgstr "以指定的身分 (而不是 root) 來執行程式。"
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
