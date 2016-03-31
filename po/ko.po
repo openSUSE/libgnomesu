@@ -5,16 +5,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgnomesu \n"
+"Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-08 22:20+0200\n"
-"PO-Revision-Date: 2004-11-25 00:26+0900\n"
-"Last-Translator: Young-Ho Cha <ganadist at mizi.com>\n"
-"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
-"Language: \n"
+"PO-Revision-Date: 2016-03-31 16:16+0000\n"
+"Last-Translator: YunSeok Choi <xein@naver.com>\n"
+"Language-Team: Korean "
+"<http://l10n.opensuse.org/projects/libgnomesu/master/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.5\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -26,7 +29,7 @@ msgstr "<small><b>자세히(_D)</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
-msgstr "명령: "
+msgstr "명령:"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
@@ -53,7 +56,7 @@ msgstr "libgnomesu의 서비스를 쓸 수 없습니다.\n"
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "%s의 비밀번호를 입력하고 계속을 클릭하십시오. "
+msgstr "%s 의 비밀번호를 입력하고 계속을 클릭하십시오."
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
@@ -113,8 +116,8 @@ msgid ""
 msgstr ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
-"This is free software; see the source for copying conditions.  There is NO\n"
-"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+"이것은 자유소프트웨어 입니다. 이 소프트웨어 복제 조건에 대해 확인하십시오.\n"
+"이 소프트웨어에는 보증이 없으며, 재판매나 특별한 목적을 위한 사용에 제한이 없습니다.\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
