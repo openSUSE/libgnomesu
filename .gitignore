@@ -21,7 +21,6 @@ missing
 pam-backend/gnomesu-pam-backend
 po/Makefile.in.in
 po/POTFILES
-po/libgnomesu-1.0.pot
 po/stamp-it
 po/*.gmo
 su-backend/gnomesu-backend
