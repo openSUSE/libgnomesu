@@ -64,7 +64,7 @@ bomb (GnomesuAuthDialog *auth, gchar *format, ...)
 	dialog = gtk_message_dialog_new ((GtkWindow *) auth,
 		GTK_DIALOG_MODAL,
 		GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
-		msg);
+		"%s", msg);
 	gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
