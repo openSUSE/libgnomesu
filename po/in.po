@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-27 18:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: in\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/gnomesu-auth-dialog.c:288
+msgid "C_ontinue"
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:368
+msgid "<small><b>_Details</b></small>"
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:400
+msgid "Command:"
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:466
+msgid "Password needed"
+msgstr ""
+
+#. _("Administrator (root) privilege is required.");
+#: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
+#: ../src/services/su.c:185
+msgid "The requested action needs further authentication."
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:532
+msgid "Please enter the root password to continue."
+msgstr ""
+
+#: ../src/gnomesu-auth-dialog.c:627
+msgid "_Password:"
+msgstr ""
+
+#: ../src/libgnomesu.c:182
+msgid "No services for libgnomesu are available.\n"
+msgstr ""
+
+#: ../src/services/pam.c:190 ../src/services/su.c:183
+#, c-format
+msgid "Please enter %s's password and click Continue."
+msgstr ""
+
+#: ../src/services/pam.c:195 ../src/services/su.c:188
+#, c-format
+msgid "%s's _password:"
+msgstr ""
+
+#: ../src/services/pam.c:224 ../src/services/su.c:217
+#, c-format
+msgid "User '%s' doesn't exist."
+msgstr ""
+
+#: ../src/services/pam.c:229 ../src/services/su.c:221
+msgid "An unknown error occured while authenticating."
+msgstr ""
+
+#: ../src/services/pam.c:233 ../src/services/su.c:225
+msgid "You do not have permission to authenticate."
+msgstr ""
+
+#: ../src/services/pam.c:237
+msgid "Unable to access the authentication information."
+msgstr ""
+
+#: ../src/services/pam.c:241
+msgid "You reached the limit of tries to authenticate."
+msgstr ""
+
+#: ../src/services/pam.c:245
+#, c-format
+msgid "User account '%s' has expired."
+msgstr ""
+
+#: ../src/services/pam.c:250
+#, c-format
+msgid "The password of '%s' has expired. Please update the password."
+msgstr ""
+
+#: ../src/services/pam.c:255
+msgid "Unable to initialize the PAM authentication system."
+msgstr ""
+
+#: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
+msgid "write error"
+msgstr ""
+
+#: ../su-backend/version-etc.c:38
+#, c-format
+msgid "Written by %s.\n"
+msgstr ""
+
+#: ../su-backend/version-etc.c:39
+msgid ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: ../tools/gnomesu.c:41
+msgid "Pass the command to execute as one single string."
+msgstr ""
+
+#: ../tools/gnomesu.c:41
+msgid "COMMAND"
+msgstr ""
+
+#: ../tools/gnomesu.c:42
+msgid "Run as this user instead of as root."
+msgstr ""
+
+#: ../tools/gnomesu.c:42
+msgid "USERNAME"
+msgstr ""
+
+#: ../tools/gnomesu.c:75
+#, c-format
+msgid "An unknown error occurred.\n"
+msgstr ""
+
+#: ../tools/gnomesu.c:80
+msgid "GNOME SuperUser"
+msgstr ""
