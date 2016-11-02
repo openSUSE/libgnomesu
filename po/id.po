@@ -2,14 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2016-10-09 08:52+0000\n"
-"Last-Translator: Panji Yudha <akangstress12@gmail.com>\n"
+"PO-Revision-Date: 2016-11-02 16:48+0700\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://l10n.opensuse.org/projects/libgnomesu/master/in/>\n"
 "Language: in\n"
@@ -17,16 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
-#, fuzzy
 msgid "C_ontinue"
-msgstr "C_ontinue"
+msgstr "L_anjutkan"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
-msgstr "<small><b>_rincian</b></small>"
+msgstr "<small><b>_Rincian</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
@@ -34,13 +32,13 @@ msgstr "Perintah:"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
-msgstr "Dibutuhkan Password"
+msgstr "Kata sandi dibutuhkan"
 
 #. _("Administrator (root) privilege is required.");
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr "Permintaan tindakan memerlukan Autentikasi lebih lanjut."
+msgstr "Tindakan yang diminta membutuhkan otentikasi lanjut."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
@@ -48,30 +46,30 @@ msgstr "Masukkan kata sandi root untuk melanjutkan."
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
-msgstr "_Sandi:"
+msgstr "_Kata Sandi:"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr "Tidak ada layanan untuk libgnomesu tersedia.\n"
+msgstr "Tidak ada layanan untuk libgnomesu yang tersedia.\n"
 
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Masukkan kata sandi %s's dan klik Continue."
+msgstr "Silakan masukkan kata sandi %s's dan tekan Lanjutkan."
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
-msgstr "%s's_sandi:"
+msgstr "%s's_kata sandi:"
 
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "Tidak ada User '%s'."
+msgstr "Pengguna '%s' tidak ada."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr "terjadi sebuah kesalahan yang tidak diketahui saat otentikasi."
+msgstr "Terjadi sebuah kesalahan yang tidak diketahui saat otentikasi."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
@@ -79,7 +77,7 @@ msgstr "Anda tidak memiliki izin untuk otentikasi."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
-msgstr "tidak dapat mengakses informasi otentikasi."
+msgstr "Tidak dapat mengakses informasi otentikasi."
 
 #: ../src/services/pam.c:241
 msgid "You reached the limit of tries to authenticate."
@@ -93,11 +91,11 @@ msgstr "Akun Pengguna %s telah kadaluarsa."
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr "kata sandi untuk %s telah kadaluarsa. Silahkan perbarui kata sandi."
+msgstr "Kata sandi untuk %s telah kadaluarsa. Silahkan perbarui kata sandi."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr "tidak dapat melakukan inisialisasi sistem Otentikasi PAM."
+msgstr "Tidak dapat menginisialisasi sistem otentikasi PAM."
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 #, fuzzy
@@ -107,7 +105,7 @@ msgstr "kesalahan menulis"
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr "ditulis oleh %s.\n"
+msgstr "Ditulis oleh %s.\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -116,28 +114,31 @@ msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"Copyright (C) 1999 Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr "melewati perintah untuk mengeksekusi salah satu string tunggal."
+msgstr "Lewati perintah untuk mengeksekusi sebagai satu string tunggal."
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
 msgstr "PERINTAH"
 
 #: ../tools/gnomesu.c:42
-#, fuzzy
 msgid "Run as this user instead of as root."
-msgstr "user dijalankan bukan sebagai root."
+msgstr "Jalankan sebagai pengguna ini bukan sebagai root."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
-msgstr "nama pengguna"
+msgstr "NAMA PENGGUNA"
 
 #: ../tools/gnomesu.c:75
 #, c-format
 msgid "An unknown error occurred.\n"
-msgstr "terjadi sebuah kesalahan yang tidak diketahui.\n"
+msgstr "Terjadi sebuah kesalahan yang tidak diketahui.\n"
 
 #: ../tools/gnomesu.c:80
 #, fuzzy
