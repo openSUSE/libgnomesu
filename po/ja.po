@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2005-01-16 14:11+0900\n"
-"Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
-"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
+"PO-Revision-Date: 2016-11-08 06:20+0000\n"
+"Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
+"Language-Team: Japanese "
+"<https://l10n.opensuse.org/projects/libgnomesu/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.6\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -119,7 +122,7 @@ msgstr ""
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr "実行するコマンドを単一の文字列で指定する"
+msgstr "実行するコマンドを単一の文字列で指定します。"
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
@@ -127,7 +130,7 @@ msgstr "COMMAND"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "root ではなく指定したユーザで実行する"
+msgstr "root ではなく指定したユーザで実行します。"
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
