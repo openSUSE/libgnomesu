@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2016-11-06 12:25+0000\n"
+"PO-Revision-Date: 2016-12-15 06:16+0000\n"
 "Last-Translator: hayyan rostami <hayyan71@yahoo.com>\n"
 "Language-Team: Persian "
 "<https://l10n.opensuse.org/projects/libgnomesu/master/fa/>\n"
@@ -66,46 +66,46 @@ msgstr "_رمز عبور  %s:"
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr ""
+msgstr "کاربر '%s' وجود ندارد."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr ""
+msgstr "یک خطای ناشناخته در هنگام احراز هویت رخ داد."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr ""
+msgstr "شما مجاز به احراز هویت نیستید."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
-msgstr ""
+msgstr "قادر به دسترسی به اطلاعات احراز هویت نیست."
 
 #: ../src/services/pam.c:241
 msgid "You reached the limit of tries to authenticate."
-msgstr ""
+msgstr "شما به حداکثر تعداد تلاش ها برای احراز هویت رسیدید."
 
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr ""
+msgstr "حساب کاربری '%s' منقضی شده است."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr ""
+msgstr "رمز عبور '%s' منقضی شده است. لطفا رمز عبور را بروزرسانی کنید."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr ""
+msgstr "ناتوان در ارزش دهی به سیستم احراز حویت PAM."
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
-msgstr ""
+msgstr "نوشتن خطا"
 
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr ""
+msgstr "نوشته شده توسط '%s'.\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -114,28 +114,32 @@ msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"کپی رایت (C) 1999 Free Software Foundation, Inc.\n"
+"این یک نرم افزار آزاد است; منبع را برای شرایط رونوشت مطالعه کنید. هیچ\n"
+"ضمانتنامه ای وجود ندارد; حتی برای خرید و فروش یا تناسب برای یک هدف خاص.\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr ""
+msgstr "فرمان را برای اجرا به عنوان یک رشته وارد کنید."
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
-msgstr ""
+msgstr "فرمان"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr ""
+msgstr "به جای اجرا به عنوان ریشه آن را تحت این کاربر اجرا کنید."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
-msgstr ""
+msgstr "نام کاربری"
 
 #: ../tools/gnomesu.c:75
 #, c-format
 msgid "An unknown error occurred.\n"
-msgstr ""
+msgstr "یک خطای ناشناخته رخ داد.\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr ""
+msgstr "ابرکاربر GNOME"
