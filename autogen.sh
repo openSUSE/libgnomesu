@@ -8,5 +8,7 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 cd $SCRIPT_DIR
 
+[[ ! -d m4 ]] && mkdir m4
+
 intltoolize -f
 autoreconf -v -i -f
