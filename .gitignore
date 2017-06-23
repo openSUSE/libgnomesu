@@ -34,3 +34,4 @@ tools/gnomesu
 .libs
 *~
 m4/
+*.tar.*
