@@ -1,3 +1,7 @@
+# libgnomesu #
+
+[![Build Status](https://travis-ci.org/openSUSE/libgnomesu.svg?branch=master)](https://travis-ci.org/openSUSE/libgnomesu)
+
 libgnomesu is a library for providing superuser privileges to GNOME 
 applications. It supports sudo, consolehelper, PAM and su.
 
