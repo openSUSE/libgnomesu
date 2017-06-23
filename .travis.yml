@@ -5,6 +5,10 @@ sudo: false
 addons:
   apt:
     packages:
+      - intltool
+      - autoconf
+      - automake
+      - libtool
       - libgtk-3-dev
       - libglib2.0-dev
 
