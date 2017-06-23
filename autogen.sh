@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # run this script to create all the autotools fluff.
 
 set -e
@@ -8,7 +8,9 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 cd $SCRIPT_DIR
 
-[[ ! -d m4 ]] && mkdir m4
+if [ ! -d m4 ]; then
+  mkdir m4
+fi
 
 intltoolize -f
 autoreconf -v -i -f
