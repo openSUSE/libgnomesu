@@ -2,12 +2,13 @@ AC_PREQ(2.53)
 AC_INIT(libgnomesu, 2.0.0)
 AC_CONFIG_SRCDIR(src/libgnomesu.c)
 AM_INIT_AUTOMAKE([-Wall dist-bzip2 no-dist-gzip])
-
+AC_CONFIG_MACRO_DIRS([m4])
 AM_MAINTAINER_MODE
 
 AC_PROG_CC
 AC_ISC_POSIX
 AC_STDC_HEADERS
+AM_PROG_AR
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
 
@@ -70,28 +71,32 @@ AC_PROG_INTLTOOL
 
 # FreeBSD doesn't have a 'root' group, but it has a 'wheel' group instead
 AC_MSG_CHECKING(whether there's a 'root' group)
+AC_LANG(C)
 AC_RUN_IFELSE([
-#include <grp.h>
+	AC_LANG_SOURCE(
+[[#include <grp.h>
 #include <sys/types.h>
 
 int main() {
 	struct group *grp = getgrnam ("root");
 	return !grp;
-}
+}]]
+	)
 ], [
 	AC_MSG_RESULT(yes)
 	ROOTGROUP=:root
 ], [
 	AC_MSG_RESULT(no)
 	AC_MSG_CHECKING(whether there's a 'wheel' group)
-	AC_RUN_IFELSE([
+	AC_RUN_IFELSE([AC_LANG_SOURCE([[
 		#include <grp.h>
 		#include <sys/types.h>
 
 		int main() {
 			struct group *grp = getgrnam ("wheel");
 			return !grp;
-		}
+		}]]
+		)
 	], [
 		AC_MSG_RESULT(yes)
 		ROOTGROUP=:wheel

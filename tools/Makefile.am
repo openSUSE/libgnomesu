@@ -1,6 +1,6 @@
 bin_PROGRAMS = gnomesu
 
-INCLUDES =\
+AM_CPPFLAGS =\
 	-DGETTEXT_PACKAGE="\"$(GETTEXT_PACKAGE)\""\
 	-DLOCALEDIR="\"$(datadir)/locale\""\
 	-DGNOMESU_VERSION="\"$(VERSION)\""\

@@ -15,6 +15,7 @@ intltool-extract.in
 intltool-merge.in
 intltool-update.in
 libgnomesu-1.0.pc
+ar-lib
 libtool
 ltmain.sh
 missing
@@ -32,3 +33,4 @@ tools/gnomesu
 .deps
 .libs
 *~
+m4/

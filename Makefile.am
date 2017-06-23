@@ -1,3 +1,5 @@
+ACLOCAL_AMFLAGS = -I m4
+
 SUBDIRS = src su-backend pam-backend tools po doc
 
 pkgfilesdir = $(libdir)/pkgconfig

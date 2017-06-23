@@ -2,11 +2,11 @@ if HAVE_PAM
 
 libexec_PROGRAMS = gnomesu-pam-backend
 
-INCLUDES = $(GNOMESU_PAM_BACKEND_CFLAGS) -I$(top_srcdir)/su-backend
+AM_CPPFLAGS = $(GNOMESU_PAM_BACKEND_CFLAGS) -I$(top_srcdir)/su-backend
 
 gnomesu_pam_backend_SOURCES = pam.c
 gnomesu_pam_backend_CFLAGS = \
-	$(INCLUDES) \
+	$(AM_CPPFLAGS) \
 	$(SUID_CFLAGS) \
 	$(AM_CFLAGS)
 gnomesu_pam_backend_LDFLAGS = \

@@ -1,7 +1,7 @@
 libexec_PROGRAMS = gnomesu-backend
 noinst_LTLIBRARIES = libcommon.la
 
-INCLUDES = $(GNOMESU_BACKEND_CFLAGS)
+AM_CPPFLAGS = $(GNOMESU_BACKEND_CFLAGS)
 
 gnomesu_backend_SOURCES = \
 	basename.c\

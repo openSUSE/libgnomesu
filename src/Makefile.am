@@ -2,7 +2,7 @@ SUBDIRS = services
 
 lib_LTLIBRARIES = libgnomesu.la
 
-INCLUDES=\
+AM_CPPFLAGS =\
 	$(LIBGNOMESU_CFLAGS)\
 	-DLOCALEDIR="\"$(datadir)/locale\""\
 	-DLIBEXECDIR="\"$(libexecdir)\""\

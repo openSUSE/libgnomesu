@@ -1,6 +1,6 @@
 noinst_LTLIBRARIES = libservices.la
 
-INCLUDES=\
+AM_CPPFLAGS=\
 	$(LIBGNOMESU_CFLAGS)\
 	-DLOCALEDIR="\"$(datadir)/locale\""\
 	-DLIBEXECDIR="\"$(libexecdir)\""\
