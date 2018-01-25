@@ -11,13 +11,17 @@ msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2003-09-28 12:39+0100\n"
-"Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2018-01-25 15:05+0000\n"
+"Last-Translator: Ewelina Michalowska <ewelina.michalowska@stgambit.com>\n"
+"Language-Team: Polish "
+"<https://l10n.opensuse.org/projects/libgnomesu/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -39,11 +43,11 @@ msgstr "Wymagane hasło"
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr "Żądana operacja wymaga dalszego uwierzytelnienia."
+msgstr "Żądana czynność wymaga dalszego uwierzytelnienia."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
-msgstr "Proszę wpisać hasło administratora, aby kontynuować."
+msgstr "Wpisz hasło użytkownika root, aby kontynuować."
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
@@ -51,12 +55,12 @@ msgstr "_Hasło:"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr "Nie ma usług dostępnych dla libgnomesu.\n"
+msgstr "Brak usług dostępnych dla libgnomesu.\n"
 
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Proszę wpisać hasło użytkownika %s, aby kontynuować."
+msgstr "Wprowadź hasło użytkownika %s i kliknij przycisk Kontynuuj."
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
@@ -66,15 +70,15 @@ msgstr "_Hasło użytkownika %s:"
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "Użytkownik \"%s\" nie istnieje."
+msgstr "Użytkownik %s nie istnieje."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr "Podczas uwierzytelniania wystąpił nieznany błąd."
+msgstr "Wystąpił nieznany błąd podczas uwierzytelniania."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr "Nie posiadasz uprawnień do uwierzytelnienia."
+msgstr "Nie masz uprawnień do uwierzytelnienia."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
@@ -87,12 +91,12 @@ msgstr "Osiągnięto limit prób uwierzytelnienia."
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr "Konto użytkownika \"%s\" wygasło."
+msgstr "Konto użytkownika %s wygasło."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr "Hasło użytkownika \"%s\" wygasło. Proszę zaktualizować hasło."
+msgstr "Hasło użytkownika %s wygasło. Zaktualizuj hasło."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
@@ -100,12 +104,12 @@ msgstr "Nie można zainicjować systemu uwierzytelniania PAM."
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
-msgstr "błąd podczas zapisu"
+msgstr "błąd zapisu"
 
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr "Autor programu %s.\n"
+msgstr "Autor programu: %s.\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -116,14 +120,13 @@ msgid ""
 msgstr ""
 "\n"
 "Copyright (C) 1999 Free Software Foundation, Inc.\n"
-"To jest oprogramowanie wolnodostępne, zajrzyj do źródeł aby uzyskać\n"
-"warunki kopiowania. Na program nie jest udzielana ŻADNA gwarancja, nawet\n"
-"RĘKOJMI lub PRZYDATNOŚCI DO OKREŚLONEGO CELU.\n"
+"To oprogramowanie jest bezpłatne. Warunki kopiowania opisano w źródle.\n"
+"Na program nie jest udzielana ŻADNA gwarancja, nawet RĘKOJMI\n"
+"ani PRZYDATNOŚCI DO OKREŚLONEGO CELU.\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr ""
-"Wpisz polecenie do wykonania jako napis mieszczący się w jednym wierszu."
+msgstr "Wpisz polecenie do wykonania jako ciąg jednowierszowy."
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
@@ -131,7 +134,7 @@ msgstr "POLECENIE"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "Uruchom tego użytkownika zamiast roota."
+msgstr "Uruchom jako ten użytkownik a nie jako root."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
@@ -144,7 +147,7 @@ msgstr "Wystąpił nieznany błąd.\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr "SuperUżytkownik GNOME"
+msgstr "Superużytkownik GNOME"
 
 #~ msgid "Please wait, verifying password..."
 #~ msgstr "Poczekaj, weryfikacja hasła..."
