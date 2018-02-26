@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libgnomesu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2017-06-17 17:26+0000\n"
+"PO-Revision-Date: 2018-02-27 01:01+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish "
 "<https://l10n.opensuse.org/projects/libgnomesu/master/da/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -43,7 +43,7 @@ msgstr "Den forespurgte handling kræver yderligere godkendelse."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
-msgstr "Angiv venligst adgangskoden for at fortsætte."
+msgstr "Indtast venligst root-adgangskoden for at fortsætte."
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
@@ -56,7 +56,7 @@ msgstr "Ingen tilgængelige tjenester for libgnomesu.\n"
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "Angiv adgangskoden for %s og klik på Fortsæt."
+msgstr "Indtast venligst adgangskoden for %s og klik på Fortsæt."
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
