@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libgnomesu HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2017-10-09 10:09+0000\n"
+"PO-Revision-Date: 2018-03-17 17:01+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch "
 "<https://l10n.opensuse.org/projects/libgnomesu/master/nl/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.13.1\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -67,7 +67,7 @@ msgstr "_Wachtwoord van %s:"
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "De gebruiker '%s' bestaat niet."
+msgstr "De gebruiker ‘%s’ bestaat niet."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
@@ -88,12 +88,12 @@ msgstr "U hebt het maximale aantal pogingen voor verificatie bereikt."
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr "Gebruikersaccount '%s' is verlopen."
+msgstr "Gebruikersaccount ‘%s’ is verlopen."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr "Het wachtwoord van '%s' is verlopen. Werk het wachtwoord bij."
+msgstr "Het wachtwoord van ‘%s’ is verlopen. Werk het wachtwoord bij."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
