@@ -41,6 +41,7 @@
 #include <unistd.h>
 
 #include "common.h"
+#include "xstrdup.h"
 
 #if STDC_HEADERS || HAVE_STRING_H
 # include <string.h>
@@ -115,7 +116,6 @@ void endusershell ();
 void setusershell ();
 
 char *base_name ();
-char *xstrdup (char *pw_name);
 
 extern char **environ;
 

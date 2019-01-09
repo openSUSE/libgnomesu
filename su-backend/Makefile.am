@@ -15,12 +15,20 @@ gnomesu_backend_SOURCES = \
 	version-etc.c version-etc.h\
 	xalloc.h\
 	xmalloc.c\
-	xstrdup.c
+	xstrdup.c\
+	xstrdup.h
 
 gnomesu_backend_LDFLAGS = $(GNOMESU_BACKEND_LIBS) libcommon.la -lcrypt
+gnomesu_backend_CFLAGS = $(AM_CFLAGS)
 gnomesu_backend_DEPENDENCIES = libcommon.la
 
-libcommon_la_SOURCES = common.c common.h
+libcommon_la_SOURCES = \
+	common.c\
+	common.h\
+	xalloc.h\
+	xmalloc.c\
+	xstrdup.c\
+	xstrdup.h
 libcommon_la_LDFLAGS = $(GNOMESU_BACKEND_LIBS)
 
 installed_su=$(DESTDIR)$(libexecdir)/`echo gnomesu-backend | sed '$(transform)'`
