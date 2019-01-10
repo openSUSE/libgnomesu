@@ -25,6 +25,24 @@
 #include <string.h>
 #include <pwd.h>
 #include <sys/types.h>
+#include <ctype.h>
+
+#define _PATH_LOGINDEFS_SU  "/etc/default/su"
+#define _PATH_DEFPATH          "/usr/local/bin:/bin:/usr/bin"
+#define _PATH_DEFPATH_ROOT "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin"
+
+struct item {
+	char *name;		/* name of the option.	*/
+	char *value;		/* value of the option.	*/
+	char *path;	 	/* name of config file for this option.	*/
+
+	struct item *next;	/* pointer to next option.	*/
+};
+
+int getlogindefs_bool(const char *name, int dflt);
+void logindefs_load_file(const char *filename);
+const char *getlogindefs_str(const char *name, const char *dflt);
+int logindefs_setenv(const char *name, const char *conf, const char *dflt);
 
 char *concat (const char *s1, const char *s2, const char *s3);
 void xputenv (const char *val);

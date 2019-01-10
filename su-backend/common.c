@@ -28,7 +28,12 @@
 #include <errno.h>
 
 #include "common.h"
+#include "xstrdup.h"
 
+static struct item *list = NULL;
+
+static void store(const char *name, const char *value, const char *path);
+static struct item *search(const char *name);
 
 /* The default PATH for simulated logins to non-superuser accounts.  */
 #undef DEFAULT_LOGIN_PATH
@@ -123,6 +128,146 @@ init_xauth (const struct passwd *pw)
         xputenv (concat ("XAUTHORITY=", pw->pw_dir, "/.Xauthority"));
 }
 
+static void
+store(const char *name, const char *value, const char *path)
+{
+	struct item *new = malloc(sizeof(struct item));
+
+	if (!name)
+		abort();
+
+	new->name = xstrdup(name);
+	new->value = value && *value ? xstrdup(value) : NULL;
+	new->path = xstrdup(path);
+	new->next = list;
+	list = new;
+}
+
+static struct item
+*search(const char *name)
+{
+	struct item *ptr;
+
+	ptr = list;
+	while (ptr != NULL) {
+		if (strcasecmp(name, ptr->name) == 0)
+			return ptr;
+		ptr = ptr->next;
+	}
+
+	return NULL;
+}
+
+int
+getlogindefs_bool(const char *name, int dflt)
+{
+	struct item *ptr = search(name);
+	return ptr && ptr->value ? (strcasecmp(ptr->value, "yes") == 0) : dflt;
+}
+
+void
+logindefs_load_file(const char *filename)
+{
+	FILE *f;
+	char buf[BUFSIZ];
+
+	f = fopen(filename, "r");
+	if (!f)
+		return;
+
+	while (fgets(buf, sizeof(buf), f)) {
+
+		char *p, *name, *data = NULL;
+
+		if (*buf == '#' || *buf == '\n')
+			continue; /* only comment or empty line */
+
+		p = strchr(buf, '#');
+		if (p)
+			*p = '\0';
+		else {
+			size_t n = strlen(buf);
+			if (n && *(buf + n - 1) == '\n')
+				*(buf + n - 1) = '\0';
+		}
+
+		if (!*buf)
+			continue; /* empty line */
+
+		/* ignore space at begin of the line */
+		name = buf;
+		while (*name && isspace((unsigned)*name))
+			name++;
+
+		/* go to the end of the name */
+		data = name;
+		while (*data && !(isspace((unsigned)*data) || *data == '='))
+			data++;
+		if (data > name && *data)
+			*data++ = '\0';
+
+		if (!*name || data == name)
+			continue;
+
+		/* go to the begin of the value */
+		while (*data && (isspace((unsigned)*data) || *data == '=' || *data == '"'))
+			data++;
+
+		/* remove space at the end of the value */
+		p = data + strlen(data);
+		if (p > data)
+			p--;
+		while (p > data && (isspace((unsigned)*p) || *p == '"'))
+			*p-- = '\0';
+
+		store(name, data, filename);
+	}
+
+	fclose(f);
+}
+
+/*
+ * Returns:
+ *  @dflt   if @name not found
+ *  ""    (empty string) if found, but value not defined
+ *  "string"  if found
+ */
+const char
+*getlogindefs_str(const char *name, const char *dflt)
+{
+	struct item *ptr = search(name);
+
+	if (!ptr)
+		return dflt;
+	if (!ptr->value)
+		return "";
+	return ptr->value;
+}
+
+int
+logindefs_setenv(const char *name, const char *conf, const char *dflt)
+{
+	const char *val = getlogindefs_str(conf, dflt);
+	const char *p;
+
+	if (!val)
+		return -1;
+
+	p = strchr(val, '=');
+	if (p) {
+		size_t sz = strlen(name);
+
+		if (strncmp(val, name, sz) == 0 && *(p + 1)) {
+			val = p + 1;
+			if (*val == '"')
+				val++;
+			if (!*val)
+				val = dflt;
+		}
+	}
+
+	return val ? setenv(name, val, 1) : -1;
+}
 
 /* Update environment variables for the new user. */
 void
@@ -180,37 +325,51 @@ modify_environment (const struct passwd *pw)
 	/* set XDG_RUNTIME_DIR for the new user */
 	xputenv (g_strdup_printf("XDG_RUNTIME_DIR=/run/user/%d", pw->pw_uid));
 
-	/* Sanity-check PATH. It shouldn't contain . entries! */
-	path = g_getenv ("PATH");
-	if (path && (strstr (path, ":.:") || strncmp (path, ".:", 2) == 0
-	    || (strlen (path) > 2 && strcmp (path + strlen (path) - 2, ":.") == 0)
-	    || strcmp (path, ".") == 0))
-	{
-		char **paths;
-		char **new_paths;
-		int    path_len;
-		int    i, j;
-
-		paths = g_strsplit (path, ":", -1);
-		path_len = g_strv_length (paths);
-		new_paths = g_new0 (char *, path_len);
-
-		j = 0;
-		for (i = 0; i < path_len; i++) {
-			if (paths[i] && !strchr(paths[i], '.')) {
-				new_paths[j++] = g_strdup (paths[i]);
-			}
-		}
-
-		g_strfreev (paths);
-		if (j != 0) {
-			char *new_path;
-			new_path = g_strjoinv (":", new_paths);
-			setenv ("PATH", new_path, 1);
-			g_free (new_path);
+	logindefs_load_file(_PATH_LOGINDEFS_SU);
+	if (getlogindefs_bool("ALWAYS_SET_PATH", 0)) {
+		/* set path to safe values */
+		if (pw->pw_uid) {
+			if ( logindefs_setenv("PATH", "ENV_PATH", _PATH_DEFPATH) != 0 ) 
+				abort();
 		} else {
-			/* make sure we set PATH to something below */
-			path = NULL;
+			if ( logindefs_setenv("PATH", "ENV_SUPATH", _PATH_DEFPATH_ROOT) != 0 )
+				abort();
+		}
+		/* prevent overwriting of path below */
+		path = g_getenv ("PATH");
+	} else {
+		/* Keep old behavior and sanity-check PATH. It shouldn't contain . entries! */
+		path = g_getenv ("PATH");
+		if (path && (strstr (path, ":.:") || strncmp (path, ".:", 2) == 0
+		    || (strlen (path) > 2 && strcmp (path + strlen (path) - 2, ":.") == 0)
+		    || strcmp (path, ".") == 0))
+		{
+			char **paths;
+			char **new_paths;
+			int    path_len;
+			int    i, j;
+
+			paths = g_strsplit (path, ":", -1);
+			path_len = g_strv_length (paths);
+			new_paths = g_new0 (char *, path_len);
+
+			j = 0;
+			for (i = 0; i < path_len; i++) {
+				if (paths[i] && !strchr(paths[i], '.')) {
+					new_paths[j++] = g_strdup (paths[i]);
+				}
+			}
+
+			g_strfreev (paths);
+			if (j != 0) {
+				char *new_path;
+				new_path = g_strjoinv (":", new_paths);
+				setenv ("PATH", new_path, 1);
+				g_free (new_path);
+			} else {
+				/* make sure we set PATH to something below */
+				path = NULL;
+			}
 		}
 	}
 

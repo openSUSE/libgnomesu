@@ -15,30 +15,11 @@
    along with this program; if not, write to the Free Software Foundation,
    Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 
-#if HAVE_CONFIG_H
-# include <config.h>
-#endif
-
-#ifndef PARAMS
-# if defined PROTOTYPES || (defined __STDC__ && __STDC__)
-#  define PARAMS(Args) Args
-# else
-#  define PARAMS(Args) ()
-# endif
-#endif
-
-#if STDC_HEADERS || HAVE_STRING_H
-# include <string.h>
-#else
-# include <strings.h>
-#endif
-
-#include <sys/types.h>
+#include "xstrdup.h"
 
 char *xmalloc PARAMS ((size_t n));
 
 /* Return a newly allocated copy of STRING.  */
-
 char *
 xstrdup (const char *string)
 {
