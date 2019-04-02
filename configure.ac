@@ -65,7 +65,7 @@ GNOMESU_BACKEND_LIBS="$GNOMESU_PAM_BACKEND_LIBS"
 
 GETTEXT_PACKAGE=libgnomesu-1.0
 AC_SUBST(GETTEXT_PACKAGE)
-ALL_LINGUAS="ar az bg bs ca cs da de el en_CA en_GB es eu fi fr gu hi hr hu it ja ko lt lv mk ms nb ne nl pa pl pt_BR pt ru rw sk sq sr@latin sr sv tr uk vi zh_CN zh_TW"
+ALL_LINGUAS="ar az bg bs ca cs da de el en_CA en_GB es eu fa fi fr gu hi hr hu id it ja ko lt lv mk ms nb ne nl nn pa pl pt_BR pt ru rw sk sq sr@latin sr sv tr uk vi zh_CN zh_TW"
 AM_GLIB_GNU_GETTEXT
 AC_PROG_INTLTOOL
 
