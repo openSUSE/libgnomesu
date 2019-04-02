@@ -1,3 +1,14 @@
+Version 2.0.3:
+- Make gnomesu honor /etc/default/su settings for PATH.
+- Updated translations.
+
+Version 2.0.2:
+- Release picking up on the build automation and setting the proper version number.
+- Updated translations.
+
+Version 2.0.1:
+- Updated translations.
+
 Version 2.0.0:
 - New upstream. Now maintained by openSUSE project.
 - Modernized gnomesu GUI.
