@@ -1,3 +1,7 @@
+Version 2.0.4:
+- Support kernel keyrings by including pam_keyinit.so into PAM configuration (Felix Zhang).
+- Updated translations.
+
 Version 2.0.3:
 - Make gnomesu honor /etc/default/su settings for PATH.
 - Updated translations.
