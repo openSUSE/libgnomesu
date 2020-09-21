@@ -22,6 +22,7 @@
 #else /* PAM_MOD_MISC */
 	#include <security/pam_misc.h>
 #endif /* PAM_MOD_MISC */
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -60,6 +61,7 @@ static FILE *inf, *outf;
 static gboolean interacted = FALSE;
 static gboolean Abort = FALSE;
 const gchar *new_user;
+static sig_atomic_t volatile caught_sigterm = 0;
 
 
 static int
@@ -135,6 +137,12 @@ close_pam (pam_handle_t *pamh, int retval)
 			fprintf (outf, PROTOCOL_ERROR);
 		exit (1);
 	}
+}
+
+static void
+handle_sigterm(int signum)
+{
+	caught_sigterm = (signum == SIGTERM);
 }
 
 
@@ -374,6 +382,15 @@ main (int argc, char *argv[])
 			fclose (inf);
 			fclose (outf);
 			outf = NULL;
+
+			if (!caught_sigterm)
+			{
+				struct sigaction action;
+				memset(&action, 0, sizeof(struct sigaction));
+				action.sa_handler = handle_sigterm;
+				sigaction(SIGTERM, &action, NULL);
+			}
+
                         for (;;) {
                           /* Exit if child dies */
                           if (waitpid (pid, &status, WNOHANG) != 0)
@@ -384,6 +401,10 @@ main (int argc, char *argv[])
 
                           /* Exit if parent dies */
                           if (getppid () == 1)
+                            break;
+
+                          /* Exit on shutdown to clean up */
+                          if (caught_sigterm)
                             break;
 
                           sleep (1);
