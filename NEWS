@@ -1,3 +1,7 @@
+Version 2.0.5:
+- Gracefully exit on SIGTERM to avoid leaving behind xauth temporary
+  files due to skipped pam cleanup on shutdown.
+
 Version 2.0.4:
 - Support kernel keyrings by including pam_keyinit.so into PAM configuration (Felix Zhang).
 - Updated translations.
