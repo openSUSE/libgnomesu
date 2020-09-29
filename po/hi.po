@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2018-04-08 11:02+0000\n"
-"Last-Translator: Anshul Panwar <caspian7pena@gmail.com>\n"
-"Language-Team: Hindi "
-"<https://l10n.opensuse.org/projects/libgnomesu/master/hi/>\n"
+"PO-Revision-Date: 2020-09-29 08:48+0000\n"
+"Last-Translator: Panwar <caspian7pena@gmail.com>\n"
+"Language-Team: Hindi <https://l10n.opensuse.org/projects/libgnomesu/master/"
+"hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -33,82 +33,79 @@ msgstr "कमांड :"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
-msgstr "पासवर्ड चाहिए"
+msgstr "कूटशब्द आवश्यक"
 
 #. _("Administrator (root) privilege is required.");
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
-#, fuzzy
 msgid "The requested action needs further authentication."
-msgstr "प्रामाणीकरण."
+msgstr "अनुरोधित कार्य हेतु प्रमाणीकरण आवश्यक है।"
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
-msgstr "जारी रखने के लिए  रूटपासवर्ड दें."
+msgstr "जारी रखने हेतु रुट कूटशब्द दर्ज करें।"
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
-msgstr "पासवर्ड (_P):"
+msgstr "कूटशब्द (_P):"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr "libgnomesu के के लिये सेवाएँ  उपब्धल नहीं है.\n"
+msgstr "libgnomesu हेतु कोई सेवा उपलब्ध नहीं है।\n"
 
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr "कृपया %s का पासवर्ड डालें ओर क्लिक करें"
+msgstr "%s कूटशब्द दर्ज कर जारी रखें पर क्लिक करें।"
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
-msgstr "%s का पासवर्ड (_p):"
+msgstr "%s कूटशब्द (_p):"
 
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr "उपयोक्ता '%s' का अस्तित्व नहीं है"
+msgstr "उपयोक्ता '%s' मौजूद नहीं है।"
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr "प्रमानीकरण के दोरान अज्ञात त्रुटि हुई"
+msgstr "प्रमाणीकरण करते समय अज्ञात त्रुटि हुई।"
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr "प्रमानीकरण के लिए आप को अनुमति नहीं है"
+msgstr "आपके पास प्रमाणीकरण हेतु अनुमति नहीं है।"
 
 #: ../src/services/pam.c:237
-#, fuzzy
 msgid "Unable to access the authentication information."
-msgstr "PAM  प्रामाणीकर तंत्र को चालू नहीं कर पाए"
+msgstr "प्रमाणीकरण सूचना प्राप्ति विफल।"
 
 #: ../src/services/pam.c:241
-#, fuzzy
 msgid "You reached the limit of tries to authenticate."
-msgstr "प्रमानीकरण के लिए आप को अनुमति नहीं है"
+msgstr "प्रमाणीकरण प्रयास सीमा समाप्त।"
 
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr ""
+msgstr "उपयोक्ता अकाउंट '%s' मान्यता समाप्त।"
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr ""
+msgstr "'%s' हेतु कूटशब्द मान्यता समाप्त। कृपया कूटशब्द अपडेट करें।"
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr "PAM  प्रामाणीकर तंत्र को चालू नहीं कर पाए"
+msgstr "PAM प्रमाणीकरण सिस्टम आरंभ विफल।"
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
-msgstr "लेखन ें त्रुटि"
+msgstr "राइट त्रुटि"
 
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr "%s द्वारा लिखित.\n"
+msgstr "%s द्वारा लिखित।\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -117,31 +114,35 @@ msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"कॉपीराइट (C) 1999 फ्री सॉफ्टवेयर फाउंडेशन, निगमित कंपनी।\n"
+"यह निःशुल्क सॉफ्टवेयर है, प्रतिलिपिकरण हेतु स्रोत देखें। वारंटी रहित;\n"
+"यह किसी विशिष्ट कार्य हेतु विक्रय या उपयुक्तता विहीन है।\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr " कार्यान्वित कने के लिए  ए लडी ट्रिंगमें आदेश दें."
+msgstr "एकल वाक्यांश रूप में निष्पादन हेतु कमांड दर्ज करें।"
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
-msgstr "आदेश"
+msgstr "कमांड"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "का  की जगह इस उपयोक्ता की तरह चलाएँूट."
+msgstr "रुट के स्थान पर यह उपयोक्ता प्रयुक्त करें।"
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
 msgstr "उपयोक्ता नाम"
 
 #: ../tools/gnomesu.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "An unknown error occurred.\n"
-msgstr "प्रमानीकरण के दोरान अज्ञात त्रुटि हुई"
+msgstr "प्रमानीकरण के दोरान अज्ञात त्रुटि हुई।\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr "ग्नोम सूपरउप्योक्ता"
+msgstr "गनोम रुट उपयोक्ता"
 
 #, fuzzy
 #~ msgid "Administrator (root) privilege is required."
