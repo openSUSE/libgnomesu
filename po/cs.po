@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: libgnomesu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2020-02-25 18:54+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"PO-Revision-Date: 2021-05-31 22:00+0000\n"
+"Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/libgnomesu/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -34,13 +34,13 @@ msgstr "Příkaz:"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
-msgstr "Je potřeba heslo"
+msgstr "Heslo nutné"
 
 #. _("Administrator (root) privilege is required.");
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr "K vyžadované akci je potřeba další ověření."
+msgstr "Žádaná akce potřebuje další ověření."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
@@ -52,7 +52,7 @@ msgstr "_Heslo:"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr "Pro libgnomesu nejsou k dispozici žádné služby.\n"
+msgstr "Pro libgnomesu nejsou dostupné žádné služby.\n"
 
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
@@ -75,7 +75,7 @@ msgstr "Při ověřování došlo k neznámé chybě."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr "Nemáte práva k provedení ověření."
+msgstr "Nemáte práva k ověření totožnosti."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
@@ -133,7 +133,7 @@ msgstr "PŘÍKAZ"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr "Spustit jako uživatel namísto správce."
+msgstr "Spustit jako tento uživatel namísto správce."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
