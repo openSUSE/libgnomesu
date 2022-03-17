@@ -1,5 +1,5 @@
 AC_PREQ([2.53])
-AC_INIT([libgnomesu], [2.0.6])
+AC_INIT([libgnomesu], [2.0.7])
 AM_INIT_AUTOMAKE([1.11 foreign dist-xz no-dist-gzip])
 AC_CONFIG_MACRO_DIR([m4])
 AM_SILENT_RULES([yes])
