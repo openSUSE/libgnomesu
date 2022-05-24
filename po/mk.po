@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2006-08-06 17:15+0200\n"
-"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
-"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
+"PO-Revision-Date: 2022-05-24 09:13+0000\n"
+"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"Language-Team: Macedonian <https://l10n.opensuse.org/projects/libgnomesu/"
+"master/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
@@ -75,10 +77,8 @@ msgid "You do not have permission to authenticate."
 msgstr "Немате дозвола за проверка на автентичноста."
 
 #: ../src/services/pam.c:237
-#, fuzzy
 msgid "Unable to access the authentication information."
-msgstr ""
-"Не можам да го иницијализирам PAM системот за проверка на автентичност."
+msgstr "Не може да се иницијализира PAM системот за проверка на автентичност."
 
 #: ../src/services/pam.c:241
 #, fuzzy
