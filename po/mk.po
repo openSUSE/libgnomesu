@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libgnomesu.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: 2022-05-24 09:13+0000\n"
+"PO-Revision-Date: 2022-05-26 05:12+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/libgnomesu/"
 "master/mk/>\n"
@@ -25,7 +25,7 @@ msgstr "П_родолжи"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
-msgstr ""
+msgstr "<small><b>_Детали</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
@@ -81,19 +81,18 @@ msgid "Unable to access the authentication information."
 msgstr "Не може да се иницијализира PAM системот за проверка на автентичност."
 
 #: ../src/services/pam.c:241
-#, fuzzy
 msgid "You reached the limit of tries to authenticate."
-msgstr "Немате дозвола за проверка на автентичноста."
+msgstr "Го достигнаве лимитот за обидување на автентикација."
 
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr ""
+msgstr "Корисничкиот акаунт '%s' е истечен."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr ""
+msgstr "Лозинката на '%s' е истечена. Сменете ја лозинката."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
@@ -138,9 +137,9 @@ msgid "USERNAME"
 msgstr "КОРИСНИЧКО ИМЕ"
 
 #: ../tools/gnomesu.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "An unknown error occurred.\n"
-msgstr "Непозната грешка се случи при проверка на автентичноста."
+msgstr "Се случи непозната грешка.\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
