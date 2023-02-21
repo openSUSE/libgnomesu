@@ -8,29 +8,32 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-02-21 09:14+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://l10n.opensuse.org/projects/libgnomesu/"
+"master/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
-msgstr ""
+msgstr "_გაგრძელება"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
-msgstr ""
+msgstr "<small><b>_დეტალები</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
-msgstr ""
+msgstr "ბრძანება:"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
-msgstr ""
+msgstr "საჭიროა პაროლი"
 
 #. _("Administrator (root) privilege is required.");
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
@@ -44,7 +47,7 @@ msgstr ""
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
-msgstr ""
+msgstr "_პაროლი:"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
@@ -58,12 +61,12 @@ msgstr ""
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
-msgstr ""
+msgstr "%s-ის პაროლი:"
 
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr ""
+msgstr "მომხმარებელი '%s' არ არსებობს."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
@@ -97,12 +100,12 @@ msgstr ""
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
-msgstr ""
+msgstr "ჩაწერის შეცდომა"
 
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr ""
+msgstr "ავტორი: %s.\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -118,7 +121,7 @@ msgstr ""
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
-msgstr ""
+msgstr "ბრძანება"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
@@ -126,13 +129,13 @@ msgstr ""
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
-msgstr ""
+msgstr "მომხმარებლის სახელი"
 
 #: ../tools/gnomesu.c:75
 #, c-format
 msgid "An unknown error occurred.\n"
-msgstr ""
+msgstr "უცნობი შეცდომა.\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr ""
+msgstr "GNOME SuperUser"
