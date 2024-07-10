@@ -162,7 +162,7 @@ AC_CACHE_CHECK([for working malloc], jm_cv_func_working_malloc,
     int
     main ()
     {
-      exit (malloc (0) ? 0 : 1);
+      return (malloc (0) ? 0 : 1);
     }
 	  ],
 	 jm_cv_func_working_malloc=yes,
@@ -187,7 +187,7 @@ AC_CACHE_CHECK([for working realloc], jm_cv_func_working_realloc,
     int
     main ()
     {
-      exit (realloc (0, 0) ? 0 : 1);
+      return (realloc (0, 0) ? 0 : 1);
     }
 	  ],
 	 jm_cv_func_working_realloc=yes,
