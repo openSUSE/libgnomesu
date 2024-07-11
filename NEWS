@@ -1,3 +1,7 @@
+Version 2.0.8:
+- Updated translations.
+- Builds with GCC 14.
+
 Version 2.0.7:
 - Updated translations.
 - Better wording in the documentation.
