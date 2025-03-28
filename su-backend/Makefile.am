@@ -8,8 +8,6 @@ gnomesu_backend_SOURCES = \
 	closeout.c closeout.h\
 	errmsg.c errmsg.h\
 	pathmax.h\
-	malloc.c\
-	realloc.c\
 	su.c\
 	system.h\
 	version-etc.c version-etc.h\
