@@ -150,55 +150,6 @@ AC_EGREP_HEADER(sp_pwdp, shadow.h, [AC_CHECK_FUNC(getspnam, GNOMESU_BACKEND_CFLA
 AC_SEARCH_LIBS(crypt, [ufc crypt], [LIB_CRYPT="$ac_cv_search_crypt"])
 GNOMESU_BACKEND_LIBS="$GNOMESU_BACKEND_LIBS $LIB_CRYPT"
 
-# From Jim Meyering.
-# Determine whether malloc accepts 0 as its argument.
-# If it doesn't, arrange to use the replacement function.
-# xmalloc.c requires that this symbol be defined so it doesn't
-# mistakenly use a broken malloc -- as it might if this test were omitted.
-GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DHAVE_DONE_WORKING_MALLOC_CHECK=1"
-AC_CACHE_CHECK([for working malloc], jm_cv_func_working_malloc,
-  [AC_TRY_RUN([
-    char *malloc ();
-    int
-    main ()
-    {
-      return (malloc (0) ? 0 : 1);
-    }
-	  ],
-	 jm_cv_func_working_malloc=yes,
-	 jm_cv_func_working_malloc=no,
-	 dnl When crosscompiling, assume malloc is broken.
-	 jm_cv_func_working_malloc=no)
-  ])
-if test $jm_cv_func_working_malloc = no; then
-    GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DRPL_MALLOC -Dmalloc=rpl_malloc"
-fi
-
-
-# From Jim Meyering.
-# Determine whether realloc works when both arguments are 0.
-# If it doesn't, arrange to use the replacement function.
-# xmalloc.c requires that this symbol be defined so it doesn't
-# mistakenly use a broken realloc -- as it might if this test were omitted.
-GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DHAVE_DONE_WORKING_REALLOC_CHECK=1"
-AC_CACHE_CHECK([for working realloc], jm_cv_func_working_realloc,
-  [AC_TRY_RUN([
-    char *realloc ();
-    int
-    main ()
-    {
-      return (realloc (0, 0) ? 0 : 1);
-    }
-	  ],
-	 jm_cv_func_working_realloc=yes,
-	 jm_cv_func_working_realloc=no,
-	 dnl When crosscompiling, assume realloc is broken.
-	 jm_cv_func_working_realloc=no)
-  ])
-if test $jm_cv_func_working_realloc = no; then
-    GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DRPL_REALLOC -Drealloc=rpl_realloc"
-fi
-
 AC_CHECK_FUNC(initgroups, [
   GNOMESU_BACKEND_CFLAGS="$GNOMESU_BACKEND_CFLAGS -DHAVE_INITGROUPS"
   GNOMESU_PAM_BACKEND_CFLAGS="$GNOMESU_PAM_BACKEND_CFLAGS -DHAVE_INITGROUPS"
