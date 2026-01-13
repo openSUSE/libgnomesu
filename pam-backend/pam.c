@@ -229,6 +229,7 @@ main (int argc, char *argv[])
 	struct passwd *pw;
 	pam_handle_t *pamh = NULL;
 	int retval, i;
+	char **env;
 
 	pw = init (argc, argv);
 
@@ -357,6 +358,12 @@ main (int argc, char *argv[])
 		}
 
 		modify_environment (pw);
+
+		env = pam_getenvlist(pamh);
+		while (env && *env) {
+			xputenv(*env);
+			env++;
+		}
 
 		pid = fork ();
 		switch (pid)
