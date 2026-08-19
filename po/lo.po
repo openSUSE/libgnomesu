@@ -8,102 +8,104 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-27 18:44+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-08-19 21:50+0000\n"
+"Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
+"Language-Team: Lao <https://l10n.opensuse.org/projects/libgnomesu/master/lo/>"
+"\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #: ../src/gnomesu-auth-dialog.c:288
 msgid "C_ontinue"
-msgstr ""
+msgstr "_ຕໍ່ໄປ"
 
 #: ../src/gnomesu-auth-dialog.c:368
 msgid "<small><b>_Details</b></small>"
-msgstr ""
+msgstr "<small><b>_ລາຍລະອຽດ</b></small>"
 
 #: ../src/gnomesu-auth-dialog.c:400
 msgid "Command:"
-msgstr ""
+msgstr "ຄຳສັ່ງ:"
 
 #: ../src/gnomesu-auth-dialog.c:466
 msgid "Password needed"
-msgstr ""
+msgstr "ຕ້ອງການລະຫັດຜ່ານ"
 
 #. _("Administrator (root) privilege is required.");
 #: ../src/gnomesu-auth-dialog.c:531 ../src/services/pam.c:192
 #: ../src/services/su.c:185
 msgid "The requested action needs further authentication."
-msgstr ""
+msgstr "ການດຳເນີນການທີ່ຮ້ອງຂໍຕ້ອງການການຢືນຢັນຕົວຕົນເພີ່ມເຕີມ."
 
 #: ../src/gnomesu-auth-dialog.c:532
 msgid "Please enter the root password to continue."
-msgstr ""
+msgstr "ກະລຸນາປ້ອນລະຫັດຜ່ານຂອງ root ເພື່ອຕໍ່ໄປ."
 
 #: ../src/gnomesu-auth-dialog.c:627
 msgid "_Password:"
-msgstr ""
+msgstr "_ລະຫັດຜ່ານ:"
 
 #: ../src/libgnomesu.c:182
 msgid "No services for libgnomesu are available.\n"
-msgstr ""
+msgstr "ບໍ່ມີບໍລິການສຳລັບ libgnomesu ໃຫ້ໃຊ້ງານ.\n"
 
 #: ../src/services/pam.c:190 ../src/services/su.c:183
 #, c-format
 msgid "Please enter %s's password and click Continue."
-msgstr ""
+msgstr "ກະລຸນາປ້ອນລະຫັດຜ່ານຂອງ %s ແລ້ວກົດ ຕໍ່ໄປ."
 
 #: ../src/services/pam.c:195 ../src/services/su.c:188
 #, c-format
 msgid "%s's _password:"
-msgstr ""
+msgstr "_ລະຫັດຜ່ານຂອງ %s:"
 
 #: ../src/services/pam.c:224 ../src/services/su.c:217
 #, c-format
 msgid "User '%s' doesn't exist."
-msgstr ""
+msgstr "ບໍ່ມີຜູ້ໃຊ້ '%s'."
 
 #: ../src/services/pam.c:229 ../src/services/su.c:221
 msgid "An unknown error occured while authenticating."
-msgstr ""
+msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກໃນຂະນະຢືນຢັນຕົວຕົນ."
 
 #: ../src/services/pam.c:233 ../src/services/su.c:225
 msgid "You do not have permission to authenticate."
-msgstr ""
+msgstr "ທ່ານບໍ່ມີສິດອະນຸຍາດໃນການຢືນຢັນຕົວຕົນ."
 
 #: ../src/services/pam.c:237
 msgid "Unable to access the authentication information."
-msgstr ""
+msgstr "ບໍ່ສາມາດເຂົ້າເຖິງຂໍ້ມູນການຢືນຢັນຕົວຕົນ."
 
 #: ../src/services/pam.c:241
 msgid "You reached the limit of tries to authenticate."
-msgstr ""
+msgstr "ທ່ານໄດ້ພະຍາຍາມຢືນຢັນຕົວຕົນເກີນກຳນົດແລ້ວ."
 
 #: ../src/services/pam.c:245
 #, c-format
 msgid "User account '%s' has expired."
-msgstr ""
+msgstr "ບັນຊີຜູ້ໃຊ້ '%s' ໝົດອາຍຸແລ້ວ."
 
 #: ../src/services/pam.c:250
 #, c-format
 msgid "The password of '%s' has expired. Please update the password."
-msgstr ""
+msgstr "ລະຫັດຜ່ານຂອງ '%s' ໝົດອາຍຸແລ້ວ. ກະລຸນາອັບເດດລະຫັດຜ່ານ."
 
 #: ../src/services/pam.c:255
 msgid "Unable to initialize the PAM authentication system."
-msgstr ""
+msgstr "ບໍ່ສາມາດເລີ່ມລະບົບການຢືນຢັນຕົວຕົນ PAM ໄດ້."
 
 #: ../su-backend/closeout.c:71 ../su-backend/closeout.c:73
 msgid "write error"
-msgstr ""
+msgstr "ຂໍ້ຜິດພາດໃນການຂຽນ"
 
 #: ../su-backend/version-etc.c:38
 #, c-format
 msgid "Written by %s.\n"
-msgstr ""
+msgstr "ຂຽນໂດຍ %s.\n"
 
 #: ../su-backend/version-etc.c:39
 msgid ""
@@ -112,28 +114,32 @@ msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
+"\n"
+"ສະຫງວນລິຂະສິດ (C) 1999 Free Software Foundation, Inc.\n"
+"ນີ້ແມ່ນຊອບແວຟຣີ; ເບິ່ງລະຫັດຕົ້ນສະບັບສຳລັບເງື່ອນໄຂການຄັດລອກ. ບໍ່ມີການຮັບປະກັນໃດໆ;\n"
+"ລວມທັງຄວາມເໝາະສົມໃນການຊື້ຂາຍ ຫຼື ຄວາມເໝາະສົມສຳລັບຈຸດປະສົງໃດໜຶ່ງ.\n"
 
 #: ../tools/gnomesu.c:41
 msgid "Pass the command to execute as one single string."
-msgstr ""
+msgstr "ສົ່ງຄຳສັ່ງທີ່ຈະປະຕິບັດເປັນຂໍ້ຄວາມດຽວ."
 
 #: ../tools/gnomesu.c:41
 msgid "COMMAND"
-msgstr ""
+msgstr "ຄຳສັ່ງ"
 
 #: ../tools/gnomesu.c:42
 msgid "Run as this user instead of as root."
-msgstr ""
+msgstr "ໃຊ້ງານໃນນາມຜູ້ໃຊ້ນີ້ແທນ root."
 
 #: ../tools/gnomesu.c:42
 msgid "USERNAME"
-msgstr ""
+msgstr "ຊື່ຜູ້ໃຊ້"
 
 #: ../tools/gnomesu.c:75
 #, c-format
 msgid "An unknown error occurred.\n"
-msgstr ""
+msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ.\n"
 
 #: ../tools/gnomesu.c:80
 msgid "GNOME SuperUser"
-msgstr ""
+msgstr "ຜູ້ໃຊ້ລະດັບສູງຂອງ GNOME"
